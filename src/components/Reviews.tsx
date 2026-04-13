@@ -22,7 +22,7 @@ const reviews = [
 ];
 
 const Reviews = () => (
-  <section className="bg-xk-medium-gray py-20 md:py-28">
+  <section id="reviews" className="bg-xk-medium-gray py-20 md:py-28">
     <div className="container mx-auto px-4">
       <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
         CUSTOMER REVIEWS
