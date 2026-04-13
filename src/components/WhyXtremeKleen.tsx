@@ -17,27 +17,27 @@ const stats = [
 ];
 
 const WhyXtremeKleen = () => (
-  <section className="bg-xk-charcoal py-20">
+  <section className="bg-xk-medium-gray py-20">
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <span className="font-heading text-xk-blue text-sm tracking-widest font-semibold block mb-3">
+          <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block mb-3">
             WHY CHOOSE US
           </span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary-foreground mb-6">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-xk-warm-white mb-6">
             We Don't Leave Until You're Satisfied
           </h2>
-          <p className="text-xk-text-light font-body mb-4">
+          <p className="text-xk-warm-white/70 font-body mb-4">
             At Xtreme Kleen we start by actually listening to understand your biggest concerns.
             With 5+ years of experience we've developed multiple unique washing methods to tackle any job.
           </p>
-          <p className="text-xk-text-light font-body mb-6">
+          <p className="text-xk-warm-white/70 font-body mb-6">
             We never leave a customer with dissatisfaction. Every surface, every job — done right the first time.
           </p>
           <ul className="space-y-3">
             {bullets.map((b) => (
-              <li key={b} className="flex items-start gap-3 text-primary-foreground font-body text-sm">
-                <CheckCircle className="w-5 h-5 text-xk-blue flex-shrink-0 mt-0.5" />
+              <li key={b} className="flex items-start gap-3 text-xk-warm-white font-body text-sm">
+                <CheckCircle className="w-5 h-5 text-xk-red flex-shrink-0 mt-0.5" />
                 {b}
               </li>
             ))}
@@ -48,12 +48,12 @@ const WhyXtremeKleen = () => (
           {stats.map((s) => (
             <div
               key={s.label}
-              className="bg-xk-steel border-l-4 border-xk-blue p-6 rounded-lg"
+              className="bg-xk-light-gray border-l-4 border-xk-red p-6 rounded"
             >
-              <div className="font-heading font-bold text-3xl md:text-4xl text-xk-blue mb-1">
+              <div className="font-heading font-bold text-3xl md:text-4xl text-xk-red mb-1">
                 {s.value}
               </div>
-              <div className="text-primary-foreground font-body text-sm">{s.label}</div>
+              <div className="text-xk-warm-white font-body text-sm">{s.label}</div>
             </div>
           ))}
         </div>

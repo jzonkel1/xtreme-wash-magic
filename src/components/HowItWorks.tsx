@@ -22,35 +22,35 @@ const steps = [
 ];
 
 const HowItWorks = () => (
-  <section className="bg-background py-20">
+  <section className="bg-xk-warm-white py-20">
     <div className="container mx-auto px-4">
-      <span className="font-heading text-xk-blue text-sm tracking-widest font-semibold block text-center mb-3">
+      <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
         THE PROCESS
       </span>
-      <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground text-center mb-12">
+      <h2 className="font-heading font-bold text-3xl md:text-5xl text-xk-text-dark text-center mb-12">
         Getting Clean Has Never Been This Easy
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {steps.map((s) => (
-          <div key={s.num} className="relative bg-background border border-border p-8 rounded-lg shadow-lg">
-            <div className="absolute -top-4 left-6 bg-xk-blue text-primary-foreground font-heading font-bold w-9 h-9 rounded-full flex items-center justify-center text-lg">
+          <div key={s.num} className="relative bg-xk-warm-white border border-xk-tan p-8 rounded-lg shadow-lg">
+            <div className="absolute -top-4 left-6 bg-xk-red text-xk-warm-white font-heading font-bold w-9 h-9 rounded-full flex items-center justify-center text-lg">
               {s.num}
             </div>
-            <s.icon className="w-10 h-10 text-xk-blue mb-4 mt-2" />
-            <h3 className="font-heading font-bold text-foreground text-lg mb-2">{s.title}</h3>
-            <p className="text-muted-foreground text-sm font-body">{s.desc}</p>
+            <s.icon className="w-10 h-10 text-xk-red mb-4 mt-2" />
+            <h3 className="font-heading font-bold text-xk-text-dark text-lg mb-2">{s.title}</h3>
+            <p className="text-xk-text-dark/70 text-sm font-body">{s.desc}</p>
           </div>
         ))}
       </div>
 
-      <div className="bg-xk-blue rounded-lg py-6 px-8 text-center">
-        <p className="text-primary-foreground font-heading text-lg md:text-xl mb-4">
+      <div className="bg-xk-red rounded-lg py-6 px-8 text-center border border-xk-red-dark">
+        <p className="text-xk-warm-white font-heading text-lg md:text-xl mb-4">
           Ready to get started? It's that simple.
         </p>
         <a
           href="tel:3619477811"
-          className="inline-block bg-xk-charcoal text-primary-foreground font-heading font-bold px-8 py-3 rounded hover:bg-xk-steel transition-colors"
+          className="inline-block bg-xk-charcoal text-xk-warm-white font-heading font-bold px-8 py-3 rounded hover:bg-xk-steel transition-colors"
         >
           CALL OR TEXT 361-947-7811
         </a>

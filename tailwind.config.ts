@@ -50,9 +50,14 @@ export default {
         xk: {
           charcoal: "hsl(var(--xk-charcoal))",
           steel: "hsl(var(--xk-steel))",
-          blue: "hsl(var(--xk-blue))",
-          "blue-glow": "hsl(var(--xk-blue-glow))",
-          light: "hsl(var(--xk-light))",
+          "medium-gray": "hsl(var(--xk-medium-gray))",
+          "light-gray": "hsl(var(--xk-light-gray))",
+          red: "hsl(var(--xk-red))",
+          "red-glow": "hsl(var(--xk-red-glow))",
+          "red-dark": "hsl(var(--xk-red-dark))",
+          "warm-white": "hsl(var(--xk-warm-white))",
+          tan: "hsl(var(--xk-tan))",
+          "warm-overlay": "hsl(var(--xk-warm-overlay))",
           "text-dark": "hsl(var(--xk-text-dark))",
           "text-light": "hsl(var(--xk-text-light))",
         },
@@ -68,8 +73,8 @@ export default {
         },
       },
       fontFamily: {
-        heading: ["Oswald", "sans-serif"],
-        body: ["Open Sans", "sans-serif"],
+        heading: ["Playfair Display", "Georgia", "serif"],
+        body: ["Open Sans", "Georgia", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -86,8 +91,8 @@ export default {
           to: { height: "0" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(199 90% 43% / 0.3)" },
-          "50%": { boxShadow: "0 0 30px hsl(199 90% 43% / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(0 79% 40% / 0.3)" },
+          "50%": { boxShadow: "0 0 30px hsl(0 79% 40% / 0.6)" },
         },
       },
       animation: {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,43 +6,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 11% 10%;
+    --background: 30 12% 96%;
+    --foreground: 0 0% 17%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 11% 10%;
+    --card: 30 12% 96%;
+    --card-foreground: 0 0% 17%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 10%;
+    --popover: 30 12% 96%;
+    --popover-foreground: 0 0% 17%;
 
-    --primary: 199 90% 43%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 79% 40%;
+    --primary-foreground: 30 12% 96%;
 
-    --secondary: 210 14% 95%;
-    --secondary-foreground: 210 11% 10%;
+    --secondary: 30 8% 91%;
+    --secondary-foreground: 0 0% 17%;
 
-    --muted: 210 14% 95%;
-    --muted-foreground: 210 5% 45%;
+    --muted: 30 8% 91%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 199 90% 43%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 79% 40%;
+    --accent-foreground: 30 12% 96%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 14% 89%;
-    --input: 210 14% 89%;
-    --ring: 199 90% 43%;
+    --border: 30 8% 85%;
+    --input: 30 8% 85%;
+    --ring: 0 79% 40%;
 
     --radius: 0.5rem;
 
-    /* Xtreme Kleen custom tokens */
-    --xk-charcoal: 0 0% 6.7%;
-    --xk-steel: 0 0% 11%;
-    --xk-blue: 199 90% 43%;
-    --xk-blue-glow: 199 90% 53%;
-    --xk-light: 210 14% 95.7%;
-    --xk-text-dark: 210 11% 10%;
+    /* Xtreme Kleen custom tokens - Warm Charcoal & Crimson Red */
+    --xk-charcoal: 0 0% 23%;
+    --xk-steel: 0 0% 17%;
+    --xk-medium-gray: 0 0% 17%;
+    --xk-light-gray: 0 0% 25%;
+    --xk-red: 0 79% 40%;
+    --xk-red-glow: 0 79% 50%;
+    --xk-red-dark: 0 79% 35%;
+    --xk-warm-white: 30 12% 96%;
+    --xk-tan: 30 10% 90%;
+    --xk-warm-overlay: 30 12% 75%;
+    --xk-text-dark: 0 0% 10%;
     --xk-text-light: 0 0% 70%;
 
     --sidebar-background: 0 0% 98%;
@@ -52,37 +57,37 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 0 79% 40%;
   }
 
   .dark {
-    --background: 0 0% 6.7%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 17%;
+    --foreground: 30 12% 96%;
 
-    --card: 0 0% 11%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 23%;
+    --card-foreground: 30 12% 96%;
 
-    --popover: 0 0% 11%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 23%;
+    --popover-foreground: 30 12% 96%;
 
-    --primary: 199 90% 43%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 79% 40%;
+    --primary-foreground: 30 12% 96%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 30 12% 96%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 199 90% 43%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 79% 40%;
+    --accent-foreground: 30 12% 96%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 199 90% 43%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 79% 40%;
   }
 }
 
@@ -93,33 +98,33 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', Georgia, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Playfair Display', Georgia, serif;
   }
 }
 
 @layer utilities {
   .font-heading {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Playfair Display', Georgia, serif;
   }
 
   .font-body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', Georgia, sans-serif;
   }
 
-  .text-glow-blue {
-    text-shadow: 0 0 20px hsl(199 90% 43% / 0.5);
+  .text-glow-red {
+    text-shadow: 0 0 20px hsl(0 79% 40% / 0.5);
   }
 
-  .shadow-glow-blue {
-    box-shadow: 0 0 20px hsl(199 90% 43% / 0.3), 0 0 40px hsl(199 90% 43% / 0.1);
+  .shadow-glow-red {
+    box-shadow: 0 0 20px hsl(0 79% 40% / 0.3), 0 0 40px hsl(0 79% 40% / 0.1);
   }
 
-  .border-glow-blue {
-    box-shadow: 0 0 10px hsl(199 90% 43% / 0.3);
+  .border-glow-red {
+    box-shadow: 0 0 10px hsl(0 79% 40% / 0.3);
   }
 
   .bg-charcoal {
@@ -130,8 +135,16 @@
     background-color: hsl(var(--xk-steel));
   }
 
+  .bg-medium-gray {
+    background-color: hsl(var(--xk-medium-gray));
+  }
+
+  .bg-light-gray {
+    background-color: hsl(var(--xk-light-gray));
+  }
+
   .bg-xk-light {
-    background-color: hsl(var(--xk-light));
+    background-color: hsl(var(--xk-warm-white));
   }
 
   .text-xk-light {
