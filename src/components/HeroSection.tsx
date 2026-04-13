@@ -1,4 +1,4 @@
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.webp";
 import logo from "@/assets/logo.jpg";
 import { Phone } from "lucide-react";
 
@@ -12,7 +12,7 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="absolute inset-0 bg-xk-warm-overlay/75" />
+        <div className="absolute inset-0 bg-xk-medium-gray/85" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 text-center py-16">
