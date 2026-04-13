@@ -10,29 +10,29 @@ const bullets = [
 ];
 
 const stats = [
-  { value: "5+", label: "Years of Experience" },
+  { value: "5+", label: "Years Experience" },
   { value: "3", label: "Cities Served" },
   { value: "FREE", label: "On-Site Quotes" },
   { value: "100%", label: "Satisfaction Goal" },
 ];
 
 const WhyXtremeKleen = () => (
-  <section className="bg-xk-medium-gray py-20">
+  <section className="bg-xk-medium-gray py-20 md:py-28">
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         <div>
           <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block mb-3">
             WHY CHOOSE US
           </span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-xk-warm-white mb-6">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-xk-warm-white mb-6 leading-tight">
             We Don't Leave Until You're Satisfied
           </h2>
-          <p className="text-xk-warm-white/70 font-body mb-4">
+          <p className="text-xk-warm-white/65 font-body mb-4 leading-relaxed">
             At Xtreme Kleen we start by actually listening to understand your biggest concerns.
             With 5+ years of experience we've developed multiple unique washing methods to tackle any job.
           </p>
-          <p className="text-xk-warm-white/70 font-body mb-6">
-            We never leave a customer with dissatisfaction. Every surface, every job — done right the first time.
+          <p className="text-xk-warm-white/65 font-body mb-8 leading-relaxed">
+            Every surface, every job — done right the first time. No shortcuts, no excuses.
           </p>
           <ul className="space-y-3">
             {bullets.map((b) => (
@@ -44,16 +44,16 @@ const WhyXtremeKleen = () => (
           </ul>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-5">
           {stats.map((s) => (
             <div
               key={s.label}
-              className="bg-xk-light-gray border-l-4 border-xk-red p-6 rounded"
+              className="bg-xk-light-gray/60 border border-xk-warm-white/8 rounded-xl p-7 text-center"
             >
-              <div className="font-heading font-bold text-3xl md:text-4xl text-xk-red mb-1">
+              <div className="font-heading font-bold text-3xl md:text-4xl text-xk-red mb-2">
                 {s.value}
               </div>
-              <div className="text-xk-warm-white font-body text-sm">{s.label}</div>
+              <div className="text-xk-warm-white/70 font-body text-sm">{s.label}</div>
             </div>
           ))}
         </div>

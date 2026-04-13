@@ -1,56 +1,72 @@
-import { Phone, ClipboardList, CheckCircle } from "lucide-react";
+import { Phone, ClipboardList, Calendar } from "lucide-react";
 
 const steps = [
   {
-    num: "1",
+    num: "01",
     icon: Phone,
-    title: "GIVE US A CALL",
-    desc: "Call or text 361-947-7811. Tell us about your property and what needs cleaning. We'll set up a convenient time to come take a look.",
+    title: "Give Us a Call",
+    desc: "Call or text 361-947-7811. Tell us about your property and what needs cleaning. We'll set up a time to take a look.",
   },
   {
-    num: "2",
+    num: "02",
     icon: ClipboardList,
-    title: "RECEIVE YOUR FREE QUOTE",
-    desc: "We come to you for a free on-site assessment. No guessing, no hidden fees — just a clear, honest price before any work begins.",
+    title: "Get Your Free Estimate",
+    desc: "We come to you for a free on-site assessment. No guessing, no hidden fees — a clear, honest price before any work begins.",
   },
   {
-    num: "3",
-    icon: CheckCircle,
-    title: "SET A START DATE",
+    num: "03",
+    icon: Calendar,
+    title: "Schedule Your Clean",
     desc: "Once you're happy with the quote, we schedule your clean and show up ready to work. Done right, done fast.",
   },
 ];
 
 const HowItWorks = () => (
-  <section className="bg-xk-warm-white py-20">
+  <section className="bg-xk-warm-white py-20 md:py-28">
     <div className="container mx-auto px-4">
       <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
-        THE PROCESS
+        HOW IT WORKS
       </span>
-      <h2 className="font-heading font-bold text-3xl md:text-5xl text-xk-text-dark text-center mb-12">
-        Getting Clean Has Never Been This Easy
+      <h2 className="font-heading font-bold text-3xl md:text-5xl text-xk-text-dark text-center mb-4">
+        Getting Clean Has Never Been Easier
       </h2>
+      <p className="text-xk-text-dark/60 text-center max-w-xl mx-auto mb-14 font-body">
+        Three simple steps from first call to finished job.
+      </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        {steps.map((s) => (
-          <div key={s.num} className="relative bg-xk-warm-white border border-xk-tan p-8 rounded-lg shadow-lg">
-            <div className="absolute -top-4 left-6 bg-xk-red text-xk-warm-white font-heading font-bold w-9 h-9 rounded-full flex items-center justify-center text-lg">
-              {s.num}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-14">
+        {steps.map((s, i) => (
+          <div key={s.num} className="relative text-center">
+            <div className="w-16 h-16 bg-xk-red/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <s.icon className="w-7 h-7 text-xk-red" />
             </div>
-            <s.icon className="w-10 h-10 text-xk-red mb-4 mt-2" />
-            <h3 className="font-heading font-bold text-xk-text-dark text-lg mb-2">{s.title}</h3>
-            <p className="text-xk-text-dark/70 text-sm font-body">{s.desc}</p>
+            <span className="text-xk-red font-heading font-bold text-sm tracking-wider mb-2 block">
+              STEP {s.num}
+            </span>
+            <h3 className="font-heading font-bold text-xk-text-dark text-lg mb-2">
+              {s.title}
+            </h3>
+            <p className="text-xk-text-dark/60 text-sm font-body leading-relaxed">
+              {s.desc}
+            </p>
+            {i < steps.length - 1 && (
+              <div className="hidden md:block absolute top-8 -right-4 w-8 text-xk-red/30">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
-      <div className="bg-xk-red rounded-lg py-6 px-8 text-center border border-xk-red-dark">
-        <p className="text-xk-warm-white font-heading text-lg md:text-xl mb-4">
+      <div className="bg-xk-red rounded-xl py-8 px-8 text-center max-w-3xl mx-auto">
+        <p className="text-xk-warm-white font-heading text-lg md:text-xl mb-5">
           Ready to get started? It's that simple.
         </p>
         <a
           href="tel:3619477811"
-          className="inline-block bg-xk-charcoal text-xk-warm-white font-heading font-bold px-8 py-3 rounded hover:bg-xk-steel transition-colors"
+          className="inline-block bg-xk-charcoal text-xk-warm-white font-heading font-bold px-8 py-3.5 rounded-lg hover:bg-xk-steel transition-colors"
         >
           CALL OR TEXT 361-947-7811
         </a>
