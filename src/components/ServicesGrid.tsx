@@ -34,15 +34,15 @@ const services = [
 ];
 
 const ServicesGrid = () => (
-  <section className="bg-xk-charcoal py-20">
+  <section className="bg-xk-steel py-20">
     <div className="container mx-auto px-4">
-      <span className="font-heading text-xk-blue text-sm tracking-widest font-semibold block text-center mb-3">
+      <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
         WHAT WE DO
       </span>
-      <h2 className="font-heading font-bold text-3xl md:text-5xl text-primary-foreground text-center mb-4">
+      <h2 className="font-heading font-bold text-3xl md:text-5xl text-xk-warm-white text-center mb-4">
         A Solution for Every Surface
       </h2>
-      <p className="text-xk-text-light text-center max-w-2xl mx-auto mb-12 font-body">
+      <p className="text-xk-warm-white/70 text-center max-w-2xl mx-auto mb-12 font-body">
         Whether it's a concrete pouring machine, a commercial property, or your home's roof —
         we have the right method and the right chemicals to get it done right the first time.
       </p>
@@ -51,11 +51,11 @@ const ServicesGrid = () => (
         {services.map((s) => (
           <div
             key={s.title}
-            className="bg-xk-steel border-t-2 border-xk-blue p-6 rounded-lg hover:border-glow-blue transition-all duration-300 group"
+            className="bg-xk-light-gray border-l-4 border-xk-red p-6 rounded hover:border-glow-red transition-all duration-300 group"
           >
-            <s.icon className="w-10 h-10 text-xk-blue mb-4 group-hover:scale-110 transition-transform" />
-            <h3 className="font-heading font-bold text-primary-foreground text-lg mb-2">{s.title}</h3>
-            <p className="text-xk-text-light text-sm font-body">{s.desc}</p>
+            <s.icon className="w-10 h-10 text-xk-red mb-4 group-hover:scale-110 transition-transform" />
+            <h3 className="font-heading font-bold text-xk-warm-white text-lg mb-2">{s.title}</h3>
+            <p className="text-xk-warm-white/70 text-sm font-body">{s.desc}</p>
           </div>
         ))}
       </div>
