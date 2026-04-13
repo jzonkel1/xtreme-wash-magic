@@ -24,15 +24,15 @@ const PhotoGallery = () => {
       : photos.filter((p) => p.category === active.toLowerCase());
 
   return (
-    <section className="bg-background py-20">
+    <section className="bg-xk-warm-white py-20">
       <div className="container mx-auto px-4">
-        <span className="font-heading text-xk-blue text-sm tracking-widest font-semibold block text-center mb-3">
+        <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
           OUR WORK
         </span>
-        <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground text-center mb-4">
+        <h2 className="font-heading font-bold text-3xl md:text-5xl text-xk-text-dark text-center mb-4">
           The Results Speak for Themselves
         </h2>
-        <p className="text-muted-foreground text-center max-w-xl mx-auto mb-8 font-body">
+        <p className="text-xk-text-dark/70 text-center max-w-xl mx-auto mb-8 font-body">
           From concrete cleaning to industrial equipment degreasing — here's
           what Xtreme Kleen delivers.
         </p>
@@ -44,8 +44,8 @@ const PhotoGallery = () => {
               onClick={() => setActive(f)}
               className={`font-heading text-sm px-5 py-2 rounded transition-colors ${
                 active === f
-                  ? "bg-xk-blue text-primary-foreground"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  ? "bg-xk-red text-xk-warm-white"
+                  : "bg-xk-tan text-xk-text-dark hover:bg-xk-tan/80"
               }`}
             >
               {f}
@@ -66,9 +66,9 @@ const PhotoGallery = () => {
                 loading="lazy"
                 className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-xk-charcoal/0 group-hover:bg-xk-charcoal/40 transition-all duration-300 group-hover:border-2 group-hover:border-xk-blue group-hover:border-glow-blue rounded-lg" />
-              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-xk-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="font-heading text-sm text-primary-foreground">{p.label}</span>
+              <div className="absolute inset-0 bg-xk-steel/0 group-hover:bg-xk-steel/40 transition-all duration-300 group-hover:border-2 group-hover:border-xk-red group-hover:border-glow-red rounded-lg" />
+              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-xk-steel/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="font-heading text-sm text-xk-warm-white">{p.label}</span>
               </div>
             </div>
           ))}
@@ -77,7 +77,7 @@ const PhotoGallery = () => {
         <div className="text-center mt-10">
           <a
             href="#quote"
-            className="inline-block bg-xk-blue text-primary-foreground font-heading font-bold px-8 py-3 rounded hover:bg-xk-blue-glow transition-colors shadow-glow-blue"
+            className="inline-block bg-xk-red text-xk-warm-white font-heading font-bold px-8 py-3 rounded hover:bg-xk-red-glow transition-colors shadow-glow-red"
           >
             Like what you see? Get your free quote today.
           </a>
@@ -86,12 +86,12 @@ const PhotoGallery = () => {
 
       {lightbox && (
         <div
-          className="fixed inset-0 z-50 bg-xk-charcoal/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-xk-steel/90 flex items-center justify-center p-4"
           onClick={() => setLightbox(null)}
         >
           <button
             onClick={() => setLightbox(null)}
-            className="absolute top-6 right-6 text-primary-foreground hover:text-xk-blue transition-colors"
+            className="absolute top-6 right-6 text-xk-warm-white hover:text-xk-red transition-colors"
           >
             <X className="w-8 h-8" />
           </button>

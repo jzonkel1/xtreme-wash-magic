@@ -34,34 +34,34 @@ const LeadCaptureForm = () => {
   };
 
   const inputClass =
-    "w-full bg-xk-steel border border-border/30 text-primary-foreground px-4 py-3 rounded focus:outline-none focus:border-xk-blue focus:ring-1 focus:ring-xk-blue font-body text-sm placeholder:text-xk-text-light/50";
+    "w-full bg-xk-light-gray border border-xk-warm-white/20 text-xk-warm-white px-4 py-3 rounded focus:outline-none focus:border-xk-red focus:ring-1 focus:ring-xk-red font-body text-sm placeholder:text-xk-warm-white/50";
 
   return (
     <section id="quote" className="bg-xk-charcoal py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary-foreground mb-4">
+            <h2 className="font-heading font-bold text-3xl md:text-4xl text-xk-warm-white mb-4">
               Get Your Free Quote
             </h2>
-            <p className="text-xk-blue font-body mb-8">
+            <p className="text-xk-red font-body mb-8">
               On-site quotes available. We come to you, assess the job, and give
               you a straight price before we start anything.
             </p>
 
             <div className="space-y-4 mb-8">
-              <a href="tel:3619477811" className="flex items-center gap-3 text-xk-blue font-heading text-lg hover:text-xk-blue-glow transition-colors">
+              <a href="tel:3619477811" className="flex items-center gap-3 text-xk-red font-heading text-lg hover:text-xk-red-glow transition-colors">
                 <Phone className="w-5 h-5" /> 361-947-7811 — Call or Text
               </a>
-              <a href="mailto:Xtreme.Kleen2023@gmail.com" className="flex items-center gap-3 text-xk-blue font-heading text-lg hover:text-xk-blue-glow transition-colors">
+              <a href="mailto:Xtreme.Kleen2023@gmail.com" className="flex items-center gap-3 text-xk-red font-heading text-lg hover:text-xk-red-glow transition-colors">
                 <Mail className="w-5 h-5" /> Xtreme.Kleen2023@gmail.com
               </a>
-              <div className="flex items-center gap-3 text-xk-blue font-heading text-lg">
+              <div className="flex items-center gap-3 text-xk-red font-heading text-lg">
                 <MapPin className="w-5 h-5" /> Corpus Christi · McAllen · San Antonio, TX
               </div>
             </div>
 
-            <p className="text-primary-foreground/60 italic font-body text-sm">
+            <p className="text-xk-warm-white/60 italic font-body text-sm">
               "Let's get you cleaned up right the first time."
             </p>
           </div>
@@ -116,8 +116,8 @@ const LeadCaptureForm = () => {
               className={`${inputClass} min-h-[100px] resize-none`}
               maxLength={1000}
             />
-            <div className="flex items-center gap-6 text-primary-foreground font-body text-sm">
-              <span className="text-xk-text-light">Preferred Contact:</span>
+            <div className="flex items-center gap-6 text-xk-warm-white font-body text-sm">
+              <span className="text-xk-warm-white/70">Preferred Contact:</span>
               {["call", "text", "email"].map((c) => (
                 <label key={c} className="flex items-center gap-1.5 cursor-pointer">
                   <input
@@ -126,7 +126,7 @@ const LeadCaptureForm = () => {
                     value={c}
                     checked={form.contact === c}
                     onChange={(e) => setForm({ ...form, contact: e.target.value })}
-                    className="accent-xk-blue"
+                    className="accent-xk-red"
                   />
                   {c.charAt(0).toUpperCase() + c.slice(1)}
                 </label>
@@ -134,7 +134,7 @@ const LeadCaptureForm = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-xk-blue text-primary-foreground font-heading font-bold text-lg py-4 rounded hover:bg-xk-blue-glow transition-colors shadow-glow-blue"
+              className="w-full bg-xk-red text-xk-warm-white font-heading font-bold text-lg py-4 rounded hover:bg-xk-red-glow transition-colors shadow-glow-red"
             >
               GET MY FREE QUOTE →
             </button>
