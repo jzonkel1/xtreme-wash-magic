@@ -32,7 +32,7 @@ const HeroSection = () => {
           <span className="block">
             <span className="text-xk-red">X</span>
             <span className="text-xk-warm-white">TREME </span>
-            <span className="text-xk-red">K</span>
+            <span className="text-primary-foreground">K</span>
             <span className="text-xk-warm-white">LEEN</span>
           </span>
           <span className="text-xk-red block text-glow-red">
