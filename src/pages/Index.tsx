@@ -6,6 +6,7 @@ import HowItWorks from "@/components/HowItWorks";
 import WhyXtremeKleen from "@/components/WhyXtremeKleen";
 import TeamInAction from "@/components/TeamInAction";
 import PhotoGallery from "@/components/PhotoGallery";
+import Reviews from "@/components/Reviews";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import Footer from "@/components/Footer";
 
@@ -19,6 +20,7 @@ const Index = () => (
     <WhyXtremeKleen />
     <TeamInAction />
     <PhotoGallery />
+    <Reviews />
     <LeadCaptureForm />
     <Footer />
   </>
