@@ -21,17 +21,32 @@ const ServicesGrid = () => (
         {services.map((s) => (
           <div
             key={s.title}
-            className="group bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl p-7 hover:border-xk-red/50 hover:bg-xk-light-gray/60 transition-all duration-300"
+            className="group relative bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl overflow-hidden hover:border-xk-red/50 hover:bg-xk-light-gray/60 transition-all duration-300"
           >
-            <div className="w-16 h-16 rounded-xl bg-xk-red/15 border border-xk-red/25 flex items-center justify-center mb-6 group-hover:bg-xk-red/25 transition-colors">
-              <HandDrawnIcon name={s.icon} className="w-9 h-9 text-xk-red" />
+            {/* Real job photo */}
+            <div className="h-44 overflow-hidden">
+              <img
+                src={s.photo}
+                alt={s.title}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-t from-xk-steel/60 via-transparent to-transparent" />
             </div>
-            <h3 className="font-display uppercase text-xk-warm-white text-xl mb-2.5 tracking-tight">
-              {s.title}
-            </h3>
-            <p className="text-xk-warm-white/60 text-sm font-body leading-relaxed">
-              {s.desc}
-            </p>
+
+            {/* Hand-drawn icon badge riding the photo edge */}
+            <div className="absolute left-6 top-44 -translate-y-1/2 w-14 h-14 rounded-xl bg-xk-red flex items-center justify-center shadow-glow-red">
+              <HandDrawnIcon name={s.icon} className="w-8 h-8 text-xk-warm-white" />
+            </div>
+
+            <div className="px-7 pb-7 pt-11">
+              <h3 className="font-display uppercase text-xk-warm-white text-xl mb-2.5 tracking-tight">
+                {s.title}
+              </h3>
+              <p className="text-xk-warm-white/60 text-sm font-body leading-relaxed">
+                {s.desc}
+              </p>
+            </div>
           </div>
         ))}
       </div>

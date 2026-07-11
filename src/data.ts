@@ -2,6 +2,11 @@
 // Xtreme Kleen — single source of truth for all site content.
 // Edit this file to change copy, services, reviews, reels, and service areas.
 // ---------------------------------------------------------------------------
+import softWashPhoto from "@/assets/action2.webp"; // condo soft wash at sunset
+import highReachPhoto from "@/assets/action3.webp"; // boom-lift building wash
+import fleetPhoto from "@/assets/truck-wash.webp"; // Dura-Haul trailer washdown
+import glassPhoto from "@/assets/access-ford.webp"; // Access Ford glass storefront
+import drivewayPhoto from "@/assets/after7.webp"; // finished driveway, clean line
 
 export const business = {
   brand: "Xtreme Kleen",
@@ -81,34 +86,41 @@ export const benefits = [
 
 // Services — sourced from the Google Business Profile, plus the industrial work
 // the crew is known for (construction cleanups, fleet & equipment).
+// Every `photo` is a real Xtreme Kleen job shot — no stock.
 export const services = [
   {
     icon: "pressure",
+    photo: drivewayPhoto,
     title: "Power & Pressure Washing",
     desc: "Driveways, sidewalks, concrete, patios, and commercial flatwork brought back to bare, clean surface.",
   },
   {
     icon: "softwash",
+    photo: softWashPhoto,
     title: "Soft Wash Cleaning",
     desc: "Low-pressure, chemistry-first cleaning for siding, stucco, and delicate surfaces. No damage, ever.",
   },
   {
     icon: "roof",
+    photo: "/reels/roof-poster.jpg", // aerial commercial roof shot
     title: "Roof Cleaning",
     desc: "Black streaks, algae, and salt-air buildup removed safely — without walking a high-pressure wand across your shingles.",
   },
   {
     icon: "window",
+    photo: highReachPhoto,
     title: "Interior & Exterior Window Cleaning",
     desc: "Streak-free glass inside and out, from single-story homes to multi-story commercial buildings.",
   },
   {
     icon: "glass",
+    photo: glassPhoto,
     title: "Glass & Mirror Cleaning",
     desc: "Storefront glass, mirrors, and display windows kept spotless and sales-ready.",
   },
   {
     icon: "industrial",
+    photo: fleetPhoto,
     title: "Industrial & Plant Services",
     desc: "Fin fan and heat exchanger cleaning, pipe racks, tank exteriors, fleet washing, and construction cleanup — OSHA-aligned safety program on every site.",
   },
