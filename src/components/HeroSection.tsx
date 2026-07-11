@@ -52,10 +52,10 @@ const HeroSection = () => {
 
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-center">
-          {/* Left side — Hero content */}
-          <div className="lg:col-span-3">
+          {/* Left side — Hero content (centered on mobile, left on desktop) */}
+          <div className="lg:col-span-3 text-center lg:text-left">
             <div
-              className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-8 animate-fade-up"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-3 mb-8 animate-fade-up"
               style={{ animationDelay: "0.05s" }}
             >
               <img
@@ -88,7 +88,7 @@ const HeroSection = () => {
             </h1>
 
             <p
-              className="max-w-xl text-xk-warm-white/75 text-base md:text-lg mb-8 font-body leading-relaxed animate-fade-up"
+              className="max-w-xl mx-auto lg:mx-0 text-xk-warm-white/75 text-base md:text-lg mb-8 font-body leading-relaxed animate-fade-up"
               style={{ animationDelay: "0.25s" }}
             >
               Soft wash, pressure washing, roof and window cleaning across Portland
@@ -97,7 +97,7 @@ const HeroSection = () => {
             </p>
 
             <div
-              className="flex flex-col sm:flex-row items-start gap-3 mb-10 animate-fade-up"
+              className="flex flex-col sm:flex-row items-center sm:justify-center lg:justify-start lg:items-start gap-3 mb-10 animate-fade-up"
               style={{ animationDelay: "0.35s" }}
             >
               <a
@@ -127,7 +127,7 @@ const HeroSection = () => {
               ].map((b) => (
                 <div
                   key={b.label}
-                  className="flex items-center gap-2 bg-xk-warm-white/5 border border-xk-warm-white/10 rounded-lg px-3 py-2.5"
+                  className="flex items-center justify-center lg:justify-start gap-2 bg-xk-warm-white/5 border border-xk-warm-white/10 rounded-lg px-3 py-2.5"
                 >
                   <b.icon className="w-4 h-4 text-xk-red flex-shrink-0" />
                   <span className="text-xk-warm-white text-xs font-body font-medium leading-tight">
