@@ -40,23 +40,23 @@ export const serviceAreas = [
   "Coastal Bend",
 ];
 
-// The pain → consequence cards. Each `icon` maps to a hand-drawn SVG in
-// src/components/icons/HandDrawn.tsx
+// The "cost of waiting" cards — scan top-to-bottom: icon → problem → cost.
+// Each `icon` maps to a hand-drawn SVG in src/components/icons/HandDrawn.tsx
 export const painPoints = [
   {
     icon: "weekend",
-    pain: "Rent a machine and burn your whole weekend",
-    consequence: "Sore back, streaky results — and it still isn't clean",
+    title: "Doing It Yourself",
+    cost: "A weekend gone — and it's still streaky.",
   },
   {
     icon: "mildew",
-    pain: "Let salt air, mildew, and algae keep feeding on your property",
-    consequence: "Stains set in, siding and roofs age years ahead of schedule",
+    title: "Letting It Sit",
+    cost: "Stains set in. Your roof ages years early.",
   },
   {
     icon: "damage",
-    pain: "Hire whoever shows up and blasts it with high pressure",
-    consequence: "Etched concrete, stripped paint, and a repair bill",
+    title: "A Cheap Blast Job",
+    cost: "Etched concrete. Stripped paint. Repair bills.",
   },
 ];
 
