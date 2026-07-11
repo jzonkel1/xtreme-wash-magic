@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX, Play } from "lucide-react";
 import { reels, business } from "@/data";
 
@@ -19,6 +19,22 @@ const ReelCard = ({
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+
+  // Play only while on screen — mobile browsers won't autoplay offscreen
+  // videos, and this keeps 4 clips from decoding at once.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) v.play().catch(() => {});
+        else v.pause();
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
 
   const toggleSound = () => {
     const v = videoRef.current;

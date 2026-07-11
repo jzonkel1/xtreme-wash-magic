@@ -4,22 +4,31 @@ import { business } from "@/data";
 /** Full-bleed cinematic band — real branded rigs under the Harbor Bridge. */
 const EquipmentBand = () => (
   <section className="relative">
-    <div className="relative h-[420px] md:h-[520px] overflow-hidden">
+    <div className="relative md:h-[520px] overflow-hidden">
       <img
         src={bridge}
         alt="Xtreme Kleen equipment trailers under the Corpus Christi Harbor Bridge at night"
         className="absolute inset-0 w-full h-full object-cover"
         loading="lazy"
       />
+      {/* Mobile: text spans the full width, so darken the whole image evenly */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 md:hidden"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(15,13,12,0.88) 0%, rgba(15,13,12,0.78) 55%, rgba(15,13,12,0.88) 100%)",
+        }}
+      />
+      {/* Desktop: dark on the text side, let the rig glow on the right */}
+      <div
+        className="absolute inset-0 hidden md:block"
         style={{
           background:
             "linear-gradient(90deg, rgba(15,13,12,0.92) 0%, rgba(15,13,12,0.6) 42%, rgba(15,13,12,0.25) 70%, rgba(15,13,12,0.35) 100%)",
         }}
       />
 
-      <div className="relative container mx-auto px-4 h-full flex items-center">
+      <div className="relative container mx-auto px-4 h-full flex items-center py-16 md:py-0">
         <div className="max-w-xl">
           <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block mb-4">
             PRO-GRADE EQUIPMENT · LOCAL CREW

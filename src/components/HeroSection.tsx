@@ -55,13 +55,13 @@ const HeroSection = () => {
           {/* Left side — Hero content */}
           <div className="lg:col-span-3">
             <div
-              className="flex items-center gap-4 mb-8 animate-fade-up"
+              className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-8 animate-fade-up"
               style={{ animationDelay: "0.05s" }}
             >
               <img
                 src={logo}
                 alt="Xtreme Kleen"
-                className="h-14 md:h-18 rounded-lg shadow-lg"
+                className="h-10 sm:h-14 md:h-18 rounded-lg shadow-lg"
               />
               <div>
                 <div className="flex items-center gap-2 mb-1">
