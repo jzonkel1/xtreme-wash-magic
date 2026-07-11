@@ -8,6 +8,7 @@ import HowItWorks from "@/components/HowItWorks";
 import TeamInAction from "@/components/TeamInAction";
 import Reels from "@/components/Reels";
 import EquipmentBand from "@/components/EquipmentBand";
+import IndustrialSafety from "@/components/IndustrialSafety";
 import PhotoGallery from "@/components/PhotoGallery";
 import Reviews from "@/components/Reviews";
 import ServiceArea from "@/components/ServiceArea";
@@ -29,6 +30,7 @@ const Index = () => (
     <TeamInAction />
     <Reels />
     <EquipmentBand />
+    <IndustrialSafety />
     <PhotoGallery />
     <Reviews />
     <ServiceArea />

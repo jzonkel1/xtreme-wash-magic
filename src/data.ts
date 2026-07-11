@@ -109,10 +109,31 @@ export const services = [
   },
   {
     icon: "industrial",
-    title: "Industrial & Construction Cleanup",
-    desc: "Heavy equipment, fleet, and post-construction site cleanups — including high-reach work from a boom lift.",
+    title: "Industrial & Plant Services",
+    desc: "Fin fan and heat exchanger cleaning, pipe racks, tank exteriors, fleet washing, and construction cleanup — OSHA-aligned safety program on every site.",
   },
 ];
+
+// Industrial capabilities & safety program — sourced directly from Xtreme
+// Kleen's own "Industrial Cleaning Capabilities & Safety Overview" document.
+export const industrial = {
+  capabilities: [
+    "Air-Cooled Heat Exchanger (Fin Fan) Cleaning",
+    "Heat Exchanger Exterior Cleaning",
+    "Structural Steel & Pipe Rack Cleaning",
+    "Tank Exterior Cleaning",
+    "Equipment Washing & Degreasing",
+    "Fleet Washing",
+    "Warehouse & Facility Exteriors",
+    "Concrete, Oil & Grease Removal",
+  ],
+  safety: [
+    { title: "Job Safety Analysis (JSA)", desc: "Hazard assessment before any work begins — risks identified, controls established." },
+    { title: "Lock Out / Tag Out", desc: "Energy isolation procedures followed around rotating and electrical equipment." },
+    { title: "Stop Work Authority", desc: "Any unsafe condition stops the job immediately until it's evaluated and corrected." },
+    { title: "Full PPE, Every Job", desc: "Hard hats, safety glasses, hearing protection, hi-vis, steel toes — plus site-specific PPE." },
+  ],
+};
 
 export const steps = [
   {
