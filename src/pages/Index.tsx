@@ -14,15 +14,21 @@ import Reviews from "@/components/Reviews";
 import ServiceArea from "@/components/ServiceArea";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import Footer from "@/components/Footer";
+import FloatingActions from "@/components/FloatingActions";
 
 /**
- * Narrative arc: hook → agitate the problem → show the fix → prove it → close.
+ * Conversion arc: hook → instant proof (before/afters) → trust (reviews) →
+ * agitate → the fix → services → deeper proof → close.
+ * Before/after flips and reviews sit high because they earn the most
+ * engagement — visitors decide on photos and stars.
  */
 const Index = () => (
   <>
     <StickyHeader />
     <HeroSection />
     <TrustBar />
+    <PhotoGallery />
+    <Reviews />
     <PainPoints />
     <Solution />
     <ServicesGrid />
@@ -31,11 +37,10 @@ const Index = () => (
     <Reels />
     <EquipmentBand />
     <IndustrialSafety />
-    <PhotoGallery />
-    <Reviews />
     <ServiceArea />
     <LeadCaptureForm />
     <Footer />
+    <FloatingActions />
   </>
 );
 
