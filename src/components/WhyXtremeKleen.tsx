@@ -24,7 +24,7 @@ const WhyXtremeKleen = () => (
           <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block mb-3">
             WHY CHOOSE US
           </span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-xk-warm-white mb-6 leading-tight">
+          <h2 className="font-display uppercase text-4xl md:text-5xl text-xk-warm-white mb-6 leading-[0.95] tracking-tight">
             We Don't Leave Until You're Satisfied
           </h2>
           <p className="text-xk-warm-white/65 font-body mb-4 leading-relaxed">
@@ -50,7 +50,7 @@ const WhyXtremeKleen = () => (
               key={s.label}
               className="bg-xk-light-gray/60 border border-xk-warm-white/8 rounded-xl p-7 text-center"
             >
-              <div className="font-heading font-bold text-3xl md:text-4xl text-xk-red mb-2">
+              <div className="font-display text-4xl md:text-5xl text-xk-red mb-2">
                 {s.value}
               </div>
               <div className="text-xk-warm-white/70 font-body text-sm">{s.label}</div>

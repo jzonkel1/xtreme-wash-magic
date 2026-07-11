@@ -3,6 +3,7 @@ import heroBg from "@/assets/hero-bg.webp";
 import logo from "@/assets/logo.jpg";
 import { Phone, Shield, MapPin, Leaf, Star } from "lucide-react";
 import { toast } from "sonner";
+import { submitQuote } from "@/lib/netlifyForms";
 
 const serviceTypes = [
   "Residential Power Washing",
@@ -21,15 +22,24 @@ const HeroSection = () => {
     email: "",
     service: "",
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim()) {
       toast.error("Please provide your name and phone number.");
       return;
     }
-    toast.success("Thanks! We'll be in touch soon.");
-    setForm({ name: "", phone: "", email: "", service: "" });
+    setSubmitting(true);
+    try {
+      await submitQuote({ ...form, source: "Hero — Quick Quote" });
+      toast.success("Thanks! We'll be in touch within 24 hours.");
+      setForm({ name: "", phone: "", email: "", service: "" });
+    } catch {
+      toast.error("Something went wrong. Please call or text 361-947-7811.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass =
@@ -43,15 +53,36 @@ const HeroSection = () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-xk-medium-gray/85" />
-      </div>
+      />
+      {/* Layered overlay: darkest behind the headline, warm red glow top-right, grounded vignette */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(102deg, rgba(20,18,17,0.96) 0%, rgba(20,18,17,0.86) 40%, rgba(24,20,19,0.72) 64%, rgba(34,17,17,0.82) 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(620px 440px at 90% 4%, rgba(226,54,54,0.20), transparent 60%)",
+        }}
+      />
+      <div className="absolute inset-0 tex-grid opacity-60" />
+      <div
+        className="absolute inset-x-0 bottom-0 h-40"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55), transparent)" }}
+      />
 
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-center">
           {/* Left side — Hero content */}
           <div className="lg:col-span-3">
-            <div className="flex items-center gap-4 mb-8">
+            <div
+              className="flex items-center gap-4 mb-8 animate-fade-up"
+              style={{ animationDelay: "0.05s" }}
+            >
               <img
                 src={logo}
                 alt="Xtreme Kleen"
@@ -72,20 +103,27 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-5">
-              <span className="text-xk-warm-white">Professional </span>
-              <span className="text-xk-red">Power Washing</span>
-              <span className="text-xk-warm-white block mt-1">
-                That Delivers Results
-              </span>
+            <h1
+              className="font-display uppercase text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight mb-5 animate-fade-up"
+              style={{ animationDelay: "0.15s" }}
+            >
+              <span className="text-xk-warm-white block">Professional</span>
+              <span className="text-xk-red block whitespace-nowrap">Power Washing</span>
+              <span className="text-xk-warm-white block">That Delivers Results</span>
             </h1>
 
-            <p className="max-w-xl text-xk-warm-white/75 text-base md:text-lg mb-8 font-body leading-relaxed">
+            <p
+              className="max-w-xl text-xk-warm-white/75 text-base md:text-lg mb-8 font-body leading-relaxed animate-fade-up"
+              style={{ animationDelay: "0.25s" }}
+            >
               Industrial, commercial, and residential pressure washing across Texas.
               High pressure, soft wash, steam degreasing — a solution for every surface.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start gap-3 mb-10">
+            <div
+              className="flex flex-col sm:flex-row items-start gap-3 mb-10 animate-fade-up"
+              style={{ animationDelay: "0.35s" }}
+            >
               <a
                 href="#quote"
                 className="bg-xk-red text-xk-warm-white font-heading font-bold text-base px-8 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
@@ -101,7 +139,10 @@ const HeroSection = () => {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div
+              className="grid grid-cols-2 sm:grid-cols-4 gap-3 animate-fade-up"
+              style={{ animationDelay: "0.45s" }}
+            >
               {[
                 { icon: Star, label: "Free On-Site Quotes" },
                 { icon: Shield, label: "Fully Insured" },
@@ -123,7 +164,10 @@ const HeroSection = () => {
 
           {/* Right side — Quick Quote Form */}
           <div className="lg:col-span-2">
-            <div className="bg-xk-steel/90 backdrop-blur-sm border border-xk-warm-white/10 rounded-xl p-6 md:p-8 shadow-2xl">
+            <div
+              className="bg-xk-steel/90 backdrop-blur-sm border border-xk-warm-white/10 rounded-xl p-6 md:p-8 shadow-2xl animate-fade-up"
+              style={{ animationDelay: "0.3s" }}
+            >
               <h3 className="font-heading font-bold text-xl text-xk-warm-white mb-1">
                 Request a Free Estimate
               </h3>
@@ -170,14 +214,16 @@ const HeroSection = () => {
                 </select>
                 <button
                   type="submit"
-                  className="w-full bg-xk-red text-xk-warm-white font-heading font-bold text-base py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
+                  disabled={submitting}
+                  className="w-full bg-xk-red text-xk-warm-white font-heading font-bold text-base py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  GET MY FREE QUOTE →
+                  {submitting ? "SENDING..." : "GET MY FREE QUOTE →"}
                 </button>
               </form>
 
               <p className="text-xk-warm-white/40 text-xs font-body text-center mt-4">
-                No spam. No obligation. Just a straight price.
+                No spam. No obligation. Just a straight price. By submitting, you
+                agree to be contacted by phone, text, or email about your request.
               </p>
             </div>
           </div>

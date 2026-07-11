@@ -73,8 +73,9 @@ export default {
         },
       },
       fontFamily: {
-        heading: ["Playfair Display", "Georgia", "serif"],
-        body: ["Open Sans", "Georgia", "sans-serif"],
+        display: ["Anton", "Oswald", "sans-serif"],
+        heading: ["Oswald", "Arial Narrow", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

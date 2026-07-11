@@ -27,7 +27,7 @@ const Reviews = () => (
       <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
         CUSTOMER REVIEWS
       </span>
-      <h2 className="font-heading font-bold text-3xl md:text-5xl text-xk-warm-white text-center mb-4">
+      <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl text-xk-warm-white text-center mb-4 tracking-tight">
         What Our Clients Say
       </h2>
       <div className="flex justify-center items-center gap-2 mb-12">

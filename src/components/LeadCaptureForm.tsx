@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { toast } from "sonner";
+import { submitQuote } from "@/lib/netlifyForms";
 
 const serviceTypes = [
   "Residential Power Washing",
@@ -22,29 +23,46 @@ const LeadCaptureForm = () => {
     details: "",
     contact: "call",
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim()) {
       toast.error("Please provide your name and phone number.");
       return;
     }
-    toast.success("Thanks! We'll be in touch soon.");
-    setForm({ name: "", phone: "", email: "", city: "", service: "", details: "", contact: "call" });
+    setSubmitting(true);
+    try {
+      await submitQuote({ ...form, source: "Contact — Full Quote" });
+      toast.success("Thanks! We'll be in touch within 24 hours.");
+      setForm({ name: "", phone: "", email: "", city: "", service: "", details: "", contact: "call" });
+    } catch {
+      toast.error("Something went wrong. Please call or text 361-947-7811.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass =
     "w-full bg-xk-light-gray/80 border border-xk-warm-white/15 text-xk-warm-white px-4 py-3.5 rounded-lg focus:outline-none focus:border-xk-red focus:ring-1 focus:ring-xk-red font-body text-sm placeholder:text-xk-warm-white/40";
 
   return (
-    <section id="quote" className="bg-xk-charcoal py-20 md:py-28">
-      <div className="container mx-auto px-4">
+    <section id="quote" className="relative bg-xk-charcoal py-20 md:py-28 overflow-hidden">
+      <div className="absolute inset-0 tex-grid opacity-50" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(680px 460px at 82% 12%, rgba(226,54,54,0.16), transparent 62%)",
+        }}
+      />
+      <div className="relative container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 max-w-5xl mx-auto">
           <div>
             <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block mb-3">
               GET IN TOUCH
             </span>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-xk-warm-white mb-4 leading-tight">
+            <h2 className="font-display uppercase text-4xl md:text-5xl text-xk-warm-white mb-4 leading-[0.95] tracking-tight">
               Get Your Free Quote Today
             </h2>
             <p className="text-xk-warm-white/60 font-body mb-10 leading-relaxed">
@@ -168,10 +186,15 @@ const LeadCaptureForm = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-xk-red text-xk-warm-white font-heading font-bold text-base py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
+                disabled={submitting}
+                className="w-full bg-xk-red text-xk-warm-white font-heading font-bold text-base py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                GET MY FREE QUOTE →
+                {submitting ? "SENDING..." : "GET MY FREE QUOTE →"}
               </button>
+              <p className="text-xk-warm-white/40 text-xs font-body text-center">
+                By submitting, you agree to be contacted by phone, text, or email
+                about your request. No spam, ever.
+              </p>
             </form>
           </div>
         </div>

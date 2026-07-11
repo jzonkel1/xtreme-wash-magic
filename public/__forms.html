@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify Form Detection — Xtreme Kleen</title>
+  </head>
+  <body>
+    <!--
+      Static declaration so Netlify registers the form at build time.
+      The live form is rendered by React and posts here via fetch.
+      Keep field names in sync with src/lib/netlifyForms.ts consumers.
+    -->
+    <form name="xtreme-kleen-quote" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="city" />
+      <input type="text" name="service" />
+      <textarea name="details"></textarea>
+      <input type="text" name="contact" />
+      <input type="text" name="source" />
+      <input type="text" name="bot-field" />
+    </form>
+  </body>
+</html>

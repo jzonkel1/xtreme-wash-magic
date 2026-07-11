@@ -16,8 +16,8 @@ const TeamInAction = () => (
       <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
         THE CREW
       </span>
-      <h2 className="font-heading font-bold text-3xl md:text-5xl text-xk-warm-white text-center mb-4">
-        XTREME KLEEN in Action
+      <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl text-xk-warm-white text-center mb-4 tracking-tight">
+        Xtreme Kleen in Action
       </h2>
       <p className="text-xk-warm-white/60 text-center max-w-xl mx-auto mb-12 font-body">
         From boom lifts to ground level — our team shows up equipped, trained,

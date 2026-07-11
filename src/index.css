@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -98,21 +98,56 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Open Sans', Georgia, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
   }
 }
 
 @layer utilities {
+  /* Anton — ultra-bold condensed poster face for big display headings */
+  .font-display {
+    font-family: 'Anton', 'Oswald', sans-serif;
+    letter-spacing: 0.01em;
+  }
+
   .font-heading {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
   }
 
   .font-body {
-    font-family: 'Open Sans', Georgia, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Faint industrial grid texture for atmospheric depth on dark sections */
+  .tex-grid {
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 56px),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 56px);
+  }
+
+  /* Orchestrated page-load reveal — apply with an inline animation-delay to stagger */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up {
+      animation: none;
+    }
   }
 
   .text-glow-red {

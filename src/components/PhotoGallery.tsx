@@ -1,8 +1,8 @@
 import { useState } from "react";
-import before3 from "@/assets/before3.jpg";
-import after3 from "@/assets/after3.jpg";
-import before7 from "@/assets/before7.jpg";
-import after7 from "@/assets/after7.jpg";
+import before3 from "@/assets/before3.webp";
+import after3 from "@/assets/after3.webp";
+import before7 from "@/assets/before7.webp";
+import after7 from "@/assets/after7.webp";
 
 const projects = [
   { before: before3, after: after3, label: "Brick House — Soft Wash" },
@@ -66,7 +66,7 @@ const PhotoGallery = () => (
       <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
         PROVEN RESULTS
       </span>
-      <h2 className="font-heading font-bold text-3xl md:text-5xl text-xk-text-dark text-center mb-4">
+      <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl text-xk-text-dark text-center mb-4 tracking-tight">
         The Results Speak for Themselves
       </h2>
       <p className="text-xk-text-dark/60 text-center max-w-xl mx-auto mb-4 font-body">

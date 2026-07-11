@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA fallback so client-side routes resolve to index.html.
+# Netlify processes form POSTs before this redirect, so lead capture still works.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

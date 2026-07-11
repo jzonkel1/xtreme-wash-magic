@@ -39,7 +39,7 @@ const ServicesGrid = () => (
       <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
         WHAT WE DO
       </span>
-      <h2 className="font-heading font-bold text-3xl md:text-5xl text-xk-warm-white text-center mb-4">
+      <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl text-xk-warm-white text-center mb-4 tracking-tight">
         A Solution for Every Surface
       </h2>
       <p className="text-xk-warm-white/60 text-center max-w-2xl mx-auto mb-14 font-body">
