@@ -28,8 +28,8 @@ const Index = () => (
     <HeroSection />
     <TrustBar />
     <PhotoGallery />
-    <Reviews />
     <PainPoints />
+    <Reviews />
     <Solution />
     <ServicesGrid />
     <HowItWorks />
