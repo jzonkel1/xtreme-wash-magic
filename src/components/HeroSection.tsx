@@ -1,59 +1,35 @@
-import { useState } from "react";
-import heroBg from "@/assets/hero-bg.webp";
+import heroBg from "@/assets/hero-spray.webp";
 import logo from "@/assets/logo.jpg";
 import { Phone, Shield, MapPin, Leaf, Star } from "lucide-react";
-import { toast } from "sonner";
-import { submitQuote } from "@/lib/netlifyForms";
-
-const serviceTypes = [
-  "Residential Power Washing",
-  "Commercial Power Washing",
-  "Soft Wash (Roof / Stucco)",
-  "Industrial Equipment Cleaning",
-  "Steam Degreasing",
-  "Chemical Concrete Cleaning",
-  "Not Sure — Just Quote Me",
-];
+import { business } from "@/data";
+import QuoteWizard from "@/components/QuoteWizard";
 
 const HeroSection = () => {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    service: "",
-  });
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name.trim() || !form.phone.trim()) {
-      toast.error("Please provide your name and phone number.");
-      return;
-    }
-    setSubmitting(true);
-    try {
-      await submitQuote({ ...form, source: "Hero — Quick Quote" });
-      toast.success("Thanks! We'll be in touch within 24 hours.");
-      setForm({ name: "", phone: "", email: "", service: "" });
-    } catch {
-      toast.error("Something went wrong. Please call or text 361-947-7811.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  const inputClass =
-    "w-full bg-xk-charcoal/80 border border-xk-warm-white/20 text-xk-warm-white px-4 py-3 rounded-lg focus:outline-none focus:border-xk-red focus:ring-1 focus:ring-xk-red font-body text-sm placeholder:text-xk-warm-white/40";
-
   return (
     <section
       id="top"
       className="relative min-h-screen flex items-center pt-20 bg-xk-charcoal"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      {/* Background: real video when supplied, otherwise the still with a slow
+          cinematic drift. Swap by setting business.heroVideo in src/data.ts. */}
+      <div className="absolute inset-0 overflow-hidden">
+        {business.heroVideo ? (
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src={business.heroVideo}
+            poster={heroBg}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center animate-ken-burns"
+            style={{ backgroundImage: `url(${heroBg})` }}
+          />
+        )}
+      </div>
       {/* Layered overlay: darkest behind the headline, warm red glow top-right, grounded vignette */}
       <div
         className="absolute inset-0"
@@ -69,7 +45,6 @@ const HeroSection = () => {
             "radial-gradient(620px 440px at 90% 4%, rgba(226,54,54,0.20), transparent 60%)",
         }}
       />
-      <div className="absolute inset-0 tex-grid opacity-60" />
       <div
         className="absolute inset-x-0 bottom-0 h-40"
         style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55), transparent)" }}
@@ -98,7 +73,7 @@ const HeroSection = () => {
                   <span className="text-xk-warm-white/70 text-xs font-body">5-Star Rated</span>
                 </div>
                 <span className="font-heading text-xs tracking-widest text-xk-warm-white/60 font-medium">
-                  SOUTH & CENTRAL TEXAS
+                  PORTLAND, TX · THE COASTAL BEND
                 </span>
               </div>
             </div>
@@ -116,8 +91,9 @@ const HeroSection = () => {
               className="max-w-xl text-xk-warm-white/75 text-base md:text-lg mb-8 font-body leading-relaxed animate-fade-up"
               style={{ animationDelay: "0.25s" }}
             >
-              Industrial, commercial, and residential pressure washing across Texas.
-              High pressure, soft wash, steam degreasing — a solution for every surface.
+              Soft wash, pressure washing, roof and window cleaning across Portland
+              and the Coastal Bend. No high pressure, no damage — just the right
+              chemistry and professional equipment. Clean. Safe. Like new.
             </p>
 
             <div
@@ -144,10 +120,10 @@ const HeroSection = () => {
               style={{ animationDelay: "0.45s" }}
             >
               {[
-                { icon: Star, label: "Free On-Site Quotes" },
+                { icon: Star, label: "5.0 Google Rated" },
                 { icon: Shield, label: "Fully Insured" },
-                { icon: MapPin, label: "3 Cities Served" },
-                { icon: Leaf, label: "Eco-Safe Chemicals" },
+                { icon: MapPin, label: "Based in Portland" },
+                { icon: Leaf, label: "Safe Soft Wash" },
               ].map((b) => (
                 <div
                   key={b.label}
@@ -162,69 +138,13 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right side — Quick Quote Form */}
+          {/* Right side — multi-step Quote Wizard */}
           <div className="lg:col-span-2">
             <div
               className="bg-xk-steel/90 backdrop-blur-sm border border-xk-warm-white/10 rounded-xl p-6 md:p-8 shadow-2xl animate-fade-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <h3 className="font-heading font-bold text-xl text-xk-warm-white mb-1">
-                Request a Free Estimate
-              </h3>
-              <p className="text-xk-warm-white/50 text-sm font-body mb-6">
-                We'll get back to you within 24 hours.
-              </p>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Your Name *"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className={inputClass}
-                  maxLength={100}
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone Number *"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className={inputClass}
-                  maxLength={20}
-                />
-                <input
-                  type="email"
-                  placeholder="Email (optional)"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className={inputClass}
-                  maxLength={255}
-                />
-                <select
-                  value={form.service}
-                  onChange={(e) => setForm({ ...form, service: e.target.value })}
-                  className={inputClass}
-                >
-                  <option value="">Select Service Type</option>
-                  {serviceTypes.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full bg-xk-red text-xk-warm-white font-heading font-bold text-base py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  {submitting ? "SENDING..." : "GET MY FREE QUOTE →"}
-                </button>
-              </form>
-
-              <p className="text-xk-warm-white/40 text-xs font-body text-center mt-4">
-                No spam. No obligation. Just a straight price. By submitting, you
-                agree to be contacted by phone, text, or email about your request.
-              </p>
+              <QuoteWizard />
             </div>
           </div>
         </div>

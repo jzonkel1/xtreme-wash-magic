@@ -2,10 +2,14 @@ import action1 from "@/assets/action1.webp";
 import action2 from "@/assets/action2.webp";
 import action3 from "@/assets/action3.webp";
 import action4 from "@/assets/action4.webp";
+import truckWash from "@/assets/truck-wash.webp";
+import accessFord from "@/assets/access-ford.webp";
 
 const photos = [
   { src: action1, caption: "Fully loaded rig — ready to roll on site" },
+  { src: truckWash, caption: "Washing down a Dura-Haul dump trailer" },
   { src: action2, caption: "Soft washing a coastal condo at sunset" },
+  { src: accessFord, caption: "Commercial work — Access Ford, Corpus Christi" },
   { src: action3, caption: "High-reach commercial building wash" },
   { src: action4, caption: "Suited up for chemical cleaning" },
 ];
@@ -24,7 +28,7 @@ const TeamInAction = () => (
         and ready to handle any job across Texas.
       </p>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
         {photos.map((p, i) => (
           <div key={i} className="relative overflow-hidden rounded-xl group">
             <img

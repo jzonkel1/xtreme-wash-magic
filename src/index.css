@@ -144,6 +144,31 @@
     animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
+  /* Slow cinematic drift on the hero still — reads as motion until a real
+     background video (business.heroVideo) is supplied. */
+  @keyframes ken-burns {
+    0% {
+      transform: scale(1.06) translate3d(0, 0, 0);
+    }
+    50% {
+      transform: scale(1.14) translate3d(-1.4%, -1%, 0);
+    }
+    100% {
+      transform: scale(1.06) translate3d(0, 0, 0);
+    }
+  }
+
+  .animate-ken-burns {
+    animation: ken-burns 28s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-ken-burns {
+      animation: none;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-fade-up {
       animation: none;

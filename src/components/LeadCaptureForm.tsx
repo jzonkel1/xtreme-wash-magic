@@ -2,16 +2,9 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { toast } from "sonner";
 import { submitQuote } from "@/lib/netlifyForms";
+import { business, services } from "@/data";
 
-const serviceTypes = [
-  "Residential Power Washing",
-  "Commercial Power Washing",
-  "Soft Wash Roof or Stucco",
-  "Industrial Equipment Cleaning",
-  "Steam Degreasing",
-  "Chemical Concrete Cleaning",
-  "Not Sure — Just Quote Me",
-];
+const serviceTypes = [...services.map((s) => s.title), "Not Sure — Just Quote Me"];
 
 const LeadCaptureForm = () => {
   const [form, setForm] = useState({
@@ -90,21 +83,29 @@ const LeadCaptureForm = () => {
                 </div>
               </a>
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 bg-xk-red/15 rounded-lg flex items-center justify-center">
+                <div className="w-11 h-11 bg-xk-red/15 rounded-lg flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5 text-xk-red" />
                 </div>
                 <div>
-                  <p className="text-xk-warm-white font-heading font-bold text-base">Corpus Christi · McAllen · San Antonio</p>
-                  <p className="text-xk-warm-white/40 text-xs font-body">Serving All of South & Central Texas</p>
+                  <p className="text-xk-warm-white font-heading font-bold text-base">
+                    {business.primaryCity}
+                  </p>
+                  <p className="text-xk-warm-white/40 text-xs font-body">
+                    Serving Portland & the Coastal Bend
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 bg-xk-red/15 rounded-lg flex items-center justify-center">
+                <div className="w-11 h-11 bg-xk-red/15 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Clock className="w-5 h-5 text-xk-red" />
                 </div>
                 <div>
-                  <p className="text-xk-warm-white font-heading font-bold text-base">Quick Response</p>
-                  <p className="text-xk-warm-white/40 text-xs font-body">We respond within 24 hours</p>
+                  <p className="text-xk-warm-white font-heading font-bold text-base">
+                    {business.hours}
+                  </p>
+                  <p className="text-xk-warm-white/40 text-xs font-body">
+                    Call or text any time — we answer
+                  </p>
                 </div>
               </div>
             </div>

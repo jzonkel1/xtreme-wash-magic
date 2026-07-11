@@ -1,11 +1,11 @@
 import { Shield, MapPin, Leaf, Clock, Home } from "lucide-react";
 
 const items = [
-  { icon: Clock, label: "5+ Years Experience" },
+  { icon: Clock, label: "Open 24 Hours" },
   { icon: Shield, label: "Fully Insured" },
-  { icon: Home, label: "Industrial · Commercial · Residential" },
-  { icon: Leaf, label: "Biodegradable Chemicals" },
-  { icon: MapPin, label: "Corpus Christi · McAllen · San Antonio" },
+  { icon: Home, label: "Residential · Commercial · Industrial" },
+  { icon: Leaf, label: "True Soft Wash — No Damage" },
+  { icon: MapPin, label: "Portland & the Coastal Bend" },
 ];
 
 const TrustBar = () => (

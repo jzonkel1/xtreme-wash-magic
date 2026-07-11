@@ -1,29 +1,17 @@
 import { Star, Quote } from "lucide-react";
-
-const reviews = [
-  {
-    name: "Brandon Trammell",
-    reviewCount: "4 reviews",
-    timeAgo: "a year ago",
-    text: "Xtreme Kleen Wash is hands down the best cleaning service I've used! Eric Kuhn was very knowledgeable in his expertise and I could tell he takes a lot of pride in each job he takes on. Very satisfied with the work that was done!",
-  },
-  {
-    name: "Jackson Soward",
-    reviewCount: "1 review",
-    timeAgo: "a year ago",
-    text: "Xtreme Kleen provided awesome work on my restaurant and rental properties. Eric Kuhn came in with a strategic plan with a fair price point and couldn't be happier with the results.",
-  },
-  {
-    name: "Braden Menn",
-    reviewCount: "3 reviews",
-    timeAgo: "a year ago",
-    text: "I have used Xtreme Kleen for construction site clean ups. Eric is very professional and easy to work with. He showed up on time and did exactly what he said he was going to do. I highly recommend this business.",
-  },
-];
+import { reviews, business } from "@/data";
 
 const Reviews = () => (
-  <section id="reviews" className="bg-xk-medium-gray py-20 md:py-28">
-    <div className="container mx-auto px-4">
+  <section id="reviews" className="relative bg-xk-medium-gray py-20 md:py-28 overflow-hidden">
+    <div
+      className="absolute inset-0"
+      style={{
+        background:
+          "radial-gradient(700px 460px at 80% 0%, rgba(226,54,54,0.12), transparent 62%)",
+      }}
+    />
+
+    <div className="relative container mx-auto px-4">
       <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
         CUSTOMER REVIEWS
       </span>
@@ -36,14 +24,16 @@ const Reviews = () => (
             <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
           ))}
         </div>
-        <span className="text-xk-warm-white/60 text-sm font-body">5.0 on Google</span>
+        <span className="text-xk-warm-white/60 text-sm font-body">
+          {business.rating.toFixed(1)} on Google · {business.reviewCount} reviews
+        </span>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
         {reviews.map((r) => (
           <div
             key={r.name}
-            className="bg-xk-light-gray/60 border border-xk-warm-white/8 rounded-xl p-7 flex flex-col relative"
+            className="bg-xk-light-gray/50 border border-xk-warm-white/10 rounded-xl p-7 flex flex-col relative"
           >
             <Quote className="w-8 h-8 text-xk-red/20 absolute top-5 right-5" />
 
@@ -58,18 +48,31 @@ const Reviews = () => (
             </p>
 
             <div className="flex items-center gap-3 pt-4 border-t border-xk-warm-white/10">
-              <div className="w-10 h-10 rounded-full bg-xk-red flex items-center justify-center text-xk-warm-white font-bold text-sm">
+              <div className="w-10 h-10 rounded-full bg-xk-red flex items-center justify-center text-xk-warm-white font-heading font-bold text-sm">
                 {r.name.charAt(0)}
               </div>
               <div>
-                <p className="font-semibold text-xk-warm-white text-sm">{r.name}</p>
+                <p className="font-heading font-semibold text-xk-warm-white text-sm">
+                  {r.name}
+                </p>
                 <p className="text-xk-warm-white/40 text-xs font-body">
-                  {r.reviewCount} · {r.timeAgo}
+                  {r.meta} · {r.timeAgo}
                 </p>
               </div>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="text-center mt-12">
+        <a
+          href={business.googleProfile}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block border-2 border-xk-warm-white/25 text-xk-warm-white font-heading font-semibold px-8 py-3.5 rounded-lg hover:bg-xk-warm-white/10 transition-all"
+        >
+          Read Our Reviews on Google
+        </a>
       </div>
     </div>
   </section>
