@@ -5,6 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // GitHub Pages serves this repo at /xtreme-wash-magic/ — the deploy workflow
+  // sets GHPAGES=1. Netlify/custom-domain builds keep the root base.
+  base: process.env.GHPAGES ? "/xtreme-wash-magic/" : "/",
   server: {
     host: "::",
     port: 8080,

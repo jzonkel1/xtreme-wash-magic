@@ -8,6 +8,10 @@ import fleetPhoto from "@/assets/truck-wash.webp"; // Dura-Haul trailer washdown
 import glassPhoto from "@/assets/access-ford.webp"; // Access Ford glass storefront
 import drivewayPhoto from "@/assets/after7.webp"; // finished driveway, clean line
 
+// Public-folder assets must respect Vite's base path (GitHub Pages serves the
+// site from /xtreme-wash-magic/, not the domain root).
+const pub = (p: string) => `${import.meta.env.BASE_URL}${p}`;
+
 export const business = {
   brand: "Xtreme Kleen",
   legalName: "Extreme Clean Wash and Rental LLC",
@@ -23,12 +27,12 @@ export const business = {
   rating: 5.0,
   reviewCount: 5,
 
-  // Hero background video (HydroChem-style). Leave "" to fall back to the
+  // Hero background video (HydroChem-style). Set to "" to fall back to the
   // cinematic still (hero-spray) with a slow Ken Burns drift.
   // Current clip: royalty-free backlit pressure-spray (Pexels license — free for
   // commercial use, no attribution). Swap for Eric's own HORIZONTAL footage
   // whenever he films some; drop the mp4 in public/ and update this path.
-  heroVideo: "/hero.mp4",
+  heroVideo: pub("hero.mp4"),
 };
 
 // Portland is home base; these are the surrounding Coastal Bend towns served.
@@ -102,7 +106,7 @@ export const services = [
   },
   {
     icon: "roof",
-    photo: "/reels/roof-poster.jpg", // aerial commercial roof shot
+    photo: pub("reels/roof-poster.jpg"), // aerial commercial roof shot
     title: "Roof Cleaning",
     desc: "Black streaks, algae, and salt-air buildup removed safely — without walking a high-pressure wand across your shingles.",
   },
@@ -207,29 +211,29 @@ export const reviews = [
 // To refresh: download the reel, strip audio, and compress (see project notes).
 export const reels = [
   {
-    src: "/reels/softwash.mp4",
-    poster: "/reels/softwash-poster.jpg",
+    src: pub("reels/softwash.mp4"),
+    poster: pub("reels/softwash-poster.jpg"),
     title: "Driveway Degrease & Soft Wash",
     caption:
       "Oil-stained concrete pulled back to a clean, even finish — no etching, no damage.",
   },
   {
-    src: "/reels/roof.mp4",
-    poster: "/reels/roof-poster.jpg",
+    src: pub("reels/roof.mp4"),
+    poster: pub("reels/roof-poster.jpg"),
     title: "Roof Cleaning — Black Streaks Gone",
     caption:
       "Algae and salt-air staining lifted off the roof with low pressure and the right chemistry.",
   },
   {
-    src: "/reels/equipment.mp4",
-    poster: "/reels/equipment-poster.jpg",
+    src: pub("reels/equipment.mp4"),
+    poster: pub("reels/equipment-poster.jpg"),
     title: "Steam-Cleaning Heavy Equipment",
     caption:
       "High-heat steam cutting through grease and grime on industrial equipment.",
   },
   {
-    src: "/reels/house.mp4",
-    poster: "/reels/house-poster.jpg",
+    src: pub("reels/house.mp4"),
+    poster: pub("reels/house-poster.jpg"),
     title: "Soft Washing a Two-Story Home",
     caption:
       "The whole exterior brought back to life — chemistry doing the work, not brute force.",
