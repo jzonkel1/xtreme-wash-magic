@@ -27,11 +27,12 @@ const Sketch = ({
     aria-hidden="true"
   >
     <defs>
-      {/* Roughen: nudges every stroke off its perfect path so it looks drawn. */}
+      {/* Roughen: nudges every stroke off its perfect path so it looks drawn.
+          Kept subtle — too much displacement makes crossings look fuzzy. */}
       <filter id={ROUGH_ID} x="-20%" y="-20%" width="140%" height="140%">
         <feTurbulence
           type="fractalNoise"
-          baseFrequency="0.035"
+          baseFrequency="0.028"
           numOctaves="2"
           seed="7"
           result="noise"
@@ -39,7 +40,7 @@ const Sketch = ({
         <feDisplacementMap
           in="SourceGraphic"
           in2="noise"
-          scale="1.6"
+          scale="1.05"
           xChannelSelector="R"
           yChannelSelector="G"
         />
@@ -54,37 +55,53 @@ const Sketch = ({
 /** An hourglass running out — the weekend you'll never get back. */
 export const WeekendIcon = ({ className }: IconProps) => (
   <Sketch className={className}>
-    <path d="M15 9.6 L49 9 " />
-    <path d="M15 55 L49 54.4" />
-    <path d="M21 9.8 L43.4 9.4 C43.6 21.6 34 27.8 32 31.8 C30.4 27.6 20.6 21.8 21 9.8 Z" />
-    <path d="M21 54.8 L43.4 54.4 C43.8 42.4 34 36.2 32 32 C30.4 36.4 20.6 42.8 21 54.8 Z" />
-    <path d="M32 35.4 L32.2 44" />
-    <path d="M28.6 50 L28.8 50.2" />
-    <path d="M35.6 49.4 L35.8 49.6" />
+    {/* frame bars */}
+    <path d="M18 10 L46 10" />
+    <path d="M18 54 L46 54" />
+    {/* glass profile — two mirrored curves meeting at the waist */}
+    <path d="M22 12 C22 21 27 25 30.5 29.5 C31.4 30.8 31.4 33.2 30.5 34.5 C27 39 22 43 22 52" />
+    <path d="M42 12 C42 21 37 25 33.5 29.5 C32.6 30.8 32.6 33.2 33.5 34.5 C37 39 42 43 42 52" />
+    {/* sand: wedge above the neck, falling stream, settled pile (filled) */}
+    <path
+      d="M25.5 21 C28 26 30.5 28.4 32 29.2 C33.5 28.4 36 26 38.5 21 C34.5 22.6 29.5 22.6 25.5 21 Z"
+      fill="currentColor"
+      stroke="none"
+    />
+    <path d="M32 33 L32 43" strokeWidth={2.2} />
+    <path
+      d="M24.5 52 C26.5 46.5 29 44 32 43.5 C35 44 37.5 46.5 39.5 52 Z"
+      fill="currentColor"
+      stroke="none"
+    />
   </Sketch>
 );
 
-/** A grimy stain blob bleeding downward in drips — coastal buildup that keeps feeding. */
+/** A grimy stain bleeding downward — coastal buildup that keeps feeding. */
 export const MildewIcon = ({ className }: IconProps) => (
   <Sketch className={className}>
-    <path d="M15 26 C13 18 22 12.6 29 16 C34 11.6 45 15 44 23 C51.4 25 50 34 43 35 C42 42.4 32 44.4 28 39 C20.6 42.4 12.6 36 15 26 Z" />
-    <path d="M22 38.6 L23 49.4" />
-    <path d="M30 40.4 L31 53.6" />
-    <path d="M38 37.4 L39 47" />
-    <path d="M25 25.4 L25.3 25.7" />
-    <path d="M34.4 23.4 L34.7 23.7" />
-    <path d="M31 31.4 L31.3 31.7" />
+    {/* one continuous blob outline */}
+    <path d="M17.5 29 C15.5 22 23 15.5 31 17.5 C38 13.5 48.5 18.5 47.5 26 C52.5 30 49.5 37.5 43 38.5 C39 43.5 28.5 43.5 24.5 38.5 C18.5 37.5 16 33 17.5 29 Z" />
+    {/* drips hanging off the bottom edge, each ending in a bead */}
+    <path d="M28 41.5 L28 48.5" strokeWidth={2.4} />
+    <circle cx="28" cy="51.5" r="2.4" fill="currentColor" stroke="none" />
+    <path d="M37 40.5 L37 45.5" strokeWidth={2.4} />
+    <circle cx="37" cy="48.5" r="2.4" fill="currentColor" stroke="none" />
+    {/* speckles inside the stain (filled, deliberate) */}
+    <circle cx="27" cy="27" r="1.7" fill="currentColor" stroke="none" />
+    <circle cx="36.5" cy="23.5" r="1.7" fill="currentColor" stroke="none" />
+    <circle cx="33" cy="32.5" r="1.7" fill="currentColor" stroke="none" />
   </Sketch>
 );
 
-/** A surface panel split by a jagged crack — what brute-force pressure leaves behind. */
+/** A clean panel split by a through-crack — what brute-force pressure leaves behind. */
 export const DamageIcon = ({ className }: IconProps) => (
   <Sketch className={className}>
-    <path d="M11 13.4 L53 12.6 L53.6 51 L11.6 51.6 Z" />
-    <path d="M31 12.8 L27.4 24.6 L35 29 L28.6 39 L32 51.2" />
-    <path d="M27.4 24.6 L18.6 22.6" />
-    <path d="M35 29 L44 32.4" />
-    <path d="M28.6 39 L20.4 41" />
+    {/* panel with rounded corners */}
+    <rect x="12" y="14" width="40" height="36" rx="3.5" />
+    {/* crack runs edge to edge, branches attached at the bends */}
+    <path d="M31 14 L28 25 L34 30 L29 38 L32.5 50" />
+    <path d="M28 25 L21 28" />
+    <path d="M29 38 L37 41.5" />
   </Sketch>
 );
 
