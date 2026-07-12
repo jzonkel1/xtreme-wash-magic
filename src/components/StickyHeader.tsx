@@ -3,16 +3,12 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 import { Phone, Menu, X } from "lucide-react";
 
-// Home-section anchors need the base path so they resolve from subpages too
-// (GitHub Pages serves the site from /xtreme-wash-magic/, not the domain root).
-const home = (hash: string) => `${import.meta.env.BASE_URL}${hash}`;
-
 const navLinks: Array<{ label: string; to?: string; href?: string }> = [
   { label: "Services", to: "/services" },
   { label: "Service Areas", to: "/service-areas" },
-  { label: "Our Work", href: home("#work") },
-  { label: "Reviews", href: home("#reviews") },
-  { label: "Contact", href: "#quote" }, // every page renders a #quote form
+  { label: "Our Work", to: "/our-work" },
+  { label: "Reviews", to: "/reviews" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const linkClass =

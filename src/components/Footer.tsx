@@ -84,6 +84,19 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-xk-warm-white/10 pt-6 text-center">
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-4 font-body text-xs text-xk-warm-white/40">
+          {[
+            { label: "Our Work", to: "/our-work" },
+            { label: "Reviews", to: "/reviews" },
+            { label: "Contact", to: "/contact" },
+            { label: "Privacy Policy", to: "/privacy" },
+            { label: "Terms of Service", to: "/terms" },
+          ].map((l) => (
+            <Link key={l.to} to={l.to} className="hover:text-xk-warm-white transition-colors">
+              {l.label}
+            </Link>
+          ))}
+        </div>
         <p className="text-xk-warm-white/30 font-body text-xs">
           © {new Date().getFullYear()} {business.legalName} · dba {business.brand}.
           All rights reserved. {business.tagline}.
