@@ -1,0 +1,72 @@
+import { Link } from "react-router-dom";
+import { MapPin, ArrowRight } from "lucide-react";
+import PageLayout from "@/components/PageLayout";
+import PageHero from "@/components/PageHero";
+import Seo from "@/components/Seo";
+import { locationsContent } from "@/content/locations";
+import { breadcrumbLd } from "@/lib/seo";
+import heroBridge from "@/assets/hero-bridge.webp";
+
+const ServiceAreasHub = () => (
+  <PageLayout>
+    <Seo
+      title="Service Areas | Pressure Washing Across the Coastal Bend | Xtreme Kleen"
+      description="Xtreme Kleen serves the Coastal Bend from Portland, TX: Gregory, Ingleside, Aransas Pass, Rockport, Corpus Christi, Taft, Sinton, and Odem. Pressure washing, soft washing, roofs, windows, and industrial. 361-947-7811."
+      path="/service-areas"
+      jsonLd={[
+        breadcrumbLd([{ name: "Home", path: "/" }, { name: "Service Areas" }]),
+      ]}
+    />
+
+    <PageHero
+      kicker="WHERE WE WORK"
+      title="Serving the Coastal Bend From Portland, TX"
+      sub="Salt air, humidity, and year-round algae are a different problem than inland dirt. We're based in Portland and work the whole Coastal Bend — pick your town for the local rundown."
+      photo={heroBridge}
+      breadcrumbs={[{ name: "Home", path: "/" }, { name: "Service Areas" }]}
+    />
+
+    <section className="bg-xk-charcoal py-16 md:py-24">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+          {locationsContent.map((l) => (
+            <Link
+              key={l.slug}
+              to={`/service-areas/${l.slug}`}
+              className="group bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl p-6 hover:border-xk-red/50 hover:bg-xk-light-gray/60 transition-all"
+            >
+              <div className="flex items-center gap-2.5 mb-3">
+                <div className="w-9 h-9 rounded-lg bg-xk-red/15 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-xk-red" />
+                </div>
+                <h2 className="font-display uppercase text-xk-warm-white text-xl tracking-tight">
+                  {l.cityState}
+                </h2>
+              </div>
+              <p className="text-xk-warm-white/60 text-sm font-body leading-relaxed mb-4">
+                {l.highlights[0]}
+              </p>
+              <span className="inline-flex items-center gap-1.5 text-xk-red font-heading font-semibold text-sm">
+                {l.city} Details
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="rounded-xl overflow-hidden border border-xk-warm-white/10">
+          <iframe
+            title="Xtreme Kleen service area — the Coastal Bend, Texas"
+            src="https://maps.google.com/maps?q=Portland,+TX&z=10&output=embed"
+            className="w-full h-72 md:h-96"
+            style={{ border: 0, filter: "grayscale(35%) contrast(1.05)" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </div>
+    </section>
+  </PageLayout>
+);
+
+export default ServiceAreasHub;

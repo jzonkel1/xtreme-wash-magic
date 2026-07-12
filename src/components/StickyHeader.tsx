@@ -1,13 +1,41 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 import { Phone, Menu, X } from "lucide-react";
 
-const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Our Work", href: "#work" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#quote" },
+// Home-section anchors need the base path so they resolve from subpages too
+// (GitHub Pages serves the site from /xtreme-wash-magic/, not the domain root).
+const home = (hash: string) => `${import.meta.env.BASE_URL}${hash}`;
+
+const navLinks: Array<{ label: string; to?: string; href?: string }> = [
+  { label: "Services", to: "/services" },
+  { label: "Service Areas", to: "/service-areas" },
+  { label: "Our Work", href: home("#work") },
+  { label: "Reviews", href: home("#reviews") },
+  { label: "Contact", href: "#quote" }, // every page renders a #quote form
 ];
+
+const linkClass =
+  "text-xk-warm-white/70 hover:text-xk-warm-white font-body text-sm font-medium transition-colors";
+
+const NavItem = ({
+  link,
+  className,
+  onClick,
+}: {
+  link: (typeof navLinks)[number];
+  className: string;
+  onClick?: () => void;
+}) =>
+  link.to ? (
+    <Link to={link.to} className={className} onClick={onClick}>
+      {link.label}
+    </Link>
+  ) : (
+    <a href={link.href} className={className} onClick={onClick}>
+      {link.label}
+    </a>
+  );
 
 const StickyHeader = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,19 +54,13 @@ const StickyHeader = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        <a href="#top" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Xtreme Kleen" className="h-10 md:h-11 rounded" />
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-xk-warm-white/70 hover:text-xk-warm-white font-body text-sm font-medium transition-colors"
-            >
-              {link.label}
-            </a>
+            <NavItem key={link.label} link={link} className={linkClass} />
           ))}
         </nav>
 
@@ -69,14 +91,12 @@ const StickyHeader = () => {
       {menuOpen && (
         <div className="md:hidden bg-xk-charcoal border-t border-xk-warm-white/10 px-4 py-4 space-y-3">
           {navLinks.map((link) => (
-            <a
+            <NavItem
               key={link.label}
-              href={link.href}
+              link={link}
+              className={`block ${linkClass}`}
               onClick={() => setMenuOpen(false)}
-              className="block text-xk-warm-white/70 hover:text-xk-warm-white font-body text-sm font-medium transition-colors"
-            >
-              {link.label}
-            </a>
+            />
           ))}
           <a
             href="tel:3619477811"

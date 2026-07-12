@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { services } from "@/data";
 import { HandDrawnIcon } from "@/components/icons/HandDrawn";
 
@@ -19,7 +21,8 @@ const ServicesGrid = () => (
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((s) => (
-          <div
+          <Link
+            to={`/services/${s.slug}`}
             key={s.title}
             className="group relative bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl overflow-hidden hover:border-xk-red/50 hover:bg-xk-light-gray/60 transition-all duration-300"
           >
@@ -43,11 +46,15 @@ const ServicesGrid = () => (
               <h3 className="font-display uppercase text-xk-warm-white text-xl mb-2.5 tracking-tight">
                 {s.title}
               </h3>
-              <p className="text-xk-warm-white/60 text-sm font-body leading-relaxed">
+              <p className="text-xk-warm-white/60 text-sm font-body leading-relaxed mb-4">
                 {s.desc}
               </p>
+              <span className="inline-flex items-center gap-1.5 text-xk-red font-heading font-semibold text-sm">
+                Details, FAQs & Pricing Info
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

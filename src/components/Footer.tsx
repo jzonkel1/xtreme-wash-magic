@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { business, services, serviceAreas } from "@/data";
+import { business, services } from "@/data";
+import { locationsContent } from "@/content/locations";
 
 const Footer = () => (
   <footer className="bg-xk-steel border-t border-xk-warm-white/10 pt-14 pb-6">
@@ -21,7 +23,11 @@ const Footer = () => (
           </h4>
           <ul className="space-y-2.5 text-xk-warm-white/50 font-body text-sm">
             {services.map((s) => (
-              <li key={s.title}>{s.title}</li>
+              <li key={s.title}>
+                <Link to={`/services/${s.slug}`} className="hover:text-xk-warm-white transition-colors">
+                  {s.title}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
@@ -31,7 +37,21 @@ const Footer = () => (
             Service Area
           </h4>
           <p className="text-xk-warm-white/50 font-body text-sm leading-relaxed">
-            {serviceAreas.join(" · ")}
+            {locationsContent.map((l, i) => (
+              <span key={l.slug}>
+                {i > 0 && " · "}
+                <Link
+                  to={`/service-areas/${l.slug}`}
+                  className="hover:text-xk-warm-white transition-colors"
+                >
+                  {l.city}
+                </Link>
+              </span>
+            ))}
+            {" · "}
+            <Link to="/service-areas" className="hover:text-xk-warm-white transition-colors">
+              The Coastal Bend
+            </Link>
           </p>
         </div>
 

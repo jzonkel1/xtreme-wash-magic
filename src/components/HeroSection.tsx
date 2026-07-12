@@ -15,7 +15,9 @@ const HeroSection = () => {
       <div className="absolute inset-0 overflow-hidden">
         {business.heroVideo ? (
           <video
-            className="absolute inset-0 w-full h-full object-cover"
+            // Mobile crops this wide clip to a narrow slice — bias it right so
+            // the wand nozzles stay in frame instead of a wall of mist.
+            className="absolute inset-0 w-full h-full object-cover object-[85%_50%] md:object-center"
             src={business.heroVideo}
             poster={heroBg}
             autoPlay
