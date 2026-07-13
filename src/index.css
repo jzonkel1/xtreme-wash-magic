@@ -130,6 +130,26 @@
   }
 
   /* Faint industrial grid texture for atmospheric depth on dark sections */
+  /**
+   * Hero height. `min-h-screen` (100vh) is WRONG on iOS Safari: 100vh means the
+   * viewport with the address bar and toolbar hidden, so the hero reserves ~844px
+   * on an iPhone 12 while the user can only see ~660px. The result is that the
+   * CTA buttons and trust bar sit below the fold on a real phone even though they
+   * look fine in a desktop browser's device emulator.
+   *
+   * 100svh is the SMALL viewport — the height you can actually see with the
+   * browser chrome showing. vh is kept as a fallback for anything that predates
+   * svh support.
+   */
+  .min-h-hero {
+    min-height: 100vh;
+  }
+  @supports (min-height: 100svh) {
+    .min-h-hero {
+      min-height: 100svh;
+    }
+  }
+
   .tex-grid {
     background-image:
       repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 56px),

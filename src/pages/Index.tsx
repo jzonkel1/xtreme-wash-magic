@@ -35,6 +35,10 @@ const Index = () => (
     <StickyHeader />
     <HeroSection />
     <TrustBar />
+    {/* Video before stills. Motion is the strongest proof a washing company has —
+        a clip of grime actually lifting off beats a static before/after, so the
+        reels lead and the photo gallery backs them up. */}
+    <Reels />
     <PhotoGallery home />
     <PainPoints />
     <Reviews />
@@ -42,7 +46,6 @@ const Index = () => (
     <ServicesGrid />
     <HowItWorks />
     <TeamInAction />
-    <Reels />
     <EquipmentBand />
     <IndustrialSafety />
     <CommercialWork preview />
