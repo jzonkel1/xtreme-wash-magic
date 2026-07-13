@@ -1,15 +1,13 @@
-// Night shot of the rig under the Harbor Bridge.
+// Night shot of the rig under the Harbor Bridge (source: worktruck.jpeg).
 //
-// NOTE: this is an AI-RENDERED image of Eric's truck, so every piece of text in
-// it has to be checked by eye before it ships. Jeffrey re-rendered it to remove
-// the garbled bed-rail lettering, and the render came back with the phone number
-// on the door reading "261-947-2811" — not Eric's number. Both wrong digits were
-// repaired against the real number (361-947-7811); the corrected 7 is the actual
-// 7 cloned out of "947" in the same decal.
+// NOTE: this is an AI-RENDERED image of Eric's truck, so EVERY PIECE OF TEXT IN
+// IT HAS TO BE READ BY EYE BEFORE IT SHIPS. Two earlier renders of this shot
+// went out with the wrong phone number on the door ("561-947-7011", then
+// "261-947-2811"). This version renders the real number — 361-947-7811 — and a
+// clean bed rail, natively.
 //
-// If this image is ever regenerated, ZOOM IN ON THE DOOR AND READ THE PHONE
-// NUMBER before committing it. A wrong number on the client's own truck is worse
-// than any blur.
+// If it is ever regenerated: ZOOM IN ON THE DOOR AND READ THE PHONE NUMBER.
+// A wrong number on the client's own truck is worse than any blur.
 import bridge from "@/assets/hero-bridge-new.webp";
 import { business } from "@/data";
 

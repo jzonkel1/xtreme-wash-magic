@@ -16,6 +16,22 @@ const pub = (p: string) => `${import.meta.env.BASE_URL}${p}`;
 
 export type ServiceFaq = { q: string; a: string };
 
+/** A real job clip shown on a service page. */
+export type ServiceVideo = {
+  src: string;
+  poster: string;
+  title: string;
+  caption: string;
+};
+
+/** reels/<name>.mp4 + reels/<name>-poster.jpg — the pair is always named alike. */
+const reel = (name: string, title: string, caption: string): ServiceVideo => ({
+  src: pub(`reels/${name}.mp4`),
+  poster: pub(`reels/${name}-poster.jpg`),
+  title,
+  caption,
+});
+
 /**
  * A real before/after shot as VIDEO — two clips of the same job, same building,
  * same angle. Only set this where a genuine pair exists; a "before" that isn't
@@ -58,6 +74,12 @@ export type ServiceContent = {
   flipHeroOnDesktop?: boolean;
   /** CSS background-position for the hero photo, when center crops badly. */
   heroPosition?: string;
+  /**
+   * 1–2 real clips of THIS service. Only add a clip that genuinely shows the
+   * work the page is selling — a roof video on the window page is a lie the
+   * visitor can see. Services with no honest clip simply get none.
+   */
+  videos?: ServiceVideo[];
   /** Optional real before/after video pair — only where a genuine one exists. */
   videoPair?: ServiceVideoPair;
 };
@@ -119,6 +141,18 @@ export const servicesContent: ServiceContent[] = [
         a: "Yes. We clean storefront concrete, drive-thrus, dumpster pads, and full commercial flatwork, and we can schedule around your business hours — we're open 24 hours, so overnight and early-morning work is on the table.",
       },
     ],
+    videos: [
+      reel(
+        "equipment",
+        "Hot-Water Surface Cleaning",
+        "A surface cleaner and high-heat water pulling grime out of concrete in one even pass — no wand lines left behind.",
+      ),
+      reel(
+        "softwash",
+        "Scorched Driveway — Truck Fire Cleanup",
+        "Soot and burn staining left on the concrete after a truck burned down, washed back to a clean, even finish.",
+      ),
+    ],
     related: ["soft-washing", "roof-cleaning", "industrial-cleaning"],
   },
   {
@@ -170,6 +204,15 @@ export const servicesContent: ServiceContent[] = [
         q: "My house has never been washed. Is it too far gone?",
         a: "Almost never. Heavy black and green staining looks permanent but it's organic growth, and the chemistry is built for exactly that. The before-and-afters on this site are real local jobs — most of them started as 'too far gone.'",
       },
+    ],
+    // Only ONE clip here: this page already carries the high-reach before/after
+    // PAIR above, so a second job clip would put four videos on one page.
+    videos: [
+      reel(
+        "house-softwash",
+        "Soft Washing a Coastal Home",
+        "Low pressure, right chemistry — the mix does the work while the siding and window seals take nothing.",
+      ),
     ],
     related: ["roof-cleaning", "pressure-washing", "window-cleaning"],
     // Same building, same facade, filmed before and during/after the wash —
@@ -244,6 +287,13 @@ export const servicesContent: ServiceContent[] = [
         a: "No — as long as we have access to the areas we need and we've walked the job with you beforehand, you don't need to be there. Exterior water access and clear communication are all it takes.",
       },
     ],
+    videos: [
+      reel(
+        "roof",
+        "Black Streaks, Gone",
+        "Algae and salt-air staining lifted off the shingles with low pressure and the right chemistry — no wand ever touches the roof.",
+      ),
+    ],
     related: ["soft-washing", "pressure-washing", "window-cleaning"],
   },
   {
@@ -301,6 +351,18 @@ export const servicesContent: ServiceContent[] = [
         a: "Usually, yes. Fresh mineral spotting comes off with the right treatment. Spots that have baked onto glass for years can permanently etch it — we'll tell you on-site what will come off and what won't before any work starts.",
       },
     ],
+    videos: [
+      reel(
+        "window-glass",
+        "Glass, Streak-Free",
+        "Salt haze stripped off the glass — the film comes off instead of getting smeared around.",
+      ),
+      reel(
+        "high-reach",
+        "High-Reach Building Wash",
+        "Boom-lift reach on a multi-story building — the upper-story glass and facade most crews can't get to.",
+      ),
+    ],
     related: ["glass-mirror-cleaning", "soft-washing", "pressure-washing"],
   },
   {
@@ -348,6 +410,13 @@ export const servicesContent: ServiceContent[] = [
         q: "Do you clean interior mirrors and partitions too?",
         a: "Yes. Mirrors, mirror walls, glass partitions, railings, and display cases are all part of the service — anywhere smudged glass shows, we clean it.",
       },
+    ],
+    videos: [
+      reel(
+        "window-glass",
+        "Storefront Glass, Streak-Free",
+        "Salt haze and hand prints stripped off commercial glass — the entrance customers see first.",
+      ),
     ],
     related: ["window-cleaning", "pressure-washing", "soft-washing"],
   },
@@ -401,6 +470,18 @@ export const servicesContent: ServiceContent[] = [
         q: "Can you handle construction site cleanup?",
         a: "Yes. Construction cleanup is an established part of our work — one of our public Google reviews is from a builder who used us for exactly that and reported we showed up on time and did what we said we'd do.",
       },
+    ],
+    videos: [
+      reel(
+        "fin-fan",
+        "Fin Fan & Heat Exchanger Cleaning",
+        "Plant work: pulling packed grime out of an air-cooled heat exchanger without bending a single fin.",
+      ),
+      reel(
+        "mixer-truck",
+        "Washing Down a Concrete Mixer",
+        "Hardened concrete and road film cut off a mixer barrel — fleet work that keeps trucks looking hired, not tired.",
+      ),
     ],
     related: ["pressure-washing", "soft-washing", "glass-mirror-cleaning"],
   },

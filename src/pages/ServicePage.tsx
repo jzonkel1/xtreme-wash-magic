@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 import HeroQuoteForm from "@/components/HeroQuoteForm";
 import FaqSection from "@/components/FaqSection";
 import VideoBeforeAfter from "@/components/VideoBeforeAfter";
+import ServiceVideos from "@/components/ServiceVideos";
 import HowItWorks from "@/components/HowItWorks";
 import Seo from "@/components/Seo";
 import NotFound from "@/pages/NotFound";
@@ -147,6 +148,10 @@ const ServicePage = () => {
       </section>
 
       {service.videoPair && <VideoBeforeAfter pair={service.videoPair} />}
+
+      {service.videos && (
+        <ServiceVideos videos={service.videos} serviceTitle={service.title} />
+      )}
 
       <HowItWorks />
 
