@@ -41,6 +41,14 @@
     --xk-steel: 0 0% 17%;
     --xk-medium-gray: 0 0% 17%;
     --xk-light-gray: 0 0% 25%;
+    /* The gray from the logo tile itself (#747577). Sampled, not invented.
+       It is the ONLY mid-tone in the brand, so it earns a specific job:
+       utility. Red means "this action makes Eric money" (call, quote, book);
+       logo-gray means "this is a tool or a fact" (back-to-top, safety, hours).
+       Keeping them separate is what stops the site reading as red-everywhere. */
+    --xk-logo-gray: 220 2% 46%;
+    --xk-logo-gray-light: 220 3% 60%;
+
     --xk-red: 0 79% 40%;
     --xk-red-glow: 0 79% 50%;
     --xk-red-dark: 0 79% 35%;

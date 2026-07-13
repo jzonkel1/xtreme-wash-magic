@@ -47,8 +47,10 @@ const IndustrialSafety = () => (
         {/* Right — safety program card */}
         <div className="bg-xk-steel/80 border border-xk-warm-white/10 rounded-2xl p-8 md:p-9">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-14 h-14 rounded-xl bg-xk-red/15 border border-xk-red/30 flex items-center justify-center flex-shrink-0">
-              <HandDrawnIcon name="industrial" className="w-8 h-8 text-xk-red" />
+            {/* Safety reads in steel gray, not red. Red is an alarm color; the
+                point of this card is that the program is calm and procedural. */}
+            <div className="w-14 h-14 rounded-xl bg-xk-logo-gray/25 border border-xk-logo-gray-light/40 flex items-center justify-center flex-shrink-0">
+              <HandDrawnIcon name="industrial" className="w-8 h-8 text-xk-logo-gray-light" />
             </div>
             <div>
               <h3 className="font-display uppercase text-2xl text-xk-warm-white tracking-tight leading-none mb-1">
@@ -62,7 +64,7 @@ const IndustrialSafety = () => (
 
           <div className="space-y-4">
             {industrial.safety.map((s) => (
-              <div key={s.title} className="border-l-2 border-xk-red/50 pl-4">
+              <div key={s.title} className="border-l-2 border-xk-logo-gray-light/50 pl-4">
                 <h4 className="font-heading font-bold text-xk-warm-white text-base mb-0.5">
                   {s.title}
                 </h4>

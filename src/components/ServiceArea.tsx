@@ -6,16 +6,17 @@ const ServiceArea = () => (
     <div className="container mx-auto px-4">
       <div className="max-w-4xl mx-auto bg-white border-2 border-xk-red/25 rounded-2xl p-8 md:p-12 shadow-xl">
         <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block text-center mb-3">
-          BASED IN PORTLAND, TEXAS
+          — WHERE WE WORK —
         </span>
         <h2 className="font-display uppercase text-3xl md:text-5xl text-xk-text-dark text-center mb-5 tracking-tight leading-[0.95]">
-          A Coastal Bend Crew
-          <span className="block">That Knows Coastal Grime</span>
+          Based in Portland.
+          <span className="block">Working All Over Texas.</span>
         </h2>
         <p className="text-xk-text-dark/65 text-center max-w-2xl mx-auto mb-9 font-body leading-relaxed">
-          Salt air, humidity, and year-round algae are a different problem than
-          inland dirt — and they come back if they're not treated right. We're
-          local, so we know exactly what the Gulf does to a property.
+          The Coastal Bend is home — salt air, humidity, and year-round algae are
+          a different problem than inland dirt, and we know exactly what the Gulf
+          does to a property. But the trailer doesn't stop at the county line: if
+          the job's worth the drive, we'll take it anywhere in the state.
         </p>
 
         <div className="flex flex-wrap justify-center gap-2.5 mb-10">

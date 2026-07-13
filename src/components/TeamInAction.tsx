@@ -5,12 +5,22 @@ import action4 from "@/assets/action4.webp";
 import truckWash from "@/assets/truck-wash.webp";
 import accessFord from "@/assets/access-ford.webp";
 
+/**
+ * `crop` = object-position for the MOBILE cell only (two-up, so the frame is
+ * narrow and a center crop cuts the sides off). Desktop is wide enough to keep
+ * object-center. The high-reach shot has Eric ~22% in from the left, so a
+ * centered mobile crop hides the whole reason the photo exists.
+ */
 const photos = [
   { src: action1, caption: "Fully loaded rig — ready to roll on site" },
   { src: truckWash, caption: "Washing down a Dura-Haul dump trailer" },
   { src: action2, caption: "Soft washing a coastal condo at sunset" },
   { src: accessFord, caption: "Commercial work — Access Ford, Corpus Christi" },
-  { src: action3, caption: "High-reach commercial building wash" },
+  {
+    src: action3,
+    caption: "High-reach commercial building wash",
+    crop: "object-[28%_center] md:object-center",
+  },
   { src: action4, caption: "Suited up for chemical cleaning" },
 ];
 
@@ -35,7 +45,7 @@ const TeamInAction = () => (
               src={p.src}
               alt={p.caption}
               loading="lazy"
-              className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+              className={`w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105 ${p.crop ?? ""}`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-xk-steel/80 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4">

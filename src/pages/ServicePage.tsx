@@ -50,6 +50,8 @@ const ServicePage = () => {
         title={service.h1}
         sub={service.heroSub}
         photo={service.photo}
+        photoPosition={service.heroPosition}
+        flipPhotoOnDesktop={service.flipHeroOnDesktop}
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Services", path: "/services" },
@@ -89,6 +91,17 @@ const ServicePage = () => {
       {/* Method — why we do it this way */}
       <section className="relative bg-xk-steel py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 tex-grid opacity-20" />
+
+        {/* The service's own hand-drawn icon, blown up and bled off the left edge
+            as a watermark. DESKTOP ONLY and deliberately near-invisible (4%): on
+            a phone there is no empty gutter for it to live in, so it would land
+            behind body copy and just make the text harder to read. */}
+        <HandDrawnIcon
+          name={service.icon}
+          className="hidden lg:block absolute -left-24 top-1/2 -translate-y-1/2 w-[560px] h-[560px] text-xk-warm-white pointer-events-none select-none"
+          style={{ opacity: 0.04 }}
+        />
+
         <div className="relative container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-5xl mx-auto items-center">
             <div className="lg:col-span-3">
@@ -154,21 +167,40 @@ const ServicePage = () => {
           <h2 className="font-display uppercase text-2xl md:text-3xl text-xk-warm-white text-center mb-8 tracking-tight">
             Related Services
           </h2>
+          {/* Same card language as the homepage grid: real job photo, icon badge
+              riding the photo edge, solid panel. These used to be bare icon +
+              text on a translucent tile, which is what made them read as
+              placeholder scaffolding rather than part of the site. */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {related.map((r) => (
               <Link
                 key={r.slug}
                 to={`/services/${r.slug}`}
-                className="group bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl p-6 hover:border-xk-red/50 hover:bg-xk-light-gray/60 transition-all"
+                className="group relative bg-xk-steel border border-xk-warm-white/10 rounded-xl overflow-hidden shadow-lg shadow-black/25 hover:border-xk-red/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 transition-all duration-300"
               >
-                <HandDrawnIcon name={r.icon} className="w-9 h-9 text-xk-red mb-4" />
-                <h3 className="font-display uppercase text-xk-warm-white text-lg mb-2 tracking-tight">
-                  {r.title}
-                </h3>
-                <span className="inline-flex items-center gap-1.5 text-xk-red font-heading font-semibold text-sm">
-                  Learn More
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </span>
+                <div className="h-36 overflow-hidden">
+                  <img
+                    src={r.photo}
+                    alt={r.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-t from-xk-steel/70 via-transparent to-transparent" />
+                </div>
+
+                <div className="absolute left-5 top-36 -translate-y-1/2 w-11 h-11 rounded-lg bg-xk-red flex items-center justify-center shadow-glow-red">
+                  <HandDrawnIcon name={r.icon} className="w-6 h-6 text-xk-warm-white" />
+                </div>
+
+                <div className="px-6 pb-6 pt-9">
+                  <h3 className="font-display uppercase text-xk-warm-white text-lg mb-2 tracking-tight">
+                    {r.title}
+                  </h3>
+                  <span className="inline-flex items-center gap-1.5 text-xk-red font-heading font-semibold text-sm">
+                    Learn More
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

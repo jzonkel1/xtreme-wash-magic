@@ -7,6 +7,8 @@ import houseWashPhoto from "@/assets/action2.webp";
 import buildingWashPhoto from "@/assets/action3.webp";
 import fleetPhoto from "@/assets/truck-wash.webp";
 import drivewayPhoto from "@/assets/concrete-flatwork.webp"; // clean/dirty split on commercial flatwork
+import pressureSprayPhoto from "@/assets/pressure-spray.webp"; // wand in hand, spray fan visible
+import windowsPhoto from "@/assets/windows-arched.webp"; // actual windows, not a house wash
 import roofPhoto from "@/assets/roof-tile.webp";
 import glassPanelsPhoto from "@/assets/glass-panels.webp";
 
@@ -48,6 +50,14 @@ export type ServiceContent = {
   method: { title: string; paragraphs: string[] };
   faqs: ServiceFaq[];
   related: string[];
+  /**
+   * Mirror the hero photo on desktop. Only for photos whose subject sits on the
+   * LEFT, where the headline column and its scrim would otherwise sit right on
+   * top of it. Mobile is never flipped (see PageHero).
+   */
+  flipHeroOnDesktop?: boolean;
+  /** CSS background-position for the hero photo, when center crops badly. */
+  heroPosition?: string;
   /** Optional real before/after video pair — only where a genuine one exists. */
   videoPair?: ServiceVideoPair;
 };
@@ -56,7 +66,9 @@ export const servicesContent: ServiceContent[] = [
   {
     slug: "pressure-washing",
     icon: "pressure",
-    photo: drivewayPhoto,
+    // A wand in hand with the spray fan visible. The old shot was a clean slab —
+    // true to the service, but it showed the RESULT of a job with nobody doing it.
+    photo: pressureSprayPhoto,
     title: "Power & Pressure Washing",
     h1: "Pressure Washing in Portland, TX & the Coastal Bend",
     metaTitle: "Pressure Washing Portland, TX | Driveways & Concrete | Xtreme Kleen",
@@ -162,14 +174,20 @@ export const servicesContent: ServiceContent[] = [
     related: ["roof-cleaning", "pressure-washing", "window-cleaning"],
     // Same building, same facade, filmed before and during/after the wash —
     // a genuine pair, not two unrelated clips staged as one.
+    //
+    // HEADS UP — THE FILENAMES ARE BACKWARDS AND THIS MAPPING IS CORRECT.
+    // "high-reach.mp4" is the DIRTY facade being sprayed  -> that's the BEFORE.
+    // "high-reach-before.mp4" is the CLEAN stone, captioned "Just like that!"
+    //   -> that's the AFTER.
+    // Do not "fix" this to match the file names; check the posters instead.
     videoPair: {
       before: {
-        src: pub("reels/high-reach-before.mp4"),
-        poster: pub("reels/high-reach-before-poster.jpg"),
-      },
-      after: {
         src: pub("reels/high-reach.mp4"),
         poster: pub("reels/high-reach-poster.jpg"),
+      },
+      after: {
+        src: pub("reels/high-reach-before.mp4"),
+        poster: pub("reels/high-reach-before-poster.jpg"),
       },
       title: "High-Reach Building Wash — Before & After",
       caption:
@@ -231,7 +249,12 @@ export const servicesContent: ServiceContent[] = [
   {
     slug: "window-cleaning",
     icon: "window",
-    photo: houseWashPhoto,
+    // Was houseWashPhoto — a HOUSE being soft washed, on the window page.
+    photo: windowsPhoto,
+    // The arched windows sit on the left of the frame, exactly where the desktop
+    // headline and its scrim land. Mirrored on desktop so the glass is visible;
+    // on mobile the scrim is even across the width, so it stays unflipped.
+    flipHeroOnDesktop: true,
     title: "Interior & Exterior Window Cleaning",
     h1: "Window Cleaning in Portland, TX & the Coastal Bend",
     metaTitle: "Window Cleaning Portland, TX | Homes & Commercial | Xtreme Kleen",

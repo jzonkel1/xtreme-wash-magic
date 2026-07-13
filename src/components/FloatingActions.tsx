@@ -23,7 +23,10 @@ const FloatingActions = () => {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Back to top"
-        className={`fixed right-4 bottom-[4.7rem] md:bottom-6 z-40 w-11 h-11 rounded-full bg-xk-steel/90 backdrop-blur-sm border border-xk-warm-white/25 text-xk-warm-white flex items-center justify-center shadow-lg hover:bg-xk-red hover:border-xk-red transition-all duration-300 ${
+        /* Logo-gray, not red. This sits inches from the red call bar on mobile;
+           when both were red the utility control competed with the one button
+           that actually earns money. Gray = tool, red = conversion. */
+        className={`fixed right-4 bottom-[4.7rem] md:bottom-6 z-40 w-11 h-11 rounded-full bg-xk-logo-gray/90 backdrop-blur-sm border border-xk-warm-white/25 text-xk-warm-white flex items-center justify-center shadow-lg hover:bg-xk-logo-gray-light hover:border-xk-warm-white/40 transition-all duration-300 ${
           showTop
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-3 pointer-events-none"

@@ -81,8 +81,14 @@ const LeadCaptureForm = () => (
             </div>
           </div>
 
-          <p className="text-xk-warm-white/40 italic font-body text-sm border-l-2 border-xk-red/40 pl-4 text-left">
-            "Let's get you cleaned up right the first time."
+          {/* Say something only THIS company can say. The old line ("let's get
+              you cleaned up right the first time") is a template sentence that
+              would fit any contractor in any trade. On-site quoting is a real
+              differentiator Eric actually has — so lead with that instead. */}
+          <p className="text-xk-warm-white/45 font-body text-sm border-l-2 border-xk-red/40 pl-4 text-left leading-relaxed">
+            We price the job standing on your property — not guessing at it over
+            the phone. You'll know the number and the method before a hose comes
+            off the trailer.
           </p>
         </div>
 

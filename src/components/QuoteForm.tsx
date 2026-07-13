@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Camera } from "lucide-react";
+import { Camera, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import { submitQuote } from "@/lib/netlifyForms";
 import { business, services } from "@/data";
 
 const serviceTypes = [...services.map((s) => s.title), "Not Sure — Just Quote Me"];
+
+/** Native dropdown menus ignore CSS classes; inline styles are the only lever. */
+const optionStyle = { backgroundColor: "#2b2b2b", color: "#f5f3f0" };
 
 /**
  * The one-screen quote form, shared by the homepage closer and the contact page.
@@ -44,8 +47,12 @@ const QuoteForm = ({ source }: { source: string }) => {
     }
   };
 
+  // text-base (16px) on mobile is NOT a style choice — iOS Safari force-zooms
+  // the whole page when you focus an input whose font-size is under 16px, and
+  // then leaves you zoomed in with the form half off-screen. Shrink to 14px
+  // only from md up, where no iPhone is looking at it.
   const inputClass =
-    "w-full bg-xk-light-gray/80 border border-xk-warm-white/15 text-xk-warm-white px-4 py-3.5 rounded-lg focus:outline-none focus:border-xk-red focus:ring-1 focus:ring-xk-red font-body text-sm placeholder:text-xk-warm-white/35";
+    "w-full bg-xk-light-gray/80 border border-xk-warm-white/15 text-xk-warm-white px-4 py-3.5 rounded-lg focus:outline-none focus:border-xk-red focus:ring-1 focus:ring-xk-red font-body text-base md:text-sm placeholder:text-xk-warm-white/35";
   const labelClass =
     "block text-xk-warm-white/60 text-xs font-heading font-semibold uppercase tracking-wide mb-1.5";
 
@@ -133,19 +140,29 @@ const QuoteForm = ({ source }: { source: string }) => {
             What needs cleaning?{" "}
             <span className="text-xk-warm-white/30 normal-case">— optional</span>
           </label>
-          <select
-            id="qf-service"
-            value={form.service}
-            onChange={(e) => setForm({ ...form, service: e.target.value })}
-            className={inputClass}
-          >
-            <option value="">Select a service</option>
-            {serviceTypes.map((s) => (
-              <option key={s} value={s}>
-                {s}
+          {/* iOS renders a <select> with its own chrome unless appearance is
+              stripped, so ours looked like a different control than the inputs
+              above it. appearance-none + our own chevron makes it match. The
+              <option> colors are set inline because a Tailwind class on <option>
+              is ignored by every browser that draws a native menu. */}
+          <div className="relative">
+            <select
+              id="qf-service"
+              value={form.service}
+              onChange={(e) => setForm({ ...form, service: e.target.value })}
+              className={`${inputClass} appearance-none pr-11 cursor-pointer`}
+            >
+              <option value="" style={optionStyle}>
+                Select a service
               </option>
-            ))}
-          </select>
+              {serviceTypes.map((s) => (
+                <option key={s} value={s} style={optionStyle}>
+                  {s}
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-xk-warm-white/50" />
+          </div>
         </div>
 
         <div>

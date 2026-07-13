@@ -29,11 +29,14 @@ const Reviews = () => (
         </span>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      {/* Wrapping flex, NOT a grid. With 5 reviews a 3-col grid strands the last
+          two cards hard-left against an empty third column. Flex + justify-center
+          centers any short final row, whatever the review count ends up being. */}
+      <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
         {reviews.map((r) => (
           <div
             key={r.name}
-            className="bg-xk-light-gray/50 border border-xk-warm-white/10 rounded-xl p-7 flex flex-col relative"
+            className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-xk-light-gray/50 border border-xk-warm-white/10 rounded-xl p-7 flex flex-col relative"
           >
             <Quote className="w-8 h-8 text-xk-red/20 absolute top-5 right-5" />
 

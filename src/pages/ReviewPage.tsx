@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
 import { submitQuote } from "@/lib/netlifyForms";
 import { business } from "@/data";
+import crewPhoto from "@/assets/crew-thumbs-up.webp";
 
 /**
  * Review gate — COMPLIANT BY CONSTRUCTION.
@@ -44,8 +45,9 @@ const ReviewPage = () => {
     }
   };
 
+  // 16px on mobile or iOS Safari force-zooms the page on focus. See QuoteForm.
   const inputClass =
-    "w-full bg-xk-light-gray/80 border border-xk-warm-white/15 text-xk-warm-white px-4 py-3.5 rounded-lg focus:outline-none focus:border-xk-red focus:ring-1 focus:ring-xk-red font-body text-sm placeholder:text-xk-warm-white/35";
+    "w-full bg-xk-light-gray/80 border border-xk-warm-white/15 text-xk-warm-white px-4 py-3.5 rounded-lg focus:outline-none focus:border-xk-red focus:ring-1 focus:ring-xk-red font-body text-base md:text-sm placeholder:text-xk-warm-white/35";
 
   return (
     <>
@@ -58,6 +60,19 @@ const ReviewPage = () => {
       <StickyHeader />
 
       <main className="relative bg-xk-charcoal pt-28 md:pt-36 pb-20 md:pb-28 overflow-hidden min-h-screen">
+        {/* Photo band behind the headline only, faded to charcoal before the
+            form starts — a full-bleed photo behind input fields is unreadable.
+            The crew grinning after a plant job is the right note to ask for a
+            review on: it's the moment the customer is being asked to remember. */}
+        <div className="absolute inset-x-0 top-0 h-[420px] md:h-[520px]">
+          <img
+            src={crewPhoto}
+            alt="The Xtreme Kleen crew after a heavy-equipment wash"
+            className="w-full h-full object-cover object-[center_35%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-xk-charcoal/85 via-xk-charcoal/85 to-xk-charcoal" />
+        </div>
+
         <div className="absolute inset-0 tex-grid opacity-50" />
         <div
           className="absolute inset-0"

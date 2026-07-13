@@ -8,6 +8,8 @@ import fleetPhoto from "@/assets/truck-wash.webp"; // Dura-Haul trailer washdown
 import drivewayPhoto from "@/assets/concrete-flatwork.webp"; // clean/dirty split, commercial flatwork
 import roofPhoto from "@/assets/roof-tile.webp"; // clean tile roof
 import glassPanelsPhoto from "@/assets/glass-panels.webp"; // mirror-clean glass panels
+import windowsPhoto from "@/assets/windows-arched.webp"; // real windows, not a house wash
+import pressureSprayPhoto from "@/assets/pressure-spray.webp"; // wand in hand, visible spray
 
 // Before/after pairs. before3/7 + after3/7 are the originals; the `ba/` set was
 // recovered from the old xtremekleen.biz gallery (2026-07-12).
@@ -31,6 +33,17 @@ import blueTruckAfter from "@/assets/ba/blue-truck-after.webp";
 // above, washed chassis below); split back into a real pair.
 import redTruckBefore from "@/assets/ba/red-truck-before.webp";
 import redTruckAfter from "@/assets/ba/red-truck-after.webp";
+// Second wave, pulled from the same gallery (2026-07-13).
+import brickGableBefore from "@/assets/ba/brick-gable-before.webp";
+import brickGableAfter from "@/assets/ba/brick-gable-after.webp";
+import brickRanchBefore from "@/assets/ba/brick-ranch-before.webp";
+import brickRanchAfter from "@/assets/ba/brick-ranch-after.webp";
+import condoBefore from "@/assets/ba/condo-complex-before.webp";
+import condoAfter from "@/assets/ba/condo-complex-after.webp";
+import beachHouseBefore from "@/assets/ba/beach-house-before.webp";
+import beachHouseAfter from "@/assets/ba/beach-house-after.webp";
+import stuccoBefore from "@/assets/ba/stucco-wall-before.webp";
+import stuccoAfter from "@/assets/ba/stucco-wall-after.webp";
 
 // Commercial job photos — Xtreme Kleen's own rig on the client's site — plus
 // each client's own logo (pulled from their site; shown on a white chip so the
@@ -59,10 +72,15 @@ const pub = (p: string) => `${import.meta.env.BASE_URL}${p}`;
  */
 export const beforeAfters = [
   {
-    before: before3,
-    after: after3,
+    // CORRECTED 2026-07-13. This pair used to be before3 (the FRONT elevation,
+    // with a ladder against it) paired with after3 (the GABLE END). Same house,
+    // but two different walls — which is not a before/after, it's a bait and
+    // switch. brick-gable-before is the true before of that gable: same wall,
+    // same angle, streaked with algae.
+    before: brickGableBefore,
+    after: brickGableAfter,
     label: "Brick House — Soft Wash",
-    sub: "Gulf grime and algae pulled off brick without touching the mortar.",
+    sub: "Years of algae streaking off the gable end — same wall, same angle, no pressure on the mortar.",
     home: true,
   },
   {
@@ -115,6 +133,30 @@ export const beforeAfters = [
     after: trailerAfter,
     label: "Dump Trailer — Fleet Wash",
     sub: "Caked-in debris washed out of a working dump trailer, inside and out.",
+  },
+  {
+    before: brickRanchBefore,
+    after: brickRanchAfter,
+    label: "Brick Ranch — House & Patio",
+    sub: "Brick brightened and the patio slab taken back to clean concrete in one visit.",
+  },
+  {
+    before: condoBefore,
+    after: condoAfter,
+    label: "Condo Complex — Soft Wash",
+    sub: "Green-stained stucco across a multi-unit building, washed back to cream.",
+  },
+  {
+    before: beachHouseBefore,
+    after: beachHouseAfter,
+    label: "Coastal Beach House — Soft Wash",
+    sub: "Algae had gone the siding green-yellow. Soft washed back to the color it was painted.",
+  },
+  {
+    before: stuccoBefore,
+    after: stuccoAfter,
+    label: "Stucco Wall — Stain Removal",
+    sub: "Rust bleed and dirt streaks pulled off stucco without etching the finish.",
   },
 ];
 
@@ -173,7 +215,18 @@ export const travel = {
  * of a different property — an unverifiable "job photo" is worse than a name.
  * Ask Eric for photos (and a confirmed city) for the name-only entries.
  */
-export const commercialJobs = [
+export type CommercialJob = {
+  name: string;
+  type: string;
+  location: string;
+  blurb: string;
+  photo: string | null;
+  logo: string | null;
+  /** Show this one in the homepage preview (see CommercialWork.tsx). */
+  preview?: boolean;
+};
+
+export const commercialJobs: CommercialJob[] = [
   {
     name: "Doc's Seafood & Steaks",
     type: "Restaurant",
@@ -182,6 +235,7 @@ export const commercialJobs = [
       "Surface-cleaned the flatwork and exterior at the waterfront restaurant under the JFK bridge — a high-traffic parking area taken back to clean concrete.",
     photo: docsPhoto,
     logo: docsLogo,
+    preview: true,
   },
   {
     name: "Grumbles Seafood Co.",
@@ -199,6 +253,7 @@ export const commercialJobs = [
     blurb:
       "Storefront and showroom glass at the Ford dealership off the I-69 access road — the glass a customer walks past on the way to a $70,000 truck, so a streak is not an option.",
     photo: accessFordPhoto,
+    preview: true,
     // No logo chip: the dealership's own signage is right there in the photo,
     // and their site blocks scrapers. A chip would be redundant, and the Ford
     // corporate oval is NOT this client's mark — Ford Motor Co. isn't the client.
@@ -295,7 +350,7 @@ export const services = [
   {
     slug: "pressure-washing",
     icon: "pressure",
-    photo: drivewayPhoto,
+    photo: pressureSprayPhoto,
     title: "Power & Pressure Washing",
     desc: "Driveways, sidewalks, concrete, patios, and commercial flatwork brought back to bare, clean surface.",
   },
@@ -316,16 +371,21 @@ export const services = [
   {
     slug: "window-cleaning",
     icon: "window",
-    photo: houseWashPhoto,
+    photo: windowsPhoto,
     title: "Interior & Exterior Window Cleaning",
-    desc: "Streak-free glass inside and out, from single-story homes to multi-story commercial buildings.",
+    // The two glass services USED to read almost identically. The real axis
+    // between them is WHO BUYS and HOW OFTEN: this one is the whole building's
+    // windows, done once and done properly...
+    desc: "Every window in the building — inside and out, screens, tracks, and sills included, up to multi-story with lift access.",
   },
   {
     slug: "glass-mirror-cleaning",
     icon: "glass",
     photo: glassPanelsPhoto,
     title: "Glass & Mirror Cleaning",
-    desc: "Storefront glass, mirrors, and display windows kept spotless and sales-ready.",
+    // ...and this one is the retail glass a customer sees first, kept clean on
+    // a recurring schedule. Different buyer, different cadence.
+    desc: "Retail glass on a schedule — storefronts, display cases, and mirrors kept sales-ready week after week.",
   },
   {
     slug: "industrial-cleaning",

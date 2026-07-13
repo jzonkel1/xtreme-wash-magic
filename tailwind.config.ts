@@ -52,6 +52,8 @@ export default {
           steel: "hsl(var(--xk-steel))",
           "medium-gray": "hsl(var(--xk-medium-gray))",
           "light-gray": "hsl(var(--xk-light-gray))",
+          "logo-gray": "hsl(var(--xk-logo-gray))",
+          "logo-gray-light": "hsl(var(--xk-logo-gray-light))",
           red: "hsl(var(--xk-red))",
           "red-glow": "hsl(var(--xk-red-glow))",
           "red-dark": "hsl(var(--xk-red-dark))",

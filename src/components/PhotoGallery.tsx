@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Hand } from "lucide-react";
 import { beforeAfters } from "@/data";
 
 /**
@@ -117,8 +118,17 @@ const PhotoGallery = ({ home }: { home?: boolean }) => {
           Real Xtreme Kleen jobs — houses, storefronts, concrete, and plant
           equipment. Same surface, same angle, before and after.
         </p>
-        <p className="text-xk-red text-center text-sm font-heading font-semibold mb-12">
-          Click any photo to see the transformation
+        {/* On a phone this is the whole point of the section — if it reads as a
+            caption, people scroll straight past a wall of "dirty house" photos
+            and never learn they're tappable. So on mobile it's a real button-
+            sized banner; on desktop, where the hover cue does the work, it
+            stays a quiet line. */}
+        <p className="flex items-center justify-center gap-2 mx-auto mb-12 max-w-md text-center font-heading font-bold text-xk-red md:bg-transparent md:border-0 md:p-0 md:text-sm md:font-semibold bg-xk-red/10 border border-xk-red/30 rounded-xl px-5 py-3.5 text-base">
+          <Hand className="w-5 h-5 flex-none md:hidden" />
+          <span className="md:hidden">Tap any photo to see the after</span>
+          <span className="hidden md:inline">
+            Click any photo to see the transformation
+          </span>
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">

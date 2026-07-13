@@ -7,9 +7,11 @@ import { locationsContent } from "@/content/locations";
 const Footer = () => (
   <footer className="bg-xk-steel border-t border-xk-warm-white/10 pt-14 pb-6">
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      {/* Center-aligned on mobile, left-aligned from md up. A left-aligned
+          column stack reads as "desktop squeezed" on a phone. */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12 text-center md:text-left">
         <div className="md:col-span-1">
-          <img src={logo} alt={business.brand} className="h-12 mb-5 rounded" />
+          <img src={logo} alt={business.brand} className="h-12 mb-5 rounded mx-auto md:mx-0" />
           <p className="text-xk-warm-white/50 font-body text-sm leading-relaxed">
             Soft wash, pressure washing, roof and window cleaning based in
             Portland, Texas — serving homes, businesses, and job sites across the
@@ -73,22 +75,23 @@ const Footer = () => (
           <div className="space-y-4">
             <a
               href={business.phoneHref}
-              className="flex items-center gap-3 text-xk-warm-white/60 font-body text-sm hover:text-xk-red transition-colors"
+              className="flex items-center justify-center md:justify-start gap-3 text-xk-warm-white/60 font-body text-sm hover:text-xk-red transition-colors"
             >
               <Phone className="w-4 h-4 text-xk-red flex-shrink-0" /> {business.phone}
             </a>
             <a
               href={`mailto:${business.email}`}
-              className="flex items-start gap-3 text-xk-warm-white/60 font-body text-sm hover:text-xk-red transition-colors break-all"
+              className="flex items-start justify-center md:justify-start gap-3 text-xk-warm-white/60 font-body text-sm hover:text-xk-red transition-colors break-all"
             >
               <Mail className="w-4 h-4 text-xk-red flex-shrink-0 mt-0.5" />
               {business.email}
             </a>
-            <div className="flex items-center gap-3 text-xk-warm-white/50 font-body text-sm">
-              <Clock className="w-4 h-4 text-xk-red flex-shrink-0" /> {business.hours}
+            {/* Hours and location are facts, not actions — logo-gray, not red. */}
+            <div className="flex items-center justify-center md:justify-start gap-3 text-xk-warm-white/50 font-body text-sm">
+              <Clock className="w-4 h-4 text-xk-logo-gray-light flex-shrink-0" /> {business.hours}
             </div>
-            <div className="flex items-center gap-3 text-xk-warm-white/50 font-body text-sm">
-              <MapPin className="w-4 h-4 text-xk-red flex-shrink-0" /> {business.primaryCity}
+            <div className="flex items-center justify-center md:justify-start gap-3 text-xk-warm-white/50 font-body text-sm">
+              <MapPin className="w-4 h-4 text-xk-logo-gray-light flex-shrink-0" /> {business.primaryCity}
             </div>
           </div>
         </div>
@@ -112,6 +115,21 @@ const Footer = () => (
         <p className="text-xk-warm-white/30 font-body text-xs">
           © {new Date().getFullYear()} {business.legalName} · dba {business.brand}.
           All rights reserved. {business.tagline}.
+        </p>
+
+        {/* Zonkel credit. Deliberately the quietest thing on the page: /20 gray,
+            no red, no logo, brightening only on hover. It's a signature, not an
+            ad — this is the client's site, not ours. */}
+        <p className="mt-3 font-body text-[11px] text-xk-warm-white/20">
+          Site by{" "}
+          <a
+            href="https://zonkelmedia.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-xk-warm-white/50 transition-colors underline-offset-2 hover:underline"
+          >
+            Zonkel Media
+          </a>
         </p>
       </div>
     </div>

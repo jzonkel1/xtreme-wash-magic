@@ -10,7 +10,11 @@ import { commercialJobs, business } from "@/data";
  * client marks are dark-on-transparent and would disappear on our dark theme.
  *
  * Two presentations off one array in data.ts:
- *   preview → homepage: the jobs with photos, then a "see the rest" CTA.
+ *   preview → homepage: the two jobs flagged `preview` in data.ts, then a
+ *             "see the rest" CTA. It is a deliberate pick, not the first two:
+ *             the homepage should show one restaurant and one dealership, so
+ *             the range of work is obvious at a glance. Two restaurants would
+ *             read as "he does restaurants."
  *   full    → /our-work: every job with a photo, then the name-only clients.
  *
  * A client with no job photo is NEVER given a stand-in image. Eric's word is
@@ -78,7 +82,7 @@ const Row = ({
 const CommercialWork = ({ preview }: { preview?: boolean }) => {
   const withPhoto = commercialJobs.filter((j) => j.photo);
   const noPhoto = commercialJobs.filter((j) => !j.photo);
-  const rows = preview ? withPhoto.slice(0, 2) : withPhoto;
+  const rows = preview ? withPhoto.filter((j) => j.preview) : withPhoto;
 
   return (
     <section

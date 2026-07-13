@@ -6,7 +6,10 @@ import Seo from "@/components/Seo";
 import { business, travel } from "@/data";
 import { breadcrumbLd } from "@/lib/seo";
 import ericPhoto from "@/assets/eric-owner.webp";
-import bridgePhoto from "@/assets/hero-bridge-new.webp";
+// A REAL photo of the crew in full PPE pressure-washing plant equipment. The
+// old banner here was the AI-rendered bridge shot, which is exactly the wrong
+// note for the one page whose entire job is "these are real people".
+import bannerPhoto from "@/assets/ppe-equipment-wash.webp";
 
 /**
  * About page. Everything here is verifiable: who owns the company, what it
@@ -45,7 +48,7 @@ const AboutPage = () => (
       kicker="WHO YOU'RE HIRING"
       title="The Guy on the Wand Owns the Company"
       sub={`${business.brand} is ${business.owner}'s company — based in ${business.primaryCity}, working the whole Coastal Bend. Houses, storefronts, and plant equipment, cleaned by the people who answer the phone.`}
-      photo={bridgePhoto}
+      photo={bannerPhoto}
       breadcrumbs={[{ name: "Home", path: "/" }, { name: "About" }]}
     />
 

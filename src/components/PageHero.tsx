@@ -7,16 +7,42 @@ type PageHeroProps = {
   title: string;
   sub: string;
   photo?: string;
+  /**
+   * CSS background-position for the banner photo. Portrait shots get cropped to
+   * a thin horizontal band here, and `center` often lands on somebody's chest —
+   * so point it at the part of the frame that matters.
+   */
+  photoPosition?: string;
+  /**
+   * Mirror the photo on DESKTOP only. The headline column sits hard-left with a
+   * heavy scrim over it, so any subject on the left of the frame is buried. On
+   * mobile the scrim covers the whole width evenly, so there's nothing to dodge
+   * and flipping would just be a gratuitous lie about which way the job faced.
+   */
+  flipPhotoOnDesktop?: boolean;
   breadcrumbs: Crumb[];
 };
 
 /** Subpage hero: photo-backed banner in the homepage's visual language. */
-const PageHero = ({ kicker, title, sub, photo, breadcrumbs }: PageHeroProps) => (
+const PageHero = ({
+  kicker,
+  title,
+  sub,
+  photo,
+  photoPosition = "center",
+  flipPhotoOnDesktop,
+  breadcrumbs,
+}: PageHeroProps) => (
   <section className="relative bg-xk-charcoal pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
     {photo && (
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${photo})` }}
+        className={`absolute inset-0 bg-cover ${
+          flipPhotoOnDesktop ? "lg:scale-x-[-1]" : ""
+        }`}
+        style={{
+          backgroundImage: `url(${photo})`,
+          backgroundPosition: photoPosition,
+        }}
       />
     )}
     <div
