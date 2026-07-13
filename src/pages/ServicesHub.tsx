@@ -71,14 +71,23 @@ const ServicesHub = () => (
           ))}
         </div>
 
-        <div className="max-w-3xl mx-auto mt-14 flex items-start gap-4 bg-xk-steel/70 border border-xk-warm-white/10 rounded-xl p-6">
+        {/* Mobile: stack and center. Left-aligned ragged text in a narrow column
+            next to an icon squeezes the last line so the phone number breaks
+            across two lines. Centered + nowrap keeps the number in one piece. */}
+        <div className="max-w-3xl mx-auto mt-14 flex flex-col items-center text-center gap-4 sm:flex-row sm:items-start sm:text-left bg-xk-steel/70 border border-xk-warm-white/10 rounded-xl p-6">
           <ShieldCheck className="w-8 h-8 text-xk-red flex-shrink-0" />
           <p className="text-xk-warm-white/70 font-body text-sm leading-relaxed">
             <span className="text-xk-warm-white font-semibold">Not sure which service your property needs?</span>{" "}
             That's what the free on-site quote is for. We look at the surfaces, tell you what
             actually needs cleaning and what doesn't, and give you a straight price — no phone
             guessing, no upsell theater. Call or text{" "}
-            <a href="tel:3619477811" className="text-xk-red font-semibold hover:underline">361-947-7811</a>.
+            <a
+              href="tel:3619477811"
+              className="text-xk-red font-semibold hover:underline whitespace-nowrap"
+            >
+              361-947-7811
+            </a>
+            .
           </p>
         </div>
       </div>

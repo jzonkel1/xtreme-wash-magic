@@ -23,6 +23,16 @@ import { business, services } from "@/data";
  * `source` records which page it came from, so Eric can see which service and
  * which city actually produce leads.
  */
+/**
+ * Residential / Commercial / Industrial. This is a TAP, so it costs the visitor
+ * nothing — and it's the single most useful field for GoHighLevel, because those
+ * three are different pipelines with different follow-up. Email is deliberately
+ * NOT here: it's the field people abandon on, and GHL only needs a phone number
+ * to create the contact and start an SMS sequence. The full form below the fold
+ * still collects email from anyone who gets that far.
+ */
+const PROPERTY_TYPES = ["Residential", "Commercial", "Industrial"];
+
 const HeroQuoteForm = ({
   source,
   defaultService,
@@ -35,6 +45,7 @@ const HeroQuoteForm = ({
   defaultCity?: string;
 }) => {
   const [service, setService] = useState(defaultService ?? "");
+  const [propertyType, setPropertyType] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -52,6 +63,7 @@ const HeroQuoteForm = ({
         name,
         phone,
         service,
+        propertyType,
         city: defaultCity ?? "",
         source,
       });
@@ -120,6 +132,30 @@ const HeroQuoteForm = ({
               }`}
             >
               {s.title}
+            </button>
+          );
+        })}
+      </div>
+
+      <span className="block text-xk-warm-white/60 text-xs font-heading font-semibold uppercase tracking-wide mb-2">
+        Property type
+      </span>
+      <div className="flex flex-wrap gap-2 mb-5">
+        {PROPERTY_TYPES.map((t) => {
+          const active = propertyType === t;
+          return (
+            <button
+              key={t}
+              type="button"
+              onClick={() => setPropertyType(active ? "" : t)}
+              aria-pressed={active}
+              className={`flex-1 min-w-[100px] font-heading font-semibold text-xs px-3 py-2 rounded-lg border transition-colors ${
+                active
+                  ? "bg-xk-red border-xk-red text-xk-warm-white"
+                  : "bg-xk-charcoal/70 border-xk-warm-white/15 text-xk-warm-white/70 hover:border-xk-red/60 hover:text-xk-warm-white"
+              }`}
+            >
+              {t}
             </button>
           );
         })}

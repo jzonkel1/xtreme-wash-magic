@@ -16,6 +16,15 @@ const navLinks: Array<{ label: string; to?: string; href?: string }> = [
 const linkClass =
   "text-xk-warm-white/70 hover:text-xk-warm-white font-body text-sm font-medium transition-colors";
 
+/**
+ * Every row in the mobile menu uses this so the spacing is even. The two rows
+ * with a dropdown (Services, Service Areas) carry a chevron BUTTON, and the
+ * button's padding used to make those rows taller than the plain links — which
+ * read as extra gaps around them. Fixed row height on all rows, and the chevron
+ * is padded less than the row so it can't inflate it.
+ */
+const mobileRowClass = "flex items-center justify-between min-h-[2.25rem]";
+
 type FlyoutItem = { to: string; label: string; icon?: string };
 
 /**
@@ -141,7 +150,7 @@ const MobileGroup = ({
   footnote?: string;
 }) => (
   <div>
-    <div className="flex items-center justify-between">
+    <div className={mobileRowClass}>
       <Link to={to} className={`block ${linkClass}`} onClick={onNavigate}>
         {label}
       </Link>
@@ -149,7 +158,7 @@ const MobileGroup = ({
         onClick={onToggle}
         aria-label={`${open ? "Collapse" : "Expand"} ${label}`}
         aria-expanded={open}
-        className="text-xk-warm-white/60 p-2 -mr-2"
+        className="text-xk-warm-white/60 p-1 -mr-1"
       >
         <ChevronDown
           className={`w-4 h-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
@@ -258,7 +267,7 @@ const StickyHeader = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-xk-charcoal border-t border-xk-warm-white/10 px-4 py-4 space-y-3 max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div className="md:hidden bg-xk-charcoal border-t border-xk-warm-white/10 px-4 py-3 space-y-1 max-h-[calc(100vh-5rem)] overflow-y-auto">
           {/* Hover is meaningless on touch — the sub-lists expand inline instead. */}
           <MobileGroup
             label="Services"
@@ -286,16 +295,13 @@ const StickyHeader = () => {
             onNavigate={close}
           />
           {navLinks.map((link) => (
-            <NavItem
-              key={link.label}
-              link={link}
-              className={`block ${linkClass}`}
-              onClick={close}
-            />
+            <div key={link.label} className={mobileRowClass}>
+              <NavItem link={link} className={`block ${linkClass}`} onClick={close} />
+            </div>
           ))}
           <a
             href="tel:3619477811"
-            className="flex items-center gap-2 text-xk-red font-heading font-bold text-sm"
+            className="flex items-center gap-2 text-xk-red font-heading font-bold text-sm min-h-[2.25rem] pt-1"
           >
             <Phone className="w-4 h-4" />
             361-947-7811
