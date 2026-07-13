@@ -65,6 +65,7 @@ import unitedRentalsLogo from "@/assets/commercial/united-rentals-logo.png";
 // that the logos sit straight on the dark card. (It had been recoloured dark to
 // survive the old white chip; that chip is gone.)
 import fishermansWharfLogo from "@/assets/commercial/fishermans-wharf-logo.svg";
+import fishermansWharfPhoto from "@/assets/commercial/fishermans-wharf.webp";
 
 // Public-folder assets must respect Vite's base path (GitHub Pages serves the
 // site from /xtreme-wash-magic/, not the domain root).
@@ -277,7 +278,16 @@ export const commercialJobs: CommercialJob[] = [
     // corporate oval is NOT this client's mark — Ford Motor Co. isn't the client.
     logo: null,
   },
-  // TODO(Eric): these three are confirmed clients but we don't have job photos
+  {
+    name: "Fisherman's Wharf",
+    type: "Marina & charters",
+    location: "Port Aransas, TX",
+    blurb:
+      "Weathered dock boards washed down at the Port Aransas landing — worked at night with the charter boats still in their slips, so the wharf never missed a morning run.",
+    photo: fishermansWharfPhoto,
+    logo: fishermansWharfLogo,
+  },
+  // TODO(Eric): these two are confirmed clients but we don't have job photos
   // or a description of the actual scope from him yet. They render as name +
   // logo only. Do NOT write a blurb describing work we're guessing at — get the
   // real scope (and a photo) from Eric, then promote them to full rows above.
@@ -288,14 +298,6 @@ export const commercialJobs: CommercialJob[] = [
     blurb: "",
     photo: null,
     logo: unitedRentalsLogo,
-  },
-  {
-    name: "Fisherman's Wharf",
-    type: "Marina & charters",
-    location: "Port Aransas, TX",
-    blurb: "",
-    photo: null,
-    logo: fishermansWharfLogo,
   },
   {
     name: "Coast Materials Inc.",
