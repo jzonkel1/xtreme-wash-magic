@@ -97,6 +97,9 @@ const FlipCard = ({
  * `home` shows only the pairs flagged `home: true` in data.ts (a deliberate
  * pick, not the first N — so reordering the list can't quietly change what the
  * homepage leads with). /our-work passes nothing and gets every pair.
+ *
+ * Keep the homepage count EVEN. The grid is two-up on desktop, so an odd count
+ * leaves a lone card stranded in the last row and the section reads lopsided.
  */
 const PhotoGallery = ({ home }: { home?: boolean }) => {
   const shown = home ? beforeAfters.filter((p) => p.home) : beforeAfters;

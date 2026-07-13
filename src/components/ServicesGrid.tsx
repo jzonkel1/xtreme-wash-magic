@@ -24,7 +24,11 @@ const ServicesGrid = () => (
           <Link
             to={`/services/${s.slug}`}
             key={s.title}
-            className="group relative bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl overflow-hidden hover:border-xk-red/50 hover:bg-xk-light-gray/60 transition-all duration-300"
+            /* Solid + DARKER than the charcoal section behind them. They were
+               translucent (light-gray/40), which let the grid texture show
+               through the card and made them read as flat overlays instead of
+               objects. Opaque and recessed = premium. */
+            className="group relative bg-xk-steel border border-xk-warm-white/10 rounded-xl overflow-hidden shadow-lg shadow-black/25 hover:border-xk-red/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 transition-all duration-300"
           >
             {/* Real job photo */}
             <div className="h-44 overflow-hidden">

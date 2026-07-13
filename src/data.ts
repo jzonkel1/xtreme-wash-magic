@@ -35,6 +35,7 @@ import redTruckAfter from "@/assets/ba/red-truck-after.webp";
 // Commercial job photos — Xtreme Kleen's own rig on the client's site — plus
 // each client's own logo (pulled from their site; shown on a white chip so the
 // dark-text marks stay legible on our dark background).
+import accessFordPhoto from "@/assets/access-ford.webp";
 import docsPhoto from "@/assets/commercial/docs-seafood.webp";
 import grumblesPhoto from "@/assets/commercial/grumbles-seafood.webp";
 import docsLogo from "@/assets/commercial/docs-logo.webp";
@@ -101,6 +102,7 @@ export const beforeAfters = [
     after: after7,
     label: "Driveway — Pressure Wash",
     sub: "Oil-stained concrete taken back to an even, bare surface.",
+    home: true,
   },
   {
     before: churchBefore,
@@ -189,6 +191,18 @@ export const commercialJobs = [
       "Stamped-concrete patio and building exterior washed at the Tarpon Street seafood house — worked at night, so the doors never had to close.",
     photo: grumblesPhoto,
     logo: grumblesLogo,
+  },
+  {
+    name: "Access Ford",
+    type: "Auto dealership",
+    location: "Corpus Christi, TX",
+    blurb:
+      "Storefront and showroom glass at the Ford dealership off the I-69 access road — the glass a customer walks past on the way to a $70,000 truck, so a streak is not an option.",
+    photo: accessFordPhoto,
+    // No logo chip: the dealership's own signage is right there in the photo,
+    // and their site blocks scrapers. A chip would be redundant, and the Ford
+    // corporate oval is NOT this client's mark — Ford Motor Co. isn't the client.
+    logo: null,
   },
   // TODO(Eric): these three are confirmed clients but we don't have job photos
   // or a description of the actual scope from him yet. They render as name +
