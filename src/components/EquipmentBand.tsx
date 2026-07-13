@@ -14,11 +14,20 @@ import { business } from "@/data";
 /** Full-bleed cinematic band — real branded rigs under the Harbor Bridge. */
 const EquipmentBand = () => (
   <section className="relative">
-    <div className="relative md:h-[520px] overflow-hidden">
+    {/* The photo is 16:9 and the truck sits in the BOTTOM third of it. A fixed
+        520px band therefore centre-cropped straight through the wheels on any
+        wide screen — you got the bridge and the roof of the cab and nothing
+        else. Holding the band at 16:9 means the entire frame shows (bridge AND
+        rig) at every width up to ~1560px, which is most desktops. The max-h only
+        bites above that, and the 85% vertical anchor spends the crop on the sky
+        rather than the truck. */}
+    <div className="relative md:aspect-video md:max-h-[880px] overflow-hidden">
       <img
         src={bridge}
         alt="Xtreme Kleen truck and pressure-washing rig under the Corpus Christi Harbor Bridge at night"
-        className="absolute inset-0 w-full h-full object-cover"
+        // Mobile crops this wide shot to a near-portrait slice — bias right so
+        // it lands on the cab and the door decal instead of the trailer tank.
+        className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-[center_85%]"
         loading="lazy"
       />
       {/* Mobile: text spans the full width, so darken the whole image evenly */}
@@ -29,12 +38,15 @@ const EquipmentBand = () => (
             "linear-gradient(180deg, rgba(15,13,12,0.88) 0%, rgba(15,13,12,0.78) 55%, rgba(15,13,12,0.88) 100%)",
         }}
       />
-      {/* Desktop: dark on the text side, let the rig glow on the right */}
+      {/* Desktop: heavy shadow on the text side, then let go entirely so the rig
+          keeps its own light. The falloff is slow through the left half (the
+          headline needs a solid black bed to sit on) and fast after 55%, which
+          is roughly where the trailer starts. */}
       <div
         className="absolute inset-0 hidden md:block"
         style={{
           background:
-            "linear-gradient(90deg, rgba(15,13,12,0.92) 0%, rgba(15,13,12,0.6) 42%, rgba(15,13,12,0.25) 70%, rgba(15,13,12,0.35) 100%)",
+            "linear-gradient(90deg, rgba(12,10,10,0.97) 0%, rgba(12,10,10,0.93) 20%, rgba(13,11,10,0.78) 40%, rgba(15,13,12,0.42) 58%, rgba(15,13,12,0.18) 74%, rgba(15,13,12,0.3) 100%)",
         }}
       />
 

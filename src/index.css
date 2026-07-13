@@ -41,6 +41,11 @@
     --xk-steel: 0 0% 17%;
     --xk-medium-gray: 0 0% 17%;
     --xk-light-gray: 0 0% 25%;
+    /* The darkest surface. steel and medium-gray are the SAME 17% under two
+       names, so any two sections using them butt together as one undifferentiated
+       slab — which is exactly what happened where Reviews met Solution. ink is a
+       genuine step down, so a section sitting on it reads as a new plane. */
+    --xk-ink: 0 0% 11%;
     /* The gray from the logo tile itself (#747577). Sampled, not invented.
        It is the ONLY mid-tone in the brand, so it earns a specific job:
        utility. Red means "this action makes Eric money" (call, quote, book);

@@ -1,10 +1,25 @@
 import { useState } from "react";
-import { Camera, ChevronDown } from "lucide-react";
+import { Camera, ChevronDown, Phone, MessageSquare, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { submitQuote } from "@/lib/netlifyForms";
 import { business, services } from "@/data";
 
 const serviceTypes = [...services.map((s) => s.title), "Not Sure — Just Quote Me"];
+
+/**
+ * Contact preference. This used to be "Reach me by:" followed by three inline
+ * radio buttons on one wrapping line — which on a 390px iPhone ran out of room
+ * and dropped "Email" onto a second line by itself, so the control looked broken.
+ * A fixed 3-up grid can't wrap, and the icons let each tile stay narrow enough
+ * that the row fits comfortably. Radios (visually hidden) still back it, so the
+ * keyboard, screen readers, and the Netlify/GHL payload all behave exactly as
+ * they did before.
+ */
+const CONTACT_METHODS = [
+  { value: "call", label: "Call", icon: Phone },
+  { value: "text", label: "Text", icon: MessageSquare },
+  { value: "email", label: "Email", icon: Mail },
+];
 
 /** Native dropdown menus ignore CSS classes; inline styles are the only lever. */
 const optionStyle = { backgroundColor: "#2b2b2b", color: "#f5f3f0" };
@@ -197,21 +212,34 @@ const QuoteForm = ({ source }: { source: string }) => {
           />
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xk-warm-white font-body text-sm">
-          <span className="text-xk-warm-white/50">Reach me by:</span>
-          {["call", "text", "email"].map((c) => (
-            <label key={c} className="flex items-center gap-1.5 cursor-pointer">
-              <input
-                type="radio"
-                name="contact"
-                value={c}
-                checked={form.contact === c}
-                onChange={(e) => setForm({ ...form, contact: e.target.value })}
-                className="accent-xk-red"
-              />
-              {c.charAt(0).toUpperCase() + c.slice(1)}
-            </label>
-          ))}
+        <div className="pt-1">
+          <span className={labelClass}>Reach me by</span>
+          <div role="radiogroup" aria-label="Preferred contact method" className="grid grid-cols-3 gap-2">
+            {CONTACT_METHODS.map(({ value, label, icon: Icon }) => {
+              const active = form.contact === value;
+              return (
+                <label
+                  key={value}
+                  className={`flex items-center justify-center gap-2 py-3 rounded-lg border cursor-pointer transition-colors font-heading font-semibold text-sm ${
+                    active
+                      ? "bg-xk-red border-xk-red text-xk-warm-white shadow-glow-red"
+                      : "bg-xk-light-gray/80 border-xk-warm-white/15 text-xk-warm-white/65 hover:border-xk-warm-white/35 hover:text-xk-warm-white"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="contact"
+                    value={value}
+                    checked={active}
+                    onChange={(e) => setForm({ ...form, contact: e.target.value })}
+                    className="sr-only"
+                  />
+                  <Icon className="w-4 h-4 flex-shrink-0" />
+                  {label}
+                </label>
+              );
+            })}
+          </div>
         </div>
 
         <button

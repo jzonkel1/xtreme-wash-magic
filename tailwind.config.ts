@@ -50,6 +50,7 @@ export default {
         xk: {
           charcoal: "hsl(var(--xk-charcoal))",
           steel: "hsl(var(--xk-steel))",
+          ink: "hsl(var(--xk-ink))",
           "medium-gray": "hsl(var(--xk-medium-gray))",
           "light-gray": "hsl(var(--xk-light-gray))",
           "logo-gray": "hsl(var(--xk-logo-gray))",

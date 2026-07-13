@@ -499,19 +499,22 @@ export const reels = [
     caption:
       "Hardened concrete and road film cut off a mixer barrel — fleet work that keeps trucks looking hired, not tired.",
   },
-  {
-    src: pub("reels/high-reach.mp4"),
-    poster: pub("reels/high-reach-poster.jpg"),
-    title: "High-Reach Building Wash",
-    caption:
-      "Boom-lift reach on a commercial building — the upper stories most crews can't get to.",
-  },
+  // Deck sits on the first page (the four slides desktop shows without an arrow
+  // click) and high-reach moves back. Deck is a service a homeowner can picture
+  // wanting; boom-lift work reads as "that's for a commercial building, not me".
   {
     src: pub("reels/wood-deck.mp4"),
     poster: pub("reels/wood-deck-poster.jpg"),
     title: "Deck & Wood Cleaning",
     caption:
       "Graying, algae-fed decking washed back to clean wood — pressure dialed down so the boards don't fuzz.",
+  },
+  {
+    src: pub("reels/high-reach.mp4"),
+    poster: pub("reels/high-reach-poster.jpg"),
+    title: "High-Reach Building Wash",
+    caption:
+      "Boom-lift reach on a commercial building — the upper stories most crews can't get to.",
   },
   {
     src: pub("reels/brick-wall.mp4"),
