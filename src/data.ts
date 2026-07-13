@@ -139,8 +139,8 @@ export const beforeAfters = [
   {
     before: trailerBefore,
     after: trailerAfter,
-    label: "Dump Trailer — Fleet Wash",
-    sub: "Caked-in debris washed out of a working dump trailer, inside and out.",
+    label: "Vet Clinic Cattle Chute — Wash-Out",
+    sub: "Manure and caked buildup washed out of the working pens and squeeze chute.",
   },
   {
     before: brickRanchBefore,
