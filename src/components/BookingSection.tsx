@@ -38,6 +38,19 @@ const steps = [
  *
  * The min-height is a floor for the moment before the resizer reports in; GHL
  * sets the true height as an inline style, which outranks a class.
+ *
+ * WIDTH IS WHY THIS THING FEELS HUGE. The widget has a hard layout breakpoint at
+ * an iframe width of 1024px. Measured, by watching what height it reports:
+ *
+ *     760px -> 1109px tall     (stacked: info block, then calendar, then times)
+ *     900px -> 1109px tall     (still stacked)
+ *    1024px ->  830px tall     (two-pane: info left, calendar + times right)
+ *    1180px ->  830px tall
+ *
+ * So every pixel of width under 1024 costs ~280px of height. That's why this sits
+ * in its own 1120px wrapper OUTSIDE the section's `container` — the container caps
+ * at 1024px on lg screens, which (minus padding) would leave the iframe just under
+ * the line and silently hand us the tall layout.
  */
 const BookingCalendar = () => {
   const holderRef = useRef<HTMLDivElement>(null);
@@ -72,7 +85,7 @@ const BookingCalendar = () => {
   return (
     <div
       ref={holderRef}
-      className="bg-xk-charcoal/70 border border-xk-warm-white/10 rounded-xl p-2 md:p-3 max-w-4xl mx-auto"
+      className="bg-xk-charcoal/70 border border-xk-warm-white/10 rounded-xl p-2 md:p-3 max-w-[1120px] mx-auto"
     >
       {mounted ? (
         <iframe
@@ -120,10 +133,9 @@ const BookingSection = () => (
 
         {booking.calendarUrl ? (
           <>
-            {/* The steps run across the top, not down a side column. The calendar
-                needs the full width to render its two-pane layout — squeezed into
-                half a row it collapses to a stacked one that runs ~950px tall. */}
-            <ol className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 mb-12 max-w-4xl mx-auto">
+            {/* The steps run across the top, not down a side column — the calendar
+                needs every pixel of width it can get (see BookingCalendar above). */}
+            <ol className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 max-w-4xl mx-auto">
               {steps.map((s, i) => (
                 <li key={s} className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-xk-red/15 text-xk-red font-heading font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -135,24 +147,6 @@ const BookingSection = () => (
                 </li>
               ))}
             </ol>
-
-            <BookingCalendar />
-
-            <div className="text-center mt-10">
-              <p className="text-xk-warm-white/50 font-body text-sm mb-4">
-                Rather just talk it through?
-              </p>
-              <a
-                href={business.phoneHref}
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-7 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
-              >
-                <Phone className="w-5 h-5" />
-                Call or Text {business.phone}
-              </a>
-              <p className="text-xk-warm-white/40 text-xs font-body mt-3">
-                {business.hours} — a real person, not a call center.
-              </p>
-            </div>
           </>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -217,6 +211,32 @@ const BookingSection = () => (
         )}
       </div>
     </div>
+
+    {/* OUTSIDE the container on purpose. `container` caps at 1024px on lg screens
+        and 1280px on xl; minus padding that leaves the iframe just under the
+        widget's 1024px layout breakpoint, which silently costs ~280px of height.
+        Its own padded wrapper gives it the width it needs. */}
+    {booking.calendarUrl && (
+      <div className="relative px-4 mt-12">
+        <BookingCalendar />
+
+        <div className="text-center mt-10">
+          <p className="text-xk-warm-white/50 font-body text-sm mb-4">
+            Rather just talk it through?
+          </p>
+          <a
+            href={business.phoneHref}
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-7 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
+          >
+            <Phone className="w-5 h-5" />
+            Call or Text {business.phone}
+          </a>
+          <p className="text-xk-warm-white/40 text-xs font-body mt-3">
+            {business.hours} — a real person, not a call center.
+          </p>
+        </div>
+      </div>
+    )}
   </section>
 );
 

@@ -20,10 +20,25 @@ import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 
 /**
- * Conversion arc: hook → instant proof (before/afters) → trust (reviews) →
- * agitate → the fix → services → deeper proof → close.
- * Before/after flips and reviews sit high because they earn the most
- * engagement — visitors decide on photos and stars.
+ * Conversion arc: hook → proof (motion, then stills) → agitate → trust →
+ * mechanism → services → process → BOOK → depth → close.
+ *
+ * Two conversion blocks, deliberately spaced rather than stacked at the bottom:
+ *
+ *   BookingSection sits directly after HowItWorks because HowItWorks explains the
+ *   three-step process and ends on "ready to get started?" — the honest next beat
+ *   is the calendar itself, not six more sections of persuasion followed by one.
+ *   It used to sit at #15, so the BOOK ONLINE button was teleporting people
+ *   halfway down the page to reach the thing it had just promised them.
+ *
+ *   LeadCaptureForm stays the final close, for anyone who read the whole way down.
+ *
+ * The calendar is NOT any higher than this. Booking means inviting a stranger onto
+ * your property at a named time — that's a real commitment, and it needs the
+ * reviews, the method, and the services to land first. Everything above it instead
+ * carries a jump link (#book), so a visitor who is already sold never has to wait
+ * for it: PainPoints, Reviews, HowItWorks, ServiceArea and the mobile sticky bar
+ * all offer call-or-book side by side.
  */
 const Index = () => (
   <>
@@ -45,12 +60,12 @@ const Index = () => (
     <Solution />
     <ServicesGrid />
     <HowItWorks />
+    <BookingSection />
     <TeamInAction />
     <EquipmentBand />
     <IndustrialSafety />
     <CommercialWork preview />
     <ServiceArea />
-    <BookingSection />
     <LeadCaptureForm />
     <Footer />
     <FloatingActions />

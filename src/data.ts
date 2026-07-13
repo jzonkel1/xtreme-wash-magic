@@ -46,16 +46,24 @@ import stuccoBefore from "@/assets/ba/stucco-wall-before.webp";
 import stuccoAfter from "@/assets/ba/stucco-wall-after.webp";
 
 // Commercial job photos — Xtreme Kleen's own rig on the client's site — plus
-// each client's own logo (pulled from their site; shown on a white chip so the
-// dark-text marks stay legible on our dark background).
+// each client's own logo, pulled from their site.
+//
+// These are REVERSED (knockout) marks: on a dark theme a dark-ink logo either
+// disappears or has to be parked on a little white sticker, and the sticker
+// looks cheap. So the neutral ink in each mark is recoloured to warm white while
+// its BRAND colour is left untouched — Grumbles keeps its red G, United Rentals
+// keeps its blue, and Doc's is left completely alone because it's a colour badge
+// that already reads on dark. That's the standard reversed-logo treatment, not a
+// redrawing of anyone's mark.
 import accessFordPhoto from "@/assets/access-ford.webp";
 import docsPhoto from "@/assets/commercial/docs-seafood.webp";
 import grumblesPhoto from "@/assets/commercial/grumbles-seafood.webp";
 import docsLogo from "@/assets/commercial/docs-logo.webp";
 import grumblesLogo from "@/assets/commercial/grumbles-logo.png";
-import unitedRentalsLogo from "@/assets/commercial/united-rentals-logo.webp";
-// Their official mark ships as a WHITE svg (invisible on the white logo chip) —
-// recolored to #1A1A1A so it reads like the others.
+import unitedRentalsLogo from "@/assets/commercial/united-rentals-logo.png";
+// Their official mark ships as a WHITE svg, which is exactly what we want now
+// that the logos sit straight on the dark card. (It had been recoloured dark to
+// survive the old white chip; that chip is gone.)
 import fishermansWharfLogo from "@/assets/commercial/fishermans-wharf-logo.svg";
 
 // Public-folder assets must respect Vite's base path (GitHub Pages serves the
@@ -162,7 +170,7 @@ export const beforeAfters = [
 
 export const business = {
   brand: "Xtreme Kleen",
-  legalName: "Extreme Clean Wash and Rental LLC",
+  legalName: "Xtreme Kleen Wash & Rental LLC",
   owner: "Eric Kuhn",
   tagline: "Wash Away the Past",
   phone: "361-947-7811",

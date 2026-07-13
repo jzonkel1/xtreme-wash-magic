@@ -17,14 +17,14 @@ export type LegalDoc = {
 };
 
 const COMPANY =
-  "Extreme Clean Wash and Rental LLC, doing business as Xtreme Kleen (“Xtreme Kleen,” “we,” “us,” or “our”)";
+  "Xtreme Kleen Wash & Rental LLC, doing business as Xtreme Kleen (“Xtreme Kleen,” “we,” “us,” or “our”)";
 
 export const privacyPolicy: LegalDoc = {
   slug: "privacy",
   title: "Privacy Policy",
   metaTitle: "Privacy Policy | Xtreme Kleen",
   metaDescription:
-    "How Xtreme Kleen (Extreme Clean Wash and Rental LLC) collects, uses, and protects your information, including SMS/text messaging consent and opt-out.",
+    "How Xtreme Kleen (Xtreme Kleen Wash & Rental LLC) collects, uses, and protects your information, including SMS/text messaging consent and opt-out.",
   effectiveDate: "July 12, 2026",
   intro:
     `This Privacy Policy explains how ${COMPANY} collects, uses, and protects information when you visit this website or contact us about our services. We are based in Portland, Texas and serve the Coastal Bend.`,
@@ -85,7 +85,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "Contact Us",
       paragraphs: [
-        "Extreme Clean Wash and Rental LLC (dba Xtreme Kleen) — Portland, Texas. Phone: 361-947-7811 (call or text). Email: Xtreme.Kleen2023@gmail.com.",
+        "Xtreme Kleen Wash & Rental LLC (dba Xtreme Kleen) — Portland, Texas. Phone: 361-947-7811 (call or text). Email: Xtreme.Kleen2023@gmail.com.",
       ],
     },
   ],
@@ -142,7 +142,7 @@ export const termsOfService: LegalDoc = {
     {
       heading: "Limitation of Liability",
       paragraphs: [
-        "To the maximum extent permitted by law, Extreme Clean Wash and Rental LLC's total liability arising out of or related to any service is limited to the amount paid for that service, and we are not liable for indirect, incidental, or consequential damages. Nothing in these Terms limits liability that cannot be limited under applicable law.",
+        "To the maximum extent permitted by law, Xtreme Kleen Wash & Rental LLC's total liability arising out of or related to any service is limited to the amount paid for that service, and we are not liable for indirect, incidental, or consequential damages. Nothing in these Terms limits liability that cannot be limited under applicable law.",
       ],
     },
     {
@@ -160,7 +160,7 @@ export const termsOfService: LegalDoc = {
     {
       heading: "Contact",
       paragraphs: [
-        "Extreme Clean Wash and Rental LLC (dba Xtreme Kleen) — Portland, Texas. Phone: 361-947-7811 (call or text). Email: Xtreme.Kleen2023@gmail.com.",
+        "Xtreme Kleen Wash & Rental LLC (dba Xtreme Kleen) — Portland, Texas. Phone: 361-947-7811 (call or text). Email: Xtreme.Kleen2023@gmail.com.",
       ],
     },
   ],

@@ -6,8 +6,13 @@ import { commercialJobs, business } from "@/data";
  * Commercial clients — the Pivot/Venture editorial "showcase" pattern.
  *
  * Alternating photo/copy rows: eyebrow, name with the client's logo beside it,
- * location, and a line about the work. Logos sit on a WHITE CHIP because most
- * client marks are dark-on-transparent and would disappear on our dark theme.
+ * location, and a line about the work.
+ *
+ * Logos sit STRAIGHT ON THE DARK CARD — no white chip. The chip used to exist
+ * because most client marks are dark ink and vanish on a dark theme, but a logo
+ * marooned on a little white sticker looks like a sticker. The marks are reversed
+ * (knockout) at the asset level instead — see the note in data.ts — so they read
+ * on charcoal with their brand colours intact.
  *
  * Two presentations off one array in data.ts:
  *   preview → homepage: the two jobs flagged `preview` in data.ts, then a
@@ -21,15 +26,13 @@ import { commercialJobs, business } from "@/data";
  * enough to print the name; it is not enough to show someone else's property
  * and imply it's theirs.
  */
-const LogoChip = ({ logo, name }: { logo: string; name: string }) => (
-  <span className="inline-grid place-items-center bg-white rounded-lg px-3 h-12 shadow-lg flex-none">
-    <img
-      src={logo}
-      alt={`${name} logo`}
-      loading="lazy"
-      className="max-h-8 max-w-[110px] w-auto object-contain"
-    />
-  </span>
+const ClientLogo = ({ logo, name }: { logo: string; name: string }) => (
+  <img
+    src={logo}
+    alt={`${name} logo`}
+    loading="lazy"
+    className="h-11 max-w-[150px] w-auto object-contain object-left flex-none"
+  />
 );
 
 const Row = ({
@@ -58,11 +61,11 @@ const Row = ({
         Commercial · {job.type}
       </span>
 
-      <div className="flex items-center gap-4 flex-wrap mt-3">
+      <div className="flex items-center gap-5 flex-wrap mt-3">
         <h3 className="font-display uppercase text-2xl md:text-3xl text-xk-warm-white tracking-tight leading-none">
           {job.name}
         </h3>
-        {job.logo && <LogoChip logo={job.logo} name={job.name} />}
+        {job.logo && <ClientLogo logo={job.logo} name={job.name} />}
       </div>
 
       {job.location && (
@@ -122,10 +125,10 @@ const CommercialWork = ({ preview }: { preview?: boolean }) => {
               {noPhoto.map((j) => (
                 <span
                   key={j.name}
-                  className="inline-flex items-center gap-3 bg-xk-charcoal/70 border border-xk-warm-white/10 rounded-xl pl-3 pr-4 py-2.5"
+                  className="inline-flex items-center gap-3.5 bg-xk-charcoal/70 border border-xk-warm-white/10 rounded-xl px-5 py-3"
                 >
                   {j.logo ? (
-                    <LogoChip logo={j.logo} name={j.name} />
+                    <ClientLogo logo={j.logo} name={j.name} />
                   ) : (
                     <Building2 className="w-5 h-5 text-xk-red flex-none" />
                   )}

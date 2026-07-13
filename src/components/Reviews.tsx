@@ -1,4 +1,4 @@
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, CalendarDays } from "lucide-react";
 import { reviews, business } from "@/data";
 
 const Reviews = () => (
@@ -67,14 +67,25 @@ const Reviews = () => (
         ))}
       </div>
 
-      <div className="text-center mt-12">
+      {/* This is the belief peak of the page, and the only thing it used to offer
+          was a link OFF the site to Google. Keep that link — it's the proof that
+          the stars are real — but demote it, and give the reader something to
+          actually do here first. */}
+      <div className="mt-12 flex flex-col items-center gap-5">
+        <a
+          href="#book"
+          className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-8 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
+        >
+          <CalendarDays className="w-5 h-5" />
+          Book Your Free Estimate
+        </a>
         <a
           href={business.googleProfile}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block border-2 border-xk-warm-white/25 text-xk-warm-white font-heading font-semibold px-8 py-3.5 rounded-lg hover:bg-xk-warm-white/10 transition-all"
+          className="text-xk-warm-white/50 font-heading font-semibold text-sm underline underline-offset-4 decoration-xk-warm-white/25 hover:text-xk-warm-white transition-colors"
         >
-          Read Our Reviews on Google
+          Read all {business.reviewCount} reviews on Google
         </a>
       </div>
     </div>

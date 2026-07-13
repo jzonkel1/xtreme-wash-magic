@@ -14,20 +14,27 @@ import { business } from "@/data";
 /** Full-bleed cinematic band — real branded rigs under the Harbor Bridge. */
 const EquipmentBand = () => (
   <section className="relative">
-    {/* The photo is 16:9 and the truck sits in the BOTTOM third of it. A fixed
-        520px band therefore centre-cropped straight through the wheels on any
-        wide screen — you got the bridge and the roof of the cab and nothing
-        else. Holding the band at 16:9 means the entire frame shows (bridge AND
-        rig) at every width up to ~1560px, which is most desktops. The max-h only
-        bites above that, and the 85% vertical anchor spends the crop on the sky
-        rather than the truck. */}
-    <div className="relative md:aspect-video md:max-h-[880px] overflow-hidden">
+    {/* The photo is 16:9 and the truck sits in the BOTTOM THIRD of it, so where
+        the crop WINDOW lands vertically is the whole ballgame.
+
+        Centre-cropping (the default) cut straight through the wheels on any wide
+        screen — you got bridge and the roof of the cab, no rig. But the fix is
+        NOT to make the band taller: holding it at 16:9 turned this into a second
+        full-screen hero (842px tall on an 850px viewport) with a small text block
+        adrift in the middle of it. This is a BAND, not a hero.
+
+        So keep it band-height and move the window instead. Anchoring the crop
+        near the bottom spends it on empty sky and keeps the entire rig — wheels
+        included — in frame from 1280px all the way to 2560px. The cost is the
+        tops of the bridge towers, and that's the right trade: the truck with
+        Eric's name and number on the door is the subject, the bridge is scenery. */}
+    <div className="relative md:h-[600px] overflow-hidden">
       <img
         src={bridge}
         alt="Xtreme Kleen truck and pressure-washing rig under the Corpus Christi Harbor Bridge at night"
         // Mobile crops this wide shot to a near-portrait slice — bias right so
         // it lands on the cab and the door decal instead of the trailer tank.
-        className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-[center_85%]"
+        className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-[center_94%]"
         loading="lazy"
       />
       {/* Mobile: text spans the full width, so darken the whole image evenly */}

@@ -45,16 +45,34 @@ const HowItWorks = () => (
         })}
       </div>
 
-      <div className="bg-xk-red rounded-xl py-8 px-8 text-center max-w-3xl mx-auto">
-        <p className="text-xk-warm-white font-display uppercase text-xl md:text-2xl mb-5 tracking-tight">
+      {/* Two ways in, not one. Step 1 of this section is literally "get in touch",
+          so the box that closes it shouldn't offer a phone call as the only door —
+          plenty of people would rather grab a slot than talk to a stranger, and
+          the booking calendar is right there further down the page. */}
+      <div className="bg-xk-red rounded-xl py-9 px-8 text-center max-w-3xl mx-auto">
+        <p className="text-xk-warm-white font-display uppercase text-xl md:text-2xl mb-3 tracking-tight">
           Ready to get started? It's that simple.
         </p>
-        <a
-          href={business.phoneHref}
-          className="inline-block bg-xk-charcoal text-xk-warm-white font-heading font-bold px-8 py-3.5 rounded-lg hover:bg-xk-steel transition-colors"
-        >
-          CALL OR TEXT {business.phone}
-        </a>
+        <p className="text-xk-warm-white/85 font-body text-sm md:text-base mb-6 max-w-xl mx-auto leading-relaxed">
+          Reach us any time at {business.phone} — or pick a time online and we'll
+          come to you.
+        </p>
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+          <a
+            href={business.phoneHref}
+            className="inline-flex items-center justify-center gap-2.5 bg-xk-charcoal text-xk-warm-white font-heading font-bold px-8 py-3.5 rounded-lg hover:bg-xk-steel transition-colors"
+          >
+            <Phone className="w-5 h-5" />
+            CALL OR TEXT {business.phone}
+          </a>
+          <a
+            href="#book"
+            className="inline-flex items-center justify-center gap-2.5 border-2 border-xk-warm-white/60 text-xk-warm-white font-heading font-bold px-8 py-3.5 rounded-lg hover:bg-xk-warm-white hover:text-xk-red transition-colors"
+          >
+            <Calendar className="w-5 h-5" />
+            BOOK ONLINE
+          </a>
+        </div>
       </div>
     </div>
   </section>

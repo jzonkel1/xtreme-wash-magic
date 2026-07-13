@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
-import { Phone, ChevronUp } from "lucide-react";
+import { Phone, CalendarDays, ChevronUp } from "lucide-react";
 import { business } from "@/data";
 
 /**
  * Persistent conversion helpers:
- * - Mobile-only sticky call bar pinned to the bottom (one thumb-tap to call).
+ * - Mobile-only sticky action bar pinned to the bottom.
  * - Back-to-top button that fades in after the first screenful.
+ *
+ * The bar carries BOTH doors, not just the phone. It is the single most-seen
+ * control on the site — it's on screen for the entire mobile session — and while
+ * it was call-only, every visitor who would rather not talk to a stranger had no
+ * persistent way to convert at all. They had to go hunting for the calendar.
+ * Call keeps the primary red; book is the quieter charcoal beside it.
  */
 const FloatingActions = () => {
   const [showTop, setShowTop] = useState(false);
@@ -35,16 +41,25 @@ const FloatingActions = () => {
         <ChevronUp className="w-5 h-5" />
       </button>
 
-      {/* Mobile sticky call bar */}
-      <a
-        href={business.phoneHref}
-        className="md:hidden fixed inset-x-0 bottom-0 z-40 bg-xk-red text-xk-warm-white font-heading font-bold text-base flex items-center justify-center gap-2.5 py-3.5 pb-[calc(0.875rem+env(safe-area-inset-bottom))] shadow-[0_-6px_24px_rgba(0,0,0,0.45)] active:bg-xk-red-glow"
-      >
-        <Phone className="w-5 h-5" />
-        CALL OR TEXT {business.phone}
-      </a>
+      {/* Mobile sticky action bar — call or book */}
+      <div className="md:hidden fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1.35fr_1fr] shadow-[0_-6px_24px_rgba(0,0,0,0.45)] pb-[env(safe-area-inset-bottom)] bg-xk-charcoal">
+        <a
+          href={business.phoneHref}
+          className="bg-xk-red text-xk-warm-white font-heading font-bold text-sm flex items-center justify-center gap-2 py-3.5 active:bg-xk-red-glow"
+        >
+          <Phone className="w-4 h-4 flex-none" />
+          CALL OR TEXT
+        </a>
+        <a
+          href="#book"
+          className="bg-xk-charcoal text-xk-warm-white font-heading font-bold text-sm flex items-center justify-center gap-2 py-3.5 border-l border-xk-warm-white/15 active:bg-xk-steel"
+        >
+          <CalendarDays className="w-4 h-4 flex-none text-xk-red" />
+          BOOK
+        </a>
+      </div>
 
-      {/* Spacer so the call bar never covers the footer's last line */}
+      {/* Spacer so the bar never covers the footer's last line */}
       <div className="h-12 md:hidden" aria-hidden="true" />
     </>
   );
