@@ -5,6 +5,25 @@
 // Edit this file to change city page copy, FAQs, and meta tags.
 // ---------------------------------------------------------------------------
 
+// Hero photos. Every one of these is a REAL Xtreme Kleen job — the city pages
+// all used to share one AI-rendered "hero bridge" image, which is exactly the
+// stock-photo smell these pages exist to avoid. Each city now gets the photo
+// that matches the work its copy actually talks about.
+import rigPhoto from "@/assets/action1.webp"; // the loaded rig, on site
+import condoWashPhoto from "@/assets/action2.webp"; // coastal condo soft wash
+import highReachPhoto from "@/assets/action3.webp"; // boom-lift building wash
+import ppePhoto from "@/assets/ppe-equipment-wash.webp"; // PPE, plant equipment
+import crewPhoto from "@/assets/crew-thumbs-up.webp"; // crew after a plant job
+import roofPhoto from "@/assets/roof-tile.webp"; // clean tile roof
+import glassPhoto from "@/assets/glass-panels.webp"; // storefront glass
+import windowsPhoto from "@/assets/windows-arched.webp"; // residential windows
+import concretePhoto from "@/assets/concrete-flatwork.webp"; // commercial flatwork
+import fordPhoto from "@/assets/access-ford.webp"; // Access Ford, Corpus Christi
+import pressurePhoto from "@/assets/pressure-spray.webp"; // wand + spray fan
+
+/** Shared hero for the /service-areas hub: Eric's own rig, parked on a job. */
+export const serviceAreasHeroPhoto = rigPhoto;
+
 export type LocationFaq = { q: string; a: string };
 
 export type LocationContent = {
@@ -15,6 +34,8 @@ export type LocationContent = {
   metaTitle: string;
   metaDescription: string;
   h1: string;
+  /** Real job photo behind this city's hero banner. */
+  heroPhoto: string;
   /** Self-contained direct answer for "[service] in [city]" queries. */
   answer: string;
   /** The local story — why this town's cleaning problems are its own. */
@@ -35,6 +56,7 @@ export const locationsContent: LocationContent[] = [
     metaDescription:
       "Xtreme Kleen is Portland, TX's hometown pressure washing and soft wash crew. Houses, driveways, roofs, windows, and storefronts — 5.0-rated on Google. Free on-site quotes: 361-947-7811.",
     h1: "Pressure Washing & Soft Washing in Portland, TX",
+    heroPhoto: condoWashPhoto, // home base, bayfront residential soft wash
     answer:
       "Xtreme Kleen is based in Portland, Texas — this is our home turf. We pressure wash driveways and concrete, soft wash houses and roofs, and clean windows and storefronts throughout Portland, with free on-site quotes and a 5.0 Google rating. Call or text 361-947-7811 any time; we're open 24 hours.",
     localAngle: [
@@ -71,6 +93,7 @@ export const locationsContent: LocationContent[] = [
     metaDescription:
       "Pressure washing, soft washing, and roof cleaning in Gregory, TX — minutes from our Portland home base. Houses, driveways, and heavy-duty cleaning near the industrial corridor. 361-947-7811.",
     h1: "Pressure Washing & Soft Washing in Gregory, TX",
+    heroPhoto: ppePhoto, // industrial-corridor equipment work
     answer:
       "Xtreme Kleen serves Gregory, Texas from our home base in neighboring Portland — just minutes up US-181. We pressure wash driveways, soft wash houses and roofs, and handle the heavier equipment and fleet cleaning that fits a town on the edge of the Coastal Bend's industrial corridor. Free on-site quotes: 361-947-7811.",
     localAngle: [
@@ -107,6 +130,7 @@ export const locationsContent: LocationContent[] = [
     metaDescription:
       "Pressure washing and soft washing in Ingleside, TX. Bayfront homes, businesses, and industrial facilities cleaned by a Portland-based crew with an OSHA-aligned safety program. 361-947-7811.",
     h1: "Pressure Washing & Soft Washing in Ingleside, TX",
+    heroPhoto: crewPhoto, // energy-terminal / plant work
     answer:
       "Xtreme Kleen provides pressure washing, soft washing, roof cleaning, and industrial exterior cleaning in Ingleside, Texas — a short drive from our Portland base via TX-361. Ingleside's bayfront position makes salt film and algae constant problems for homes, and its energy terminals make safety-program industrial cleaning a local necessity. Free quotes: 361-947-7811.",
     localAngle: [
@@ -143,6 +167,7 @@ export const locationsContent: LocationContent[] = [
     metaDescription:
       "Pressure washing and soft washing in Aransas Pass, TX. Homes, storefronts, and working-waterfront properties cleaned right by a Coastal Bend crew. Free on-site quotes: 361-947-7811.",
     h1: "Pressure Washing & Soft Washing in Aransas Pass, TX",
+    heroPhoto: glassPhoto, // working-waterfront storefront glass
     answer:
       "Xtreme Kleen pressure washes and soft washes homes, storefronts, and commercial properties in Aransas Pass, Texas. A working waterfront town takes real salt exposure — we clean the algae, salt film, and grime it leaves on siding, concrete, glass, and roofs, with free on-site quotes. Call or text 361-947-7811.",
     localAngle: [
@@ -179,6 +204,7 @@ export const locationsContent: LocationContent[] = [
     metaDescription:
       "Pressure washing, soft washing, and roof cleaning in Rockport, TX. Coastal homes, vacation rentals, and live-oak shade mildew handled by a Coastal Bend crew. 361-947-7811.",
     h1: "Pressure Washing & Soft Washing in Rockport, TX",
+    heroPhoto: roofPhoto, // coastal roofs + vacation rentals
     answer:
       "Xtreme Kleen serves Rockport, Texas with pressure washing, soft washing, roof cleaning, and window cleaning — up TX-35 from our Portland base. Rockport's mix of waterfront homes, vacation rentals, and deep live-oak shade makes algae and mildew a constant fight; our soft wash kills the growth so the clean actually lasts. Call 361-947-7811.",
     localAngle: [
@@ -215,6 +241,7 @@ export const locationsContent: LocationContent[] = [
     metaDescription:
       "Pressure washing and soft washing in Corpus Christi, TX — homes, storefronts, and industrial facilities from Calallen to the Southside. 5.0-rated Coastal Bend crew. 361-947-7811.",
     h1: "Pressure Washing & Soft Washing in Corpus Christi, TX",
+    heroPhoto: fordPhoto, // the page literally cites Access Ford as ours
     answer:
       "Xtreme Kleen serves Corpus Christi, Texas — residential, commercial, and industrial — from just across the Harbor Bridge in Portland. We pressure wash concrete, soft wash houses and buildings, clean storefront glass, and handle plant and refinery-corridor industrial work under an OSHA-aligned safety program. Free on-site quotes: 361-947-7811.",
     localAngle: [
@@ -251,6 +278,7 @@ export const locationsContent: LocationContent[] = [
     metaDescription:
       "Pressure washing and house soft washing in Taft, TX. Farm-town dust plus Gulf humidity is a rough mix for exteriors — we clean it right. Free on-site quotes: 361-947-7811.",
     h1: "Pressure Washing & House Washing in Taft, TX",
+    heroPhoto: pressurePhoto, // farm-town houses, driveways, fences
     answer:
       "Xtreme Kleen provides pressure washing, house soft washing, and roof cleaning in Taft, Texas — a quick run up US-181 from our Portland home base. Taft exteriors collect a rough mix of farm dust and Gulf-humidity algae; we clean both, with free on-site quotes. Call or text 361-947-7811.",
     localAngle: [
@@ -287,6 +315,7 @@ export const locationsContent: LocationContent[] = [
     metaDescription:
       "Pressure washing and soft washing in Sinton, TX — the county seat's homes, storefronts, and commercial properties cleaned by a Coastal Bend crew. Free quotes: 361-947-7811.",
     h1: "Pressure Washing & Soft Washing in Sinton, TX",
+    heroPhoto: windowsPhoto, // county-seat storefronts and homes
     answer:
       "Xtreme Kleen serves Sinton, Texas — the San Patricio County seat — with pressure washing, house soft washing, roof cleaning, and storefront service, about twenty minutes up US-181 from our Portland base. Free on-site quotes for homes and businesses: 361-947-7811.",
     localAngle: [
@@ -323,6 +352,7 @@ export const locationsContent: LocationContent[] = [
     metaDescription:
       "Pressure washing and house soft washing in Odem, TX. Driveways, siding, and roofs cleaned right by a Portland-based Coastal Bend crew. Free on-site quotes: 361-947-7811.",
     h1: "Pressure Washing & House Washing in Odem, TX",
+    heroPhoto: concretePhoto, // house washes and driveway concrete
     answer:
       "Xtreme Kleen provides pressure washing, house soft washing, and roof cleaning in Odem, Texas, a short drive from our Portland home base. Odem homes deal with the same humidity-fed algae as the rest of the Coastal Bend — we kill it with a chemistry-first wash and clean the concrete to match. Free quotes: 361-947-7811.",
     localAngle: [

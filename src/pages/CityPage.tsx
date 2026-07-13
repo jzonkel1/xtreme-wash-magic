@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { CheckCircle2, MapPin, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
+import HeroQuoteForm from "@/components/HeroQuoteForm";
 import FaqSection from "@/components/FaqSection";
 import Reviews from "@/components/Reviews";
 import Seo from "@/components/Seo";
@@ -10,7 +11,6 @@ import { HandDrawnIcon } from "@/components/icons/HandDrawn";
 import { getLocation, locationsContent } from "@/content/locations";
 import { servicesContent } from "@/content/services";
 import { breadcrumbLd, faqLd, serviceLd } from "@/lib/seo";
-import heroBridge from "@/assets/hero-bridge.webp";
 
 const CityPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -50,7 +50,13 @@ const CityPage = () => {
         kicker="SERVICE AREA"
         title={location.h1}
         sub={location.answer}
-        photo={heroBridge}
+        photo={location.heroPhoto}
+        aside={
+          <HeroQuoteForm
+            source={`Hero — ${location.cityState}`}
+            defaultCity={location.city}
+          />
+        }
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Service Areas", path: "/service-areas" },

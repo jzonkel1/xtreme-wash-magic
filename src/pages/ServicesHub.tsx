@@ -7,6 +7,7 @@ import HowItWorks from "@/components/HowItWorks";
 import { HandDrawnIcon } from "@/components/icons/HandDrawn";
 import { servicesContent } from "@/content/services";
 import { breadcrumbLd } from "@/lib/seo";
+import { business } from "@/data";
 import heroBg from "@/assets/hero-spray.webp";
 
 const ServicesHub = () => (
@@ -25,6 +26,7 @@ const ServicesHub = () => (
       title="Exterior Cleaning Services for the Coastal Bend"
       sub="Six services, one standard: the right method, the right chemistry, and the equipment to reach it — from a stained driveway to a full industrial plant. Every quote is free and done on-site."
       photo={heroBg}
+      video={business.heroVideo}
       breadcrumbs={[{ name: "Home", path: "/" }, { name: "Services" }]}
     />
 
@@ -36,7 +38,10 @@ const ServicesHub = () => (
             <Link
               key={s.slug}
               to={`/services/${s.slug}`}
-              className="group relative bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl overflow-hidden hover:border-xk-red/50 hover:bg-xk-light-gray/60 transition-all duration-300"
+              /* Same fix as the homepage grid: solid bg-xk-steel (darker than
+                 the section) instead of a translucent tile that let the grid
+                 texture show through and made the cards read as flat overlays. */
+              className="group relative bg-xk-steel border border-xk-warm-white/10 rounded-xl overflow-hidden shadow-lg shadow-black/25 hover:border-xk-red/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 transition-all duration-300"
             >
               <div className="h-44 overflow-hidden">
                 <img
