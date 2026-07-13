@@ -34,4 +34,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://xtremekleen.biz/sitemap.xml
+Sitemap: https://xtremekleentx.com/sitemap.xml

@@ -6,7 +6,7 @@
 import { business } from "@/data";
 import { locationsContent } from "@/content/locations";
 
-export const SITE_URL = "https://xtremekleen.biz";
+export const SITE_URL = "https://xtremekleentx.com";
 
 /**
  * Every city we publish a page for. Service schema defaults to this list so a
