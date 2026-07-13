@@ -438,8 +438,13 @@ export const industrial = {
 export const steps = [
   {
     num: "01",
-    title: "Call or Text",
-    desc: "Reach us any time at 361-947-7811. Tell us the property and what needs cleaning.",
+    // Step one is the door into the whole business, so it must not name the
+    // phone as the ONLY way through it. Plenty of people would rather book a
+    // slot than talk to a stranger — and the calendar is the very next section.
+    // `cta` gives this step a live link to it, right where the reader is looking.
+    title: "Call, Text, or Book Online",
+    desc: "Reach us any time at 361-947-7811 and tell us what needs cleaning — or grab a time yourself, no phone call needed.",
+    cta: { text: "Book a free estimate", href: "#book" },
   },
   {
     num: "02",

@@ -1,4 +1,4 @@
-import { Phone, ClipboardList, Calendar } from "lucide-react";
+import { Phone, ClipboardList, Calendar, ArrowRight } from "lucide-react";
 import { steps, business } from "@/data";
 
 const stepIcons = [Phone, ClipboardList, Calendar];
@@ -13,7 +13,7 @@ const HowItWorks = () => (
         Getting Clean Has Never Been Easier
       </h2>
       <p className="text-xk-text-dark/60 text-center max-w-xl mx-auto mb-14 font-body">
-        Three simple steps from first call to finished job.
+        Three simple steps from first hello to finished job.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-14">
@@ -33,6 +33,15 @@ const HowItWorks = () => (
               <p className="text-xk-text-dark/60 text-sm font-body leading-relaxed">
                 {s.desc}
               </p>
+              {"cta" in s && s.cta && (
+                <a
+                  href={s.cta.href}
+                  className="inline-flex items-center gap-1.5 mt-3 font-heading font-bold text-sm text-xk-red hover:text-xk-red-glow transition-colors"
+                >
+                  {s.cta.text}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              )}
               {i < steps.length - 1 && (
                 <div className="hidden md:block absolute top-8 -right-4 w-8 text-xk-red/30">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
