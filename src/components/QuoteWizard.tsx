@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { ChevronLeft, Check, Phone, HelpCircle } from "lucide-react";
 import { HandDrawnIcon } from "@/components/icons/HandDrawn";
@@ -233,7 +234,13 @@ const QuoteWizard = () => {
             {submitting ? "SENDING..." : "GET MY FREE QUOTE →"}
           </button>
           <p className="text-xk-warm-white/40 text-xs font-body text-center">
-            No spam. By submitting, you agree to be contacted about your request.
+            No spam. By submitting, you agree to be contacted by phone, text, or
+            email about your request. Msg &amp; data rates may apply; reply STOP
+            to opt out. See our{" "}
+            <Link to="/privacy" className="underline hover:text-xk-warm-white/70">
+              Privacy Policy
+            </Link>
+            .
           </p>
         </form>
       )}

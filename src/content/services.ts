@@ -75,6 +75,13 @@ export type ServiceContent = {
   /** CSS background-position for the hero photo, when center crops badly. */
   heroPosition?: string;
   /**
+   * Looping clip behind the page hero instead of a still (PageHero's `video`).
+   * Only for a clip that genuinely shows THIS service; pair with heroVideoPoster
+   * so the pre-play frame matches the footage, not the unrelated hero photo.
+   */
+  heroVideo?: string;
+  heroVideoPoster?: string;
+  /**
    * 1–2 real clips of THIS service. Only add a clip that genuinely shows the
    * work the page is selling — a roof video on the window page is a lie the
    * visitor can see. Services with no honest clip simply get none.
@@ -91,6 +98,10 @@ export const servicesContent: ServiceContent[] = [
     // A wand in hand with the spray fan visible. The old shot was a clean slab —
     // true to the service, but it showed the RESULT of a job with nobody doing it.
     photo: pressureSprayPhoto,
+    // Night surface-cleaning pass on the boardwalk flatwork at Fisherman's Wharf
+    // (Port Aransas) — commercial concrete, done after hours. Real footage.
+    heroVideo: pub("wharf-hero.mp4"),
+    heroVideoPoster: pub("wharf-hero-poster.jpg"),
     title: "Power & Pressure Washing",
     h1: "Pressure Washing in Portland, TX & the Coastal Bend",
     metaTitle: "Pressure Washing Portland, TX | Driveways & Concrete | Xtreme Kleen",

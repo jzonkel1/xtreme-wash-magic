@@ -51,7 +51,8 @@ const ServicePage = () => {
         kicker="OUR SERVICES"
         title={service.h1}
         sub={service.heroSub}
-        photo={service.photo}
+        photo={service.heroVideo ? service.heroVideoPoster : service.photo}
+        video={service.heroVideo}
         photoPosition={service.heroPosition}
         flipPhotoOnDesktop={service.flipHeroOnDesktop}
         aside={

@@ -66,6 +66,8 @@ import unitedRentalsLogo from "@/assets/commercial/united-rentals-logo.png";
 // survive the old white chip; that chip is gone.)
 import fishermansWharfLogo from "@/assets/commercial/fishermans-wharf-logo.svg";
 import fishermansWharfPhoto from "@/assets/commercial/fishermans-wharf.webp";
+import coastMaterialsPhoto from "@/assets/commercial/coast-materials.webp";
+import unitedRentalsPhoto from "@/assets/commercial/united-rentals.webp";
 
 // Public-folder assets must respect Vite's base path (GitHub Pages serves the
 // site from /xtreme-wash-magic/, not the domain root).
@@ -287,24 +289,22 @@ export const commercialJobs: CommercialJob[] = [
     photo: fishermansWharfPhoto,
     logo: fishermansWharfLogo,
   },
-  // TODO(Eric): these two are confirmed clients but we don't have job photos
-  // or a description of the actual scope from him yet. They render as name +
-  // logo only. Do NOT write a blurb describing work we're guessing at — get the
-  // real scope (and a photo) from Eric, then promote them to full rows above.
   {
     name: "United Rentals",
     type: "Equipment rental",
     location: "",
-    blurb: "",
-    photo: null,
+    blurb:
+      "Algae streaks soft washed off the branch's metal siding and the front flatwork rinsed clean — the storefront a customer judges before they ever reach the counter.",
+    photo: unitedRentalsPhoto,
     logo: unitedRentalsLogo,
   },
   {
     name: "Coast Materials Inc.",
     type: "Industrial / materials",
     location: "",
-    blurb: "",
-    photo: null,
+    blurb:
+      "Fleet wash-downs at the CMI yard — caked haul residue steamed out of dump beds and off frames and mud flaps, truck by truck.",
+    photo: coastMaterialsPhoto,
     logo: null,
   },
 ];
@@ -533,6 +533,13 @@ export const reels = [
     title: "Deck & Wood Cleaning",
     caption:
       "Graying, algae-fed decking washed back to clean wood — pressure dialed down so the boards don't fuzz.",
+  },
+  {
+    src: pub("reels/cmi-dump-trailer.mp4"),
+    poster: pub("reels/cmi-dump-trailer-poster.jpg"),
+    title: "Fleet Wash at Coast Materials",
+    caption:
+      "Hot water cutting caked haul residue off a CMI dump trailer — fleet washing done at the yard, truck by truck.",
   },
   {
     src: pub("reels/high-reach.mp4"),
