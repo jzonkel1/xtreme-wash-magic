@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import { Volume2, VolumeX } from "lucide-react";
+import { useEffect, useRef } from "react";
 import type { ServiceVideo } from "@/content/services";
 
 /**
@@ -13,16 +12,11 @@ import type { ServiceVideo } from "@/content/services";
  *
  * Only clips that genuinely show THIS service go on the page (see the `videos`
  * field in src/content/services.ts). A page with no honest clip gets none.
+ *
+ * No sound toggle: every clip in public/reels is a silent capture (zero audio
+ * streams), so the speaker button was a control that did nothing when pressed.
  */
-const Clip = ({
-  video,
-  muted,
-  onToggleSound,
-}: {
-  video: ServiceVideo;
-  muted: boolean;
-  onToggleSound: () => void;
-}) => {
+const Clip = ({ video }: { video: ServiceVideo }) => {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -43,10 +37,6 @@ const Clip = ({
     return () => io.disconnect();
   }, [video.src]);
 
-  useEffect(() => {
-    if (ref.current) ref.current.muted = muted;
-  }, [muted]);
-
   return (
     <figure className="relative">
       <div className="relative bg-black rounded-xl overflow-hidden border border-xk-warm-white/10">
@@ -61,14 +51,6 @@ const Clip = ({
             preload="none"
           />
         </div>
-
-        <button
-          onClick={onToggleSound}
-          aria-label={muted ? "Unmute video" : "Mute video"}
-          className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-black/55 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-xk-red transition-colors"
-        >
-          {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-        </button>
       </div>
 
       <figcaption className="mt-3">
@@ -90,9 +72,6 @@ const ServiceVideos = ({
   videos: ServiceVideo[];
   serviceTitle: string;
 }) => {
-  const [muted, setMuted] = useState(true);
-  const toggle = () => setMuted((m) => !m);
-
   if (!videos.length) return null;
 
   return (
@@ -120,13 +99,9 @@ const ServiceVideos = ({
           }`}
         >
           {videos.map((v) => (
-            <Clip key={v.src} video={v} muted={muted} onToggleSound={toggle} />
+            <Clip key={v.src} video={v} />
           ))}
         </div>
-
-        <p className="text-center text-xk-warm-white/40 font-body text-xs mt-8">
-          Playing muted — tap the speaker to turn on sound.
-        </p>
       </div>
     </section>
   );

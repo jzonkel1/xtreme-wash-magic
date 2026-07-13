@@ -155,6 +155,16 @@
     }
   }
 
+  /* Swipeable tracks (the reel carousel). The scrollbar is chrome we don't want
+     under a row of portrait clips — the peeking next card is the affordance. */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .tex-grid {
     background-image:
       repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 56px),

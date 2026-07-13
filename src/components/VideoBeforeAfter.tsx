@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import { Volume2, VolumeX } from "lucide-react";
+import { useEffect, useRef } from "react";
 import type { ServiceVideoPair } from "@/content/services";
 
 /**
@@ -7,19 +6,18 @@ import type { ServiceVideoPair } from "@/content/services";
  *
  * Same lazy-attach rule as the reels: no `src` and no `autoPlay` until the clip
  * is actually on screen, or the browser downloads it the moment it mounts.
+ *
+ * No sound toggle: every clip in public/reels is a silent capture (zero audio
+ * streams), so the speaker button here was a control that did nothing.
  */
 const Clip = ({
   src,
   poster,
   label,
-  muted,
-  onToggleSound,
 }: {
   src: string;
   poster: string;
   label: string;
-  muted: boolean;
-  onToggleSound: () => void;
 }) => {
   const ref = useRef<HTMLVideoElement>(null);
 
@@ -40,10 +38,6 @@ const Clip = ({
     io.observe(v);
     return () => io.disconnect();
   }, [src]);
-
-  useEffect(() => {
-    if (ref.current) ref.current.muted = muted;
-  }, [muted]);
 
   const isBefore = label === "BEFORE";
 
@@ -70,22 +64,11 @@ const Clip = ({
       >
         {label}
       </span>
-
-      <button
-        onClick={onToggleSound}
-        aria-label={muted ? "Unmute video" : "Mute video"}
-        className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-black/55 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-xk-red transition-colors"
-      >
-        {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-      </button>
     </div>
   );
 };
 
 const VideoBeforeAfter = ({ pair }: { pair: ServiceVideoPair }) => {
-  const [muted, setMuted] = useState(true);
-  const toggle = () => setMuted((m) => !m);
-
   return (
     <section className="bg-xk-charcoal py-16 md:py-24">
       <div className="container mx-auto px-4 max-w-3xl">
@@ -102,20 +85,8 @@ const VideoBeforeAfter = ({ pair }: { pair: ServiceVideoPair }) => {
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:gap-6">
-          <Clip
-            src={pair.before.src}
-            poster={pair.before.poster}
-            label="BEFORE"
-            muted={muted}
-            onToggleSound={toggle}
-          />
-          <Clip
-            src={pair.after.src}
-            poster={pair.after.poster}
-            label="AFTER"
-            muted={muted}
-            onToggleSound={toggle}
-          />
+          <Clip src={pair.before.src} poster={pair.before.poster} label="BEFORE" />
+          <Clip src={pair.after.src} poster={pair.after.poster} label="AFTER" />
         </div>
       </div>
     </section>
