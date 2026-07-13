@@ -193,7 +193,17 @@ export const business = {
 // GHL: Calendars → the calendar → Share/Embed → copy the widget URL, which
 // looks like https://api.leadconnectorhq.com/widget/booking/XXXXXXXXXXXX
 export const booking = {
-  calendarUrl: "",
+  // "Free On-Site Estimate", 30 min. The widget's appearance (warm-white
+  // background, red primary, "Book Estimate" button) is saved ON the calendar in
+  // GHL, so the bare widget URL inherits it — do NOT append ?primaryColor=... etc.
+  // here, or the embed and the GHL settings can drift apart silently.
+  calendarUrl: "https://api.leadconnectorhq.com/widget/booking/CPL5vK0MHuKagAaj221r",
+  calendarId: "CPL5vK0MHuKagAaj221r",
+  // GHL ships this alongside the iframe. It installs ONE global postMessage
+  // listener that resizes the iframe to its real content height — without it the
+  // calendar is stuck at whatever height we hard-code and either clips the time
+  // slots or leaves a slab of dead space under them.
+  embedScript: "https://link.msgsndr.com/js/form_embed.js",
 };
 
 // Out-of-area work. The Coastal Bend is home turf, but the crew travels for the
