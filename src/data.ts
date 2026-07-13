@@ -2,15 +2,119 @@
 // Xtreme Kleen — single source of truth for all site content.
 // Edit this file to change copy, services, reviews, reels, and service areas.
 // ---------------------------------------------------------------------------
-import softWashPhoto from "@/assets/action2.webp"; // condo soft wash at sunset
-import highReachPhoto from "@/assets/action3.webp"; // boom-lift building wash
+import houseWashPhoto from "@/assets/action2.webp"; // condo soft wash at sunset
+import buildingWashPhoto from "@/assets/action3.webp"; // boom-lift building wash
 import fleetPhoto from "@/assets/truck-wash.webp"; // Dura-Haul trailer washdown
-import glassPhoto from "@/assets/access-ford.webp"; // Access Ford glass storefront
-import drivewayPhoto from "@/assets/after7.webp"; // finished driveway, clean line
+import drivewayPhoto from "@/assets/concrete-flatwork.webp"; // clean/dirty split, commercial flatwork
+import roofPhoto from "@/assets/roof-tile.webp"; // clean tile roof
+import glassPanelsPhoto from "@/assets/glass-panels.webp"; // mirror-clean glass panels
+
+// Before/after pairs. before3/7 + after3/7 are the originals; the `ba/` set was
+// recovered from the old xtremekleen.biz gallery (2026-07-12).
+import before3 from "@/assets/before3.webp";
+import after3 from "@/assets/after3.webp";
+import before7 from "@/assets/before7.webp";
+import after7 from "@/assets/after7.webp";
+import northshoreBefore from "@/assets/ba/northshore-sign-closeup-before.webp";
+import northshoreAfter from "@/assets/ba/northshore-sign-closeup-after.webp";
+import ranchBefore from "@/assets/ba/stone-ranch-house-before.webp";
+import ranchAfter from "@/assets/ba/stone-ranch-house-after.webp";
+import industrialBefore from "@/assets/ba/industrial-wall-1993-sign-before.webp";
+import industrialAfter from "@/assets/ba/industrial-wall-1993-sign-after.webp";
+import churchBefore from "@/assets/ba/church-electrical-wall-before.webp";
+import churchAfter from "@/assets/ba/church-electrical-wall-after.webp";
+import trailerBefore from "@/assets/ba/dump-trailer-interior-before.webp";
+import trailerAfter from "@/assets/ba/dump-trailer-interior-after.webp";
+import blueTruckBefore from "@/assets/ba/blue-truck-before.webp";
+import blueTruckAfter from "@/assets/ba/blue-truck-after.webp";
+// The red-truck shots came off the old site as ONE stacked image (dirty chassis
+// above, washed chassis below); split back into a real pair.
+import redTruckBefore from "@/assets/ba/red-truck-before.webp";
+import redTruckAfter from "@/assets/ba/red-truck-after.webp";
+
+// Commercial job photos — Xtreme Kleen's own rig on the client's site — plus
+// each client's own logo (pulled from their site; shown on a white chip so the
+// dark-text marks stay legible on our dark background).
+import docsPhoto from "@/assets/commercial/docs-seafood.webp";
+import grumblesPhoto from "@/assets/commercial/grumbles-seafood.webp";
+import docsLogo from "@/assets/commercial/docs-logo.webp";
+import grumblesLogo from "@/assets/commercial/grumbles-logo.png";
+import unitedRentalsLogo from "@/assets/commercial/united-rentals-logo.webp";
+// Their official mark ships as a WHITE svg (invisible on the white logo chip) —
+// recolored to #1A1A1A so it reads like the others.
+import fishermansWharfLogo from "@/assets/commercial/fishermans-wharf-logo.svg";
 
 // Public-folder assets must respect Vite's base path (GitHub Pages serves the
 // site from /xtreme-wash-magic/, not the domain root).
 const pub = (p: string) => `${import.meta.env.BASE_URL}${p}`;
+
+/**
+ * Real before/after pairs — SAME surface, same angle, genuinely photographed
+ * before and after the wash. Only add a pair here if it truly is one; a fake
+ * pairing is the one lie a washing company can't afford.
+ *
+ * `home: true` marks the three that run on the homepage (Jeffrey's pick).
+ * /our-work shows every pair.
+ */
+export const beforeAfters = [
+  {
+    before: before3,
+    after: after3,
+    label: "Brick House — Soft Wash",
+    sub: "Gulf grime and algae pulled off brick without touching the mortar.",
+    home: true,
+  },
+  {
+    before: ranchBefore,
+    after: ranchAfter,
+    label: "Stone Ranch House — Soft Wash",
+    sub: "Whole exterior soft washed, roof to stone, in a single visit.",
+    home: true,
+  },
+  {
+    before: industrialBefore,
+    after: industrialAfter,
+    label: "Industrial Structure — Hot Water",
+    sub: "Heavy rust staining and grime cut off a plant structure.",
+    home: true,
+  },
+  {
+    before: northshoreBefore,
+    after: northshoreAfter,
+    label: "Northshore Country Club Sign",
+    sub: "Faded, algae-stained monument sign brought back to gold lettering.",
+  },
+  {
+    before: blueTruckBefore,
+    after: blueTruckAfter,
+    label: "Kenworth Sleeper — Fleet Wash",
+    sub: "Road film and dust off the paint — the blue comes back, not just cleaner dirt.",
+  },
+  {
+    before: redTruckBefore,
+    after: redTruckAfter,
+    label: "Day Cab Chassis — Fleet Wash",
+    sub: "Frame, tanks, and wheels degreased down to bright metal.",
+  },
+  {
+    before: before7,
+    after: after7,
+    label: "Driveway — Pressure Wash",
+    sub: "Oil-stained concrete taken back to an even, bare surface.",
+  },
+  {
+    before: churchBefore,
+    after: churchAfter,
+    label: "Church Wall — Soft Wash",
+    sub: "Years of dirt and cobwebs off the masonry, panels left untouched.",
+  },
+  {
+    before: trailerBefore,
+    after: trailerAfter,
+    label: "Dump Trailer — Fleet Wash",
+    sub: "Caked-in debris washed out of a working dump trailer, inside and out.",
+  },
+];
 
 export const business = {
   brand: "Xtreme Kleen",
@@ -24,6 +128,9 @@ export const business = {
   primaryCity: "Portland, TX",
   region: "The Coastal Bend",
   googleProfile: "https://share.google/7q83LZUVLtkeXmbaS",
+  // Deep link that opens the Google "write a review" box directly, instead of
+  // dropping people on the profile and making them hunt for the button.
+  googleReviewUrl: "https://g.page/r/CbVqlQ5JGcJYEBM/review",
   rating: 5.0,
   reviewCount: 5,
 
@@ -34,6 +141,84 @@ export const business = {
   // whenever he films some; drop the mp4 in public/ and update this path.
   heroVideo: pub("hero.mp4"),
 };
+
+// Online booking. Paste Eric's GoHighLevel calendar embed URL into `calendarUrl`
+// and the booking section swaps its two-CTA fallback for the live calendar —
+// no other change needed. Leave it "" until the calendar exists; an empty
+// iframe is worse than no iframe.
+// GHL: Calendars → the calendar → Share/Embed → copy the widget URL, which
+// looks like https://api.leadconnectorhq.com/widget/booking/XXXXXXXXXXXX
+export const booking = {
+  calendarUrl: "",
+};
+
+// Out-of-area work. The Coastal Bend is home turf, but the crew travels for the
+// right job — real jobs have run as far as Houston, Dallas, and Austin. Quoted
+// by phone, not by the website form, because travel/lodging changes the number.
+export const travel = {
+  cities: ["Houston", "Dallas", "Austin"],
+  headline: "Outside the Coastal Bend? We Travel.",
+  blurb:
+    "We've taken jobs as far out as Houston, Dallas, and Austin. If the job's big enough and the price is right, we'll go pretty much anywhere in Texas. Out-of-area work gets quoted over the phone — give us a call and we'll talk it through.",
+  short: "We travel — we've run jobs as far as Houston, Dallas, and Austin. Outside the Coastal Bend? Just call.",
+};
+
+/**
+ * Commercial clients — real businesses Xtreme Kleen has worked for.
+ *
+ * `photo` only where we actually have a job photo from that site; the rest are
+ * listed by name only. Do NOT pad this with stock imagery or a stand-in photo
+ * of a different property — an unverifiable "job photo" is worse than a name.
+ * Ask Eric for photos (and a confirmed city) for the name-only entries.
+ */
+export const commercialJobs = [
+  {
+    name: "Doc's Seafood & Steaks",
+    type: "Restaurant",
+    location: "Corpus Christi, TX",
+    blurb:
+      "Surface-cleaned the flatwork and exterior at the waterfront restaurant under the JFK bridge — a high-traffic parking area taken back to clean concrete.",
+    photo: docsPhoto,
+    logo: docsLogo,
+  },
+  {
+    name: "Grumbles Seafood Co.",
+    type: "Restaurant",
+    location: "Port Aransas, TX",
+    blurb:
+      "Stamped-concrete patio and building exterior washed at the Tarpon Street seafood house — worked at night, so the doors never had to close.",
+    photo: grumblesPhoto,
+    logo: grumblesLogo,
+  },
+  // TODO(Eric): these three are confirmed clients but we don't have job photos
+  // or a description of the actual scope from him yet. They render as name +
+  // logo only. Do NOT write a blurb describing work we're guessing at — get the
+  // real scope (and a photo) from Eric, then promote them to full rows above.
+  {
+    name: "United Rentals",
+    type: "Equipment rental",
+    location: "",
+    blurb: "",
+    photo: null,
+    logo: unitedRentalsLogo,
+  },
+  {
+    name: "Fisherman's Wharf",
+    type: "Marina & charters",
+    location: "Port Aransas, TX",
+    blurb: "",
+    photo: null,
+    logo: fishermansWharfLogo,
+  },
+  {
+    name: "Coast Materials Inc.",
+    type: "Industrial / materials",
+    location: "",
+    blurb: "",
+    photo: null,
+    logo: null,
+  },
+];
 
 // Portland is home base; these are the surrounding Coastal Bend towns served.
 export const serviceAreas = [
@@ -103,28 +288,28 @@ export const services = [
   {
     slug: "soft-washing",
     icon: "softwash",
-    photo: softWashPhoto,
+    photo: buildingWashPhoto,
     title: "Soft Wash Cleaning",
     desc: "Low-pressure, chemistry-first cleaning for siding, stucco, and delicate surfaces. No damage, ever.",
   },
   {
     slug: "roof-cleaning",
     icon: "roof",
-    photo: pub("reels/roof-poster.jpg"), // aerial commercial roof shot
+    photo: roofPhoto,
     title: "Roof Cleaning",
     desc: "Black streaks, algae, and salt-air buildup removed safely — without walking a high-pressure wand across your shingles.",
   },
   {
     slug: "window-cleaning",
     icon: "window",
-    photo: highReachPhoto,
+    photo: houseWashPhoto,
     title: "Interior & Exterior Window Cleaning",
     desc: "Streak-free glass inside and out, from single-story homes to multi-story commercial buildings.",
   },
   {
     slug: "glass-mirror-cleaning",
     icon: "glass",
-    photo: glassPhoto,
+    photo: glassPanelsPhoto,
     title: "Glass & Mirror Cleaning",
     desc: "Storefront glass, mirrors, and display windows kept spotless and sales-ready.",
   },
@@ -210,19 +395,63 @@ export const reviews = [
   },
 ];
 
-// Real job footage from Xtreme Kleen's Facebook page, self-hosted as muted,
-// looping MP4s (see public/reels/). We self-host instead of embedding because
-// Facebook blocks embeds on reels containing licensed background music
-// ("This video can't be embedded..."). Serving the raw clips muted sidesteps
-// that entirely and drops the Facebook player chrome for a cleaner look.
-// To refresh: download the reel, strip audio, and compress (see project notes).
+// Real job footage, self-hosted as muted, looping MP4s (see public/reels/).
+// Self-hosted rather than embedded because Facebook blocks embeds on reels with
+// licensed background music ("This video can't be embedded...").
+//
+// ORDER MATTERS: sorted by source resolution, sharpest first. Eric's own phone
+// originals are 540x960; the four older clips ripped from Facebook are only
+// 360x640 / 404x538 and look soft, so they sit at the back where the homepage
+// carousel's first page never shows them.
 export const reels = [
   {
-    src: pub("reels/softwash.mp4"),
-    poster: pub("reels/softwash-poster.jpg"),
-    title: "Driveway Degrease & Soft Wash",
+    src: pub("reels/house-softwash.mp4"),
+    poster: pub("reels/house-softwash-poster.jpg"),
+    title: "Soft Washing a Coastal Home",
     caption:
-      "Oil-stained concrete pulled back to a clean, even finish — no etching, no damage.",
+      "Low pressure, right chemistry — the mix does the work while the siding and window seals take nothing.",
+  },
+  {
+    src: pub("reels/window-glass.mp4"),
+    poster: pub("reels/window-glass-poster.jpg"),
+    title: "Glass, Streak-Free",
+    caption:
+      "Salt haze stripped off commercial glass — the film comes off instead of getting smeared around.",
+  },
+  {
+    src: pub("reels/mixer-truck.mp4"),
+    poster: pub("reels/mixer-truck-poster.jpg"),
+    title: "Washing Down a Concrete Mixer",
+    caption:
+      "Hardened concrete and road film cut off a mixer barrel — fleet work that keeps trucks looking hired, not tired.",
+  },
+  {
+    src: pub("reels/high-reach.mp4"),
+    poster: pub("reels/high-reach-poster.jpg"),
+    title: "High-Reach Building Wash",
+    caption:
+      "Boom-lift reach on a commercial building — the upper stories most crews can't get to.",
+  },
+  {
+    src: pub("reels/wood-deck.mp4"),
+    poster: pub("reels/wood-deck-poster.jpg"),
+    title: "Deck & Wood Cleaning",
+    caption:
+      "Graying, algae-fed decking washed back to clean wood — pressure dialed down so the boards don't fuzz.",
+  },
+  {
+    src: pub("reels/brick-wall.mp4"),
+    poster: pub("reels/brick-wall-poster.jpg"),
+    title: "Bringing Brick Back",
+    caption:
+      "Years of Gulf grime pulled off masonry, leaving the brick its original color instead of a chalky film.",
+  },
+  {
+    src: pub("reels/fin-fan.mp4"),
+    poster: pub("reels/fin-fan-poster.jpg"),
+    title: "Fin Fan & Heat Exchanger Cleaning",
+    caption:
+      "Plant work: pulling packed grime out of an air-cooled heat exchanger without bending a single fin.",
   },
   {
     src: pub("reels/roof.mp4"),
@@ -232,11 +461,18 @@ export const reels = [
       "Algae and salt-air staining lifted off the roof with low pressure and the right chemistry.",
   },
   {
+    src: pub("reels/softwash.mp4"),
+    poster: pub("reels/softwash-poster.jpg"),
+    title: "Truck Fire Cleanup — Scorched Driveway",
+    caption:
+      "Soot and burn staining left on the concrete after a truck burned down, washed back to a clean, even finish.",
+  },
+  {
     src: pub("reels/equipment.mp4"),
     poster: pub("reels/equipment-poster.jpg"),
-    title: "Steam-Cleaning Heavy Equipment",
+    title: "Hot-Water Surface Cleaning Concrete",
     caption:
-      "High-heat steam cutting through grease and grime on industrial equipment.",
+      "A surface cleaner and high-heat water pulling grime out of concrete in a single, even pass — no wand lines.",
   },
   {
     src: pub("reels/house.mp4"),

@@ -2,6 +2,7 @@ import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
 import Seo from "@/components/Seo";
 import PhotoGallery from "@/components/PhotoGallery";
+import CommercialWork from "@/components/CommercialWork";
 import TeamInAction from "@/components/TeamInAction";
 import Reels from "@/components/Reels";
 import EquipmentBand from "@/components/EquipmentBand";
@@ -26,6 +27,7 @@ const OurWork = () => (
     />
 
     <PhotoGallery />
+    <CommercialWork />
     <TeamInAction />
     <Reels />
     <EquipmentBand />

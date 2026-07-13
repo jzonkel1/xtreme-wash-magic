@@ -12,7 +12,9 @@ import EquipmentBand from "@/components/EquipmentBand";
 import IndustrialSafety from "@/components/IndustrialSafety";
 import PhotoGallery from "@/components/PhotoGallery";
 import Reviews from "@/components/Reviews";
+import CommercialWork from "@/components/CommercialWork";
 import ServiceArea from "@/components/ServiceArea";
+import BookingSection from "@/components/BookingSection";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
@@ -33,7 +35,7 @@ const Index = () => (
     <StickyHeader />
     <HeroSection />
     <TrustBar />
-    <PhotoGallery />
+    <PhotoGallery home />
     <PainPoints />
     <Reviews />
     <Solution />
@@ -43,7 +45,9 @@ const Index = () => (
     <Reels />
     <EquipmentBand />
     <IndustrialSafety />
+    <CommercialWork preview />
     <ServiceArea />
+    <BookingSection />
     <LeadCaptureForm />
     <Footer />
     <FloatingActions />

@@ -1,4 +1,8 @@
-import bridge from "@/assets/hero-bridge.webp";
+// Higher-res night shot of the rig under the Harbor Bridge. NOTE: this is an
+// AI-rendered image of Eric's truck — the garbled lettering it generated along
+// the bed rail has been painted out. The door decal (wordmark, phone, INDUSTRIAL/
+// COMMERCIAL/RESIDENTIAL) renders correctly and matches the real truck.
+import bridge from "@/assets/hero-bridge-new.webp";
 import { business } from "@/data";
 
 /** Full-bleed cinematic band — real branded rigs under the Harbor Bridge. */
@@ -7,7 +11,7 @@ const EquipmentBand = () => (
     <div className="relative md:h-[520px] overflow-hidden">
       <img
         src={bridge}
-        alt="Xtreme Kleen equipment trailers under the Corpus Christi Harbor Bridge at night"
+        alt="Xtreme Kleen truck and pressure-washing rig under the Corpus Christi Harbor Bridge at night"
         className="absolute inset-0 w-full h-full object-cover"
         loading="lazy"
       />

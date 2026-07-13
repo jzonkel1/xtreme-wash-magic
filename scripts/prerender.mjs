@@ -104,6 +104,10 @@ async function run() {
     if (paths.length) routes = [...new Set(paths)];
   }
 
+  // Routes we want as static HTML but deliberately keep OUT of the sitemap:
+  // the review gate is noindex (customers reach it by text/QR, not search).
+  routes = [...new Set([...routes, "/review"])];
+
   const server = await startServer();
   let browser;
   try {

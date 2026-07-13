@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { business, services } from "@/data";
+import { business, services, travel } from "@/data";
 import { locationsContent } from "@/content/locations";
 
 const Footer = () => (
@@ -53,6 +53,17 @@ const Footer = () => (
               The Coastal Bend
             </Link>
           </p>
+          <p className="text-xk-warm-white/40 font-body text-xs leading-relaxed mt-4 pt-4 border-t border-xk-warm-white/10">
+            We travel — jobs as far out as {travel.cities.join(", ")}. Anywhere in
+            Texas for the right job.{" "}
+            <a
+              href={business.phoneHref}
+              className="text-xk-red hover:text-xk-red-glow transition-colors font-semibold"
+            >
+              Call {business.phone}
+            </a>{" "}
+            for out-of-area work.
+          </p>
         </div>
 
         <div>
@@ -87,6 +98,7 @@ const Footer = () => (
         <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-4 font-body text-xs text-xk-warm-white/40">
           {[
             { label: "Our Work", to: "/our-work" },
+            { label: "About", to: "/about" },
             { label: "Reviews", to: "/reviews" },
             { label: "Contact", to: "/contact" },
             { label: "Privacy Policy", to: "/privacy" },

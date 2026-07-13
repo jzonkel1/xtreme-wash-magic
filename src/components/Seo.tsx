@@ -7,6 +7,8 @@ type SeoProps = {
   /** Route path with leading slash, e.g. "/services/roof-cleaning". */
   path: string;
   jsonLd?: object[];
+  /** Keep the page out of search results (review gate — customers arrive by text/QR). */
+  noindex?: boolean;
 };
 
 const upsertMeta = (attr: "name" | "property", key: string, content: string) => {
@@ -24,7 +26,7 @@ const upsertMeta = (attr: "name" | "property", key: string, content: string) => 
  * this component updates them in place on navigation (no duplicates), and the
  * prerender step bakes the result into each route's static HTML for crawlers.
  */
-const Seo = ({ title, description, path, jsonLd }: SeoProps) => {
+const Seo = ({ title, description, path, jsonLd, noindex }: SeoProps) => {
   const jsonLdKey = JSON.stringify(jsonLd ?? []);
 
   useEffect(() => {
@@ -32,6 +34,7 @@ const Seo = ({ title, description, path, jsonLd }: SeoProps) => {
 
     document.title = title;
     upsertMeta("name", "description", description);
+    upsertMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow");
     upsertMeta("property", "og:title", title);
     upsertMeta("property", "og:description", description);
     upsertMeta("property", "og:url", url);
@@ -55,7 +58,7 @@ const Seo = ({ title, description, path, jsonLd }: SeoProps) => {
       script.textContent = JSON.stringify(obj);
       document.head.appendChild(script);
     });
-  }, [title, description, path, jsonLdKey]);
+  }, [title, description, path, jsonLdKey, noindex]);
 
   return null;
 };

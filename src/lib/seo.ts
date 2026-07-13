@@ -4,12 +4,26 @@
 // into the static HTML each crawler sees.
 // ---------------------------------------------------------------------------
 import { business } from "@/data";
+import { locationsContent } from "@/content/locations";
 
-export const SITE_URL = "https://xtremekleen.com";
+export const SITE_URL = "https://xtremekleen.biz";
 
-/** Compact LocalBusiness reference embedded as provider in Service schema. */
+/**
+ * Every city we publish a page for. Service schema defaults to this list so a
+ * service page claims the same coverage the site actually claims — previously
+ * it hardcoded three cities, which quietly told Google we don't work in six of
+ * the towns we have full pages for.
+ */
+export const SERVICE_AREA_CITIES = locationsContent.map((l) => l.city);
+
+/**
+ * Compact LocalBusiness reference embedded as provider in Service schema.
+ * The @id matches the full business node in index.html, so every service page
+ * points at the SAME entity instead of declaring a new business per page.
+ */
 export const businessRef = {
   "@type": "PressureWashingService",
+  "@id": `${SITE_URL}/#business`,
   name: business.brand,
   legalName: business.legalName,
   telephone: "+1-361-947-7811",
@@ -56,7 +70,8 @@ export const serviceLd = (opts: {
   description: opts.description,
   url: `${SITE_URL}${opts.path}`,
   provider: businessRef,
-  areaServed: (opts.areaServed ?? ["Portland", "Corpus Christi", "Coastal Bend"]).map(
-    (name) => ({ "@type": "City", name }),
-  ),
+  areaServed: (opts.areaServed ?? SERVICE_AREA_CITIES).map((name) => ({
+    "@type": "City",
+    name,
+  })),
 });

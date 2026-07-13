@@ -1,5 +1,5 @@
-import { MapPin, Clock, Phone } from "lucide-react";
-import { serviceAreas, business } from "@/data";
+import { MapPin, Clock, Phone, Truck } from "lucide-react";
+import { serviceAreas, business, travel } from "@/data";
 
 const ServiceArea = () => (
   <section className="bg-xk-warm-white py-20 md:py-28">
@@ -28,6 +28,20 @@ const ServiceArea = () => (
               {a}
             </span>
           ))}
+        </div>
+
+        <div className="flex items-start gap-4 bg-xk-text-dark/[0.04] border border-xk-text-dark/10 rounded-xl p-5 md:p-6 mb-8">
+          <div className="w-11 h-11 bg-xk-red/15 rounded-lg flex items-center justify-center flex-shrink-0">
+            <Truck className="w-5 h-5 text-xk-red" />
+          </div>
+          <div>
+            <p className="font-heading font-bold text-xk-text-dark text-base mb-1">
+              {travel.headline}
+            </p>
+            <p className="text-xk-text-dark/60 font-body text-sm leading-relaxed">
+              {travel.blurb}
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

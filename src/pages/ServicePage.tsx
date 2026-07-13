@@ -3,6 +3,7 @@ import { CheckCircle2, MapPin, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
 import FaqSection from "@/components/FaqSection";
+import VideoBeforeAfter from "@/components/VideoBeforeAfter";
 import HowItWorks from "@/components/HowItWorks";
 import Seo from "@/components/Seo";
 import NotFound from "@/pages/NotFound";
@@ -124,6 +125,8 @@ const ServicePage = () => {
           </div>
         </div>
       </section>
+
+      {service.videoPair && <VideoBeforeAfter pair={service.videoPair} />}
 
       <HowItWorks />
 

@@ -3,15 +3,28 @@
 // Edit this file to change service page copy, FAQs, and meta tags.
 // Card-level copy (homepage grid) still lives in src/data.ts.
 // ---------------------------------------------------------------------------
-import softWashPhoto from "@/assets/action2.webp";
-import highReachPhoto from "@/assets/action3.webp";
+import houseWashPhoto from "@/assets/action2.webp";
+import buildingWashPhoto from "@/assets/action3.webp";
 import fleetPhoto from "@/assets/truck-wash.webp";
-import glassPhoto from "@/assets/access-ford.webp";
-import drivewayPhoto from "@/assets/after7.webp";
+import drivewayPhoto from "@/assets/concrete-flatwork.webp"; // clean/dirty split on commercial flatwork
+import roofPhoto from "@/assets/roof-tile.webp";
+import glassPanelsPhoto from "@/assets/glass-panels.webp";
 
 const pub = (p: string) => `${import.meta.env.BASE_URL}${p}`;
 
 export type ServiceFaq = { q: string; a: string };
+
+/**
+ * A real before/after shot as VIDEO — two clips of the same job, same building,
+ * same angle. Only set this where a genuine pair exists; a "before" that isn't
+ * actually the same surface is worse than showing nothing.
+ */
+export type ServiceVideoPair = {
+  before: { src: string; poster: string };
+  after: { src: string; poster: string };
+  title: string;
+  caption: string;
+};
 
 export type ServiceContent = {
   slug: string;
@@ -35,6 +48,8 @@ export type ServiceContent = {
   method: { title: string; paragraphs: string[] };
   faqs: ServiceFaq[];
   related: string[];
+  /** Optional real before/after video pair — only where a genuine one exists. */
+  videoPair?: ServiceVideoPair;
 };
 
 export const servicesContent: ServiceContent[] = [
@@ -97,7 +112,7 @@ export const servicesContent: ServiceContent[] = [
   {
     slug: "soft-washing",
     icon: "softwash",
-    photo: softWashPhoto,
+    photo: buildingWashPhoto,
     title: "Soft Wash Cleaning",
     h1: "Soft Wash House & Building Cleaning in the Coastal Bend",
     metaTitle: "Soft Washing Portland, TX | Safe House Washing | Xtreme Kleen",
@@ -145,11 +160,26 @@ export const servicesContent: ServiceContent[] = [
       },
     ],
     related: ["roof-cleaning", "pressure-washing", "window-cleaning"],
+    // Same building, same facade, filmed before and during/after the wash —
+    // a genuine pair, not two unrelated clips staged as one.
+    videoPair: {
+      before: {
+        src: pub("reels/high-reach-before.mp4"),
+        poster: pub("reels/high-reach-before-poster.jpg"),
+      },
+      after: {
+        src: pub("reels/high-reach.mp4"),
+        poster: pub("reels/high-reach-poster.jpg"),
+      },
+      title: "High-Reach Building Wash — Before & After",
+      caption:
+        "Years of Gulf grime and algae on a multi-story stone facade, soft washed from the ground with high-reach equipment. Same wall, same angle — watch the color come back.",
+    },
   },
   {
     slug: "roof-cleaning",
     icon: "roof",
-    photo: pub("reels/roof-poster.jpg"),
+    photo: roofPhoto,
     title: "Roof Cleaning",
     h1: "Roof Cleaning in Portland, TX & the Coastal Bend",
     metaTitle: "Roof Cleaning Portland, TX | Black Streak Removal | Xtreme Kleen",
@@ -201,7 +231,7 @@ export const servicesContent: ServiceContent[] = [
   {
     slug: "window-cleaning",
     icon: "window",
-    photo: highReachPhoto,
+    photo: houseWashPhoto,
     title: "Interior & Exterior Window Cleaning",
     h1: "Window Cleaning in Portland, TX & the Coastal Bend",
     metaTitle: "Window Cleaning Portland, TX | Homes & Commercial | Xtreme Kleen",
@@ -253,7 +283,7 @@ export const servicesContent: ServiceContent[] = [
   {
     slug: "glass-mirror-cleaning",
     icon: "glass",
-    photo: glassPhoto,
+    photo: glassPanelsPhoto,
     title: "Glass & Mirror Cleaning",
     h1: "Storefront Glass & Mirror Cleaning for Coastal Bend Businesses",
     metaTitle: "Storefront Glass Cleaning Portland & Corpus Christi, TX | Xtreme Kleen",

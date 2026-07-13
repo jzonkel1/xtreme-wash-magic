@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight, Truck, Phone } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
 import Seo from "@/components/Seo";
 import { locationsContent } from "@/content/locations";
+import { business, travel } from "@/data";
 import { breadcrumbLd } from "@/lib/seo";
 import heroBridge from "@/assets/hero-bridge.webp";
 
@@ -52,6 +53,31 @@ const ServiceAreasHub = () => (
               </span>
             </Link>
           ))}
+        </div>
+
+        <div className="bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl p-7 md:p-9 mb-16">
+          <div className="flex flex-col md:flex-row md:items-center gap-6">
+            <div className="flex items-start gap-4 flex-1">
+              <div className="w-12 h-12 rounded-lg bg-xk-red/15 flex items-center justify-center flex-shrink-0">
+                <Truck className="w-6 h-6 text-xk-red" />
+              </div>
+              <div>
+                <h2 className="font-display uppercase text-xk-warm-white text-2xl md:text-3xl tracking-tight mb-2">
+                  {travel.headline}
+                </h2>
+                <p className="text-xk-warm-white/60 text-sm font-body leading-relaxed">
+                  {travel.blurb}
+                </p>
+              </div>
+            </div>
+            <a
+              href={business.phoneHref}
+              className="flex items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-7 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red flex-shrink-0"
+            >
+              <Phone className="w-5 h-5" />
+              Call {business.phone}
+            </a>
+          </div>
         </div>
 
         <div className="rounded-xl overflow-hidden border border-xk-warm-white/10">
