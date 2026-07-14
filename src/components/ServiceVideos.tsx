@@ -40,10 +40,18 @@ const Clip = ({ video }: { video: ServiceVideo }) => {
   return (
     <figure className="relative">
       <div className="relative bg-black rounded-xl overflow-hidden border border-xk-warm-white/10">
-        <div className="aspect-[9/16]">
+        <div className="relative aspect-[9/16]">
+          {/* Poster as a real <img> under the video — Safari won't reliably
+              paint a `poster` on a src-less <video> (the lazy-attach state). */}
+          <img
+            src={video.poster}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <video
             ref={ref}
-            className="w-full h-full object-cover"
+            className="relative w-full h-full object-cover"
             poster={video.poster}
             loop
             muted

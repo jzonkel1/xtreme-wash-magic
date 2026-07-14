@@ -136,8 +136,8 @@ export const beforeAfters = [
   {
     before: churchBefore,
     after: churchAfter,
-    label: "Church Wall — Soft Wash",
-    sub: "Years of dirt and cobwebs off the masonry, panels left untouched.",
+    label: "House Wall — Soft Wash",
+    sub: "Years of dirt and cobwebs washed off the masonry, with the finish left untouched.",
   },
   {
     before: trailerBefore,
@@ -161,7 +161,7 @@ export const beforeAfters = [
     before: beachHouseBefore,
     after: beachHouseAfter,
     label: "Coastal Beach House — Soft Wash",
-    sub: "Algae had gone the siding green-yellow. Soft washed back to the color it was painted.",
+    sub: "Algae had turned the siding green-yellow. Soft washed back to the color it was painted.",
   },
   {
     before: stuccoBefore,
@@ -320,7 +320,17 @@ export const serviceAreas = [
   "Sinton",
   "Rockport",
   "Corpus Christi",
-  "Coastal Bend",
+  "Port Aransas",
+  "Alice",
+  "Beeville",
+  "Kenedy",
+  "Karnes City",
+  "Three Rivers",
+  "George West",
+  "Pleasanton",
+  "Cotulla",
+  "Freer",
+  "Coastal Bend & Eagle Ford",
 ];
 
 // The "cost of waiting" cards — scan top-to-bottom: icon → problem → cost.
@@ -414,6 +424,13 @@ export const services = [
     title: "Industrial & Plant Services",
     desc: "Fin fan and heat exchanger cleaning, pipe racks, tank exteriors, fleet washing, and construction cleanup — OSHA-aligned safety program on every site.",
   },
+  {
+    slug: "oilfield-cleaning",
+    icon: "industrial",
+    photo: coastMaterialsPhoto,
+    title: "Oilfield & Heavy Equipment Washing",
+    desc: "Frac tanks, rig equipment, yard iron, and DOT fleets across the Eagle Ford — hot-water degreasing, scheduled around your dispatch.",
+  },
 ];
 
 // Industrial capabilities & safety program — sourced directly from Xtreme
@@ -504,11 +521,11 @@ export const reviews = [
 // carousel's first page never shows them.
 export const reels = [
   {
-    src: pub("reels/house-softwash.mp4"),
-    poster: pub("reels/house-softwash-poster.jpg"),
-    title: "Soft Washing a Coastal Home",
+    src: pub("reels/beach-house-softwash.mp4"),
+    poster: pub("reels/beach-house-softwash-poster.jpg"),
+    title: "Soft Washing a Waterfront Home",
     caption:
-      "Low pressure, right chemistry — the mix does the work while the siding and window seals take nothing.",
+      "Three stories of coastal siding washed from the ground with an extension wand — low pressure and the right mix do the work, so the paint and window seals are never at risk.",
   },
   {
     src: pub("reels/window-glass.mp4"),

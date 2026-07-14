@@ -20,6 +20,8 @@ import windowsPhoto from "@/assets/windows-arched.webp"; // residential windows
 import concretePhoto from "@/assets/concrete-flatwork.webp"; // commercial flatwork
 import fordPhoto from "@/assets/access-ford.webp"; // Access Ford, Corpus Christi
 import pressurePhoto from "@/assets/pressure-spray.webp"; // wand + spray fan
+import fleetPhoto from "@/assets/truck-wash.webp"; // Dura-Haul trailer washdown
+import wharfPhoto from "@/assets/commercial/fishermans-wharf.webp"; // night dock wash, Port Aransas
 
 /** Shared hero for the /service-areas hub: Eric's own rig, parked on a job. */
 export const serviceAreasHeroPhoto = rigPhoto;
@@ -378,6 +380,385 @@ export const locationsContent: LocationContent[] = [
       {
         q: "Can you do roofs in Odem?",
         a: "Yes — black-streak roof cleaning with the no-pressure soft wash method, the same way we do it everywhere: the chemistry kills the algae, and no wand ever grinds against your shingles.",
+      },
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // Port Aransas — coastal commercial, backed by REAL clients on the island
+  // (Fisherman's Wharf, Grumbles Seafood).
+  // -------------------------------------------------------------------------
+  {
+    slug: "port-aransas-tx",
+    city: "Port Aransas",
+    cityState: "Port Aransas, TX",
+    metaTitle: "Pressure Washing Port Aransas, TX | Restaurants & Rentals | Xtreme Kleen",
+    metaDescription:
+      "Pressure washing and soft washing in Port Aransas, TX — restaurants, vacation rentals, and waterfront decks cleaned overnight so the doors never close. We already work the island: 361-947-7811.",
+    h1: "Pressure Washing & Soft Washing in Port Aransas, TX",
+    heroPhoto: wharfPhoto, // our own night dock wash at Fisherman's Wharf
+    answer:
+      "Xtreme Kleen pressure washes and soft washes in Port Aransas, Texas — restaurants, vacation rentals, waterfront decks, and storefronts. We already work the island: the dock washdowns at Fisherman's Wharf and the patio at Grumbles Seafood are our jobs, done overnight so the doors never closed. Call or text 361-947-7811.",
+    localAngle: [
+      "Nowhere in our service area punishes property like Port Aransas. Salt spray doesn't drift here — it lands. Boardwalks gray out, gull traffic and bait-stand grime build up on commercial decking, and rental exteriors green up between seasons fast enough to show up in booking photos.",
+      "We're already on the island: the night dock wash-downs at Fisherman's Wharf and the stamped-concrete patio at Grumbles Seafood are Xtreme Kleen jobs, both worked overnight so neither business lost an hour of trade. That's the standing offer for Port A — the wash happens while the island sleeps.",
+    ],
+    highlights: [
+      "Working island clients: Fisherman's Wharf and Grumbles Seafood",
+      "Overnight scheduling — doors never close for the wash",
+      "Vacation-rental turnarounds between seasons",
+      "Salt-side decks, docks, and storefront concrete",
+    ],
+    featuredServices: ["pressure-washing", "soft-washing", "window-cleaning", "glass-mirror-cleaning"],
+    faqs: [
+      {
+        q: "Can you wash our restaurant without closing us down?",
+        a: "That's how we already do it in Port Aransas — the Fisherman's Wharf docks and the Grumbles patio were both washed at night, finished before the morning crowd. We're open 24 hours, so overnight is a scheduling choice, not a special favor.",
+      },
+      {
+        q: "Do you handle vacation rentals?",
+        a: "Yes — exterior soft wash, deck and walkway cleaning, and window cleaning between guest seasons. A rental that photographs clean books better, and the island's salt air undoes the look faster than owners expect.",
+      },
+      {
+        q: "Is the ferry a problem for scheduling?",
+        a: "No — we plan around ferry traffic or run SH-361 through the island's back door, and night work misses the lines entirely.",
+      },
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // Eagle Ford oil-patch towns. The angle everywhere: hot-water degreasing,
+  // OSHA-aligned safety program, 24-hour scheduling, mobilized yard work.
+  // Residential in the far towns gets bundled into route days — said honestly.
+  // -------------------------------------------------------------------------
+  {
+    slug: "beeville-tx",
+    city: "Beeville",
+    cityState: "Beeville, TX",
+    metaTitle: "Pressure Washing Beeville, TX | Oilfield & Commercial | Xtreme Kleen",
+    metaDescription:
+      "Pressure washing in Beeville, TX — oilfield equipment and yards, county-seat storefronts, and house washing, under an OSHA-aligned safety program. Call or text 361-947-7811.",
+    h1: "Oilfield & Commercial Pressure Washing in Beeville, TX",
+    heroPhoto: fleetPhoto,
+    answer:
+      "Xtreme Kleen provides pressure washing in Beeville, Texas — oilfield equipment and yard washing on the Eagle Ford's eastern flank, plus storefronts, flatwork, and house washes around the county seat. Hot-water degreasing, an OSHA-aligned safety program, open 24 hours. Call or text 361-947-7811.",
+    localAngle: [
+      "Beeville sits where the Coastal Bend meets the oil patch — a county seat with courthouse-square storefronts on one side and equipment yards feeding the Eagle Ford on the other. Both kinds of dirty are our work: gum-and-grime downtown concrete, and haul trucks and yard iron carrying half the lease road home on them.",
+      "It's a straight run up US-181 from our Portland base, close enough that Beeville gets the same free on-site quotes as the home turf. Yard washes and fleets are the anchor jobs; house washes and storefront concrete ride along on the same trips.",
+    ],
+    highlights: [
+      "Eagle Ford equipment yards and DOT fleets",
+      "Hot-water degreasing for oil, grease, and lease-road mud",
+      "OSHA-aligned safety program on every industrial job",
+      "County-seat storefronts and residential too",
+    ],
+    featuredServices: ["oilfield-cleaning", "industrial-cleaning", "pressure-washing", "soft-washing"],
+    faqs: [
+      {
+        q: "Do you wash oilfield equipment in Beeville?",
+        a: "Yes — frac tanks, yard iron, haul trucks, and heavy equipment, with degreaser and hot water rather than a cold-water polish. Multi-unit yard washes are the jobs we build routes around.",
+      },
+      {
+        q: "Will you take residential jobs in Beeville?",
+        a: "Yes. House washes, driveways, and roofs get bundled onto Beeville route days, so the drive never shows up in your price.",
+      },
+      {
+        q: "Can you work our yard overnight or on a weekend?",
+        a: "We're open 24 hours — equipment gets washed when it's parked, not when it's earning. Nights and weekends are normal scheduling for us.",
+      },
+    ],
+  },
+  {
+    slug: "kenedy-tx",
+    city: "Kenedy",
+    cityState: "Kenedy, TX",
+    metaTitle: "Oilfield Pressure Washing Kenedy, TX | Eagle Ford Equipment | Xtreme Kleen",
+    metaDescription:
+      "Oilfield pressure washing in Kenedy, TX — the heart of the Eagle Ford. Frac tanks, yard iron, fleets, and man-camp exteriors, hot-water degreased under a real safety program. 361-947-7811.",
+    h1: "Oilfield Pressure Washing in Kenedy, TX",
+    heroPhoto: ppePhoto,
+    answer:
+      "Xtreme Kleen washes oilfield equipment in Kenedy, Texas — the middle of the Eagle Ford. Frac tanks, rig equipment, haul trucks, and yard iron get hot-water degreasing under an OSHA-aligned safety program (JSA, lockout/tagout, stop-work authority, full PPE). Open 24 hours. Call or text 361-947-7811.",
+    localAngle: [
+      "Kenedy and Karnes County sit on top of the most drilled stretch of the Eagle Ford, and the equipment shows it: drilling mud, crude, and caliche dust baked onto everything that works a lease. That buildup is a chemistry job — degreaser, dwell time, hot water — not something a rented cold-water machine touches.",
+      "We mobilize into Karnes County for yard washes, fleet work, and equipment turnarounds, and we bring the plant-work safety program with us: documented JSA before work starts, lockout/tagout, stop-work authority, full PPE. Man camps, crew quarters, and hotel exteriors along Business 181 are the other side of the same trip.",
+    ],
+    highlights: [
+      "Heart-of-the-Eagle-Ford equipment washing",
+      "Hot water + degreaser for drilling mud and crude",
+      "JSA, LOTO, stop-work, PPE — documented on request",
+      "Man camps, crew quarters, and hotels too",
+    ],
+    featuredServices: ["oilfield-cleaning", "industrial-cleaning", "pressure-washing", "soft-washing"],
+    faqs: [
+      {
+        q: "What oilfield equipment do you wash in Kenedy?",
+        a: "Frac tanks and tank batteries, rig and wellsite equipment exteriors, dozers and yard iron, haul trucks and belly dumps — plus the yard concrete they park on.",
+      },
+      {
+        q: "Our site requires safety documentation. Can you provide it?",
+        a: "Yes — we run an OSHA-aligned program on industrial work (JSA, lockout/tagout, stop-work authority, PPE) and can provide documentation ahead of mobilization.",
+      },
+      {
+        q: "How do you price a yard in Kenedy?",
+        a: "Send photos or a unit count and we'll quote it. Multi-unit and recurring washes price better per unit than a single machine, and we schedule around your dispatch, not against it.",
+      },
+    ],
+  },
+  {
+    slug: "karnes-city-tx",
+    city: "Karnes City",
+    cityState: "Karnes City, TX",
+    metaTitle: "Oilfield Pressure Washing Karnes City, TX | Equipment & Yards | Xtreme Kleen",
+    metaDescription:
+      "Oilfield equipment and yard washing in Karnes City, TX — hot-water degreasing for Eagle Ford iron, fleets, and facilities under an OSHA-aligned safety program. Call or text 361-947-7811.",
+    h1: "Oilfield & Equipment Washing in Karnes City, TX",
+    heroPhoto: crewPhoto,
+    answer:
+      "Xtreme Kleen provides oilfield and heavy equipment washing in Karnes City, Texas — county seat of the Eagle Ford's most active county. Hot-water degreasing for yard iron, fleets, and facility exteriors, under an OSHA-aligned safety program. Open 24 hours. Call or text 361-947-7811.",
+    localAngle: [
+      "Karnes City wears the Eagle Ford the same way Kenedy does — lease-road caliche on every truck, grease on every machine, and facility exteriors that gray out under dust the county never stops making. The courthouse square gets the other kind of dirty: gum, grime, and storefront concrete that hasn't seen a surface cleaner in years.",
+      "We treat Karnes City and Kenedy as one route: yard washes and fleet work anchor the trip, and storefronts, offices, and house washes fill it out. Same hot-water rigs, same safety program, same 24-hour scheduling.",
+    ],
+    highlights: [
+      "One route with Kenedy — the Eagle Ford core",
+      "Yard iron, fleets, and facility exteriors",
+      "Hot-water degreasing, not a cold-water polish",
+      "Storefronts and residential fill out the trip",
+    ],
+    featuredServices: ["oilfield-cleaning", "industrial-cleaning", "pressure-washing", "soft-washing"],
+    faqs: [
+      {
+        q: "Do you serve both Karnes City and Kenedy?",
+        a: "Yes — they're one trip for us. If your yard is anywhere in Karnes County, we'll route it together with the rest of the county's work.",
+      },
+      {
+        q: "Can you wash our office or shop building, not just equipment?",
+        a: "Yes — building exteriors, shop floors, wash bays, and the yard concrete all clean up on the same mobilization.",
+      },
+      {
+        q: "How far in advance do we need to book?",
+        a: "Call or text 361-947-7811 — yard work usually schedules within days, and we're open 24 hours, so overnight slots are often the fastest.",
+      },
+    ],
+  },
+  {
+    slug: "three-rivers-tx",
+    city: "Three Rivers",
+    cityState: "Three Rivers, TX",
+    metaTitle: "Industrial Pressure Washing Three Rivers, TX | Refinery Corridor | Xtreme Kleen",
+    metaDescription:
+      "Industrial and oilfield pressure washing in Three Rivers, TX — refinery-corridor facilities, Eagle Ford equipment, and fleets, washed under an OSHA-aligned safety program. 361-947-7811.",
+    h1: "Industrial & Oilfield Washing in Three Rivers, TX",
+    heroPhoto: ppePhoto,
+    answer:
+      "Xtreme Kleen provides industrial and oilfield pressure washing in Three Rivers, Texas — a refinery town on the Eagle Ford's truck routes. Facility exteriors, heavy equipment, and fleets get hot-water degreasing under an OSHA-aligned safety program: JSA, lockout/tagout, stop-work authority, full PPE. Call or text 361-947-7811.",
+    localAngle: [
+      "Three Rivers is a refinery town sitting on the Eagle Ford's busiest truck corridor, where US-281 meets TX-72. That means two kinds of work: plant-adjacent facilities that expect a contractor to show up with a real safety program, and the haul trucks and equipment yards that feed the patch.",
+      "Plant-style work is where we come from — fin fans, structural steel, tank exteriors — so the JSA-first, full-PPE routine isn't new clothes for us. Equipment washdowns, facility exteriors, and fleet work in Three Rivers run under the same program, on 24-hour scheduling.",
+    ],
+    highlights: [
+      "Refinery-corridor facility washing",
+      "US-281 / TX-72 fleet and equipment work",
+      "Plant-grade safety program, documented",
+      "24-hour scheduling around operations",
+    ],
+    featuredServices: ["oilfield-cleaning", "industrial-cleaning", "pressure-washing", "soft-washing"],
+    faqs: [
+      {
+        q: "Can you work near or around plant facilities?",
+        a: "Yes — industrial exteriors are core work for us, under an OSHA-aligned program: documented JSA, lockout/tagout where equipment demands it, stop-work authority, and full PPE.",
+      },
+      {
+        q: "Do you wash trucks that run the Eagle Ford routes?",
+        a: "Yes — haul trucks, belly dumps, and DOT fleets, degreased with hot water so the paint and the DOT inspection both come out better.",
+      },
+      {
+        q: "Do you take house-wash jobs in Three Rivers?",
+        a: "Yes — residential jobs get bundled onto Three Rivers route days alongside the commercial work, which keeps the drive out of your price.",
+      },
+    ],
+  },
+  {
+    slug: "george-west-tx",
+    city: "George West",
+    cityState: "George West, TX",
+    metaTitle: "Pressure Washing George West, TX | Oilfield & Ranch Country | Xtreme Kleen",
+    metaDescription:
+      "Pressure washing in George West, TX — oilfield equipment, ranch buildings, and county-seat storefronts at the US-59/US-281 crossroads. Hot-water rigs, free quotes: 361-947-7811.",
+    h1: "Pressure Washing in George West, TX",
+    heroPhoto: pressurePhoto,
+    answer:
+      "Xtreme Kleen provides pressure washing in George West, Texas — oilfield equipment and fleets moving through the US-59/US-281 crossroads, plus ranch buildings, metal roofs, and the Live Oak county seat's storefronts and homes. Hot-water degreasing, free quotes. Call or text 361-947-7811.",
+    localAngle: [
+      "George West sits at the crossroads the Eagle Ford drives through — US-59 meeting US-281 — with working ranches on every side of town. The mix on our schedule looks like the town: equipment and fleet washdowns from the patch, then barns, metal buildings, and ranch-house exteriors wearing years of caliche dust and humidity film.",
+      "Painted metal is half the work out here, and it's a soft-wash job — the wrong pressure strips a barn's paint faster than the weather ever would. We match the method to the surface: chemistry on the metal, surface cleaners on the concrete, hot water on the grease.",
+    ],
+    highlights: [
+      "US-59/281 crossroads fleet and equipment work",
+      "Barns, metal buildings, and ranch exteriors",
+      "Soft wash for painted metal — no stripped paint",
+      "County-seat storefronts and homes",
+    ],
+    featuredServices: ["oilfield-cleaning", "pressure-washing", "soft-washing", "roof-cleaning"],
+    faqs: [
+      {
+        q: "Can you clean barns and ranch metal buildings?",
+        a: "Yes — painted metal gets a soft wash so the finish stays put, and heavy equipment or concrete around the place gets pressure where it belongs. One visit can usually cover the headquarters.",
+      },
+      {
+        q: "Do you wash oilfield equipment out of George West?",
+        a: "Yes — yard iron, haul trucks, and equipment staged along the corridor. Hot water and degreaser, scheduled around your dispatch.",
+      },
+      {
+        q: "Is George West too far for a free quote?",
+        a: "No — photo quotes are instant, and in-person looks get bundled onto route days through Live Oak County. Call or text 361-947-7811.",
+      },
+    ],
+  },
+  {
+    slug: "pleasanton-tx",
+    city: "Pleasanton",
+    cityState: "Pleasanton, TX",
+    metaTitle: "Pressure Washing Pleasanton, TX | Oilfield & Commercial | Xtreme Kleen",
+    metaDescription:
+      "Pressure washing in Pleasanton, TX — Eagle Ford equipment yards, commercial storefronts, and house washing where the patch meets San Antonio's edge. Call or text 361-947-7811.",
+    h1: "Oilfield & Commercial Pressure Washing in Pleasanton, TX",
+    heroPhoto: fleetPhoto,
+    answer:
+      "Xtreme Kleen provides pressure washing in Pleasanton, Texas — oilfield equipment and yard washing on the Eagle Ford's western flank, plus commercial storefronts and house washes. Hot-water degreasing under an OSHA-aligned safety program, open 24 hours. Call or text 361-947-7811.",
+    localAngle: [
+      "Pleasanton calls itself the birthplace of the cowboy, but its working economy rides the Eagle Ford — service yards and fleets staging along TX-97 and I-37, hauling the patch's dust and grease back to town every night. That iron is hot-water work: degreaser, dwell, then heat, or the oil just moves around.",
+      "The town side of Pleasanton looks more like our Coastal Bend work — storefront concrete, commercial exteriors, and neighborhoods where humidity films up siding the same way it does closer to the coast. Both halves ride the same mobilization: yards anchor the trip, town work fills it.",
+    ],
+    highlights: [
+      "Eagle Ford western-flank yards and fleets",
+      "TX-97 / I-37 corridor equipment washing",
+      "Commercial storefronts and flatwork",
+      "House washes bundled onto route days",
+    ],
+    featuredServices: ["oilfield-cleaning", "industrial-cleaning", "pressure-washing", "soft-washing"],
+    faqs: [
+      {
+        q: "Do you really cover Pleasanton from Portland?",
+        a: "Yes — for yard, fleet, and multi-unit commercial work we mobilize; that's the job we're built for and the drive is priced into nothing. One-off residential jobs get bundled onto Pleasanton route days.",
+      },
+      {
+        q: "What's the anchor job you look for in Pleasanton?",
+        a: "Equipment yards and fleets — recurring washes especially. Once a route day exists, storefronts, offices, and house washes in town get the same-day treatment.",
+      },
+      {
+        q: "Can you wash at night so the yard keeps moving?",
+        a: "Yes — we're open 24 hours. Overnight yard washes are normal for us, not an upcharge conversation.",
+      },
+    ],
+  },
+  {
+    slug: "cotulla-tx",
+    city: "Cotulla",
+    cityState: "Cotulla, TX",
+    metaTitle: "Oilfield Pressure Washing Cotulla, TX | La Salle County | Xtreme Kleen",
+    metaDescription:
+      "Oilfield pressure washing in Cotulla, TX — La Salle County frac tanks, yard iron, fleets, and man-camp exteriors on the Eagle Ford's western core. Mobilized crews: 361-947-7811.",
+    h1: "Oilfield Pressure Washing in Cotulla, TX",
+    heroPhoto: ppePhoto,
+    answer:
+      "Xtreme Kleen mobilizes for oilfield washing in Cotulla, Texas — the Eagle Ford's western core. Frac tanks, wellsite equipment, yard iron, fleets, and man-camp exteriors get hot-water degreasing under an OSHA-aligned safety program. Multi-unit and recurring yard work is what makes the trip. Call or text 361-947-7811.",
+    localAngle: [
+      "Cotulla is deep Eagle Ford — La Salle County lease roads, I-35 truck traffic, and equipment that works harder and dirtier than anywhere else we go. Nobody sensibly drives to Cotulla to wash one machine, so we're straight about the model: yards, fleets, and multi-unit washes make the mobilization, and recurring schedules make it cheap per unit.",
+      "The same trip covers the town the boom built — man camps, crew quarters, hotels, and commercial exteriors along I-35 and TX-97 that gray out under caliche dust. Everything runs under the same safety program we use for plant work: JSA first, full PPE, stop-work authority for everyone on site.",
+    ],
+    highlights: [
+      "Eagle Ford western core — mobilized yard work",
+      "Frac tanks, wellsite iron, and fleet washing",
+      "Man camps, hotels, and I-35 commercial",
+      "Recurring schedules drop the per-unit price",
+    ],
+    featuredServices: ["oilfield-cleaning", "industrial-cleaning", "pressure-washing", "soft-washing"],
+    faqs: [
+      {
+        q: "What makes a Cotulla trip worth it?",
+        a: "Volume — a yard, a fleet, or several machines at once. Send photos and a unit count to 361-947-7811 and we'll quote the mobilization honestly; recurring washes price best.",
+      },
+      {
+        q: "Can you service man camps and crew housing?",
+        a: "Yes — building exteriors, walkways, and concrete. Housing that looks maintained keeps operators and workers happier, and it's the easy add-on once we're on the ground in La Salle County.",
+      },
+      {
+        q: "Do you carry your own water and equipment?",
+        a: "We run self-contained hot-water rigs with tanks and reels — remote yards without a convenient spigot are a normal day, not a problem.",
+      },
+    ],
+  },
+  {
+    slug: "alice-tx",
+    city: "Alice",
+    cityState: "Alice, TX",
+    metaTitle: "Pressure Washing Alice, TX | Oilfield Service Capital | Xtreme Kleen",
+    metaDescription:
+      "Pressure washing in Alice, TX — the hub city of South Texas oilfield services. Equipment yards, fleets, storefronts, and house washing with hot-water rigs. Call or text 361-947-7811.",
+    h1: "Oilfield & Commercial Pressure Washing in Alice, TX",
+    heroPhoto: crewPhoto,
+    answer:
+      "Xtreme Kleen provides pressure washing in Alice, Texas — the historic hub of South Texas oilfield services. Equipment yards, fleets, and shop facilities get hot-water degreasing; storefronts, offices, and homes get the same crew on the same trip. Under an hour from our Portland base. Call or text 361-947-7811.",
+    localAngle: [
+      "Alice has been the oilfield's service capital since before the Eagle Ford had a name — the yards along US-281 and TX-44 have been staging iron for generations. That's our anchor work in town: equipment, fleets, shop floors, and the yard concrete under all of it, degreased with hot water instead of polished with cold.",
+      "It's under an hour from our Portland base, so Alice isn't a mobilization story — it's regular coverage. Storefronts along Main Street, office exteriors, and house washes get quoted free and in person, same as the Coastal Bend towns.",
+    ],
+    highlights: [
+      "Historic oilfield-services yards on US-281 / TX-44",
+      "Under an hour from home base — regular coverage",
+      "Hot-water degreasing for equipment and shops",
+      "Free in-person quotes, residential included",
+    ],
+    featuredServices: ["oilfield-cleaning", "industrial-cleaning", "pressure-washing", "soft-washing"],
+    faqs: [
+      {
+        q: "Is Alice inside your normal service area?",
+        a: "Yes — under an hour from our Portland base, so it gets regular coverage and free in-person quotes, not mobilization pricing.",
+      },
+      {
+        q: "What do you wash for oilfield service companies?",
+        a: "Yard iron, haul trucks, frac tanks, shop exteriors and floors, wash bays, and the yard concrete — with degreaser and hot water matched to the buildup.",
+      },
+      {
+        q: "Do you do house washes in Alice?",
+        a: "Yes — full soft washes, driveways, and roofs, same as our Coastal Bend residential work. Call or text 361-947-7811 for a free quote.",
+      },
+    ],
+  },
+  {
+    slug: "freer-tx",
+    city: "Freer",
+    cityState: "Freer, TX",
+    metaTitle: "Oilfield Pressure Washing Freer, TX | Duval County | Xtreme Kleen",
+    metaDescription:
+      "Oilfield pressure washing in Freer, TX — Duval County equipment, fleets, and yard washing with self-contained hot-water rigs. Scheduled routes, honest pricing: 361-947-7811.",
+    h1: "Oilfield Pressure Washing in Freer, TX",
+    heroPhoto: fleetPhoto,
+    answer:
+      "Xtreme Kleen washes oilfield equipment in Freer, Texas — Duval County iron, fleets, and yards on TX-44 west of Alice. Self-contained hot-water rigs handle remote yards; multi-unit and recurring washes make the route. Under an OSHA-aligned safety program. Call or text 361-947-7811.",
+    localAngle: [
+      "Freer is old oil country — Duval County leases that never stopped working, plus Eagle Ford traffic passing through on TX-44. Equipment out here runs remote and comes back caked: drilling mud, grease, and caliche that only chemistry and hot water actually remove.",
+      "We run Freer as an extension of the Alice route — self-contained rigs with our own water, so a yard without a working spigot is a normal stop. Multi-unit washes and recurring schedules are what make the western leg run; single machines get folded into the next route day.",
+    ],
+    highlights: [
+      "Duval County yards and lease equipment",
+      "Self-contained rigs — we bring the water",
+      "Routed with Alice for honest pricing",
+      "Hot-water degreasing, OSHA-aligned program",
+    ],
+    featuredServices: ["oilfield-cleaning", "industrial-cleaning", "pressure-washing", "soft-washing"],
+    faqs: [
+      {
+        q: "Our yard has no water hookup. Is that a problem?",
+        a: "No — our rigs carry their own tanks and hot-water units. Remote and dry-site yards are normal work for us.",
+      },
+      {
+        q: "When do you run the Freer route?",
+        a: "Freer rides the western leg with Alice. Call or text 361-947-7811 with photos or a unit count and we'll slot you into the next route day — or schedule a dedicated trip for yard-sized work.",
+      },
+      {
+        q: "Do you wash anything besides equipment out here?",
+        a: "Yes — shop and office exteriors, storefront concrete, and house washes, bundled onto the same trip as the yard work.",
       },
     ],
   },

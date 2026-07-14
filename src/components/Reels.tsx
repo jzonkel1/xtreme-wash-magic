@@ -56,11 +56,21 @@ const ReelCard = ({
   return (
     <div className="w-full bg-xk-light-gray/50 border border-xk-warm-white/10 rounded-xl overflow-hidden flex flex-col">
       <div className="relative bg-black aspect-[9/16]">
+        {/* The poster ALSO renders as a real <img> underneath the video.
+            Safari/WebKit won't reliably paint a `poster` on a <video> that has
+            no src yet (our lazy-attach state), so on a MacBook the cards showed
+            bare background instead of thumbnails. An <img> has no such mood. */}
+        <img
+          src={poster}
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         {/* No `src` and no `autoPlay` here on purpose — see the effect above.
             The poster carries the visual until the clip scrolls into view. */}
         <video
           ref={videoRef}
-          className="w-full h-full object-cover"
+          className="relative w-full h-full object-cover"
           poster={poster}
           loop
           muted

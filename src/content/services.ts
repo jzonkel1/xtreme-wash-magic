@@ -220,9 +220,9 @@ export const servicesContent: ServiceContent[] = [
     // PAIR above, so a second job clip would put four videos on one page.
     videos: [
       reel(
-        "house-softwash",
-        "Soft Washing a Coastal Home",
-        "Low pressure, right chemistry — the mix does the work while the siding and window seals take nothing.",
+        "beach-house-softwash",
+        "Soft Washing a Waterfront Home",
+        "Three stories of coastal siding washed from the ground with an extension wand — low pressure and the right mix do the work, so the paint and window seals are never at risk.",
       ),
     ],
     related: ["roof-cleaning", "pressure-washing", "window-cleaning"],
@@ -426,7 +426,7 @@ export const servicesContent: ServiceContent[] = [
       reel(
         "window-glass",
         "Storefront Glass, Streak-Free",
-        "Salt haze and hand prints stripped off commercial glass — the entrance customers see first.",
+        "Salt haze and handprints stripped off commercial glass — the entrance customers see first.",
       ),
     ],
     related: ["window-cleaning", "pressure-washing", "soft-washing"],
@@ -495,6 +495,69 @@ export const servicesContent: ServiceContent[] = [
       ),
     ],
     related: ["pressure-washing", "soft-washing", "glass-mirror-cleaning"],
+  },
+  {
+    slug: "oilfield-cleaning",
+    icon: "industrial",
+    photo: fleetPhoto,
+    title: "Oilfield & Heavy Equipment Washing",
+    h1: "Oilfield Pressure Washing — Eagle Ford & the Coastal Bend",
+    metaTitle: "Oilfield Pressure Washing | Eagle Ford Equipment & Yard Washing | Xtreme Kleen",
+    metaDescription:
+      "Oilfield and heavy equipment washing across the Eagle Ford and Coastal Bend — frac tanks, rigs, yard iron, and DOT fleets, cleaned under an OSHA-aligned safety program. Call or text 361-947-7811.",
+    heroSub:
+      "Frac tanks, yard iron, haul trucks, and wellsite equipment — degreased and washed by a crew that already works plants under a real safety program, and runs 24 hours because the patch does too.",
+    answer:
+      "Xtreme Kleen provides oilfield and heavy equipment washing across the Eagle Ford and Coastal Bend — Beeville, Kenedy, Three Rivers, Cotulla, Alice, and the yards in between. Frac tanks, rig equipment, haul trucks, and yard iron get hot-water degreasing under an OSHA-aligned safety program: JSA before work starts, lockout/tagout, stop-work authority, full PPE. Call or text 361-947-7811.",
+    whatWeCleanTitle: "Oilfield Equipment & Sites We Wash",
+    whatWeClean: [
+      "Frac tanks and tank batteries (exteriors)",
+      "Drilling and workover rig equipment washdowns",
+      "Dozers, excavators, loaders, and yard iron",
+      "Haul trucks, belly dumps, and DOT fleet washing",
+      "Pumps, skids, and wellsite equipment exteriors",
+      "Skid buildings, crew quarters, and portable offices",
+      "Shop floors, wash bays, and yard concrete",
+      "Oil, grease, and drilling-mud buildup",
+    ],
+    method: {
+      title: "Plant-Grade Safety, Yard-Grade Schedule",
+      paragraphs: [
+        "Oilfield grime is a chemistry problem before it's a pressure problem. Crude, grease, and drilling mud get a degreaser matched to the buildup and real dwell time, then hot water to cut it off the steel — cold water at high pressure just polishes oil around the equipment.",
+        "We already work inside plants, so the safety program comes with us instead of being improvised at the gate: a JSA before work begins, lockout/tagout where equipment demands it, stop-work authority for everyone on the job, and full PPE. If your site requires documentation, we can provide it.",
+        "We're open 24 hours because the patch doesn't keep office hours either. Equipment gets washed between jobs, ahead of inspections or auctions, or overnight in the yard — scheduled around your operation, not ours.",
+      ],
+    },
+    faqs: [
+      {
+        q: "Do you actually travel out to the Eagle Ford?",
+        a: "Yes. We run out of Portland, TX and mobilize for oilfield and commercial work across the Eagle Ford — Beeville, Kenedy, Karnes City, Three Rivers, George West, Pleasanton, Cotulla, Alice, and Freer. For yards and multi-unit jobs the drive is never the problem; call or text 361-947-7811 and we'll figure out scheduling.",
+      },
+      {
+        q: "Are you safe to have on a live site?",
+        a: "We run an OSHA-aligned safety program on every industrial job: a documented JSA before work starts, lockout/tagout, stop-work authority, and full PPE. It's the same program we use for plant work like fin fan cleaning — not something invented for the sales pitch.",
+      },
+      {
+        q: "Can you get drilling mud and crude off equipment?",
+        a: "That's the job. Degreaser matched to the buildup, dwell time, then hot water — most equipment comes back to clean steel and paint. Heavily baked-on buildup may take a second pass, and we'll tell you on-site what to expect.",
+      },
+      {
+        q: "Do you wash equipment for resale or auction?",
+        a: "Yes — a washed, degreased machine photographs better and inspects better. We can turn around single machines or a whole yard ahead of a sale.",
+      },
+      {
+        q: "How does pricing work for oilfield jobs?",
+        a: "By scope, not mystery: send photos of the equipment or yard and we'll quote it, or we'll come look at it in person. Multi-unit and recurring yard washes price better per unit than one-offs.",
+      },
+    ],
+    videos: [
+      reel(
+        "cmi-dump-trailer",
+        "Hot Water on a Working Dump Trailer",
+        "Caked haul residue steamed off a dump trailer at the yard — the same hot-water degreasing that oilfield iron takes.",
+      ),
+    ],
+    related: ["industrial-cleaning", "pressure-washing", "soft-washing"],
   },
 ];
 

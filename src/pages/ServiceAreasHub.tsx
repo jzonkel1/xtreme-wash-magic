@@ -22,7 +22,7 @@ const ServiceAreasHub = () => (
     <PageHero
       kicker="WHERE WE WORK"
       title="Serving the Coastal Bend From Portland, TX"
-      sub="Salt air, humidity, and year-round algae are a different problem than inland dirt. We're based in Portland and work the whole Coastal Bend — pick your town for the local rundown."
+      sub="Salt air on the coast, caliche and crude in the oil patch — different dirt, same crew. We're based in Portland and work the whole Coastal Bend plus the Eagle Ford. Pick your town for the local rundown."
       photo={serviceAreasHeroPhoto}
       // A wide hero crops this shot to a short band; dead-center lands on the
       // trailer deck and cuts Eric's head off. Bias it upward.
