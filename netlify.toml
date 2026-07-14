@@ -1,8 +1,26 @@
 [build]
-  command = "npm run build"
+  # `puppeteer browsers install chrome` is NOT redundant with the npm install.
+  # Puppeteer's postinstall downloads Chromium into a cache dir; when Netlify
+  # restores node_modules from its build cache the postinstall never re-runs, so
+  # the browser binary is missing, scripts/prerender.mjs cannot launch, and —
+  # because that script is deliberately deploy-safe — it exits 0 and ships an
+  # UNPRERENDERED SPA. That is exactly what happened: every URL on the live site
+  # returned a blank <div id="root"></div> shell with the homepage's title and
+  # canonical. No legal copy for A2P/carrier reviewers, nothing for non-JS
+  # crawlers, and a green deploy the whole time. Installing the browser
+  # explicitly, into a directory Netlify actually persists, makes it deterministic.
+  command = "npx puppeteer browsers install chrome && npm run build && node scripts/verify-prerender.mjs"
   publish = "dist"
 
+  [build.environment]
+    # /opt/build/cache is the path Netlify keeps between builds.
+    PUPPETEER_CACHE_DIR = "/opt/build/cache/puppeteer"
+
 # SPA fallback so client-side routes resolve to index.html.
+# Netlify serves matching static files (the prerendered pages) BEFORE applying
+# this, so it should only ever catch genuinely unknown routes — but it is also
+# what silently masked the missing prerender, which is why the build now ends in
+# verify-prerender.mjs and FAILS instead of shipping blank pages.
 # Netlify processes form POSTs before this redirect, so lead capture still works.
 [[redirects]]
   from = "/*"

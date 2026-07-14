@@ -28,6 +28,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # Fail the deploy rather than publish a bare SPA shell if the prerender
+      # silently skipped itself (see scripts/verify-prerender.mjs).
+      - run: node scripts/verify-prerender.mjs
         env:
           GHPAGES: "1" # vite.config.ts switches base to /xtreme-wash-magic/
       # SPA fallback so any deep link resolves instead of a GitHub 404

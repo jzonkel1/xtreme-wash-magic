@@ -20,8 +20,16 @@
       does not honour transparency.
     -->
     <link rel="icon" type="image/x-icon" href="%BASE_URL%favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="%BASE_URL%favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%favicon-32x32.png" />
+    <!--
+      48x48 is the one GOOGLE SEARCH actually wants: its docs require a square
+      favicon whose size is a multiple of 48px. The .ico already carries a 48px
+      frame, but Google reads <link> tags, not ico internals — so declare it.
+    -->
+    <link rel="icon" type="image/png" sizes="48x48" href="%BASE_URL%favicon-48x48.png" />
+    <!-- Android / Chrome install + high-DPI tab strips. -->
+    <link rel="icon" type="image/png" sizes="192x192" href="%BASE_URL%icon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="%BASE_URL%apple-touch-icon.png" />
     <link rel="manifest" href="%BASE_URL%site.webmanifest" />
 
