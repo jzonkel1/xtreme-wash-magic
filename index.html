@@ -183,6 +183,13 @@
       // 3. First tap/scroll also triggers it, so a fast-moving visitor still
       //    gets the bubble promptly.
       (function () {
+        // Kill switch. Set to false to pull the chat widget from every page —
+        // e.g. if a carrier/A2P reviewer objects to a second phone-collecting
+        // surface while the campaign is pending. Consent for SMS is collected by
+        // the FORM checkboxes, never by this widget; keep the widget in Live Chat
+        // mode in GHL so it never becomes a second SMS opt-in path.
+        var ENABLE_CHAT_WIDGET = true;
+        if (!ENABLE_CHAT_WIDGET) return;
         if (navigator.webdriver) return;
         var loaded = false;
         function loadWidget() {
@@ -199,10 +206,15 @@
           document.body.appendChild(s);
           liftAboveMobileBar();
         }
-        // On mobile the site has a sticky CALL/TEXT + BOOK bar (~64px). The
-        // widget bubble defaults to bottom:20px inside its (open) shadow root,
-        // which parks it on top of the BOOK button. Page CSS can't reach into
-        // a shadow root, so inject the offset directly once the root exists.
+        // On mobile the site has a sticky CALL/TEXT + BOOK bar. The widget bubble
+        // defaults to bottom:20px inside its (open) shadow root, which parks it
+        // on top of the BOOK button. Page CSS can't reach into a shadow root, so
+        // inject the offset directly once the root exists.
+        //
+        // The offset MUST be safe-area-aware. The bar is 48px + the iPhone home
+        // indicator inset (~34px), so a flat 88px left roughly 6px of clearance
+        // on a real iPhone — it read as sitting right on the button. calc() with
+        // env() tracks the inset on every device instead of guessing.
         function liftAboveMobileBar() {
           var tries = 0;
           var t = setInterval(function () {
@@ -212,7 +224,8 @@
               clearInterval(t);
               var css = document.createElement("style");
               css.textContent =
-                "@media (max-width: 767px){.lc_text-widget,.lc_text-widget--bubble{bottom:88px !important;}}";
+                "@media (max-width: 767px){.lc_text-widget,.lc_text-widget--bubble," +
+                ".lc_text-widget_prompt{bottom:calc(84px + env(safe-area-inset-bottom)) !important;}}";
               root.appendChild(css);
             } else if (++tries > 100) {
               clearInterval(t);
