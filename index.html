@@ -164,5 +164,37 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // LeadConnector (GHL) chat widget — injected lazily, three rules:
+      // 1. navigator.webdriver guard: the prerenderer (Puppeteer) must never
+      //    load it, or all 36 static snapshots get widget DOM baked in.
+      // 2. Wait for load + idle so the widget never competes with the page
+      //    for bandwidth (Lighthouse stays honest).
+      // 3. First tap/scroll also triggers it, so a fast-moving visitor still
+      //    gets the bubble promptly.
+      (function () {
+        if (navigator.webdriver) return;
+        var loaded = false;
+        function loadWidget() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement("script");
+          s.src = "https://widgets.leadconnectorhq.com/loader.js";
+          s.setAttribute(
+            "data-resources-url",
+            "https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          );
+          s.setAttribute("data-widget-id", "6a55640e82c5a91e7f44d862");
+          s.setAttribute("data-source", "WEB_USER");
+          document.body.appendChild(s);
+        }
+        ["pointerdown", "scroll", "keydown", "touchstart"].forEach(function (e) {
+          window.addEventListener(e, loadWidget, { once: true, passive: true });
+        });
+        window.addEventListener("load", function () {
+          setTimeout(loadWidget, 3500);
+        });
+      })();
+    </script>
   </body>
 </html>
