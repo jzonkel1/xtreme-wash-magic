@@ -183,12 +183,20 @@
       // 3. First tap/scroll also triggers it, so a fast-moving visitor still
       //    gets the bubble promptly.
       (function () {
-        // Kill switch. Set to false to pull the chat widget from every page —
-        // e.g. if a carrier/A2P reviewer objects to a second phone-collecting
-        // surface while the campaign is pending. Consent for SMS is collected by
-        // the FORM checkboxes, never by this widget; keep the widget in Live Chat
-        // mode in GHL so it never becomes a second SMS opt-in path.
-        var ENABLE_CHAT_WIDGET = true;
+        // OFF as of 2026-07-14, deliberately. The widget we have is an SMS/Email
+        // chat: GHL's own docs say it "collects the visitor's information so you
+        // can respond via SMS or email later" — i.e. it takes a phone number in
+        // order to TEXT them. That is a second SMS opt-in path on every page,
+        // with no consent disclosure of its own (the widget has no SMS consent
+        // checkbox option), while our A2P campaign is registered on WEBSITE FORM
+        // opt-in via the two checkboxes in SmsConsentFields.tsx. Two competing
+        // consent mechanisms is exactly what gets a campaign rejected.
+        //
+        // TO RE-ENABLE: build an All-in-One widget in GHL with Chat Type =
+        // Live Chat (conversation stays in the browser, nothing is texted, so it
+        // is not an opt-in path), drop its widget id in below, and flip this to
+        // true. Do NOT re-enable an SMS/Email-type widget.
+        var ENABLE_CHAT_WIDGET = false;
         if (!ENABLE_CHAT_WIDGET) return;
         if (navigator.webdriver) return;
         var loaded = false;
