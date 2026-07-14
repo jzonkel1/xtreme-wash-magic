@@ -484,9 +484,9 @@ export const servicesContent: ServiceContent[] = [
     ],
     videos: [
       reel(
-        "fin-fan",
-        "Fin Fan & Heat Exchanger Cleaning",
-        "Plant work: pulling packed grime out of an air-cooled heat exchanger without bending a single fin.",
+        "equipment-radiator",
+        "Radiator & Cooler Pack Cleaning",
+        "A machine's cooling stack — radiator, oil cooler, charge-air cooler — cleared of packed grime so it sheds heat again. Same principle as a fin fan: a fouled exchanger is a performance problem, not a cosmetic one.",
       ),
       reel(
         "mixer-truck",
@@ -555,6 +555,11 @@ export const servicesContent: ServiceContent[] = [
         "cmi-dump-trailer",
         "Hot Water on a Working Dump Trailer",
         "Caked haul residue steamed off a dump trailer at the yard — the same hot-water degreasing that oilfield iron takes.",
+      ),
+      reel(
+        "equipment-radiator",
+        "Radiator & Cooler Pack Cleaning",
+        "The cooling stack on a working machine — radiator, oil cooler, charge-air cooler — cleared of packed grime. A machine that runs hot in a South Texas summer is a machine that stops working.",
       ),
     ],
     related: ["industrial-cleaning", "pressure-washing", "soft-washing"],

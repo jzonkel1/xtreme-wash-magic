@@ -579,11 +579,11 @@ export const reels = [
       "Years of Gulf grime pulled off masonry, leaving the brick its original color instead of a chalky film.",
   },
   {
-    src: pub("reels/fin-fan.mp4"),
-    poster: pub("reels/fin-fan-poster.jpg"),
-    title: "Fin Fan & Heat Exchanger Cleaning",
+    src: pub("reels/equipment-radiator.mp4"),
+    poster: pub("reels/equipment-radiator-poster.jpg"),
+    title: "Radiator & Cooler Pack — Heavy Equipment",
     caption:
-      "Plant work: pulling packed grime out of an air-cooled heat exchanger without bending a single fin.",
+      "The cooling stack on a working machine — radiator, oil cooler, and charge-air cooler — washed back to bare fins so it actually sheds heat instead of running hot.",
   },
   {
     src: pub("reels/roof.mp4"),
