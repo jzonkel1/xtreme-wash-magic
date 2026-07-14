@@ -187,6 +187,27 @@
           s.setAttribute("data-widget-id", "6a55b04ed166a8719f20e1ef");
           s.setAttribute("data-source", "WEB_USER");
           document.body.appendChild(s);
+          liftAboveMobileBar();
+        }
+        // On mobile the site has a sticky CALL/TEXT + BOOK bar (~64px). The
+        // widget bubble defaults to bottom:20px inside its (open) shadow root,
+        // which parks it on top of the BOOK button. Page CSS can't reach into
+        // a shadow root, so inject the offset directly once the root exists.
+        function liftAboveMobileBar() {
+          var tries = 0;
+          var t = setInterval(function () {
+            var host = document.querySelector("chat-widget");
+            var root = host && host.shadowRoot;
+            if (root) {
+              clearInterval(t);
+              var css = document.createElement("style");
+              css.textContent =
+                "@media (max-width: 767px){.lc_text-widget,.lc_text-widget--bubble{bottom:88px !important;}}";
+              root.appendChild(css);
+            } else if (++tries > 100) {
+              clearInterval(t);
+            }
+          }, 200);
         }
         ["pointerdown", "scroll", "keydown", "touchstart"].forEach(function (e) {
           window.addEventListener(e, loadWidget, { once: true, passive: true });
