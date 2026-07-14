@@ -136,7 +136,22 @@ export const termsOfService: LegalDoc = {
     {
       heading: "Communications",
       paragraphs: [
-        "By submitting your contact information through this website, you agree to be contacted by phone, text, or email about your request. Text messaging consent and opt-out are described in our Privacy Policy.",
+        "By submitting your contact information through this website, you agree to be contacted about your request by phone or email. Text messaging is governed by the SMS Messaging Terms below and requires the separate, optional consent checkboxes on our forms.",
+      ],
+    },
+    {
+      // Carrier (A2P 10DLC) guidelines require the SMS program terms to appear
+      // in the Terms of Service itself: program description, opt-out, rejoin,
+      // help, carrier liability, and rates. Don't fold this back into a
+      // pointer at the Privacy Policy.
+      heading: "SMS Messaging Terms",
+      paragraphs: [
+        "Program description: Xtreme Kleen Wash & Rental LLC (dba Xtreme Kleen) sends text messages to customers and prospects who opt in via the consent checkboxes on our website forms. Non-marketing messages cover quotes, appointment confirmations, reminders, and service updates; marketing messages cover offers, seasonal reminders, and review requests. Message frequency varies based on your request and interaction with us.",
+        "Message and data rates may apply. Charges are billed by your mobile carrier under your plan.",
+        "Opting out: reply STOP to any message to stop receiving texts from us. After you reply STOP, we will send one final message confirming you have been unsubscribed. To rejoin, reply START to the same number or submit a new request with the consent checkbox selected on our website.",
+        "Help: reply HELP to any message for assistance, or contact us at 361-947-7811 or Xtreme.Kleen2023@gmail.com.",
+        "Carrier liability: mobile carriers are not liable for delayed or undelivered messages.",
+        "Consent to receive text messages is not a condition of purchasing any goods or services. Our collection and handling of your information, including that no mobile information is shared with third parties or affiliates for marketing purposes, is described in our Privacy Policy at https://xtremekleentx.com/privacy. This program complies with applicable CTIA guidelines and carrier requirements.",
       ],
     },
     {
