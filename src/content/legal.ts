@@ -47,6 +47,7 @@ export const privacyPolicy: LegalDoc = {
       heading: "SMS / Text Messaging Consent",
       paragraphs: [
         "By providing your phone number through our website forms or by texting us, you consent to receive calls and text messages from Xtreme Kleen related to your inquiry, quotes, scheduling, service updates, and follow-ups. Message frequency varies based on your interaction with us. Message and data rates may apply.",
+        "This SMS program is intended for individuals 18 years of age or older. By opting in, you confirm you are at least 18 and the account holder or have the account holder's permission.",
         "Consent to receive text messages is not a condition of purchasing any goods or services. You can opt out at any time by replying STOP to any message. Reply HELP for help, or contact us at 361-947-7811 or Xtreme.Kleen2023@gmail.com.",
         "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with or sold to any third parties.",
       ],
@@ -56,6 +57,18 @@ export const privacyPolicy: LegalDoc = {
       paragraphs: [
         "We share information only with service providers that help us operate — such as our website hosting and form provider, and the customer relationship management (CRM) and messaging platform we use to manage customer communication. These providers process information on our behalf and are not permitted to use it for their own marketing.",
         "We may also disclose information if required by law, court order, or governmental request, or to protect our legal rights.",
+      ],
+    },
+    {
+      heading: "Cookies & Website Analytics",
+      paragraphs: [
+        "Our website does not use advertising or cross-site tracking cookies. Embedded services on the site — such as the chat widget, the online booking calendar, and Google Maps — may set functional cookies needed for those features to work. You can block or delete cookies in your browser settings; the website remains usable without them.",
+      ],
+    },
+    {
+      heading: "Data Security",
+      paragraphs: [
+        "We use reasonable administrative and technical safeguards to protect your information: the website is served over HTTPS, form submissions are transmitted encrypted, and access to customer information is limited to the people who need it to respond to your request. No method of transmission or storage is 100% secure, but we treat your contact information with the same care we'd want for our own.",
       ],
     },
     {
