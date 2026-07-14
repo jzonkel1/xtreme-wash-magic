@@ -31,8 +31,13 @@ const FloatingActions = () => {
         aria-label="Back to top"
         /* Logo-gray, not red. This sits inches from the red call bar on mobile;
            when both were red the utility control competed with the one button
-           that actually earns money. Gray = tool, red = conversion. */
-        className={`fixed right-4 bottom-[4.7rem] md:bottom-6 z-40 w-11 h-11 rounded-full bg-xk-logo-gray/90 backdrop-blur-sm border border-xk-warm-white/25 text-xk-warm-white flex items-center justify-center shadow-lg hover:bg-xk-logo-gray-light hover:border-xk-warm-white/40 transition-all duration-300 ${
+           that actually earns money. Gray = tool, red = conversion.
+
+           LEFT on mobile, RIGHT on desktop. The GHL chat bubble is anchored
+           bottom-right and can't be moved off that corner, so on a phone the two
+           controls stacked on top of each other. Desktop has room for both, and
+           bottom-right is where a back-to-top button belongs there. */
+        className={`fixed left-4 md:left-auto md:right-4 bottom-[4.7rem] md:bottom-6 z-40 w-11 h-11 rounded-full bg-xk-logo-gray/90 backdrop-blur-sm border border-xk-warm-white/25 text-xk-warm-white flex items-center justify-center shadow-lg hover:bg-xk-logo-gray-light hover:border-xk-warm-white/40 transition-all duration-300 ${
           showTop
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-3 pointer-events-none"
