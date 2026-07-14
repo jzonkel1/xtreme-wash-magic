@@ -164,6 +164,7 @@ export const termsOfService: LegalDoc = {
         "Opting out: reply STOP to any message to stop receiving texts from us. After you reply STOP, we will send one final message confirming you have been unsubscribed. To rejoin, reply START to the same number or submit a new request with the consent checkbox selected on our website.",
         "Help: reply HELP to any message for assistance, or contact us at 361-947-7811 or Xtreme.Kleen2023@gmail.com.",
         "Carrier liability: mobile carriers are not liable for delayed or undelivered messages.",
+        "Age restriction: this SMS program is intended for individuals 18 years of age or older. By opting in, you confirm you are at least 18 years old and are the account holder or have the account holder's permission.",
         "Consent to receive text messages is not a condition of purchasing any goods or services. Our collection and handling of your information, including that no mobile information is shared with third parties or affiliates for marketing purposes, is described in our Privacy Policy at https://xtremekleentx.com/privacy. This program complies with applicable CTIA guidelines and carrier requirements.",
       ],
     },
