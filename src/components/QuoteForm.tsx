@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Camera, ChevronDown, Phone, MessageSquare, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { submitQuote } from "@/lib/netlifyForms";
+import SmsConsentFields, { emptySmsConsent, smsConsentFields } from "@/components/SmsConsentFields";
 import { business, services } from "@/data";
 
 const serviceTypes = [...services.map((s) => s.title), "Not Sure — Just Quote Me"];
@@ -42,6 +43,7 @@ const QuoteForm = ({ source }: { source: string }) => {
     details: "",
     contact: "call",
   });
+  const [consent, setConsent] = useState(emptySmsConsent);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
 
@@ -53,7 +55,7 @@ const QuoteForm = ({ source }: { source: string }) => {
     }
     setSubmitting(true);
     try {
-      await submitQuote({ ...form, source });
+      await submitQuote({ ...form, source, ...smsConsentFields(consent) });
       setDone(true);
     } catch {
       toast.error(`Something went wrong. Please call or text ${business.phone}.`);
@@ -242,6 +244,8 @@ const QuoteForm = ({ source }: { source: string }) => {
           </div>
         </div>
 
+        <SmsConsentFields value={consent} onChange={setConsent} />
+
         <button
           type="submit"
           disabled={submitting}
@@ -256,8 +260,8 @@ const QuoteForm = ({ source }: { source: string }) => {
           price it from that.
         </p>
         <p className="text-xk-warm-white/40 text-xs font-body text-center">
-          By submitting, you agree to be contacted by phone, text, or email about
-          your request. No spam, ever.
+          By submitting, you agree to be contacted about your request by phone or
+          email. No spam, ever.
         </p>
       </form>
     </div>

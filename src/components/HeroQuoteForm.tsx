@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Phone, Check } from "lucide-react";
 import { toast } from "sonner";
 import { submitQuote } from "@/lib/netlifyForms";
+import SmsConsentFields, { emptySmsConsent, smsConsentFields } from "@/components/SmsConsentFields";
 import { business, services } from "@/data";
 
 /**
@@ -48,6 +49,7 @@ const HeroQuoteForm = ({
   const [propertyType, setPropertyType] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [consent, setConsent] = useState(emptySmsConsent);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
 
@@ -66,6 +68,7 @@ const HeroQuoteForm = ({
         propertyType,
         city: defaultCity ?? "",
         source,
+        ...smsConsentFields(consent),
       });
       setDone(true);
     } catch {
@@ -183,6 +186,10 @@ const HeroQuoteForm = ({
           className={fieldClass}
           required
         />
+      </div>
+
+      <div className="mt-4">
+        <SmsConsentFields value={consent} onChange={setConsent} />
       </div>
 
       <button

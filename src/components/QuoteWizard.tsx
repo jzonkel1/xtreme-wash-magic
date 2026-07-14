@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { ChevronLeft, Check, Phone, HelpCircle } from "lucide-react";
 import { HandDrawnIcon } from "@/components/icons/HandDrawn";
 import { submitQuote } from "@/lib/netlifyForms";
+import SmsConsentFields, { emptySmsConsent, smsConsentFields } from "@/components/SmsConsentFields";
 import { business } from "@/data";
 
 // Tap-first first step — the hand-drawn service icons double as the choices.
@@ -23,6 +24,7 @@ const QuoteWizard = () => {
   const [step, setStep] = useState(1);
   const [done, setDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [consent, setConsent] = useState(emptySmsConsent);
   const [form, setForm] = useState({
     service: "",
     propertyType: "",
@@ -48,7 +50,7 @@ const QuoteWizard = () => {
     }
     setSubmitting(true);
     try {
-      await submitQuote({ ...form, source: "Hero — Quote Wizard" });
+      await submitQuote({ ...form, source: "Hero — Quote Wizard", ...smsConsentFields(consent) });
       setDone(true);
     } catch {
       toast.error(`Something went wrong. Please call or text ${business.phone}.`);
@@ -226,6 +228,9 @@ const QuoteWizard = () => {
               </label>
             ))}
           </div>
+          <div className="pt-1">
+            <SmsConsentFields value={consent} onChange={setConsent} />
+          </div>
           <button
             type="submit"
             disabled={submitting}
@@ -234,13 +239,8 @@ const QuoteWizard = () => {
             {submitting ? "SENDING..." : "GET MY FREE QUOTE →"}
           </button>
           <p className="text-xk-warm-white/40 text-xs font-body text-center">
-            No spam. By submitting, you agree to be contacted by phone, text, or
-            email about your request. Msg &amp; data rates may apply; reply STOP
-            to opt out. See our{" "}
-            <Link to="/privacy" className="underline hover:text-xk-warm-white/70">
-              Privacy Policy
-            </Link>
-            .
+            No spam. By submitting, you agree to be contacted about your request
+            by phone or email.
           </p>
         </form>
       )}
