@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from "lucide-react";
 import { business, services, travel } from "@/data";
 import { locationsContent } from "@/content/locations";
 
@@ -17,6 +17,26 @@ const Footer = () => (
             Portland, Texas — serving homes, businesses, and job sites across the
             Coastal Bend.
           </p>
+          <div className="flex items-center justify-center md:justify-start gap-3 mt-5">
+            <a
+              href={business.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Xtreme Kleen on Facebook"
+              className="w-9 h-9 rounded-lg bg-xk-warm-white/5 border border-xk-warm-white/10 flex items-center justify-center text-xk-warm-white/50 hover:text-xk-warm-white hover:border-xk-red/50 transition-colors"
+            >
+              <Facebook className="w-4 h-4" />
+            </a>
+            <a
+              href={business.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Xtreme Kleen on Instagram"
+              className="w-9 h-9 rounded-lg bg-xk-warm-white/5 border border-xk-warm-white/10 flex items-center justify-center text-xk-warm-white/50 hover:text-xk-warm-white hover:border-xk-red/50 transition-colors"
+            >
+              <Instagram className="w-4 h-4" />
+            </a>
+          </div>
         </div>
 
         <div>

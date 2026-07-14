@@ -183,6 +183,12 @@ export const business = {
   primaryCity: "Portland, TX",
   region: "The Coastal Bend",
   googleProfile: "https://share.google/7q83LZUVLtkeXmbaS",
+  // Eric's personal profile, per Jeffrey 2026-07-13 — he posts business work
+  // there far more often than on the official page. The official business page
+  // (facebook.com/p/Xtreme-Kleen-Wash-Rental-61550974900829/) stays in the
+  // JSON-LD sameAs, since schema "sameAs" must point at the BRAND's page.
+  facebook: "https://www.facebook.com/eric.kuhn.491716",
+  instagram: "https://www.instagram.com/xtreme_kleen_wash_and_rental/",
   // Deep link that opens the Google "write a review" box directly, instead of
   // dropping people on the profile and making them hunt for the button.
   googleReviewUrl: "https://g.page/r/CbVqlQ5JGcJYEBM/review",
