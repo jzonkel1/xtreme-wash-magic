@@ -260,8 +260,7 @@ const QuoteForm = ({ source }: { source: string }) => {
           price it from that.
         </p>
         <p className="text-xk-warm-white/40 text-xs font-body text-center">
-          By submitting, you agree to be contacted about your request by phone or
-          email. No spam, ever.
+          We only use your details to reply about this request. No spam, ever.
         </p>
       </form>
     </div>

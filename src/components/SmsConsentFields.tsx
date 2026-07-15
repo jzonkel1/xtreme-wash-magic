@@ -78,7 +78,8 @@ const SmsConsentFields = ({
       STOP to opt out.
     </Box>
     <p className="text-left text-[11px] leading-relaxed text-xk-warm-white/40 font-body">
-      Consent is not a condition of purchase. See our{" "}
+      Consent is not a condition of purchase, and we never share or sell your
+      mobile number to third parties. See our{" "}
       <Link to="/privacy" className="underline hover:text-xk-warm-white/70">
         Privacy Policy
       </Link>{" "}

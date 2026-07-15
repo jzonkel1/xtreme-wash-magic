@@ -239,8 +239,7 @@ const QuoteWizard = () => {
             {submitting ? "SENDING..." : "GET MY FREE QUOTE →"}
           </button>
           <p className="text-xk-warm-white/40 text-xs font-body text-center">
-            No spam. By submitting, you agree to be contacted about your request
-            by phone or email.
+            We only use your details to reply about this request. No spam, ever.
           </p>
         </form>
       )}
