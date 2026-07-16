@@ -22,7 +22,7 @@ export const SERVICE_AREA_CITIES = locationsContent.map((l) => l.city);
  * points at the SAME entity instead of declaring a new business per page.
  */
 export const businessRef = {
-  "@type": "PressureWashingService",
+  "@type": "HomeAndConstructionBusiness",
   "@id": `${SITE_URL}/#business`,
   name: business.brand,
   legalName: business.legalName,
