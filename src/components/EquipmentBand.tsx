@@ -15,27 +15,23 @@ import { business } from "@/data";
 /** Full-bleed cinematic band — real branded rigs under the Harbor Bridge. */
 const EquipmentBand = () => (
   <section className="relative">
-    {/* The photo is 16:9 and the truck sits in the BOTTOM THIRD of it, so where
-        the crop WINDOW lands vertically is the whole ballgame.
+    {/* Desktop shows the ENTIRE photo — Jeffrey's final call 2026-07-23 after
+        seeing it live ("keep it how it is, looks good"). The asset is cropped to
+        exactly 16:9 (tower peaks -> just below the wheels, dirt sea trimmed) and
+        aspect-video makes the band track that ratio, so the full bridge AND the
+        full rig are always in frame on md+; nothing is ever cropped away.
 
-        Centre-cropping (the default) cut straight through the wheels on any wide
-        screen — you got bridge and the roof of the cab, no rig. But the fix is
-        NOT to make the band taller: holding it at 16:9 turned this into a second
-        full-screen hero (842px tall on an 850px viewport) with a small text block
-        adrift in the middle of it. This is a BAND, not a hero.
-
-        So keep it band-height and move the window instead. Anchoring the crop
-        near the bottom spends it on empty sky and keeps the entire rig — wheels
-        included — in frame from 1280px all the way to 2560px. The cost is the
-        tops of the bridge towers, and that's the right trade: the truck with
-        Eric's name and number on the door is the subject, the bridge is scenery. */}
-    <div className="relative md:h-[600px] overflow-hidden">
+        Why not a shorter fixed-height band: at 1920w a 600px window can show a
+        ~750px-tall slice of this 2400px-wide source, and towers-to-wheels spans
+        ~1450px — no crop or object-position fits both. The taller cinematic
+        section is the accepted cost of seeing the bridge. */}
+    <div className="relative md:aspect-video overflow-hidden">
       <img
         src={bridge}
         alt="Xtreme Kleen truck and pressure-washing rig under the Corpus Christi Harbor Bridge at night"
         // Mobile crops this wide shot to a near-portrait slice — bias right so
         // it lands on the cab and the door decal instead of the trailer tank.
-        className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-[center_94%]"
+        className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-center"
         loading="lazy"
       />
       {/* Mobile: text spans the full width, so darken the whole image evenly */}
