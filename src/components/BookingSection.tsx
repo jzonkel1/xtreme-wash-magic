@@ -83,28 +83,35 @@ const BookingCalendar = () => {
   }, [mounted]);
 
   return (
+    // The GHL widget already ships its own warm-white card. Wrapping THAT in a
+    // dark charcoal box with padding made a box-inside-a-box that read heavy on
+    // desktop. So the wrapper adds no fill of its own now — it just rounds the
+    // corners and floats the white card off the dark section with a shadow. No
+    // padding, so the iframe also gets the full 1120px of width (still well over
+    // the widget's 1024px two-pane breakpoint — see above).
     <div
       ref={holderRef}
-      className="bg-xk-charcoal/70 border border-xk-warm-white/10 rounded-xl p-2 md:p-3 max-w-[1120px] mx-auto"
+      className="max-w-[1120px] mx-auto overflow-hidden rounded-2xl shadow-2xl shadow-black/40 ring-1 ring-black/10"
     >
       {mounted ? (
         <iframe
           id={booking.calendarId}
           title={`Book a free on-site estimate with ${business.brand}`}
           src={booking.calendarUrl}
-          className="w-full min-h-[640px] rounded-lg block"
+          className="w-full min-h-[640px] block"
           style={{ border: 0 }}
           scrolling="no"
         />
       ) : (
-        // Same floor as the calendar, so nothing below jumps when it lands.
-        <div className="min-h-[640px] rounded-lg" aria-hidden />
+        // Same floor as the calendar, so nothing below jumps when it lands; a
+        // faint fill keeps the empty rounded card from looking like a hole.
+        <div className="min-h-[640px] bg-xk-warm-white/[0.03]" aria-hidden />
       )}
     </div>
   );
 };
 
-const BookingSection = () => (
+const BookingSection = ({ hideHeader = false }: { hideHeader?: boolean } = {}) => (
   <section id="book" className="relative bg-xk-steel py-20 md:py-28 overflow-hidden">
     <div className="absolute inset-0 tex-grid opacity-40" />
     <div
@@ -117,19 +124,21 @@ const BookingSection = () => (
 
     <div className="relative container mx-auto px-4">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block mb-3">
-            — BOOK YOUR QUOTE —
-          </span>
-          <h2 className="font-display uppercase text-4xl md:text-5xl text-xk-warm-white mb-4 leading-[0.95] tracking-tight">
-            Book Online, or Just Call Us
-          </h2>
-          <p className="text-xk-warm-white/60 font-body leading-relaxed max-w-2xl mx-auto">
-            Some people want to grab a time without talking to anyone. Some people
-            want to hear a voice. Either works — the quote is free and on-site
-            either way.
-          </p>
-        </div>
+        {!hideHeader && (
+          <div className="text-center mb-12">
+            <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block mb-3">
+              — BOOK YOUR QUOTE —
+            </span>
+            <h2 className="font-display uppercase text-4xl md:text-5xl text-xk-warm-white mb-4 leading-[0.95] tracking-tight">
+              Book Online, or Just Call Us
+            </h2>
+            <p className="text-xk-warm-white/60 font-body leading-relaxed max-w-2xl mx-auto">
+              Some people want to grab a time without talking to anyone. Some people
+              want to hear a voice. Either works — the quote is free and on-site
+              either way.
+            </p>
+          </div>
+        )}
 
         {booking.calendarUrl ? (
           <>

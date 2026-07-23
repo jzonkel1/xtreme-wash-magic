@@ -14,7 +14,7 @@ const ServicesHub = () => (
   <PageLayout>
     <Seo
       title="Exterior Cleaning Services | Pressure Washing, Soft Wash & More | Xtreme Kleen"
-      description="Every exterior cleaning service Xtreme Kleen offers in Portland, TX and the Coastal Bend: pressure washing, soft washing, roof cleaning, window cleaning, storefront glass, and industrial plant services. Free on-site quotes: 361-947-7811."
+      description="Every exterior cleaning service Xtreme Kleen offers in Portland, TX and the Coastal Bend: pressure washing, soft washing, roof cleaning, window cleaning, storefront glass, and industrial plant services. Free on-site quotes: 361-306-1551."
       path="/services"
       jsonLd={[
         breadcrumbLd([{ name: "Home", path: "/" }, { name: "Services" }]),
@@ -33,7 +33,9 @@ const ServicesHub = () => (
     <section className="relative bg-xk-charcoal py-16 md:py-24 overflow-hidden">
       <div className="absolute inset-0 tex-grid opacity-30" />
       <div className="relative container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* Flex-wrap + justify-center so the 7th service card centers instead of
+            stranding hard-left in an empty final row. See ServicesGrid.tsx. */}
+        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
           {servicesContent.map((s) => (
             <Link
               key={s.slug}
@@ -41,7 +43,7 @@ const ServicesHub = () => (
               /* Same fix as the homepage grid: solid bg-xk-steel (darker than
                  the section) instead of a translucent tile that let the grid
                  texture show through and made the cards read as flat overlays. */
-              className="group relative bg-xk-steel border border-xk-warm-white/10 rounded-xl overflow-hidden shadow-lg shadow-black/25 hover:border-xk-red/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 transition-all duration-300"
+              className="group relative w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-xk-steel border border-xk-warm-white/10 rounded-xl overflow-hidden shadow-lg shadow-black/25 hover:border-xk-red/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 transition-all duration-300"
             >
               <div className="h-44 overflow-hidden">
                 <img
@@ -82,10 +84,10 @@ const ServicesHub = () => (
             actually needs cleaning and what doesn't, and give you a straight price — no phone
             guessing, no upsell theater. Call or text{" "}
             <a
-              href="tel:3619477811"
+              href="tel:3613061551"
               className="text-xk-red font-semibold hover:underline whitespace-nowrap"
             >
-              361-947-7811
+              361-306-1551
             </a>
             .
           </p>

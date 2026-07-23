@@ -26,7 +26,7 @@ const principles = [
   {
     icon: Phone,
     title: "You Talk to the Person Doing the Job",
-    body: `Call 361-947-7811 and you get ${business.owner} — not a call center, not a dispatcher reading a script. The person who quotes your property is the person who shows up to clean it.`,
+    body: `Call 361-306-1551 and you get ${business.owner} — not a call center, not a dispatcher reading a script. The person who quotes your property is the person who shows up to clean it.`,
   },
   {
     icon: Clock,
@@ -39,7 +39,7 @@ const AboutPage = () => (
   <PageLayout>
     <Seo
       title="About Xtreme Kleen | Eric Kuhn, Portland TX | Power Washing the Coastal Bend"
-      description="Xtreme Kleen is owned and run by Eric Kuhn out of Portland, Texas — residential, commercial, and industrial washing across the Coastal Bend, with a real OSHA-aligned safety program. Call or text 361-947-7811."
+      description="Xtreme Kleen is owned and run by Eric Kuhn out of Portland, Texas — residential, commercial, and industrial washing across the Coastal Bend, with a real OSHA-aligned safety program. Call or text 361-306-1551."
       path="/about"
       jsonLd={[breadcrumbLd([{ name: "Home", path: "/" }, { name: "About" }])]}
     />

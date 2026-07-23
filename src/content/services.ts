@@ -6,6 +6,7 @@
 import houseWashPhoto from "@/assets/action2.webp";
 import buildingWashPhoto from "@/assets/action3.webp";
 import fleetPhoto from "@/assets/truck-wash.webp";
+import ppeEquipmentPhoto from "@/assets/ppe-equipment-wash.webp";
 import drivewayPhoto from "@/assets/concrete-flatwork.webp"; // clean/dirty split on commercial flatwork
 import pressureSprayPhoto from "@/assets/pressure-spray.webp"; // wand in hand, spray fan visible
 import windowsPhoto from "@/assets/windows-arched.webp"; // actual windows, not a house wash
@@ -106,7 +107,7 @@ export const servicesContent: ServiceContent[] = [
     h1: "Pressure Washing in Portland, TX & the Coastal Bend",
     metaTitle: "Pressure Washing Portland, TX | Driveways & Concrete | Xtreme Kleen",
     metaDescription:
-      "Professional pressure washing in Portland, TX and the Coastal Bend. Driveways, sidewalks, patios, and commercial concrete — cleaned without etching. Free on-site quotes. Call or text 361-947-7811.",
+      "Professional pressure washing in Portland, TX and the Coastal Bend. Driveways, sidewalks, patios, and commercial concrete — cleaned without etching. Free on-site quotes. Call or text 361-306-1551.",
     heroSub:
       "Driveways, sidewalks, patios, and commercial flatwork stripped of oil, grime, and years of buildup — with the pressure dialed to the surface, not cranked to max.",
     answer:
@@ -145,7 +146,7 @@ export const servicesContent: ServiceContent[] = [
       },
       {
         q: "How much does pressure washing cost?",
-        a: "Every quote is free and done in person, so the price you get is based on the actual square footage and condition of your surfaces — not a phone guess. Call or text 361-947-7811 and we'll come take a look.",
+        a: "Every quote is free and done in person, so the price you get is based on the actual square footage and condition of your surfaces — not a phone guess. Call or text 361-306-1551 and we'll come take a look.",
       },
       {
         q: "Do you do commercial properties?",
@@ -174,7 +175,7 @@ export const servicesContent: ServiceContent[] = [
     h1: "Soft Wash House & Building Cleaning in the Coastal Bend",
     metaTitle: "Soft Washing Portland, TX | Safe House Washing | Xtreme Kleen",
     metaDescription:
-      "True soft wash house and building cleaning in Portland, TX and the Coastal Bend. Low pressure, chemistry-first — kills algae and mildew without damaging siding, stucco, or paint. Call 361-947-7811.",
+      "True soft wash house and building cleaning in Portland, TX and the Coastal Bend. Low pressure, chemistry-first — kills algae and mildew without damaging siding, stucco, or paint. Call 361-306-1551.",
     heroSub:
       "Low-pressure, chemistry-first cleaning for siding, stucco, and every surface a pressure washer would destroy. The mix does the work — your house never takes a beating.",
     answer:
@@ -256,7 +257,7 @@ export const servicesContent: ServiceContent[] = [
     h1: "Roof Cleaning in Portland, TX & the Coastal Bend",
     metaTitle: "Roof Cleaning Portland, TX | Black Streak Removal | Xtreme Kleen",
     metaDescription:
-      "Safe, no-pressure roof cleaning in Portland, TX and the Coastal Bend. Black streaks, algae, and salt-air buildup removed without damaging shingles. Free on-site quotes — call or text 361-947-7811.",
+      "Safe, no-pressure roof cleaning in Portland, TX and the Coastal Bend. Black streaks, algae, and salt-air buildup removed without damaging shingles. Free on-site quotes — call or text 361-306-1551.",
     heroSub:
       "Black streaks, algae, and salt-air buildup lifted off your roof with low pressure and the right chemistry — never a pressure wand ground into your shingles.",
     answer:
@@ -320,7 +321,7 @@ export const servicesContent: ServiceContent[] = [
     h1: "Window Cleaning in Portland, TX & the Coastal Bend",
     metaTitle: "Window Cleaning Portland, TX | Homes & Commercial | Xtreme Kleen",
     metaDescription:
-      "Streak-free interior and exterior window cleaning in Portland, TX and the Coastal Bend — from single-story homes to multi-story commercial buildings. Free quotes: 361-947-7811.",
+      "Streak-free interior and exterior window cleaning in Portland, TX and the Coastal Bend — from single-story homes to multi-story commercial buildings. Free quotes: 361-306-1551.",
     heroSub:
       "Streak-free glass inside and out — from single-story homes to multi-story commercial buildings, including the high glass that needs lift equipment to reach.",
     answer:
@@ -384,7 +385,7 @@ export const servicesContent: ServiceContent[] = [
     h1: "Storefront Glass & Mirror Cleaning for Coastal Bend Businesses",
     metaTitle: "Storefront Glass Cleaning Portland & Corpus Christi, TX | Xtreme Kleen",
     metaDescription:
-      "Storefront glass, display windows, and mirror cleaning for Coastal Bend businesses. Scheduled service that keeps your entrance spotless and sales-ready. Call or text 361-947-7811.",
+      "Storefront glass, display windows, and mirror cleaning for Coastal Bend businesses. Scheduled service that keeps your entrance spotless and sales-ready. Call or text 361-306-1551.",
     heroSub:
       "Storefront glass, display windows, and mirrors kept spotless and sales-ready — on a schedule, so your entrance never greets customers with smudges.",
     answer:
@@ -434,12 +435,12 @@ export const servicesContent: ServiceContent[] = [
   {
     slug: "industrial-cleaning",
     icon: "industrial",
-    photo: fleetPhoto,
+    photo: ppeEquipmentPhoto,
     title: "Industrial & Plant Services",
     h1: "Industrial Cleaning Services — Coastal Bend Plants & Facilities",
     metaTitle: "Industrial Cleaning Coastal Bend | Fin Fans, Fleet, Plants | Xtreme Kleen",
     metaDescription:
-      "Industrial exterior cleaning for Coastal Bend plants and facilities: fin fan and heat exchanger cleaning, pipe racks, tank exteriors, fleet washing, construction cleanup. OSHA-aligned safety program. 361-947-7811.",
+      "Industrial exterior cleaning for Coastal Bend plants and facilities: fin fan and heat exchanger cleaning, pipe racks, tank exteriors, fleet washing, construction cleanup. OSHA-aligned safety program. 361-306-1551.",
     heroSub:
       "Fin fans, heat exchangers, pipe racks, tank exteriors, fleets, and construction cleanup — with an OSHA-aligned safety program on every site, because plant work is safety work.",
     answer:
@@ -498,17 +499,17 @@ export const servicesContent: ServiceContent[] = [
   },
   {
     slug: "oilfield-cleaning",
-    icon: "industrial",
+    icon: "oilfield",
     photo: fleetPhoto,
     title: "Oilfield & Heavy Equipment Washing",
     h1: "Oilfield Pressure Washing — Eagle Ford & the Coastal Bend",
     metaTitle: "Oilfield Pressure Washing | Eagle Ford Equipment & Yard Washing | Xtreme Kleen",
     metaDescription:
-      "Oilfield and heavy equipment washing across the Eagle Ford and Coastal Bend — frac tanks, rigs, yard iron, and DOT fleets, cleaned under an OSHA-aligned safety program. Call or text 361-947-7811.",
+      "Oilfield and heavy equipment washing across the Eagle Ford and Coastal Bend — frac tanks, rigs, yard iron, and DOT fleets, cleaned under an OSHA-aligned safety program. Call or text 361-306-1551.",
     heroSub:
       "Frac tanks, yard iron, haul trucks, and wellsite equipment — degreased and washed by a crew that already works plants under a real safety program, and runs 24 hours because the patch does too.",
     answer:
-      "Xtreme Kleen provides oilfield and heavy equipment washing across the Eagle Ford and Coastal Bend — Beeville, Kenedy, Three Rivers, Cotulla, Alice, and the yards in between. Frac tanks, rig equipment, haul trucks, and yard iron get hot-water degreasing under an OSHA-aligned safety program: JSA before work starts, lockout/tagout, stop-work authority, full PPE. Call or text 361-947-7811.",
+      "Xtreme Kleen provides oilfield and heavy equipment washing across the Eagle Ford and Coastal Bend — Beeville, Kenedy, Three Rivers, Cotulla, Alice, and the yards in between. Frac tanks, rig equipment, haul trucks, and yard iron get hot-water degreasing under an OSHA-aligned safety program: JSA before work starts, lockout/tagout, stop-work authority, full PPE. Call or text 361-306-1551.",
     whatWeCleanTitle: "Oilfield Equipment & Sites We Wash",
     whatWeClean: [
       "Frac tanks and tank batteries (exteriors)",
@@ -531,7 +532,7 @@ export const servicesContent: ServiceContent[] = [
     faqs: [
       {
         q: "Do you actually travel out to the Eagle Ford?",
-        a: "Yes. We run out of Portland, TX and mobilize for oilfield and commercial work across the Eagle Ford — Beeville, Kenedy, Karnes City, Three Rivers, George West, Pleasanton, Cotulla, Alice, and Freer. For yards and multi-unit jobs the drive is never the problem; call or text 361-947-7811 and we'll figure out scheduling.",
+        a: "Yes. We run out of Portland, TX and mobilize for oilfield and commercial work across the Eagle Ford — Beeville, Kenedy, Karnes City, Three Rivers, George West, Pleasanton, Cotulla, Alice, and Freer. For yards and multi-unit jobs the drive is never the problem; call or text 361-306-1551 and we'll figure out scheduling.",
       },
       {
         q: "Are you safe to have on a live site?",

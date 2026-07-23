@@ -34,6 +34,10 @@ type PageHeroProps = {
    * quote form is just noise.
    */
   aside?: React.ReactNode;
+  /** Hide the default "Get Your Free Quote" hero button — e.g. the /book page,
+   *  where the booking calendar below IS the primary action and there's no
+   *  #quote form on the page to scroll to. The phone button stays. */
+  hideQuoteCta?: boolean;
   breadcrumbs: Crumb[];
 };
 
@@ -47,6 +51,7 @@ const PageHero = ({
   photoPosition = "center",
   flipPhotoOnDesktop,
   aside,
+  hideQuoteCta,
   breadcrumbs,
 }: PageHeroProps) => (
   <section className="relative bg-xk-charcoal pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
@@ -115,12 +120,14 @@ const PageHero = ({
         </p>
         {!aside && (
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-            <a
-              href="#quote"
-              className="bg-xk-red text-xk-warm-white font-heading font-bold text-base px-8 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
-            >
-              GET YOUR FREE QUOTE
-            </a>
+            {!hideQuoteCta && (
+              <a
+                href="#quote"
+                className="bg-xk-red text-xk-warm-white font-heading font-bold text-base px-8 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
+              >
+                GET YOUR FREE QUOTE
+              </a>
+            )}
             <a
               href={business.phoneHref}
               className="border-2 border-xk-warm-white/40 text-xk-warm-white font-heading font-semibold text-base px-8 py-4 rounded-lg hover:bg-xk-warm-white/10 transition-all flex items-center gap-2"

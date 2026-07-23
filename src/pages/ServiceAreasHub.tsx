@@ -12,7 +12,7 @@ const ServiceAreasHub = () => (
   <PageLayout>
     <Seo
       title="Service Areas | Pressure Washing Across the Coastal Bend | Xtreme Kleen"
-      description="Xtreme Kleen serves the Coastal Bend from Portland, TX: Gregory, Ingleside, Aransas Pass, Rockport, Corpus Christi, Taft, Sinton, and Odem. Pressure washing, soft washing, roofs, windows, and industrial. 361-947-7811."
+      description="Xtreme Kleen serves the Coastal Bend from Portland, TX: Gregory, Ingleside, Aransas Pass, Rockport, Corpus Christi, Taft, Sinton, and Odem. Pressure washing, soft washing, roofs, windows, and industrial. 361-306-1551."
       path="/service-areas"
       jsonLd={[
         breadcrumbLd([{ name: "Home", path: "/" }, { name: "Service Areas" }]),
@@ -32,12 +32,15 @@ const ServiceAreasHub = () => (
 
     <section className="bg-xk-charcoal py-16 md:py-24">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+        {/* Flex-wrap + justify-center: 19 cities in a 3-col grid strand the last
+            one hard-left. Centering the short final row keeps it intentional.
+            Widths use the gap-5 (1.25rem) offsets. See ServicesGrid.tsx. */}
+        <div className="flex flex-wrap justify-center gap-5 mb-16">
           {locationsContent.map((l) => (
             <Link
               key={l.slug}
               to={`/service-areas/${l.slug}`}
-              className="group bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl p-6 hover:border-xk-red/50 hover:bg-xk-light-gray/60 transition-all"
+              className="group w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)] bg-xk-light-gray/40 border border-xk-warm-white/10 rounded-xl p-6 hover:border-xk-red/50 hover:bg-xk-light-gray/60 transition-all"
             >
               <div className="flex items-center gap-2.5 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-xk-red/15 flex items-center justify-center">

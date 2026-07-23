@@ -44,7 +44,7 @@ const Index = () => (
   <>
     <Seo
       title="Xtreme Kleen | Power Washing & Soft Wash — Portland, TX & the Coastal Bend"
-      description="Soft wash, pressure washing, roof and window cleaning in Portland, TX and across the Coastal Bend. No high pressure, no damage. Free on-site quotes. Open 24 hours — call or text 361-947-7811."
+      description="Soft wash, pressure washing, roof and window cleaning in Portland, TX and across the Coastal Bend. No high pressure, no damage. Free on-site quotes. Open 24 hours — call or text 361-306-1551."
       path="/"
     />
     <StickyHeader />

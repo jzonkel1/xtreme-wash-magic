@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Phone, CalendarDays, ChevronUp } from "lucide-react";
 import { business } from "@/data";
 
@@ -55,13 +56,13 @@ const FloatingActions = () => {
           <Phone className="w-4 h-4 flex-none" />
           CALL OR TEXT
         </a>
-        <a
-          href="#book"
+        <Link
+          to="/book"
           className="bg-xk-charcoal text-xk-warm-white font-heading font-bold text-sm flex items-center justify-center gap-2 py-3.5 border-l border-xk-warm-white/15 active:bg-xk-steel"
         >
           <CalendarDays className="w-4 h-4 flex-none text-xk-red" />
           BOOK
-        </a>
+        </Link>
       </div>
 
       {/* Spacer so the bar never covers the footer's last line */}

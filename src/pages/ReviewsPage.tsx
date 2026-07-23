@@ -11,7 +11,7 @@ const ReviewsPage = () => (
   <PageLayout>
     <Seo
       title="Reviews | 5.0-Rated on Google | Xtreme Kleen — Portland, TX"
-      description="Read real Google reviews of Xtreme Kleen — 5.0-rated power washing, soft washing, and construction cleanup across Portland, TX and the Coastal Bend. 361-947-7811."
+      description="Read real Google reviews of Xtreme Kleen — 5.0-rated power washing, soft washing, and construction cleanup across Portland, TX and the Coastal Bend. 361-306-1551."
       path="/reviews"
       jsonLd={[breadcrumbLd([{ name: "Home", path: "/" }, { name: "Reviews" }])]}
     />

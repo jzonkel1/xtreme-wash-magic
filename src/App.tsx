@@ -12,6 +12,7 @@ import CityPage from "./pages/CityPage.tsx";
 import OurWork from "./pages/OurWork.tsx";
 import ReviewsPage from "./pages/ReviewsPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
+import BookPage from "./pages/BookPage.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
 import ReviewPage from "./pages/ReviewPage.tsx";
 import LegalPage from "./pages/LegalPage.tsx";
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/book" element={<BookPage />} />
           <Route path="/review" element={<ReviewPage />} />
           <Route path="/privacy" element={<LegalPage doc={privacyPolicy} />} />
           <Route path="/terms" element={<LegalPage doc={termsOfService} />} />

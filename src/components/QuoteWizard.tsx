@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { ChevronLeft, Check, Phone, HelpCircle } from "lucide-react";
 import { HandDrawnIcon } from "@/components/icons/HandDrawn";
@@ -18,28 +17,71 @@ const serviceChoices = [
 
 const propertyTypes = ["Residential", "Commercial", "Industrial"];
 
-const totalSteps = 3;
+type StepKey = "service" | "property" | "contact";
 
-const QuoteWizard = () => {
-  const [step, setStep] = useState(1);
+const TITLES: Record<StepKey, string> = {
+  service: "What do you need cleaned?",
+  property: "Tell us about the property",
+  contact: "Where do we send the quote?",
+};
+
+/**
+ * The tap-first quote wizard. Lives in the homepage hero, and — since it's the
+ * cleanest, highest-converting form we have — in the hero of every service and
+ * city page too.
+ *
+ * Props adapt the same component to the page it's on:
+ *   - `source`         — where the lead came from, carried into the submission.
+ *   - `defaultService` — a SERVICE page already knows the service, so we DROP
+ *                        the "what do you need cleaned?" tap-grid entirely (a
+ *                        whole screenful answering a question the URL answered)
+ *                        and run a tighter 2-step flow: property → contact. No
+ *                        half-filled 3-dot bar, no back-arrow-to-nowhere.
+ *   - `defaultCity`    — a CITY page pre-fills the city for the property step.
+ *   - `compact`        — subpage heroes are a narrower column and a shorter
+ *                        banner, so the full-size card read as too tall/busy
+ *                        there. Compact trims padding, tile size, input height
+ *                        and gaps. The homepage passes nothing → unchanged.
+ */
+const QuoteWizard = ({
+  source = "Hero — Quote Wizard",
+  defaultService,
+  defaultCity,
+  compact = false,
+}: {
+  source?: string;
+  defaultService?: string;
+  defaultCity?: string;
+  compact?: boolean;
+}) => {
+  const hasPresetService = Boolean(defaultService);
+  const stepKeys: StepKey[] = hasPresetService
+    ? ["property", "contact"]
+    : ["service", "property", "contact"];
+  const totalSteps = stepKeys.length;
+
+  const [stepIdx, setStepIdx] = useState(0);
   const [done, setDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [consent, setConsent] = useState(emptySmsConsent);
   const [form, setForm] = useState({
-    service: "",
+    service: defaultService ?? "",
     propertyType: "",
-    city: "",
+    city: defaultCity ?? "",
     name: "",
     phone: "",
     email: "",
     contact: "call",
   });
 
+  const step = stepKeys[stepIdx];
   const set = (patch: Partial<typeof form>) => setForm((f) => ({ ...f, ...patch }));
+  const back = () => setStepIdx((i) => Math.max(0, i - 1));
+  const advance = () => setStepIdx((i) => Math.min(totalSteps - 1, i + 1));
 
   const pickService = (service: string) => {
     set({ service });
-    setStep(2);
+    advance();
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -50,7 +92,7 @@ const QuoteWizard = () => {
     }
     setSubmitting(true);
     try {
-      await submitQuote({ ...form, source: "Hero — Quote Wizard", ...smsConsentFields(consent) });
+      await submitQuote({ ...form, source, ...smsConsentFields(consent) });
       setDone(true);
     } catch {
       toast.error(`Something went wrong. Please call or text ${business.phone}.`);
@@ -59,8 +101,9 @@ const QuoteWizard = () => {
     }
   };
 
-  const inputClass =
-    "w-full bg-xk-charcoal/80 border border-xk-warm-white/20 text-xk-warm-white px-4 py-3 rounded-lg focus:outline-none focus:border-xk-red focus:ring-1 focus:ring-xk-red font-body text-sm placeholder:text-xk-warm-white/40";
+  const inputClass = `w-full bg-xk-charcoal/80 border border-xk-warm-white/20 text-xk-warm-white px-4 ${
+    compact ? "py-2.5" : "py-3"
+  } rounded-lg focus:outline-none focus:border-xk-red focus:ring-1 focus:ring-xk-red font-body text-base md:text-sm placeholder:text-xk-warm-white/40`;
 
   if (done) {
     return (
@@ -89,44 +132,50 @@ const QuoteWizard = () => {
     <div>
       {/* header + progress */}
       <div className="flex items-center gap-3 mb-1">
-        {step > 1 && (
+        {stepIdx > 0 && (
           <button
-            onClick={() => setStep((s) => s - 1)}
+            onClick={back}
             aria-label="Back"
             className="text-xk-warm-white/60 hover:text-xk-warm-white transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
         )}
-        <h3 className="font-heading font-bold text-xl text-xk-warm-white">
-          {step === 1 && "What do you need cleaned?"}
-          {step === 2 && "Tell us about the property"}
-          {step === 3 && "Where do we send the quote?"}
+        <h3
+          className={`font-heading font-bold ${
+            compact ? "text-lg" : "text-xl"
+          } text-xk-warm-white`}
+        >
+          {TITLES[step]}
         </h3>
       </div>
-      <div className="flex gap-1.5 mb-6">
+      <div className={`flex gap-1.5 ${compact ? "mb-4" : "mb-6"}`}>
         {Array.from({ length: totalSteps }).map((_, i) => (
           <span
             key={i}
             className={`h-1.5 flex-1 rounded-full transition-colors ${
-              i < step ? "bg-xk-red" : "bg-xk-warm-white/15"
+              i <= stepIdx ? "bg-xk-red" : "bg-xk-warm-white/15"
             }`}
           />
         ))}
       </div>
 
-      {/* STEP 1 — tap a service */}
-      {step === 1 && (
-        <div className="grid grid-cols-2 gap-3">
+      {/* STEP — tap a service (skipped entirely on service pages) */}
+      {step === "service" && (
+        <div className={`grid grid-cols-2 ${compact ? "gap-2" : "gap-3"}`}>
           {serviceChoices.map((s) => (
             <button
               key={s.key}
               onClick={() => pickService(s.key)}
-              className="group flex flex-col items-center gap-2 bg-xk-charcoal/60 border border-xk-warm-white/15 rounded-xl py-4 px-2 hover:border-xk-red hover:bg-xk-red/10 transition-all"
+              className={`group flex flex-col items-center gap-2 bg-xk-charcoal/60 border border-xk-warm-white/15 rounded-xl ${
+                compact ? "py-3 px-2" : "py-4 px-2"
+              } hover:border-xk-red hover:bg-xk-red/10 transition-all`}
             >
               <HandDrawnIcon
                 name={s.icon}
-                className="w-9 h-9 text-xk-red group-hover:scale-110 transition-transform"
+                className={`${
+                  compact ? "w-7 h-7" : "w-9 h-9"
+                } text-xk-red group-hover:scale-110 transition-transform`}
               />
               <span className="text-xk-warm-white text-xs font-heading font-semibold text-center leading-tight">
                 {s.label}
@@ -135,9 +184,15 @@ const QuoteWizard = () => {
           ))}
           <button
             onClick={() => pickService("Not Sure — Just Quote Me")}
-            className="group flex flex-col items-center gap-2 bg-xk-charcoal/60 border border-xk-warm-white/15 rounded-xl py-4 px-2 hover:border-xk-red hover:bg-xk-red/10 transition-all"
+            className={`group flex flex-col items-center gap-2 bg-xk-charcoal/60 border border-xk-warm-white/15 rounded-xl ${
+              compact ? "py-3 px-2" : "py-4 px-2"
+            } hover:border-xk-red hover:bg-xk-red/10 transition-all`}
           >
-            <HelpCircle className="w-9 h-9 text-xk-red group-hover:scale-110 transition-transform" />
+            <HelpCircle
+              className={`${
+                compact ? "w-7 h-7" : "w-9 h-9"
+              } text-xk-red group-hover:scale-110 transition-transform`}
+            />
             <span className="text-xk-warm-white text-xs font-heading font-semibold text-center leading-tight">
               Not Sure
             </span>
@@ -145,9 +200,9 @@ const QuoteWizard = () => {
         </div>
       )}
 
-      {/* STEP 2 — property type + city */}
-      {step === 2 && (
-        <div className="space-y-5">
+      {/* STEP — property type + city */}
+      {step === "property" && (
+        <div className={compact ? "space-y-4" : "space-y-5"}>
           <div>
             <p className="text-xk-warm-white/50 text-xs font-body mb-2 uppercase tracking-wide">
               Property type
@@ -157,7 +212,9 @@ const QuoteWizard = () => {
                 <button
                   key={p}
                   onClick={() => set({ propertyType: p })}
-                  className={`py-3 rounded-lg font-heading font-semibold text-sm transition-all border ${
+                  className={`${
+                    compact ? "py-2.5" : "py-3"
+                  } rounded-lg font-heading font-semibold text-sm transition-all border ${
                     form.propertyType === p
                       ? "bg-xk-red border-xk-red text-xk-warm-white"
                       : "bg-xk-charcoal/60 border-xk-warm-white/15 text-xk-warm-white/80 hover:border-xk-red/60"
@@ -177,16 +234,18 @@ const QuoteWizard = () => {
             maxLength={100}
           />
           <button
-            onClick={() => setStep(3)}
-            className="w-full bg-xk-red text-xk-warm-white font-heading font-bold text-base py-3.5 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
+            onClick={advance}
+            className={`w-full bg-xk-red text-xk-warm-white font-heading font-bold text-base ${
+              compact ? "py-3" : "py-3.5"
+            } rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red`}
           >
             Continue →
           </button>
         </div>
       )}
 
-      {/* STEP 3 — contact */}
-      {step === 3 && (
+      {/* STEP — contact */}
+      {step === "contact" && (
         <form onSubmit={handleSubmit} className="space-y-3">
           <input
             type="text"

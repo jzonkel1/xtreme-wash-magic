@@ -221,6 +221,31 @@ export const IndustrialIcon = ({ className, style }: IconProps) => (
   </Sketch>
 );
 
+/**
+ * A pump jack (nodding donkey) — oilfield & heavy-equipment washing. Deliberately
+ * NOT the hard hat used for industrial/plant work, so the two services read as
+ * different at a glance: this one is unmistakably the oil patch.
+ */
+export const OilfieldIcon = ({ className, style }: IconProps) => (
+  <Sketch className={className} style={style}>
+    {/* skid base */}
+    <path d="M18 55 L48 55" />
+    {/* A-frame Samson post + cross-brace */}
+    <path d="M26 54 L34 24 L42 54" />
+    <path d="M28.5 43 L39.5 43" />
+    {/* walking beam, pivoting on the A-frame, nodding toward the horse head */}
+    <path d="M10 26.5 L52 21" />
+    {/* horse head hooking down over the well */}
+    <path d="M10 26.5 C5 28.5 5 33.5 9.5 35" />
+    {/* bridle cable down to the wellhead */}
+    <path d="M9.5 35 L9.5 52" />
+    <path d="M6 52 L13.5 52" />
+    {/* counterweight crank + pitman arm to the base bearing */}
+    <circle cx="48.5" cy="24.5" r="5.2" />
+    <path d="M48 29.6 L44.5 54" />
+  </Sketch>
+);
+
 /* ------------------------------- REGISTRY -------------------------------- */
 
 export const handDrawnIcons = {
@@ -239,6 +264,7 @@ export const handDrawnIcons = {
   window: WindowIcon,
   glass: GlassIcon,
   industrial: IndustrialIcon,
+  oilfield: OilfieldIcon,
 } as const;
 
 export type HandDrawnIconName = keyof typeof handDrawnIcons;

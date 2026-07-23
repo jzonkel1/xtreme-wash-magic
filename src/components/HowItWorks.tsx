@@ -1,4 +1,5 @@
 import { Phone, ClipboardList, Calendar, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { steps, business } from "@/data";
 
 const stepIcons = [Phone, ClipboardList, Calendar];
@@ -34,13 +35,13 @@ const HowItWorks = () => (
                 {s.desc}
               </p>
               {"cta" in s && s.cta && (
-                <a
-                  href={s.cta.href}
+                <Link
+                  to={s.cta.href}
                   className="inline-flex items-center gap-1.5 mt-3 font-heading font-bold text-sm text-xk-red hover:text-xk-red-glow transition-colors"
                 >
                   {s.cta.text}
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               )}
               {i < steps.length - 1 && (
                 <div className="hidden md:block absolute top-8 -right-4 w-8 text-xk-red/30">
@@ -74,13 +75,13 @@ const HowItWorks = () => (
             <Phone className="w-5 h-5" />
             CALL OR TEXT {business.phone}
           </a>
-          <a
-            href="#book"
+          <Link
+            to="/book"
             className="inline-flex items-center justify-center gap-2.5 border-2 border-xk-warm-white/60 text-xk-warm-white font-heading font-bold px-8 py-3.5 rounded-lg hover:bg-xk-warm-white hover:text-xk-red transition-colors"
           >
             <Calendar className="w-5 h-5" />
             BOOK ONLINE
-          </a>
+          </Link>
         </div>
       </div>
     </div>

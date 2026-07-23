@@ -244,11 +244,11 @@ const StickyHeader = () => {
 
         <div className="flex items-center gap-3">
           <a
-            href="tel:3619477811"
+            href="tel:3613061551"
             className="hidden sm:flex items-center gap-2 text-xk-warm-white/80 font-heading font-bold text-sm hover:text-xk-red transition-colors"
           >
             <Phone className="w-4 h-4" />
-            361-947-7811
+            361-306-1551
           </a>
           <a
             href="#quote"
@@ -300,11 +300,11 @@ const StickyHeader = () => {
             </div>
           ))}
           <a
-            href="tel:3619477811"
+            href="tel:3613061551"
             className="flex items-center gap-2 text-xk-red font-heading font-bold text-sm min-h-[2.25rem] pt-1"
           >
             <Phone className="w-4 h-4" />
-            361-947-7811
+            361-306-1551
           </a>
         </div>
       )}

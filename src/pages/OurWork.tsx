@@ -13,7 +13,7 @@ const OurWork = () => (
   <PageLayout>
     <Seo
       title="Our Work | Real Before & Afters, Job Photos & Videos | Xtreme Kleen"
-      description="Real Xtreme Kleen jobs across the Coastal Bend — before-and-after transformations, the crew in action, and job-site video. No stock photos, all our own work. 361-947-7811."
+      description="Real Xtreme Kleen jobs across the Coastal Bend — before-and-after transformations, the crew in action, and job-site video. No stock photos, all our own work. 361-306-1551."
       path="/our-work"
       jsonLd={[breadcrumbLd([{ name: "Home", path: "/" }, { name: "Our Work" }])]}
     />

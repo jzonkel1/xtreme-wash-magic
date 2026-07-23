@@ -34,8 +34,8 @@ const details = [
 const ContactPage = () => (
   <PageLayout quoteForm={false}>
     <Seo
-      title="Contact Xtreme Kleen | Free On-Site Quotes | Call or Text 361-947-7811"
-      description="Contact Xtreme Kleen for a free on-site quote in Portland, TX and the Coastal Bend. Call or text 361-947-7811 any time — open 24 hours — book a quote online, or send the form and we'll reach out within 24 hours."
+      title="Contact Xtreme Kleen | Free On-Site Quotes | Call or Text 361-306-1551"
+      description="Contact Xtreme Kleen for a free on-site quote in Portland, TX and the Coastal Bend. Call or text 361-306-1551 any time — open 24 hours — book a quote online, or send the form and we'll reach out within 24 hours."
       path="/contact"
       jsonLd={[breadcrumbLd([{ name: "Home", path: "/" }, { name: "Contact" }])]}
     />

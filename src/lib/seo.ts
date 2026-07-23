@@ -26,7 +26,7 @@ export const businessRef = {
   "@id": `${SITE_URL}/#business`,
   name: business.brand,
   legalName: business.legalName,
-  telephone: "+1-361-947-7811",
+  telephone: "+1-361-306-1551",
   email: business.email,
   url: SITE_URL,
   address: {

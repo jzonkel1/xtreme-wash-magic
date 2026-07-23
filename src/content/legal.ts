@@ -48,7 +48,7 @@ export const privacyPolicy: LegalDoc = {
       paragraphs: [
         "By providing your phone number through our website forms or by texting us, you consent to receive calls and text messages from Xtreme Kleen related to your inquiry, quotes, scheduling, service updates, and follow-ups. Message frequency varies based on your interaction with us. Message and data rates may apply.",
         "This SMS program is intended for individuals 18 years of age or older. By opting in, you confirm you are at least 18 and the account holder or have the account holder's permission.",
-        "Consent to receive text messages is not a condition of purchasing any goods or services. You can opt out at any time by replying STOP to any message. Reply HELP for help, or contact us at 361-947-7811 or Xtreme.Kleen2023@gmail.com.",
+        "Consent to receive text messages is not a condition of purchasing any goods or services. You can opt out at any time by replying STOP to any message. Reply HELP for help, or contact us at 361-306-1551 or Xtreme.Kleen2023@gmail.com.",
         "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with or sold to any third parties.",
       ],
     },
@@ -80,7 +80,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "Your Choices",
       paragraphs: [
-        "You may opt out of text messages at any time by replying STOP. You may ask us to correct or delete the information we hold about you by calling or texting 361-947-7811 or emailing Xtreme.Kleen2023@gmail.com. We will honor your request unless we are required to keep certain records by law.",
+        "You may opt out of text messages at any time by replying STOP. You may ask us to correct or delete the information we hold about you by calling or texting 361-306-1551 or emailing Xtreme.Kleen2023@gmail.com. We will honor your request unless we are required to keep certain records by law.",
       ],
     },
     {
@@ -98,7 +98,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "Contact Us",
       paragraphs: [
-        "Xtreme Kleen Wash & Rental LLC (dba Xtreme Kleen) — Portland, Texas. Phone: 361-947-7811 (call or text). Email: Xtreme.Kleen2023@gmail.com.",
+        "Xtreme Kleen Wash & Rental LLC (dba Xtreme Kleen) — Portland, Texas. Phone: 361-306-1551 (call or text). Email: Xtreme.Kleen2023@gmail.com.",
       ],
     },
   ],
@@ -162,7 +162,7 @@ export const termsOfService: LegalDoc = {
         "Program description: Xtreme Kleen Wash & Rental LLC (dba Xtreme Kleen) sends text messages to customers and prospects who opt in via the consent checkboxes on our website forms. Non-marketing messages cover quotes, appointment confirmations, reminders, and service updates; marketing messages cover offers, seasonal reminders, and review requests. Message frequency varies based on your request and interaction with us.",
         "Message and data rates may apply. Charges are billed by your mobile carrier under your plan.",
         "Opting out: reply STOP to any message to stop receiving texts from us. After you reply STOP, we will send one final message confirming you have been unsubscribed. To rejoin, reply START to the same number or submit a new request with the consent checkbox selected on our website.",
-        "Help: reply HELP to any message for assistance, or contact us at 361-947-7811 or Xtreme.Kleen2023@gmail.com.",
+        "Help: reply HELP to any message for assistance, or contact us at 361-306-1551 or Xtreme.Kleen2023@gmail.com.",
         "Carrier liability: mobile carriers are not liable for delayed or undelivered messages.",
         "Age restriction: this SMS program is intended for individuals 18 years of age or older. By opting in, you confirm you are at least 18 years old and are the account holder or have the account holder's permission.",
         "Consent to receive text messages is not a condition of purchasing any goods or services. Our collection and handling of your information, including that no mobile information is shared with third parties or affiliates for marketing purposes, is described in our Privacy Policy at https://xtremekleentx.com/privacy. This program complies with applicable CTIA guidelines and carrier requirements.",
@@ -189,7 +189,7 @@ export const termsOfService: LegalDoc = {
     {
       heading: "Contact",
       paragraphs: [
-        "Xtreme Kleen Wash & Rental LLC (dba Xtreme Kleen) — Portland, Texas. Phone: 361-947-7811 (call or text). Email: Xtreme.Kleen2023@gmail.com.",
+        "Xtreme Kleen Wash & Rental LLC (dba Xtreme Kleen) — Portland, Texas. Phone: 361-306-1551 (call or text). Email: Xtreme.Kleen2023@gmail.com.",
       ],
     },
   ],

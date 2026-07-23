@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { CheckCircle2, MapPin, ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
-import HeroQuoteForm from "@/components/HeroQuoteForm";
+import QuoteWizard from "@/components/QuoteWizard";
 import FaqSection from "@/components/FaqSection";
 import VideoBeforeAfter from "@/components/VideoBeforeAfter";
 import ServiceVideos from "@/components/ServiceVideos";
@@ -56,10 +56,13 @@ const ServicePage = () => {
         photoPosition={service.heroPosition}
         flipPhotoOnDesktop={service.flipHeroOnDesktop}
         aside={
-          <HeroQuoteForm
-            source={`Hero — ${service.title}`}
-            defaultService={service.title}
-          />
+          <div className="bg-xk-steel/95 backdrop-blur-sm border border-xk-warm-white/10 rounded-2xl p-5 shadow-2xl">
+            <QuoteWizard
+              source={`Hero — ${service.title}`}
+              defaultService={service.title}
+              compact
+            />
+          </div>
         }
         breadcrumbs={[
           { name: "Home", path: "/" },

@@ -5,6 +5,7 @@
 import houseWashPhoto from "@/assets/action2.webp"; // condo soft wash at sunset
 import buildingWashPhoto from "@/assets/action3.webp"; // boom-lift building wash
 import fleetPhoto from "@/assets/truck-wash.webp"; // Dura-Haul trailer washdown
+import ppeEquipmentPhoto from "@/assets/ppe-equipment-wash.webp"; // PPE crew cleaning a heat exchanger
 import drivewayPhoto from "@/assets/concrete-flatwork.webp"; // clean/dirty split, commercial flatwork
 import roofPhoto from "@/assets/roof-tile.webp"; // clean tile roof
 import glassPanelsPhoto from "@/assets/glass-panels.webp"; // mirror-clean glass panels
@@ -67,6 +68,7 @@ import unitedRentalsLogo from "@/assets/commercial/united-rentals-logo.png";
 import fishermansWharfLogo from "@/assets/commercial/fishermans-wharf-logo.svg";
 import fishermansWharfPhoto from "@/assets/commercial/fishermans-wharf.webp";
 import coastMaterialsPhoto from "@/assets/commercial/coast-materials.webp";
+import coastMaterialsLogo from "@/assets/commercial/coast-materials-logo.png";
 import unitedRentalsPhoto from "@/assets/commercial/united-rentals.webp";
 
 // Public-folder assets must respect Vite's base path (GitHub Pages serves the
@@ -176,8 +178,8 @@ export const business = {
   legalName: "Xtreme Kleen Wash & Rental LLC",
   owner: "Eric Kuhn",
   tagline: "Wash Away the Past",
-  phone: "361-947-7811",
-  phoneHref: "tel:3619477811",
+  phone: "361-306-1551",
+  phoneHref: "tel:3613061551",
   email: "Xtreme.Kleen2023@gmail.com",
   hours: "Open 24 Hours",
   primaryCity: "Portland, TX",
@@ -311,7 +313,7 @@ export const commercialJobs: CommercialJob[] = [
     blurb:
       "Fleet wash-downs at the CMI yard — caked haul residue steamed out of dump beds and off frames and mud flaps, truck by truck.",
     photo: coastMaterialsPhoto,
-    logo: null,
+    logo: coastMaterialsLogo,
   },
 ];
 
@@ -426,14 +428,14 @@ export const services = [
   {
     slug: "industrial-cleaning",
     icon: "industrial",
-    photo: fleetPhoto,
+    photo: ppeEquipmentPhoto,
     title: "Industrial & Plant Services",
     desc: "Fin fan and heat exchanger cleaning, pipe racks, tank exteriors, fleet washing, and construction cleanup — OSHA-aligned safety program on every site.",
   },
   {
     slug: "oilfield-cleaning",
-    icon: "industrial",
-    photo: coastMaterialsPhoto,
+    icon: "oilfield",
+    photo: fleetPhoto,
     title: "Oilfield & Heavy Equipment Washing",
     desc: "Frac tanks, rig equipment, yard iron, and DOT fleets across the Eagle Ford — hot-water degreasing, scheduled around your dispatch.",
   },
@@ -468,8 +470,8 @@ export const steps = [
     // slot than talk to a stranger — and the calendar is the very next section.
     // `cta` gives this step a live link to it, right where the reader is looking.
     title: "Call, Text, or Book Online",
-    desc: "Reach us any time at 361-947-7811 and tell us what needs cleaning — or grab a time yourself, no phone call needed.",
-    cta: { text: "Book a free estimate", href: "#book" },
+    desc: "Reach us any time at 361-306-1551 and tell us what needs cleaning — or grab a time yourself, no phone call needed.",
+    cta: { text: "Book a free estimate", href: "/book" },
   },
   {
     num: "02",

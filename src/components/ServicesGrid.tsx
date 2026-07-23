@@ -19,7 +19,12 @@ const ServicesGrid = () => (
         method, the right chemistry, and the equipment to reach it.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Flex-wrap + justify-center, NOT a bare grid. There are 7 services, so a
+          3-col grid strands the 7th card hard-left in an otherwise empty final
+          row — which reads as unfinished. Full rows still fill edge-to-edge
+          (3 × [33.333% − 1rem] + 2 × 1.5rem gap = 100%); only a short final row
+          centers. Same fix Reviews.tsx uses. Widths mirror the old 1/2/3-up. */}
+      <div className="flex flex-wrap justify-center gap-6">
         {services.map((s) => (
           <Link
             to={`/services/${s.slug}`}
@@ -28,7 +33,7 @@ const ServicesGrid = () => (
                translucent (light-gray/40), which let the grid texture show
                through the card and made them read as flat overlays instead of
                objects. Opaque and recessed = premium. */
-            className="group relative bg-xk-steel border border-xk-warm-white/10 rounded-xl overflow-hidden shadow-lg shadow-black/25 hover:border-xk-red/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 transition-all duration-300"
+            className="group relative w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-xk-steel border border-xk-warm-white/10 rounded-xl overflow-hidden shadow-lg shadow-black/25 hover:border-xk-red/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 transition-all duration-300"
           >
             {/* Real job photo */}
             <div className="h-44 overflow-hidden">

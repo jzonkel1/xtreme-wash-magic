@@ -1,9 +1,10 @@
-// Night shot of the rig under the Harbor Bridge (source: worktruck.jpeg).
+// Night shot of the rig under the Harbor Bridge (source: worktruck.jpeg in the
+// client folder; regenerated 2026-07-23 with the GHL number on the door).
 //
 // NOTE: this is an AI-RENDERED image of Eric's truck, so EVERY PIECE OF TEXT IN
 // IT HAS TO BE READ BY EYE BEFORE IT SHIPS. Two earlier renders of this shot
 // went out with the wrong phone number on the door ("561-947-7011", then
-// "261-947-2811"). This version renders the real number — 361-947-7811 — and a
+// "261-947-2811"). This version renders the real number — 361-306-1551 — and a
 // clean bed rail, natively.
 //
 // If it is ever regenerated: ZOOM IN ON THE DOOR AND READ THE PHONE NUMBER.

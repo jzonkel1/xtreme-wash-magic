@@ -1,4 +1,5 @@
 import { Star, Quote, CalendarDays } from "lucide-react";
+import { Link } from "react-router-dom";
 import { reviews, business } from "@/data";
 
 const Reviews = () => (
@@ -72,13 +73,13 @@ const Reviews = () => (
           the stars are real — but demote it, and give the reader something to
           actually do here first. */}
       <div className="mt-12 flex flex-col items-center gap-5">
-        <a
-          href="#book"
+        <Link
+          to="/book"
           className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-8 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
         >
           <CalendarDays className="w-5 h-5" />
           Book Your Free Estimate
-        </a>
+        </Link>
         <a
           href={business.googleProfile}
           target="_blank"

@@ -56,11 +56,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Portland, TX",
     metaTitle: "Pressure Washing & Soft Wash Portland, TX | Xtreme Kleen",
     metaDescription:
-      "Xtreme Kleen is Portland, TX's hometown pressure washing and soft wash crew. Houses, driveways, roofs, windows, and storefronts — 5.0-rated on Google. Free on-site quotes: 361-947-7811.",
+      "Xtreme Kleen is Portland, TX's hometown pressure washing and soft wash crew. Houses, driveways, roofs, windows, and storefronts — 5.0-rated on Google. Free on-site quotes: 361-306-1551.",
     h1: "Pressure Washing & Soft Washing in Portland, TX",
     heroPhoto: condoWashPhoto, // home base, bayfront residential soft wash
     answer:
-      "Xtreme Kleen is based in Portland, Texas — this is our home turf. We pressure wash driveways and concrete, soft wash houses and roofs, and clean windows and storefronts throughout Portland, with free on-site quotes and a 5.0 Google rating. Call or text 361-947-7811 any time; we're open 24 hours.",
+      "Xtreme Kleen is based in Portland, Texas — this is our home turf. We pressure wash driveways and concrete, soft wash houses and roofs, and clean windows and storefronts throughout Portland, with free on-site quotes and a 5.0 Google rating. Call or text 361-306-1551 any time; we're open 24 hours.",
     localAngle: [
       "Portland sits on a bluff between Corpus Christi Bay and Nueces Bay, which means almost every street in town catches salt-laden Gulf breeze from two directions. That air is why siding here greens up faster than it does even a few miles inland — algae and mildew get a year-round growing season, and north-facing walls and shaded fence lines go first.",
       "Being based here means Portland jobs get the fastest response we offer. From the established neighborhoods off Wildcat Drive to the new construction pushing out toward Gregory, we quote in person, usually fast — and because it's our own town, the before-and-afters end up in front of your neighbors.",
@@ -75,7 +75,7 @@ export const locationsContent: LocationContent[] = [
     faqs: [
       {
         q: "How fast can you get to a job in Portland?",
-        a: "Faster than anywhere else we serve — we're based in Portland. Call or text 361-947-7811 and we'll set up a free on-site quote, usually quickly since there's no drive to plan around.",
+        a: "Faster than anywhere else we serve — we're based in Portland. Call or text 361-306-1551 and we'll set up a free on-site quote, usually quickly since there's no drive to plan around.",
       },
       {
         q: "Why does my Portland house grow green film so fast?",
@@ -93,11 +93,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Gregory, TX",
     metaTitle: "Pressure Washing Gregory, TX | Soft Wash & Roof Cleaning | Xtreme Kleen",
     metaDescription:
-      "Pressure washing, soft washing, and roof cleaning in Gregory, TX — minutes from our Portland home base. Houses, driveways, and heavy-duty cleaning near the industrial corridor. 361-947-7811.",
+      "Pressure washing, soft washing, and roof cleaning in Gregory, TX — minutes from our Portland home base. Houses, driveways, and heavy-duty cleaning near the industrial corridor. 361-306-1551.",
     h1: "Pressure Washing & Soft Washing in Gregory, TX",
     heroPhoto: ppePhoto, // industrial-corridor equipment work
     answer:
-      "Xtreme Kleen serves Gregory, Texas from our home base in neighboring Portland — just minutes up US-181. We pressure wash driveways, soft wash houses and roofs, and handle the heavier equipment and fleet cleaning that fits a town on the edge of the Coastal Bend's industrial corridor. Free on-site quotes: 361-947-7811.",
+      "Xtreme Kleen serves Gregory, Texas from our home base in neighboring Portland — just minutes up US-181. We pressure wash driveways, soft wash houses and roofs, and handle the heavier equipment and fleet cleaning that fits a town on the edge of the Coastal Bend's industrial corridor. Free on-site quotes: 361-306-1551.",
     localAngle: [
       "Gregory is right next door to us — Portland and Gregory run together along US-181, and G-P homeowners deal with the same double dose of bay humidity that we clean off houses in Portland every week. Siding, fences, and shaded driveways here green up on the same schedule.",
       "Gregory also sits at the gateway to the San Patricio industrial corridor, where heavy industry means heavy equipment, work trucks, and plants that need exterior cleaning done under a real safety program. We run both sides of that street: soft washing a house in the morning, degreasing equipment or washing a fleet in the afternoon — with an OSHA-aligned safety program for the industrial work.",
@@ -130,11 +130,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Ingleside, TX",
     metaTitle: "Pressure Washing Ingleside, TX | Soft Wash & Industrial | Xtreme Kleen",
     metaDescription:
-      "Pressure washing and soft washing in Ingleside, TX. Bayfront homes, businesses, and industrial facilities cleaned by a Portland-based crew with an OSHA-aligned safety program. 361-947-7811.",
+      "Pressure washing and soft washing in Ingleside, TX. Bayfront homes, businesses, and industrial facilities cleaned by a Portland-based crew with an OSHA-aligned safety program. 361-306-1551.",
     h1: "Pressure Washing & Soft Washing in Ingleside, TX",
     heroPhoto: crewPhoto, // energy-terminal / plant work
     answer:
-      "Xtreme Kleen provides pressure washing, soft washing, roof cleaning, and industrial exterior cleaning in Ingleside, Texas — a short drive from our Portland base via TX-361. Ingleside's bayfront position makes salt film and algae constant problems for homes, and its energy terminals make safety-program industrial cleaning a local necessity. Free quotes: 361-947-7811.",
+      "Xtreme Kleen provides pressure washing, soft washing, roof cleaning, and industrial exterior cleaning in Ingleside, Texas — a short drive from our Portland base via TX-361. Ingleside's bayfront position makes salt film and algae constant problems for homes, and its energy terminals make safety-program industrial cleaning a local necessity. Free quotes: 361-306-1551.",
     localAngle: [
       "Ingleside sits directly on Corpus Christi Bay, and bayfront exposure is the hardest duty an exterior can pull: salt film on glass, algae on siding, and grime that comes back quicker than anywhere inland. Homes here benefit most from soft washing — killing the growth rather than rinsing it — because regrowth pressure is relentless this close to the water.",
       "Ingleside is also one of the Gulf coast's serious energy ports, surrounded by terminals, fabrication yards, and heavy industry. That's work we're built for: fin fan and heat exchanger cleaning, tank exteriors, pipe racks, fleets, and equipment — all under an OSHA-aligned safety program with JSA, lockout/tagout, and stop-work authority on every job.",
@@ -167,11 +167,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Aransas Pass, TX",
     metaTitle: "Pressure Washing Aransas Pass, TX | Soft Wash | Xtreme Kleen",
     metaDescription:
-      "Pressure washing and soft washing in Aransas Pass, TX. Homes, storefronts, and working-waterfront properties cleaned right by a Coastal Bend crew. Free on-site quotes: 361-947-7811.",
+      "Pressure washing and soft washing in Aransas Pass, TX. Homes, storefronts, and working-waterfront properties cleaned right by a Coastal Bend crew. Free on-site quotes: 361-306-1551.",
     h1: "Pressure Washing & Soft Washing in Aransas Pass, TX",
     heroPhoto: glassPhoto, // working-waterfront storefront glass
     answer:
-      "Xtreme Kleen pressure washes and soft washes homes, storefronts, and commercial properties in Aransas Pass, Texas. A working waterfront town takes real salt exposure — we clean the algae, salt film, and grime it leaves on siding, concrete, glass, and roofs, with free on-site quotes. Call or text 361-947-7811.",
+      "Xtreme Kleen pressure washes and soft washes homes, storefronts, and commercial properties in Aransas Pass, Texas. A working waterfront town takes real salt exposure — we clean the algae, salt film, and grime it leaves on siding, concrete, glass, and roofs, with free on-site quotes. Call or text 361-306-1551.",
     localAngle: [
       "Aransas Pass is a working waterfront town — the shrimp fleet at Conn Brown Harbor, the channel traffic, and the constant Gulf breeze mean exteriors here take salt the way inland towns take dust. Siding, storefront glass, and metal roofs all show it, and the buildup accelerates the closer you get to the harbor.",
       "We clean all of it: house soft washes that kill the algae instead of feeding it a fresh rinse, storefront and glass service for the businesses along Wheeler Avenue and the highway corridor, and concrete work for driveways and commercial pads that haven't been bare-clean in years.",
@@ -204,11 +204,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Rockport, TX",
     metaTitle: "Pressure Washing Rockport, TX | Soft Wash & Roof Cleaning | Xtreme Kleen",
     metaDescription:
-      "Pressure washing, soft washing, and roof cleaning in Rockport, TX. Coastal homes, vacation rentals, and live-oak shade mildew handled by a Coastal Bend crew. 361-947-7811.",
+      "Pressure washing, soft washing, and roof cleaning in Rockport, TX. Coastal homes, vacation rentals, and live-oak shade mildew handled by a Coastal Bend crew. 361-306-1551.",
     h1: "Pressure Washing & Soft Washing in Rockport, TX",
     heroPhoto: roofPhoto, // coastal roofs + vacation rentals
     answer:
-      "Xtreme Kleen serves Rockport, Texas with pressure washing, soft washing, roof cleaning, and window cleaning — up TX-35 from our Portland base. Rockport's mix of waterfront homes, vacation rentals, and deep live-oak shade makes algae and mildew a constant fight; our soft wash kills the growth so the clean actually lasts. Call 361-947-7811.",
+      "Xtreme Kleen serves Rockport, Texas with pressure washing, soft washing, roof cleaning, and window cleaning — up TX-35 from our Portland base. Rockport's mix of waterfront homes, vacation rentals, and deep live-oak shade makes algae and mildew a constant fight; our soft wash kills the growth so the clean actually lasts. Call 361-306-1551.",
     localAngle: [
       "Rockport properties fight the Gulf on two fronts. The waterfront side takes direct salt air off Aransas Bay, and the inland side lives under the town's famous wind-sculpted live oaks — beautiful trees that cast permanent shade, drop organic debris, and keep roofs and north walls damp enough for mildew to feel at home year-round.",
       "There's also more at stake per square foot here: a huge share of Rockport properties are vacation rentals, second homes, and waterfront investments where curb appeal is income. A green-streaked exterior shows up in listing photos. We keep rentals photo-ready, clean roofs without touching a shingle with pressure, and pull the salt film off view windows so the bay actually looks like the bay.",
@@ -241,11 +241,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Corpus Christi, TX",
     metaTitle: "Pressure Washing Corpus Christi, TX | Soft Wash & Commercial | Xtreme Kleen",
     metaDescription:
-      "Pressure washing and soft washing in Corpus Christi, TX — homes, storefronts, and industrial facilities from Calallen to the Southside. 5.0-rated Coastal Bend crew. 361-947-7811.",
+      "Pressure washing and soft washing in Corpus Christi, TX — homes, storefronts, and industrial facilities from Calallen to the Southside. 5.0-rated Coastal Bend crew. 361-306-1551.",
     h1: "Pressure Washing & Soft Washing in Corpus Christi, TX",
     heroPhoto: fordPhoto, // the page literally cites Access Ford as ours
     answer:
-      "Xtreme Kleen serves Corpus Christi, Texas — residential, commercial, and industrial — from just across the Harbor Bridge in Portland. We pressure wash concrete, soft wash houses and buildings, clean storefront glass, and handle plant and refinery-corridor industrial work under an OSHA-aligned safety program. Free on-site quotes: 361-947-7811.",
+      "Xtreme Kleen serves Corpus Christi, Texas — residential, commercial, and industrial — from just across the Harbor Bridge in Portland. We pressure wash concrete, soft wash houses and buildings, clean storefront glass, and handle plant and refinery-corridor industrial work under an OSHA-aligned safety program. Free on-site quotes: 361-306-1551.",
     localAngle: [
       "Corpus Christi is the big market of the Coastal Bend, and it throws every kind of cleaning problem at us: bayfront homes on Ocean Drive taking direct salt spray, Southside subdivisions fighting the same algae as everyone else on the Gulf, storefronts along SPID that need glass and concrete kept presentable, and the refinery corridor — where industrial exterior cleaning needs a crew that shows up with a real safety program, not just a pressure washer.",
       "We're just across the Harbor Bridge, so Corpus jobs are an easy run for us. Some of the work on this site is Corpus work — the Access Ford storefront glass is ours — and our industrial capabilities (fin fans, heat exchangers, tank exteriors, fleets) are built for the plants that line the ship channel.",
@@ -278,11 +278,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Taft, TX",
     metaTitle: "Pressure Washing Taft, TX | House Washing & Concrete | Xtreme Kleen",
     metaDescription:
-      "Pressure washing and house soft washing in Taft, TX. Farm-town dust plus Gulf humidity is a rough mix for exteriors — we clean it right. Free on-site quotes: 361-947-7811.",
+      "Pressure washing and house soft washing in Taft, TX. Farm-town dust plus Gulf humidity is a rough mix for exteriors — we clean it right. Free on-site quotes: 361-306-1551.",
     h1: "Pressure Washing & House Washing in Taft, TX",
     heroPhoto: pressurePhoto, // farm-town houses, driveways, fences
     answer:
-      "Xtreme Kleen provides pressure washing, house soft washing, and roof cleaning in Taft, Texas — a quick run up US-181 from our Portland home base. Taft exteriors collect a rough mix of farm dust and Gulf-humidity algae; we clean both, with free on-site quotes. Call or text 361-947-7811.",
+      "Xtreme Kleen provides pressure washing, house soft washing, and roof cleaning in Taft, Texas — a quick run up US-181 from our Portland home base. Taft exteriors collect a rough mix of farm dust and Gulf-humidity algae; we clean both, with free on-site quotes. Call or text 361-306-1551.",
     localAngle: [
       "Taft sits in San Patricio farm country, and that shows up on houses: field dust rides the wind and sticks to humid siding, shaded walls grow the same green film as the rest of the Coastal Bend, and driveways collect a mix of soil and mildew that a garden hose only smears around.",
       "It's an easy run for us up US-181 through Gregory, so Taft gets the same treatment as our home-base jobs — a free in-person quote, the right method for each surface, and equipment that finishes in hours what a rented machine turns into a lost weekend.",
@@ -315,11 +315,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Sinton, TX",
     metaTitle: "Pressure Washing Sinton, TX | House & Storefront Washing | Xtreme Kleen",
     metaDescription:
-      "Pressure washing and soft washing in Sinton, TX — the county seat's homes, storefronts, and commercial properties cleaned by a Coastal Bend crew. Free quotes: 361-947-7811.",
+      "Pressure washing and soft washing in Sinton, TX — the county seat's homes, storefronts, and commercial properties cleaned by a Coastal Bend crew. Free quotes: 361-306-1551.",
     h1: "Pressure Washing & Soft Washing in Sinton, TX",
     heroPhoto: windowsPhoto, // county-seat storefronts and homes
     answer:
-      "Xtreme Kleen serves Sinton, Texas — the San Patricio County seat — with pressure washing, house soft washing, roof cleaning, and storefront service, about twenty minutes up US-181 from our Portland base. Free on-site quotes for homes and businesses: 361-947-7811.",
+      "Xtreme Kleen serves Sinton, Texas — the San Patricio County seat — with pressure washing, house soft washing, roof cleaning, and storefront service, about twenty minutes up US-181 from our Portland base. Free on-site quotes for homes and businesses: 361-306-1551.",
     localAngle: [
       "Sinton is the county seat, and its downtown wears that role — storefronts and offices around the courthouse square that look their best when the glass is clean and the sidewalks aren't grown over with grime. That's bread-and-butter work for us: storefront glass, entry concrete, and building washes on a schedule that suits the business.",
       "Residentially, Sinton homes fight the same Coastal Bend combination as the rest of the county — humidity-fed algae on siding and roofs, plus ranch-country dust — just far enough inland that owners are sometimes surprised how green a north wall can get. The fix is the same chemistry-first soft wash we run on the bayfront, and it holds even better up here.",
@@ -352,11 +352,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Odem, TX",
     metaTitle: "Pressure Washing Odem, TX | House Washing & Driveways | Xtreme Kleen",
     metaDescription:
-      "Pressure washing and house soft washing in Odem, TX. Driveways, siding, and roofs cleaned right by a Portland-based Coastal Bend crew. Free on-site quotes: 361-947-7811.",
+      "Pressure washing and house soft washing in Odem, TX. Driveways, siding, and roofs cleaned right by a Portland-based Coastal Bend crew. Free on-site quotes: 361-306-1551.",
     h1: "Pressure Washing & House Washing in Odem, TX",
     heroPhoto: concretePhoto, // house washes and driveway concrete
     answer:
-      "Xtreme Kleen provides pressure washing, house soft washing, and roof cleaning in Odem, Texas, a short drive from our Portland home base. Odem homes deal with the same humidity-fed algae as the rest of the Coastal Bend — we kill it with a chemistry-first wash and clean the concrete to match. Free quotes: 361-947-7811.",
+      "Xtreme Kleen provides pressure washing, house soft washing, and roof cleaning in Odem, Texas, a short drive from our Portland home base. Odem homes deal with the same humidity-fed algae as the rest of the Coastal Bend — we kill it with a chemistry-first wash and clean the concrete to match. Free quotes: 361-306-1551.",
     localAngle: [
       "Odem is a small town on the US-77 corridor where most folks commute toward Corpus or Sinton — and small-town properties deserve the same professional treatment as a bayfront address. House washes, driveway and sidewalk cleaning, and roof streak removal are the jobs we run most here.",
       "Because Odem is compact, it pairs well with our routes through Sinton and Taft — which keeps scheduling easy and means a single-house job never feels like a stretch for us. Quote's free, price is straight, and the work gets done in hours.",
@@ -393,11 +393,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Port Aransas, TX",
     metaTitle: "Pressure Washing Port Aransas, TX | Restaurants & Rentals | Xtreme Kleen",
     metaDescription:
-      "Pressure washing and soft washing in Port Aransas, TX — restaurants, vacation rentals, and waterfront decks cleaned overnight so the doors never close. We already work the island: 361-947-7811.",
+      "Pressure washing and soft washing in Port Aransas, TX — restaurants, vacation rentals, and waterfront decks cleaned overnight so the doors never close. We already work the island: 361-306-1551.",
     h1: "Pressure Washing & Soft Washing in Port Aransas, TX",
     heroPhoto: wharfPhoto, // our own night dock wash at Fisherman's Wharf
     answer:
-      "Xtreme Kleen pressure washes and soft washes in Port Aransas, Texas — restaurants, vacation rentals, waterfront decks, and storefronts. We already work the island: the dock washdowns at Fisherman's Wharf and the patio at Grumbles Seafood are our jobs, done overnight so the doors never closed. Call or text 361-947-7811.",
+      "Xtreme Kleen pressure washes and soft washes in Port Aransas, Texas — restaurants, vacation rentals, waterfront decks, and storefronts. We already work the island: the dock washdowns at Fisherman's Wharf and the patio at Grumbles Seafood are our jobs, done overnight so the doors never closed. Call or text 361-306-1551.",
     localAngle: [
       "Nowhere in our service area punishes property like Port Aransas. Salt spray doesn't drift here — it lands. Boardwalks gray out, gull traffic and bait-stand grime build up on commercial decking, and rental exteriors green up between seasons fast enough to show up in booking photos.",
       "We're already on the island: the night dock wash-downs at Fisherman's Wharf and the stamped-concrete patio at Grumbles Seafood are Xtreme Kleen jobs, both worked overnight so neither business lost an hour of trade. That's the standing offer for Port A — the wash happens while the island sleeps.",
@@ -435,11 +435,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Beeville, TX",
     metaTitle: "Pressure Washing Beeville, TX | Oilfield & Commercial | Xtreme Kleen",
     metaDescription:
-      "Pressure washing in Beeville, TX — oilfield equipment and yards, county-seat storefronts, and house washing, under an OSHA-aligned safety program. Call or text 361-947-7811.",
+      "Pressure washing in Beeville, TX — oilfield equipment and yards, county-seat storefronts, and house washing, under an OSHA-aligned safety program. Call or text 361-306-1551.",
     h1: "Oilfield & Commercial Pressure Washing in Beeville, TX",
     heroPhoto: fleetPhoto,
     answer:
-      "Xtreme Kleen provides pressure washing in Beeville, Texas — oilfield equipment and yard washing on the Eagle Ford's eastern flank, plus storefronts, flatwork, and house washes around the county seat. Hot-water degreasing, an OSHA-aligned safety program, open 24 hours. Call or text 361-947-7811.",
+      "Xtreme Kleen provides pressure washing in Beeville, Texas — oilfield equipment and yard washing on the Eagle Ford's eastern flank, plus storefronts, flatwork, and house washes around the county seat. Hot-water degreasing, an OSHA-aligned safety program, open 24 hours. Call or text 361-306-1551.",
     localAngle: [
       "Beeville sits where the Coastal Bend meets the oil patch — a county seat with courthouse-square storefronts on one side and equipment yards feeding the Eagle Ford on the other. Both kinds of dirty are our work: gum-and-grime downtown concrete, and haul trucks and yard iron carrying half the lease road home on them.",
       "It's a straight run up US-181 from our Portland base, close enough that Beeville gets the same free on-site quotes as the home turf. Yard washes and fleets are the anchor jobs; house washes and storefront concrete ride along on the same trips.",
@@ -472,11 +472,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Kenedy, TX",
     metaTitle: "Oilfield Pressure Washing Kenedy, TX | Eagle Ford Equipment | Xtreme Kleen",
     metaDescription:
-      "Oilfield pressure washing in Kenedy, TX — the heart of the Eagle Ford. Frac tanks, yard iron, fleets, and man-camp exteriors, hot-water degreased under a real safety program. 361-947-7811.",
+      "Oilfield pressure washing in Kenedy, TX — the heart of the Eagle Ford. Frac tanks, yard iron, fleets, and man-camp exteriors, hot-water degreased under a real safety program. 361-306-1551.",
     h1: "Oilfield Pressure Washing in Kenedy, TX",
     heroPhoto: ppePhoto,
     answer:
-      "Xtreme Kleen washes oilfield equipment in Kenedy, Texas — the middle of the Eagle Ford. Frac tanks, rig equipment, haul trucks, and yard iron get hot-water degreasing under an OSHA-aligned safety program (JSA, lockout/tagout, stop-work authority, full PPE). Open 24 hours. Call or text 361-947-7811.",
+      "Xtreme Kleen washes oilfield equipment in Kenedy, Texas — the middle of the Eagle Ford. Frac tanks, rig equipment, haul trucks, and yard iron get hot-water degreasing under an OSHA-aligned safety program (JSA, lockout/tagout, stop-work authority, full PPE). Open 24 hours. Call or text 361-306-1551.",
     localAngle: [
       "Kenedy and Karnes County sit on top of the most drilled stretch of the Eagle Ford, and the equipment shows it: drilling mud, crude, and caliche dust baked onto everything that works a lease. That buildup is a chemistry job — degreaser, dwell time, hot water — not something a rented cold-water machine touches.",
       "We mobilize into Karnes County for yard washes, fleet work, and equipment turnarounds, and we bring the plant-work safety program with us: documented JSA before work starts, lockout/tagout, stop-work authority, full PPE. Man camps, crew quarters, and hotel exteriors along Business 181 are the other side of the same trip.",
@@ -509,11 +509,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Karnes City, TX",
     metaTitle: "Oilfield Pressure Washing Karnes City, TX | Equipment & Yards | Xtreme Kleen",
     metaDescription:
-      "Oilfield equipment and yard washing in Karnes City, TX — hot-water degreasing for Eagle Ford iron, fleets, and facilities under an OSHA-aligned safety program. Call or text 361-947-7811.",
+      "Oilfield equipment and yard washing in Karnes City, TX — hot-water degreasing for Eagle Ford iron, fleets, and facilities under an OSHA-aligned safety program. Call or text 361-306-1551.",
     h1: "Oilfield & Equipment Washing in Karnes City, TX",
     heroPhoto: crewPhoto,
     answer:
-      "Xtreme Kleen provides oilfield and heavy equipment washing in Karnes City, Texas — county seat of the Eagle Ford's most active county. Hot-water degreasing for yard iron, fleets, and facility exteriors, under an OSHA-aligned safety program. Open 24 hours. Call or text 361-947-7811.",
+      "Xtreme Kleen provides oilfield and heavy equipment washing in Karnes City, Texas — county seat of the Eagle Ford's most active county. Hot-water degreasing for yard iron, fleets, and facility exteriors, under an OSHA-aligned safety program. Open 24 hours. Call or text 361-306-1551.",
     localAngle: [
       "Karnes City wears the Eagle Ford the same way Kenedy does — lease-road caliche on every truck, grease on every machine, and facility exteriors that gray out under dust the county never stops making. The courthouse square gets the other kind of dirty: gum, grime, and storefront concrete that hasn't seen a surface cleaner in years.",
       "We treat Karnes City and Kenedy as one route: yard washes and fleet work anchor the trip, and storefronts, offices, and house washes fill it out. Same hot-water rigs, same safety program, same 24-hour scheduling.",
@@ -536,7 +536,7 @@ export const locationsContent: LocationContent[] = [
       },
       {
         q: "How far in advance do we need to book?",
-        a: "Call or text 361-947-7811 — yard work usually schedules within days, and we're open 24 hours, so overnight slots are often the fastest.",
+        a: "Call or text 361-306-1551 — yard work usually schedules within days, and we're open 24 hours, so overnight slots are often the fastest.",
       },
     ],
   },
@@ -546,11 +546,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Three Rivers, TX",
     metaTitle: "Industrial Pressure Washing Three Rivers, TX | Refinery Corridor | Xtreme Kleen",
     metaDescription:
-      "Industrial and oilfield pressure washing in Three Rivers, TX — refinery-corridor facilities, Eagle Ford equipment, and fleets, washed under an OSHA-aligned safety program. 361-947-7811.",
+      "Industrial and oilfield pressure washing in Three Rivers, TX — refinery-corridor facilities, Eagle Ford equipment, and fleets, washed under an OSHA-aligned safety program. 361-306-1551.",
     h1: "Industrial & Oilfield Washing in Three Rivers, TX",
     heroPhoto: ppePhoto,
     answer:
-      "Xtreme Kleen provides industrial and oilfield pressure washing in Three Rivers, Texas — a refinery town on the Eagle Ford's truck routes. Facility exteriors, heavy equipment, and fleets get hot-water degreasing under an OSHA-aligned safety program: JSA, lockout/tagout, stop-work authority, full PPE. Call or text 361-947-7811.",
+      "Xtreme Kleen provides industrial and oilfield pressure washing in Three Rivers, Texas — a refinery town on the Eagle Ford's truck routes. Facility exteriors, heavy equipment, and fleets get hot-water degreasing under an OSHA-aligned safety program: JSA, lockout/tagout, stop-work authority, full PPE. Call or text 361-306-1551.",
     localAngle: [
       "Three Rivers is a refinery town sitting on the Eagle Ford's busiest truck corridor, where US-281 meets TX-72. That means two kinds of work: plant-adjacent facilities that expect a contractor to show up with a real safety program, and the haul trucks and equipment yards that feed the patch.",
       "Plant-style work is where we come from — fin fans, structural steel, tank exteriors — so the JSA-first, full-PPE routine isn't new clothes for us. Equipment washdowns, facility exteriors, and fleet work in Three Rivers run under the same program, on 24-hour scheduling.",
@@ -583,11 +583,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "George West, TX",
     metaTitle: "Pressure Washing George West, TX | Oilfield & Ranch Country | Xtreme Kleen",
     metaDescription:
-      "Pressure washing in George West, TX — oilfield equipment, ranch buildings, and county-seat storefronts at the US-59/US-281 crossroads. Hot-water rigs, free quotes: 361-947-7811.",
+      "Pressure washing in George West, TX — oilfield equipment, ranch buildings, and county-seat storefronts at the US-59/US-281 crossroads. Hot-water rigs, free quotes: 361-306-1551.",
     h1: "Pressure Washing in George West, TX",
     heroPhoto: pressurePhoto,
     answer:
-      "Xtreme Kleen provides pressure washing in George West, Texas — oilfield equipment and fleets moving through the US-59/US-281 crossroads, plus ranch buildings, metal roofs, and the Live Oak county seat's storefronts and homes. Hot-water degreasing, free quotes. Call or text 361-947-7811.",
+      "Xtreme Kleen provides pressure washing in George West, Texas — oilfield equipment and fleets moving through the US-59/US-281 crossroads, plus ranch buildings, metal roofs, and the Live Oak county seat's storefronts and homes. Hot-water degreasing, free quotes. Call or text 361-306-1551.",
     localAngle: [
       "George West sits at the crossroads the Eagle Ford drives through — US-59 meeting US-281 — with working ranches on every side of town. The mix on our schedule looks like the town: equipment and fleet washdowns from the patch, then barns, metal buildings, and ranch-house exteriors wearing years of caliche dust and humidity film.",
       "Painted metal is half the work out here, and it's a soft-wash job — the wrong pressure strips a barn's paint faster than the weather ever would. We match the method to the surface: chemistry on the metal, surface cleaners on the concrete, hot water on the grease.",
@@ -610,7 +610,7 @@ export const locationsContent: LocationContent[] = [
       },
       {
         q: "Is George West too far for a free quote?",
-        a: "No — photo quotes are instant, and in-person looks get bundled onto route days through Live Oak County. Call or text 361-947-7811.",
+        a: "No — photo quotes are instant, and in-person looks get bundled onto route days through Live Oak County. Call or text 361-306-1551.",
       },
     ],
   },
@@ -620,11 +620,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Pleasanton, TX",
     metaTitle: "Pressure Washing Pleasanton, TX | Oilfield & Commercial | Xtreme Kleen",
     metaDescription:
-      "Pressure washing in Pleasanton, TX — Eagle Ford equipment yards, commercial storefronts, and house washing where the patch meets San Antonio's edge. Call or text 361-947-7811.",
+      "Pressure washing in Pleasanton, TX — Eagle Ford equipment yards, commercial storefronts, and house washing where the patch meets San Antonio's edge. Call or text 361-306-1551.",
     h1: "Oilfield & Commercial Pressure Washing in Pleasanton, TX",
     heroPhoto: fleetPhoto,
     answer:
-      "Xtreme Kleen provides pressure washing in Pleasanton, Texas — oilfield equipment and yard washing on the Eagle Ford's western flank, plus commercial storefronts and house washes. Hot-water degreasing under an OSHA-aligned safety program, open 24 hours. Call or text 361-947-7811.",
+      "Xtreme Kleen provides pressure washing in Pleasanton, Texas — oilfield equipment and yard washing on the Eagle Ford's western flank, plus commercial storefronts and house washes. Hot-water degreasing under an OSHA-aligned safety program, open 24 hours. Call or text 361-306-1551.",
     localAngle: [
       "Pleasanton calls itself the birthplace of the cowboy, but its working economy rides the Eagle Ford — service yards and fleets staging along TX-97 and I-37, hauling the patch's dust and grease back to town every night. That iron is hot-water work: degreaser, dwell, then heat, or the oil just moves around.",
       "The town side of Pleasanton looks more like our Coastal Bend work — storefront concrete, commercial exteriors, and neighborhoods where humidity films up siding the same way it does closer to the coast. Both halves ride the same mobilization: yards anchor the trip, town work fills it.",
@@ -657,11 +657,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Cotulla, TX",
     metaTitle: "Oilfield Pressure Washing Cotulla, TX | La Salle County | Xtreme Kleen",
     metaDescription:
-      "Oilfield pressure washing in Cotulla, TX — La Salle County frac tanks, yard iron, fleets, and man-camp exteriors on the Eagle Ford's western core. Mobilized crews: 361-947-7811.",
+      "Oilfield pressure washing in Cotulla, TX — La Salle County frac tanks, yard iron, fleets, and man-camp exteriors on the Eagle Ford's western core. Mobilized crews: 361-306-1551.",
     h1: "Oilfield Pressure Washing in Cotulla, TX",
     heroPhoto: ppePhoto,
     answer:
-      "Xtreme Kleen mobilizes for oilfield washing in Cotulla, Texas — the Eagle Ford's western core. Frac tanks, wellsite equipment, yard iron, fleets, and man-camp exteriors get hot-water degreasing under an OSHA-aligned safety program. Multi-unit and recurring yard work is what makes the trip. Call or text 361-947-7811.",
+      "Xtreme Kleen mobilizes for oilfield washing in Cotulla, Texas — the Eagle Ford's western core. Frac tanks, wellsite equipment, yard iron, fleets, and man-camp exteriors get hot-water degreasing under an OSHA-aligned safety program. Multi-unit and recurring yard work is what makes the trip. Call or text 361-306-1551.",
     localAngle: [
       "Cotulla is deep Eagle Ford — La Salle County lease roads, I-35 truck traffic, and equipment that works harder and dirtier than anywhere else we go. Nobody sensibly drives to Cotulla to wash one machine, so we're straight about the model: yards, fleets, and multi-unit washes make the mobilization, and recurring schedules make it cheap per unit.",
       "The same trip covers the town the boom built — man camps, crew quarters, hotels, and commercial exteriors along I-35 and TX-97 that gray out under caliche dust. Everything runs under the same safety program we use for plant work: JSA first, full PPE, stop-work authority for everyone on site.",
@@ -676,7 +676,7 @@ export const locationsContent: LocationContent[] = [
     faqs: [
       {
         q: "What makes a Cotulla trip worth it?",
-        a: "Volume — a yard, a fleet, or several machines at once. Send photos and a unit count to 361-947-7811 and we'll quote the mobilization honestly; recurring washes price best.",
+        a: "Volume — a yard, a fleet, or several machines at once. Send photos and a unit count to 361-306-1551 and we'll quote the mobilization honestly; recurring washes price best.",
       },
       {
         q: "Can you service man camps and crew housing?",
@@ -694,11 +694,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Alice, TX",
     metaTitle: "Pressure Washing Alice, TX | Oilfield Service Capital | Xtreme Kleen",
     metaDescription:
-      "Pressure washing in Alice, TX — the hub city of South Texas oilfield services. Equipment yards, fleets, storefronts, and house washing with hot-water rigs. Call or text 361-947-7811.",
+      "Pressure washing in Alice, TX — the hub city of South Texas oilfield services. Equipment yards, fleets, storefronts, and house washing with hot-water rigs. Call or text 361-306-1551.",
     h1: "Oilfield & Commercial Pressure Washing in Alice, TX",
     heroPhoto: crewPhoto,
     answer:
-      "Xtreme Kleen provides pressure washing in Alice, Texas — the historic hub of South Texas oilfield services. Equipment yards, fleets, and shop facilities get hot-water degreasing; storefronts, offices, and homes get the same crew on the same trip. Under an hour from our Portland base. Call or text 361-947-7811.",
+      "Xtreme Kleen provides pressure washing in Alice, Texas — the historic hub of South Texas oilfield services. Equipment yards, fleets, and shop facilities get hot-water degreasing; storefronts, offices, and homes get the same crew on the same trip. Under an hour from our Portland base. Call or text 361-306-1551.",
     localAngle: [
       "Alice has been the oilfield's service capital since before the Eagle Ford had a name — the yards along US-281 and TX-44 have been staging iron for generations. That's our anchor work in town: equipment, fleets, shop floors, and the yard concrete under all of it, degreased with hot water instead of polished with cold.",
       "It's under an hour from our Portland base, so Alice isn't a mobilization story — it's regular coverage. Storefronts along Main Street, office exteriors, and house washes get quoted free and in person, same as the Coastal Bend towns.",
@@ -721,7 +721,7 @@ export const locationsContent: LocationContent[] = [
       },
       {
         q: "Do you do house washes in Alice?",
-        a: "Yes — full soft washes, driveways, and roofs, same as our Coastal Bend residential work. Call or text 361-947-7811 for a free quote.",
+        a: "Yes — full soft washes, driveways, and roofs, same as our Coastal Bend residential work. Call or text 361-306-1551 for a free quote.",
       },
     ],
   },
@@ -731,11 +731,11 @@ export const locationsContent: LocationContent[] = [
     cityState: "Freer, TX",
     metaTitle: "Oilfield Pressure Washing Freer, TX | Duval County | Xtreme Kleen",
     metaDescription:
-      "Oilfield pressure washing in Freer, TX — Duval County equipment, fleets, and yard washing with self-contained hot-water rigs. Scheduled routes, honest pricing: 361-947-7811.",
+      "Oilfield pressure washing in Freer, TX — Duval County equipment, fleets, and yard washing with self-contained hot-water rigs. Scheduled routes, honest pricing: 361-306-1551.",
     h1: "Oilfield Pressure Washing in Freer, TX",
     heroPhoto: fleetPhoto,
     answer:
-      "Xtreme Kleen washes oilfield equipment in Freer, Texas — Duval County iron, fleets, and yards on TX-44 west of Alice. Self-contained hot-water rigs handle remote yards; multi-unit and recurring washes make the route. Under an OSHA-aligned safety program. Call or text 361-947-7811.",
+      "Xtreme Kleen washes oilfield equipment in Freer, Texas — Duval County iron, fleets, and yards on TX-44 west of Alice. Self-contained hot-water rigs handle remote yards; multi-unit and recurring washes make the route. Under an OSHA-aligned safety program. Call or text 361-306-1551.",
     localAngle: [
       "Freer is old oil country — Duval County leases that never stopped working, plus Eagle Ford traffic passing through on TX-44. Equipment out here runs remote and comes back caked: drilling mud, grease, and caliche that only chemistry and hot water actually remove.",
       "We run Freer as an extension of the Alice route — self-contained rigs with our own water, so a yard without a working spigot is a normal stop. Multi-unit washes and recurring schedules are what make the western leg run; single machines get folded into the next route day.",
@@ -754,7 +754,7 @@ export const locationsContent: LocationContent[] = [
       },
       {
         q: "When do you run the Freer route?",
-        a: "Freer rides the western leg with Alice. Call or text 361-947-7811 with photos or a unit count and we'll slot you into the next route day — or schedule a dedicated trip for yard-sized work.",
+        a: "Freer rides the western leg with Alice. Call or text 361-306-1551 with photos or a unit count and we'll slot you into the next route day — or schedule a dedicated trip for yard-sized work.",
       },
       {
         q: "Do you wash anything besides equipment out here?",
