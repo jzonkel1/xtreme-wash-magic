@@ -99,8 +99,8 @@ export const beforeAfters = [
   {
     before: ranchBefore,
     after: ranchAfter,
-    label: "Stone Ranch House — Soft Wash",
-    sub: "Whole exterior soft washed, roof to stone, in a single visit.",
+    label: "Stone Ranch House — Tile Roof Soft Wash",
+    sub: "Clay tile roof soft washed back to color, plus the stone exterior, in a single visit — no pressure on the tile.",
     home: true,
   },
   {
@@ -195,7 +195,7 @@ export const business = {
   // dropping people on the profile and making them hunt for the button.
   googleReviewUrl: "https://g.page/r/CbVqlQ5JGcJYEBM/review",
   rating: 5.0,
-  reviewCount: 5,
+  reviewCount: 10,
 
   // Hero background video (HydroChem-style). Set to "" to fall back to the
   // cinematic still (hero-spray) with a slow Ken Burns drift.
@@ -486,18 +486,56 @@ export const steps = [
 ];
 
 // Real Google reviews.
+// Real Google reviews. Order is deliberate: Eric's four picks lead
+// (Jay Watkins, Mike Young, Shaun Dunk, Sharon Miller), then the rest.
 export const reviews = [
   {
-    name: "Karen Roberts",
-    meta: "13 reviews · 2 photos",
-    timeAgo: "2 months ago",
-    text: "Extreme Kleen is a great company! They did an excellent job and my home looks awesome. They are on time and fast and efficient.",
+    name: "Jay Watkins",
+    meta: "Google review",
+    timeAgo: "this week",
+    text: "Awesome company. Quick to respond and they do extremely good work. I highly recommend them and their services.",
+  },
+  {
+    name: "Mike Young",
+    meta: "15 reviews · 2 photos",
+    timeAgo: "this week",
+    text: "They will always get the job done. Very responsive and professional. It's a breath of fresh air to see these qualities in a young man in the construction space. Keep it up.",
+  },
+  {
+    name: "Shaun Dunk",
+    meta: "2 reviews",
+    timeAgo: "a week ago",
+    text: "I had them remove rust from my driveway and clean the stucco around my house, and I must say they did an outstanding job!!!",
   },
   {
     name: "Sharon Miller",
     meta: "2 reviews",
-    timeAgo: "2 months ago",
+    timeAgo: "3 months ago",
     text: "This company is responsive, dependable, honest, hard working. I couldn't ask for more and it is a pleasure doing business with them. But don't trust me. Try them for yourselves. You won't be disappointed.",
+  },
+  {
+    name: "Colby Christopher",
+    meta: "2 reviews",
+    timeAgo: "2 weeks ago",
+    text: "I highly recommend Xtreme Kleen! Eric Kuhn runs a truly professional operation and always shows up with the right chemicals, the right equipment, and the experience to get the job done right. This is not some fly-by-night company — they have two hot water pressure washing trailers and commercial-grade chemicals that consistently remove organic growth, grease, and tough stains. If you're looking for quality work, reliable service, and someone who takes pride in doing the job correctly the first time, Xtreme Kleen is the company to call.",
+  },
+  {
+    name: "John",
+    meta: "6 reviews",
+    timeAgo: "a week ago",
+    text: "XTREMELY good service, best experience working with any pressure washer.",
+  },
+  {
+    name: "Karen Roberts",
+    meta: "13 reviews · 2 photos",
+    timeAgo: "3 months ago",
+    text: "Extreme Kleen is a great company! They did an excellent job and my home looks awesome. They are on time and fast and efficient.",
+  },
+  {
+    name: "Jackson Soward",
+    meta: "1 review",
+    timeAgo: "a year ago",
+    text: "Xtreme Kleen provided awesome work on my restaurant and rental properties. Eric Kuhn came in with a strategic plan with a fair price point and couldn't be happier with the results.",
   },
   {
     name: "Brandon Trammell",
@@ -510,12 +548,6 @@ export const reviews = [
     meta: "3 reviews",
     timeAgo: "a year ago",
     text: "I have used Xtreme Kleen for construction site clean ups. Eric is very professional and easy to work with. He showed up on time and did exactly what he said he was going to do. I highly recommend this business.",
-  },
-  {
-    name: "Jackson Soward",
-    meta: "1 review",
-    timeAgo: "a year ago",
-    text: "Xtreme Kleen provided awesome work on my restaurant and rental properties. Eric Kuhn came in with a strategic plan with a fair price point and couldn't be happier with the results.",
   },
 ];
 
@@ -574,11 +606,11 @@ export const reels = [
       "Boom-lift reach on a commercial building — the upper stories most crews can't get to.",
   },
   {
-    src: pub("reels/brick-wall.mp4"),
-    poster: pub("reels/brick-wall-poster.jpg"),
-    title: "Bringing Brick Back",
+    src: pub("reels/bug-softwash.mp4"),
+    poster: pub("reels/bug-softwash-poster.jpg"),
+    title: "Bug Infestation — Before & After",
     caption:
-      "Years of Gulf grime pulled off masonry, leaving the brick its original color instead of a chalky film.",
+      "Eaves and stucco hit by an intense bug infestation, soft washed clean — before and after, no high pressure on the surface.",
   },
   {
     src: pub("reels/equipment-radiator.mp4"),

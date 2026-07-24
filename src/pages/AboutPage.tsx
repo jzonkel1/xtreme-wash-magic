@@ -6,6 +6,7 @@ import Seo from "@/components/Seo";
 import { business, travel } from "@/data";
 import { breadcrumbLd } from "@/lib/seo";
 import ericPhoto from "@/assets/eric-owner.webp";
+import ericFishingPhoto from "@/assets/eric-fishing.webp";
 // A REAL photo of the crew in full PPE pressure-washing plant equipment. The
 // old banner here was the AI-rendered bridge shot, which is exactly the wrong
 // note for the one page whose entire job is "these are real people".
@@ -78,25 +79,31 @@ const AboutPage = () => (
               — MEET THE OWNER —
             </span>
             <h2 className="font-display uppercase text-3xl md:text-4xl text-xk-warm-white mb-5 leading-[0.95] tracking-tight">
-              Local Crew. Coastal Problems.
+              Built on Hard Work.
+              <br className="hidden sm:block" /> Driven by Pride.
             </h2>
             <div className="space-y-4 text-xk-warm-white/65 font-body leading-relaxed">
               <p>
-                Eric runs {business.brand} out of {business.primaryCity} — which
-                means the salt air, the humidity, and the algae that eats Coastal
-                Bend properties aren't a theory to him. They're what's on his own
-                house.
+                I'm Eric, founder of {business.brand}. I didn't start this company
+                because I wanted to wash houses — I started it because I was tired
+                of watching contractors cut corners, rush jobs, and settle for
+                "good enough." My mission is simple: restore every property as if
+                it were my own, and leave every customer saying, "I can't believe
+                that's the same place."
               </p>
               <p>
-                That's the difference between a crew that washes a wall and a crew
-                that knows why the wall got green in the first place. Gulf growth
-                comes back if you only rinse it off. We treat it so the clean
-                holds.
+                Living on the Texas Gulf Coast means battling salt air, humidity,
+                algae, mold, rust, and oxidation year-round. We don't just make
+                properties look clean — we restore them the right way, so the
+                results last. Family home, apartment complex, refinery, restaurant,
+                or commercial property: if I wouldn't be proud to put my name on
+                it, it isn't finished.
               </p>
               <p>
-                The company runs the full range — driveways and home exteriors on
-                one end, fin fan bundles and plant structures on the other. Same
-                phone number, same person answering it.
+                When you choose {business.brand}, you're hiring the owner. From the
+                first phone call to the final walkthrough, my reputation is on
+                every estimate, every project, and every property we leave behind.
+                I don't just want to earn your business — I want to earn your trust.
               </p>
             </div>
 
@@ -108,6 +115,45 @@ const AboutPage = () => (
               Call or Text {business.phone}
             </a>
           </div>
+        </div>
+
+        {/* Off the clock — the personal side Eric asked to include */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,360px)] gap-10 lg:gap-14 items-center mt-14 md:mt-20">
+          <div className="text-center lg:text-left order-2 lg:order-1">
+            <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block mb-3">
+              — OFF THE CLOCK —
+            </span>
+            <h3 className="font-display uppercase text-2xl md:text-3xl text-xk-warm-white mb-4 leading-[0.95] tracking-tight">
+              Patience Pays Off — On the Water and On the Job
+            </h3>
+            <p className="text-xk-warm-white/65 font-body leading-relaxed">
+              When I'm not working, you'll usually find me somewhere on the Texas
+              coast chasing snook and tarpon. Fishing taught me patience,
+              discipline, and attention to detail — the same mindset I bring to
+              every project. Success comes from preparation, persistence, and
+              never cutting corners.
+            </p>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden border border-xk-warm-white/10 mx-auto lg:mx-0 max-w-[360px] w-full order-1 lg:order-2">
+            <img
+              src={ericFishingPhoto}
+              alt={`${business.owner}, owner of ${business.brand}, holding a snook on the Texas coast`}
+              className="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* Mission statement */}
+        <div className="mt-14 md:mt-20 bg-xk-steel/70 border-l-4 border-xk-red rounded-r-xl p-8 md:p-10 max-w-4xl mx-auto">
+          <span className="font-heading text-xk-red text-sm tracking-widest font-semibold block mb-4">
+            OUR MISSION
+          </span>
+          <p className="font-heading font-medium text-xl md:text-2xl text-xk-warm-white leading-snug">
+            To become the most trusted exterior restoration company on the Texas
+            Gulf Coast — delivering exceptional results, treating every property
+            like it's our own, and proving that quality workmanship still matters.
+          </p>
         </div>
       </div>
     </section>
