@@ -257,14 +257,36 @@ export type CommercialJob = {
 
 export const commercialJobs: CommercialJob[] = [
   {
-    name: "Doc's Seafood & Steaks",
-    type: "Restaurant",
+    name: "Coast Materials Inc.",
+    type: "Industrial / materials",
+    location: "",
+    blurb:
+      "Fleet wash-downs at the CMI yard — caked haul residue steamed out of dump beds and off frames and mud flaps, truck by truck.",
+    photo: coastMaterialsPhoto,
+    logo: coastMaterialsLogo,
+    preview: true,
+  },
+  {
+    name: "United Rentals",
+    type: "Equipment rental",
+    location: "",
+    blurb:
+      "Algae streaks soft washed off the branch's metal siding and the front flatwork rinsed clean — the storefront a customer judges before they ever reach the counter.",
+    photo: unitedRentalsPhoto,
+    logo: unitedRentalsLogo,
+    preview: true,
+  },
+  {
+    name: "Access Ford",
+    type: "Auto dealership",
     location: "Corpus Christi, TX",
     blurb:
-      "Surface-cleaned the flatwork and exterior at the waterfront restaurant under the JFK bridge — a high-traffic parking area taken back to clean concrete.",
-    photo: docsPhoto,
-    logo: docsLogo,
-    preview: true,
+      "Storefront and showroom glass at the Ford dealership off the I-69 access road — the glass a customer walks past on the way to a $70,000 truck, so a streak is not an option.",
+    photo: accessFordPhoto,
+    // No logo chip: the dealership's own signage is right there in the photo,
+    // and their site blocks scrapers. A chip would be redundant, and the Ford
+    // corporate oval is NOT this client's mark — Ford Motor Co. isn't the client.
+    logo: null,
   },
   {
     name: "Grumbles Seafood Co.",
@@ -276,17 +298,13 @@ export const commercialJobs: CommercialJob[] = [
     logo: grumblesLogo,
   },
   {
-    name: "Access Ford",
-    type: "Auto dealership",
+    name: "Doc's Seafood & Steaks",
+    type: "Restaurant",
     location: "Corpus Christi, TX",
     blurb:
-      "Storefront and showroom glass at the Ford dealership off the I-69 access road — the glass a customer walks past on the way to a $70,000 truck, so a streak is not an option.",
-    photo: accessFordPhoto,
-    preview: true,
-    // No logo chip: the dealership's own signage is right there in the photo,
-    // and their site blocks scrapers. A chip would be redundant, and the Ford
-    // corporate oval is NOT this client's mark — Ford Motor Co. isn't the client.
-    logo: null,
+      "Surface-cleaned the flatwork and exterior at the waterfront restaurant under the JFK bridge — a high-traffic parking area taken back to clean concrete.",
+    photo: docsPhoto,
+    logo: docsLogo,
   },
   {
     name: "Fisherman's Wharf",
@@ -296,24 +314,6 @@ export const commercialJobs: CommercialJob[] = [
       "Weathered dock boards washed down at the Port Aransas landing — worked at night with the charter boats still in their slips, so the wharf never missed a morning run.",
     photo: fishermansWharfPhoto,
     logo: fishermansWharfLogo,
-  },
-  {
-    name: "United Rentals",
-    type: "Equipment rental",
-    location: "",
-    blurb:
-      "Algae streaks soft washed off the branch's metal siding and the front flatwork rinsed clean — the storefront a customer judges before they ever reach the counter.",
-    photo: unitedRentalsPhoto,
-    logo: unitedRentalsLogo,
-  },
-  {
-    name: "Coast Materials Inc.",
-    type: "Industrial / materials",
-    location: "",
-    blurb:
-      "Fleet wash-downs at the CMI yard — caked haul residue steamed out of dump beds and off frames and mud flaps, truck by truck.",
-    photo: coastMaterialsPhoto,
-    logo: coastMaterialsLogo,
   },
 ];
 

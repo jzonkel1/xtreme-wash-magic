@@ -15,11 +15,11 @@ import { commercialJobs, business } from "@/data";
  * on charcoal with their brand colours intact.
  *
  * Two presentations off one array in data.ts:
- *   preview → homepage: the two jobs flagged `preview` in data.ts, then a
- *             "see the rest" CTA. It is a deliberate pick, not the first two:
- *             the homepage should show one restaurant and one dealership, so
- *             the range of work is obvious at a glance. Two restaurants would
- *             read as "he does restaurants."
+ *   preview → homepage: the jobs flagged `preview` in data.ts, then a "see the
+ *             rest" CTA. It's a deliberate pick — lead with the heaviest
+ *             commercial accounts (Coast Materials fleet wash, United Rentals
+ *             building soft wash), which read as serious B2B work and each carry
+ *             a clean client logo. Restaurants sit further down /our-work.
  *   full    → /our-work: every job with a photo, then the name-only clients.
  *
  * A client with no job photo is NEVER given a stand-in image. Eric's word is
