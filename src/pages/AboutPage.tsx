@@ -5,7 +5,10 @@ import PageHero from "@/components/PageHero";
 import Seo from "@/components/Seo";
 import { business, travel } from "@/data";
 import { breadcrumbLd } from "@/lib/seo";
-import ericPhoto from "@/assets/eric-owner.webp";
+// "Meet the owner" shows Eric ON THE JOB (soft-washing at sunset), not a
+// second copy of the fishing photo — that shot belongs to the off-the-clock
+// section below.
+import ericPhoto from "@/assets/eric-working.webp";
 import ericFishingPhoto from "@/assets/eric-fishing.webp";
 // A REAL photo of the crew in full PPE pressure-washing plant equipment. The
 // old banner here was the AI-rendered bridge shot, which is exactly the wrong
@@ -60,7 +63,7 @@ const AboutPage = () => (
           <div className="relative rounded-2xl overflow-hidden border border-xk-warm-white/10 mx-auto lg:mx-0 max-w-[380px] w-full">
             <img
               src={ericPhoto}
-              alt={`${business.owner}, owner of ${business.brand}, in front of the rig in Portland, TX`}
+              alt={`${business.owner}, owner of ${business.brand}, soft washing a building on the job in the Coastal Bend`}
               className="w-full h-auto object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-xk-charcoal/70 via-transparent to-transparent" />
