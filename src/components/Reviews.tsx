@@ -37,7 +37,12 @@ const Reviews = () => (
         {reviews.map((r) => (
           <div
             key={r.name}
-            className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-xk-light-gray/50 border border-xk-warm-white/10 rounded-xl p-7 flex flex-col relative"
+            /* Uniform height across every card: reviews run from one line
+               (John) to a full paragraph (Colby), so left to their own content
+               the cards were all different heights. A fixed min-height plus a
+               5-line clamp on the body makes the grid even — the clamped long
+               ones tail off with an ellipsis; the full text lives on Google. */
+            className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] md:min-h-[17.5rem] bg-xk-light-gray/50 border border-xk-warm-white/10 rounded-xl p-7 flex flex-col relative"
           >
             <Quote className="w-8 h-8 text-xk-red/20 absolute top-5 right-5" />
 
@@ -47,7 +52,7 @@ const Reviews = () => (
               ))}
             </div>
 
-            <p className="text-xk-warm-white/75 text-sm leading-relaxed flex-1 mb-6 font-body">
+            <p className="text-xk-warm-white/75 text-sm leading-relaxed flex-1 mb-6 font-body line-clamp-5">
               "{r.text}"
             </p>
 
