@@ -51,13 +51,66 @@ const steps = [
  * in its own 1120px wrapper OUTSIDE the section's `container` — the container caps
  * at 1024px on lg screens, which (minus padding) would leave the iframe just under
  * the line and silently hand us the tall layout.
+ *
+ * MOBILE CLIP BUG + THE FLOOR. In the stacked layout the resizer UNDER-reports:
+ * on a phone (~358px iframe) it posts ~861px and then never re-measures the
+ * initial state — but the card actually needs ~940px, so the date grid and time
+ * slots get cut off (verified on an emulated iPhone 12). Fix: while the iframe is
+ * in the stacked layout (its own width < the 1024px breakpoint) we clamp a
+ * height FLOOR. It's a min-height, not a fixed height, so when the visitor picks
+ * a date and GHL reports a taller value that still wins — we only ever raise a
+ * too-short report, never cap a correct one. Above the breakpoint the two-pane
+ * layout reports ~830px correctly, so the floor drops back to the pre-mount
+ * value and there's no dead space.
  */
+
+// Cross-origin hosts the widget pulls from (the iframe document, then the
+// resizer script). Preconnecting them before the iframe mounts moves the
+// DNS/TLS handshake off the critical path — on a cold mobile connection that's
+// the slowest part of the calendar appearing.
+const GHL_ORIGINS = ["https://api.leadconnectorhq.com", "https://link.msgsndr.com"];
+const warmGhlOrigins = () => {
+  for (const href of GHL_ORIGINS) {
+    if (document.head.querySelector(`link[rel="preconnect"][href="${href}"]`)) continue;
+    const l = document.createElement("link");
+    l.rel = "preconnect";
+    l.href = href;
+    document.head.appendChild(l);
+  }
+};
+
 const BookingCalendar = () => {
   const holderRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const [mounted, setMounted] = useState(false);
+
+  // 0. Warm the GHL origins early — well before the iframe mounts — so the
+  //    handshake is already done by the time the iframe requests its document.
+  useEffect(() => {
+    const el = holderRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        warmGhlOrigins();
+        io.disconnect();
+      },
+      { rootMargin: "1400px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   // 1. Mount the iframe once the section is close to the viewport.
   useEffect(() => {
+    // During the static prerender crawl, don't mount at all. This is a
+    // createRoot SPA, so a baked iframe gets wiped and reloaded the instant
+    // React boots — loading the widget twice. Ship only the placeholder; the
+    // real browser mounts it once, on scroll. (The preconnect above still bakes
+    // into <head>, so the handshake head-start survives.)
+    if (typeof window !== "undefined" && (window as { __PRERENDER__?: boolean }).__PRERENDER__) {
+      return;
+    }
     const el = holderRef.current;
     if (!el) return;
     const io = new IntersectionObserver(
@@ -82,6 +135,24 @@ const BookingCalendar = () => {
     document.body.appendChild(s);
   }, [mounted]);
 
+  // 3. Hold a height floor while the widget is in its stacked (narrow) layout,
+  //    where the resizer under-reports and clips itself. Keyed on the iframe's
+  //    OWN width, not the viewport, so it tracks the widget's real 1024px
+  //    breakpoint on every device. See the note above.
+  useEffect(() => {
+    if (!mounted) return;
+    const ifr = iframeRef.current;
+    if (!ifr) return;
+    const apply = () => {
+      const stacked = ifr.getBoundingClientRect().width < 1024;
+      ifr.style.minHeight = stacked ? "1040px" : "640px";
+    };
+    apply();
+    const ro = new ResizeObserver(apply);
+    ro.observe(ifr);
+    return () => ro.disconnect();
+  }, [mounted]);
+
   return (
     // The GHL widget already ships its own warm-white card. Wrapping THAT in a
     // dark charcoal box with padding made a box-inside-a-box that read heavy on
@@ -95,6 +166,7 @@ const BookingCalendar = () => {
     >
       {mounted ? (
         <iframe
+          ref={iframeRef}
           id={booking.calendarId}
           title={`Book a free on-site estimate with ${business.brand}`}
           src={booking.calendarUrl}

@@ -134,6 +134,16 @@ async function run() {
       page.on("request", (r) => (BLOCK.test(r.url()) ? r.abort() : r.continue()));
       page.on("pageerror", () => {});
 
+      // Flag the crawl so lazy third-party embeds (the GoHighLevel booking
+      // calendar) DON'T mount into the static HTML. The app is a createRoot SPA,
+      // so anything baked here is wiped and reloaded the moment React boots —
+      // baking the iframe just makes the browser fetch the widget twice. The
+      // embed's <head> preconnect hints still bake in (they're keyed off a
+      // wider observer), so real users keep the early handshake warm-up.
+      await page.evaluateOnNewDocument(() => {
+        window.__PRERENDER__ = true;
+      });
+
       await page.goto(`${ORIGIN}${BASE}${route}`, { waitUntil: "networkidle2", timeout: 30000 });
       // Every in-layout route renders a <footer>; wait for it, then let the
       // Seo effect flush its head updates.
