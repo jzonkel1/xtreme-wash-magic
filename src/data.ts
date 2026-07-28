@@ -71,6 +71,16 @@ import coastMaterialsPhoto from "@/assets/commercial/coast-materials.webp";
 import coastMaterialsLogo from "@/assets/commercial/coast-materials-logo.png";
 import unitedRentalsPhoto from "@/assets/commercial/united-rentals.webp";
 
+// Reviewer profile photos, scraped from each customer's own Google review avatar
+// (2026-07-28). Only genuine uploaded photos are self-hosted here — reviewers who
+// use Google's generated monogram avatar keep the site's styled red-initial
+// fallback instead (looks cleaner than Google's random colored circles).
+import jayWatkinsAvatar from "@/assets/reviews/jay-watkins.webp";
+import shaunDunkAvatar from "@/assets/reviews/shaun-dunk.webp";
+import colbyChristopherAvatar from "@/assets/reviews/colby-christopher.webp";
+import karenRobertsAvatar from "@/assets/reviews/karen-roberts.webp";
+import jericaThomsAvatar from "@/assets/reviews/jerica-thoms.webp";
+
 // Public-folder assets must respect Vite's base path (GitHub Pages serves the
 // site from /xtreme-wash-magic/, not the domain root).
 const pub = (p: string) => `${import.meta.env.BASE_URL}${p}`;
@@ -195,7 +205,7 @@ export const business = {
   // dropping people on the profile and making them hunt for the button.
   googleReviewUrl: "https://g.page/r/CbVqlQ5JGcJYEBM/review",
   rating: 5.0,
-  reviewCount: 10,
+  reviewCount: 12,
 
   // Hero background video (HydroChem-style). Set to "" to fall back to the
   // cinematic still (hero-spray) with a slow Ken Burns drift.
@@ -485,14 +495,23 @@ export const steps = [
   },
 ];
 
-// Real Google reviews.
 // Real Google reviews. Order is deliberate: Eric's four picks lead
 // (Jay Watkins, Mike Young, Shaun Dunk, Sharon Miller), then the rest.
-export const reviews = [
+// `avatar` is optional — set only for reviewers who uploaded a real Google
+// profile photo; the rest render a styled red-initial monogram.
+type Review = {
+  name: string;
+  meta: string;
+  timeAgo: string;
+  text: string;
+  avatar?: string;
+};
+export const reviews: Review[] = [
   {
     name: "Jay Watkins",
     meta: "Google review",
     timeAgo: "this week",
+    avatar: jayWatkinsAvatar,
     text: "Awesome company. Quick to respond and they do extremely good work. I highly recommend them and their services.",
   },
   {
@@ -505,6 +524,7 @@ export const reviews = [
     name: "Shaun Dunk",
     meta: "2 reviews",
     timeAgo: "a week ago",
+    avatar: shaunDunkAvatar,
     text: "I had them remove rust from my driveway and clean the stucco around my house, and I must say they did an outstanding job!!!",
   },
   {
@@ -514,21 +534,36 @@ export const reviews = [
     text: "This company is responsive, dependable, honest, hard working. I couldn't ask for more and it is a pleasure doing business with them. But don't trust me. Try them for yourselves. You won't be disappointed.",
   },
   {
+    name: "Lee Cooke",
+    meta: "Google review",
+    timeAgo: "this week",
+    text: "Had 16 vacuum trucks with 130 bbl trailers, years of road grime — he brought them back to life. Excellent work and a great price.",
+  },
+  {
+    name: "Charlie Garcia",
+    meta: "Google review",
+    timeAgo: "this week",
+    text: "Definitely the best pressure washing company in town. Always on time, good prices, and very efficient.",
+  },
+  {
     name: "Colby Christopher",
     meta: "2 reviews",
     timeAgo: "2 weeks ago",
+    avatar: colbyChristopherAvatar,
     text: "I highly recommend Xtreme Kleen! Eric Kuhn runs a truly professional operation and always shows up with the right chemicals, the right equipment, and the experience to get the job done right. This is not some fly-by-night company — they have two hot water pressure washing trailers and commercial-grade chemicals that consistently remove organic growth, grease, and tough stains. If you're looking for quality work, reliable service, and someone who takes pride in doing the job correctly the first time, Xtreme Kleen is the company to call.",
   },
   {
-    name: "John",
-    meta: "6 reviews",
-    timeAgo: "a week ago",
-    text: "XTREMELY good service, best experience working with any pressure washer.",
+    name: "Jerica Thoms",
+    meta: "Local Guide · 23 reviews",
+    timeAgo: "this week",
+    avatar: jericaThomsAvatar,
+    text: "Quick, thorough, job well done, reasonable price, and good communication. I've used them more than once, and will definitely call them again.",
   },
   {
     name: "Karen Roberts",
     meta: "13 reviews · 2 photos",
     timeAgo: "3 months ago",
+    avatar: karenRobertsAvatar,
     text: "Extreme Kleen is a great company! They did an excellent job and my home looks awesome. They are on time and fast and efficient.",
   },
   {

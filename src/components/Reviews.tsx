@@ -57,9 +57,22 @@ const Reviews = () => (
             </p>
 
             <div className="flex items-center gap-3 pt-4 border-t border-xk-warm-white/10">
-              <div className="w-10 h-10 rounded-full bg-xk-red flex items-center justify-center text-xk-warm-white font-heading font-bold text-sm">
-                {r.name.charAt(0)}
-              </div>
+              {/* Real customers' own Google profile photos where they uploaded one;
+                  everyone else falls back to a styled red-initial monogram. */}
+              {r.avatar ? (
+                <img
+                  src={r.avatar}
+                  alt={`${r.name} — Google reviewer`}
+                  loading="lazy"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+              ) : (
+                <div className="w-10 h-10 rounded-full bg-xk-red flex items-center justify-center text-xk-warm-white font-heading font-bold text-sm">
+                  {r.name.charAt(0)}
+                </div>
+              )}
               <div>
                 <p className="font-heading font-semibold text-xk-warm-white text-sm">
                   {r.name}
