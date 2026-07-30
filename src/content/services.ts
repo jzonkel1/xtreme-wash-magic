@@ -507,7 +507,7 @@ export const servicesContent: ServiceContent[] = [
     metaDescription:
       "Oilfield and heavy equipment washing across the Eagle Ford and Coastal Bend — frac tanks, rigs, yard iron, and DOT fleets, cleaned under an OSHA-aligned safety program. Call or text 361-306-1551.",
     heroSub:
-      "Frac tanks, yard iron, haul trucks, and wellsite equipment — degreased and washed by a crew that already works plants under a real safety program, and runs 24 hours because the patch does too.",
+      "Frac tanks, yard iron, haul trucks, and wellsite equipment — degreased and washed by a crew that shows up plant-ready with a real safety program, and runs 24 hours because the patch does too.",
     answer:
       "Xtreme Kleen provides oilfield and heavy equipment washing across the Eagle Ford and Coastal Bend — Beeville, Kenedy, Three Rivers, Cotulla, Alice, and the yards in between. Frac tanks, rig equipment, haul trucks, and yard iron get hot-water degreasing under an OSHA-aligned safety program: JSA before work starts, lockout/tagout, stop-work authority, full PPE. Call or text 361-306-1551.",
     whatWeCleanTitle: "Oilfield Equipment & Sites We Wash",
@@ -525,7 +525,7 @@ export const servicesContent: ServiceContent[] = [
       title: "Plant-Grade Safety, Yard-Grade Schedule",
       paragraphs: [
         "Oilfield grime is a chemistry problem before it's a pressure problem. Crude, grease, and drilling mud get a degreaser matched to the buildup and real dwell time, then hot water to cut it off the steel — cold water at high pressure just polishes oil around the equipment.",
-        "We already work inside plants, so the safety program comes with us instead of being improvised at the gate: a JSA before work begins, lockout/tagout where equipment demands it, stop-work authority for everyone on the job, and full PPE. If your site requires documentation, we can provide it.",
+        "We run a plant-grade safety program on every industrial job instead of improvising one at the gate: a JSA before work begins, lockout/tagout where equipment demands it, stop-work authority for everyone on the job, and full PPE. If your site requires documentation, we can provide it.",
         "We're open 24 hours because the patch doesn't keep office hours either. Equipment gets washed between jobs, ahead of inspections or auctions, or overnight in the yard — scheduled around your operation, not ours.",
       ],
     },
@@ -536,7 +536,7 @@ export const servicesContent: ServiceContent[] = [
       },
       {
         q: "Are you safe to have on a live site?",
-        a: "We run an OSHA-aligned safety program on every industrial job: a documented JSA before work starts, lockout/tagout, stop-work authority, and full PPE. It's the same program we use for plant work like fin fan cleaning — not something invented for the sales pitch.",
+        a: "We run an OSHA-aligned safety program on every industrial job: a documented JSA before work starts, lockout/tagout, stop-work authority, and full PPE. It's a standing program built to plant standards — not something invented for the sales pitch.",
       },
       {
         q: "Can you get drilling mud and crude off equipment?",

@@ -117,7 +117,7 @@ export const beforeAfters = [
     before: industrialBefore,
     after: industrialAfter,
     label: "Industrial Structure — Hot Water",
-    sub: "Heavy rust staining and grime cut off a plant structure.",
+    sub: "Heavy rust staining and grime cut off an industrial structure.",
     home: true,
   },
   {

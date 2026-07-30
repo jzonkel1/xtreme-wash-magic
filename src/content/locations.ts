@@ -245,7 +245,7 @@ export const locationsContent: LocationContent[] = [
     h1: "Pressure Washing & Soft Washing in Corpus Christi, TX",
     heroPhoto: fordPhoto, // the page literally cites Access Ford as ours
     answer:
-      "Xtreme Kleen serves Corpus Christi, Texas — residential, commercial, and industrial — from just across the Harbor Bridge in Portland. We pressure wash concrete, soft wash houses and buildings, clean storefront glass, and handle plant and refinery-corridor industrial work under an OSHA-aligned safety program. Free on-site quotes: 361-306-1551.",
+      "Xtreme Kleen serves Corpus Christi, Texas — residential, commercial, and industrial — from just across the Harbor Bridge in Portland. We pressure wash concrete, soft wash houses and buildings, clean storefront glass, and handle refinery-corridor industrial work under an OSHA-aligned safety program. Free on-site quotes: 361-306-1551.",
     localAngle: [
       "Corpus Christi is the big market of the Coastal Bend, and it throws every kind of cleaning problem at us: bayfront homes on Ocean Drive taking direct salt spray, Southside subdivisions fighting the same algae as everyone else on the Gulf, storefronts along SPID that need glass and concrete kept presentable, and the refinery corridor — where industrial exterior cleaning needs a crew that shows up with a real safety program, not just a pressure washer.",
       "We're just across the Harbor Bridge, so Corpus jobs are an easy run for us. Some of the work on this site is Corpus work — the Access Ford storefront glass is ours — and our industrial capabilities (fin fans, heat exchangers, tank exteriors, fleets) are built for the plants that line the ship channel.",
@@ -479,7 +479,7 @@ export const locationsContent: LocationContent[] = [
       "Xtreme Kleen washes oilfield equipment in Kenedy, Texas — the middle of the Eagle Ford. Frac tanks, rig equipment, haul trucks, and yard iron get hot-water degreasing under an OSHA-aligned safety program (JSA, lockout/tagout, stop-work authority, full PPE). Open 24 hours. Call or text 361-306-1551.",
     localAngle: [
       "Kenedy and Karnes County sit on top of the most drilled stretch of the Eagle Ford, and the equipment shows it: drilling mud, crude, and caliche dust baked onto everything that works a lease. That buildup is a chemistry job — degreaser, dwell time, hot water — not something a rented cold-water machine touches.",
-      "We mobilize into Karnes County for yard washes, fleet work, and equipment turnarounds, and we bring the plant-work safety program with us: documented JSA before work starts, lockout/tagout, stop-work authority, full PPE. Man camps, crew quarters, and hotel exteriors along Business 181 are the other side of the same trip.",
+      "We mobilize into Karnes County for yard washes, fleet work, and equipment turnarounds, and we bring the plant-grade safety program with us: documented JSA before work starts, lockout/tagout, stop-work authority, full PPE. Man camps, crew quarters, and hotel exteriors along Business 181 are the other side of the same trip.",
     ],
     highlights: [
       "Heart-of-the-Eagle-Ford equipment washing",
@@ -553,7 +553,7 @@ export const locationsContent: LocationContent[] = [
       "Xtreme Kleen provides industrial and oilfield pressure washing in Three Rivers, Texas — a refinery town on the Eagle Ford's truck routes. Facility exteriors, heavy equipment, and fleets get hot-water degreasing under an OSHA-aligned safety program: JSA, lockout/tagout, stop-work authority, full PPE. Call or text 361-306-1551.",
     localAngle: [
       "Three Rivers is a refinery town sitting on the Eagle Ford's busiest truck corridor, where US-281 meets TX-72. That means two kinds of work: plant-adjacent facilities that expect a contractor to show up with a real safety program, and the haul trucks and equipment yards that feed the patch.",
-      "Plant-style work is where we come from — fin fans, structural steel, tank exteriors — so the JSA-first, full-PPE routine isn't new clothes for us. Equipment washdowns, facility exteriors, and fleet work in Three Rivers run under the same program, on 24-hour scheduling.",
+      "Plant-style work is what we're built for — fin fans, structural steel, tank exteriors — and the JSA-first, full-PPE routine is standard on every industrial job, not new clothes we put on at the gate. Equipment washdowns, facility exteriors, and fleet work in Three Rivers run under the same program, on 24-hour scheduling.",
     ],
     highlights: [
       "Refinery-corridor facility washing",
@@ -664,7 +664,7 @@ export const locationsContent: LocationContent[] = [
       "Xtreme Kleen mobilizes for oilfield washing in Cotulla, Texas — the Eagle Ford's western core. Frac tanks, wellsite equipment, yard iron, fleets, and man-camp exteriors get hot-water degreasing under an OSHA-aligned safety program. Multi-unit and recurring yard work is what makes the trip. Call or text 361-306-1551.",
     localAngle: [
       "Cotulla is deep Eagle Ford — La Salle County lease roads, I-35 truck traffic, and equipment that works harder and dirtier than anywhere else we go. Nobody sensibly drives to Cotulla to wash one machine, so we're straight about the model: yards, fleets, and multi-unit washes make the mobilization, and recurring schedules make it cheap per unit.",
-      "The same trip covers the town the boom built — man camps, crew quarters, hotels, and commercial exteriors along I-35 and TX-97 that gray out under caliche dust. Everything runs under the same safety program we use for plant work: JSA first, full PPE, stop-work authority for everyone on site.",
+      "The same trip covers the town the boom built — man camps, crew quarters, hotels, and commercial exteriors along I-35 and TX-97 that gray out under caliche dust. Everything runs under the same safety program we bring to every industrial job: JSA first, full PPE, stop-work authority for everyone on site.",
     ],
     highlights: [
       "Eagle Ford western core — mobilized yard work",

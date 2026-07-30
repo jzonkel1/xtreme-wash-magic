@@ -36,7 +36,7 @@ const principles = [
   {
     icon: Clock,
     title: "We Work When You Can't Be Closed",
-    body: "Restaurants, storefronts, and plants can't shut down for a wash. We're open 24 hours and we schedule around you — nights, weekends, before the doors open. The job gets done; your business keeps running.",
+    body: "Restaurants, storefronts, and busy facilities can't shut down for a wash. We're open 24 hours and we schedule around you — nights, weekends, before the doors open. The job gets done; your business keeps running.",
   },
 ];
 
@@ -52,7 +52,7 @@ const AboutPage = () => (
     <PageHero
       kicker="WHO YOU'RE HIRING"
       title="The Guy on the Wand Owns the Company"
-      sub={`${business.brand} is ${business.owner}'s company — based in ${business.primaryCity}, working the whole Coastal Bend. Houses, storefronts, and plant equipment, cleaned by the people who answer the phone.`}
+      sub={`${business.brand} is ${business.owner}'s company — based in ${business.primaryCity}, working the whole Coastal Bend. Houses, storefronts, and heavy equipment, cleaned by the people who answer the phone.`}
       photo={bannerPhoto}
       breadcrumbs={[{ name: "Home", path: "/" }, { name: "About" }]}
     />
@@ -99,7 +99,7 @@ const AboutPage = () => (
                 Living on the Texas Gulf Coast means battling salt air, humidity,
                 algae, mold, rust, and oxidation year-round. We don't just make
                 properties look clean — we restore them the right way, so the
-                results last. Family home, apartment complex, refinery, restaurant,
+                results last. Family home, apartment complex, oilfield yard, restaurant,
                 or commercial property: if I wouldn't be proud to put my name on
                 it, it isn't finished.
               </p>

@@ -115,7 +115,7 @@ const PhotoGallery = ({ home }: { home?: boolean }) => {
           The Results Speak for Themselves
         </h2>
         <p className="text-xk-text-dark/60 text-center max-w-xl mx-auto mb-4 font-body leading-relaxed">
-          Real Xtreme Kleen jobs — houses, storefronts, concrete, and plant
+          Real Xtreme Kleen jobs — houses, storefronts, concrete, and heavy
           equipment. Same surface, same angle, before and after.
         </p>
         {/* On a phone this is the whole point of the section — if it reads as a
