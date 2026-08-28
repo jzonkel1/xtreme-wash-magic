@@ -2,6 +2,7 @@ import Seo from "@/components/Seo";
 import StickyHeader from "@/components/StickyHeader";
 import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
+import ClientLogoMarquee from "@/components/ClientLogoMarquee";
 import PainPoints from "@/components/PainPoints";
 import Solution from "@/components/Solution";
 import ServicesGrid from "@/components/ServicesGrid";
@@ -50,6 +51,10 @@ const Index = () => (
     <StickyHeader />
     <HeroSection />
     <TrustBar />
+    {/* Commercial logos ride directly under the trust bar, before any proof
+        section. Other businesses already trusting him is the fastest credibility
+        a stranger can read, and it used to be buried at section #13. */}
+    <ClientLogoMarquee />
     {/* Video before stills. Motion is the strongest proof a washing company has —
         a clip of grime actually lifting off beats a static before/after, so the
         reels lead and the photo gallery backs them up. */}

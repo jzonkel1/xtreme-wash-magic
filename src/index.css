@@ -218,6 +218,82 @@
     }
   }
 
+  /* Commercial client logo marquee (ClientLogoMarquee.tsx).
+     The track renders the logo list TWICE end to end and slides exactly one
+     copy-width, so the loop is seamless with no jump at the wrap. */
+  @keyframes marquee-x {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee-x 42s linear infinite;
+    will-change: transform;
+  }
+
+  /* Fade the row into the band edges instead of letting logos get guillotined
+     by the viewport — a hard cut reads as a bug, a fade reads as "more".
+     The fade is a fixed width, so on a 390px phone a 6rem ramp would eat half
+     the screen; phones get a shorter one. */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 2.5rem,
+      #000 calc(100% - 2.5rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 2.5rem,
+      #000 calc(100% - 2.5rem),
+      transparent
+    );
+  }
+
+  @media (min-width: 768px) {
+    .marquee-mask {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 6rem,
+        #000 calc(100% - 6rem),
+        transparent
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 6rem,
+        #000 calc(100% - 6rem),
+        transparent
+      );
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* No scroll: drop the second copy and let the real list wrap, centred. */
+    .animate-marquee {
+      animation: none;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .marquee-dupe {
+      display: none;
+    }
+
+    .marquee-mask {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+
   .text-glow-red {
     text-shadow: 0 0 20px hsl(0 79% 40% / 0.5);
   }

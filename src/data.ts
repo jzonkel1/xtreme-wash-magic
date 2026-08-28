@@ -45,6 +45,12 @@ import beachHouseBefore from "@/assets/ba/beach-house-before.webp";
 import beachHouseAfter from "@/assets/ba/beach-house-after.webp";
 import stuccoBefore from "@/assets/ba/stucco-wall-before.webp";
 import stuccoAfter from "@/assets/ba/stucco-wall-after.webp";
+// AT&T retail store, Corpus Christi (2026-08-27) — Eric's own two photos, shot
+// the morning of the job. The after was a portrait frame from further back, so
+// it's cropped to the before's exact anchors (parapet cap, awning, "13525",
+// door line) — same wall, same angle, no reframing of what changed.
+import attBefore from "@/assets/ba/att-storefront-before.webp";
+import attAfter from "@/assets/ba/att-storefront-after.webp";
 
 // Commercial job photos — Xtreme Kleen's own rig on the client's site — plus
 // each client's own logo, pulled from their site.
@@ -70,6 +76,8 @@ import fishermansWharfPhoto from "@/assets/commercial/fishermans-wharf.webp";
 import coastMaterialsPhoto from "@/assets/commercial/coast-materials.webp";
 import coastMaterialsLogo from "@/assets/commercial/coast-materials-logo.png";
 import unitedRentalsPhoto from "@/assets/commercial/united-rentals.webp";
+import attPhoto from "@/assets/commercial/att.webp";
+import attLogo from "@/assets/commercial/att-logo.svg";
 
 // Reviewer profile photos, scraped from each customer's own Google review avatar
 // (2026-07-28). Only genuine uploaded photos are self-hosted here — reviewers who
@@ -94,6 +102,16 @@ const pub = (p: string) => `${import.meta.env.BASE_URL}${p}`;
  * /our-work shows every pair.
  */
 export const beforeAfters = [
+  {
+    // Added 2026-08-27. Leads the section on purpose: a national name on a
+    // storefront is the single strongest piece of commercial proof on the site,
+    // and it's the job Eric chased for four years.
+    before: attBefore,
+    after: attAfter,
+    label: "AT&T Store — Full Building Soft Wash",
+    sub: "Years of buildup off the whole building and the front entrance surface cleaned — a national retailer's storefront, washed without closing the doors.",
+    home: true,
+  },
   {
     // CORRECTED 2026-07-13. This pair used to be before3 (the FRONT elevation,
     // with a ladder against it) paired with after3 (the GABLE END). Same house,
@@ -168,6 +186,10 @@ export const beforeAfters = [
     after: condoAfter,
     label: "Condo Complex — Soft Wash",
     sub: "Green-stained stucco across a multi-unit building, washed back to cream.",
+    // Promoted to the homepage 2026-08-27 alongside the AT&T pair: it keeps the
+    // homepage count EVEN (see PhotoGallery) and it seconds the commercial
+    // story the AT&T card opens, so the six aren't five houses and a storefront.
+    home: true,
   },
   {
     before: beachHouseBefore,
@@ -263,9 +285,33 @@ export type CommercialJob = {
   logo: string | null;
   /** Show this one in the homepage preview (see CommercialWork.tsx). */
   preview?: boolean;
+  /**
+   * The mark IS the name spelled out, so printing the name in the display font
+   * beside it reads as a stutter ("AT&T  AT&T"). Set this and the portfolio row
+   * uses the lockup as its own heading instead (the name still ships to screen
+   * readers and crawlers). Only for marks where the wordmark is the whole logo
+   * — United Rentals keeps both because its name in the display font and its
+   * blue-circle mark are doing different jobs.
+   */
+  logoIsWordmark?: boolean;
 };
 
 export const commercialJobs: CommercialJob[] = [
+  {
+    // Added 2026-08-27. Leads the list — it's the biggest name on it, and the
+    // one job that makes a property manager assume the rest of the list is real.
+    // Wording stays at "store": the client is the retail location Eric washed,
+    // not AT&T Inc., and the site should never imply a corporate contract.
+    name: "AT&T",
+    type: "Retail storefront",
+    location: "Corpus Christi, TX",
+    blurb:
+      "Full building soft wash and a surface-cleaned front entrance at the AT&T store — years of buildup off the stucco and the walk-up concrete, done without the doors ever closing.",
+    photo: attPhoto,
+    logo: attLogo,
+    preview: true,
+    logoIsWordmark: true,
+  },
   {
     name: "Coast Materials Inc.",
     type: "Industrial / materials",

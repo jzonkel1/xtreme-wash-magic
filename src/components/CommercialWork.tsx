@@ -62,10 +62,26 @@ const Row = ({
       </span>
 
       <div className="flex items-center gap-5 flex-wrap mt-3">
-        <h3 className="font-display uppercase text-2xl md:text-3xl text-xk-warm-white tracking-tight leading-none">
-          {job.name}
-        </h3>
-        {job.logo && <ClientLogo logo={job.logo} name={job.name} />}
+        {job.logoIsWordmark && job.logo ? (
+          // The mark spells the name, so it stands in for the heading rather
+          // than sitting next to a display-font copy of itself. The name is
+          // still in the h3 for screen readers and crawlers.
+          <h3 className="leading-none">
+            <img
+              src={job.logo}
+              alt={job.name}
+              loading="lazy"
+              className="h-9 md:h-11 w-auto max-w-[190px] object-contain object-left"
+            />
+          </h3>
+        ) : (
+          <>
+            <h3 className="font-display uppercase text-2xl md:text-3xl text-xk-warm-white tracking-tight leading-none">
+              {job.name}
+            </h3>
+            {job.logo && <ClientLogo logo={job.logo} name={job.name} />}
+          </>
+        )}
       </div>
 
       {job.location && (
@@ -132,7 +148,13 @@ const CommercialWork = ({ preview }: { preview?: boolean }) => {
                   ) : (
                     <Building2 className="w-5 h-5 text-xk-red flex-none" />
                   )}
-                  <span className="font-heading font-semibold text-sm text-xk-warm-white/80">
+                  {/* Same stutter guard as the rows above: a wordmark logo
+                      already says the name, so don't typeset it twice. */}
+                  <span
+                    className={`font-heading font-semibold text-sm text-xk-warm-white/80 ${
+                      j.logoIsWordmark ? "sr-only" : ""
+                    }`}
+                  >
                     {j.name}
                   </span>
                 </span>
