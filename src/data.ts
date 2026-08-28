@@ -51,6 +51,13 @@ import stuccoAfter from "@/assets/ba/stucco-wall-after.webp";
 // door line) — same wall, same angle, no reframing of what changed.
 import attBefore from "@/assets/ba/att-storefront-before.webp";
 import attAfter from "@/assets/ba/att-storefront-after.webp";
+// Gerke Excavating's GOMACO GT-3600 curb & gutter machine, Corpus Christi
+// (2026-08-27). The before is a cropped screenshot Eric saved off his phone, so
+// it's lower resolution and its file date is the SAVE time, not the shot time —
+// don't read the timestamps as the running order. The after is cropped to the
+// before's framing off the console's top rail, gauge row and handles.
+import gerkeBefore from "@/assets/ba/gerke-gomaco-before.webp";
+import gerkeAfter from "@/assets/ba/gerke-gomaco-after.webp";
 
 // Commercial job photos — Xtreme Kleen's own rig on the client's site — plus
 // each client's own logo, pulled from their site.
@@ -78,6 +85,8 @@ import coastMaterialsLogo from "@/assets/commercial/coast-materials-logo.png";
 import unitedRentalsPhoto from "@/assets/commercial/united-rentals.webp";
 import attPhoto from "@/assets/commercial/att.webp";
 import attLogo from "@/assets/commercial/att-logo.svg";
+import gerkePhoto from "@/assets/commercial/gerke.webp";
+import gerkeLogo from "@/assets/commercial/gerke-logo.png";
 
 // Reviewer profile photos, scraped from each customer's own Google review avatar
 // (2026-07-28). Only genuine uploaded photos are self-hosted here — reviewers who
@@ -111,6 +120,18 @@ export const beforeAfters = [
     label: "AT&T Store — Full Building Soft Wash",
     sub: "Years of buildup off the whole building and the front entrance surface cleaned — a national retailer's storefront, washed without closing the doors.",
     home: true,
+  },
+  {
+    // Added 2026-08-28. Heavy-equipment work, which nothing else in this list
+    // shows: the console of Gerke Excavating's GOMACO GT-3600 curb & gutter
+    // machine, caked in dried concrete and then washed back to legible.
+    // NOT on the homepage — the homepage six already run AT&T, two brick
+    // houses, a tile roof, a condo block and a driveway, and this reads as a
+    // detail shot next to those. It earns its place on /our-work.
+    before: gerkeBefore,
+    after: gerkeAfter,
+    label: "GOMACO Paver Console — Equipment Wash",
+    sub: "Dried concrete blasted off a curb-and-gutter machine's controls — gauges, switch legends and warning decals readable again, with the electronics left alone.",
   },
   {
     // CORRECTED 2026-07-13. This pair used to be before3 (the FRONT elevation,
@@ -311,6 +332,21 @@ export const commercialJobs: CommercialJob[] = [
     logo: attLogo,
     preview: true,
     logoIsWordmark: true,
+  },
+  {
+    // Added 2026-08-28. Location is CONFIRMED, not assumed: Gerke's own site is
+    // Wisconsin-only ("serves western Wisconsin", Tomah WI) and mentions Texas
+    // nowhere, so the GPS on Eric's own job photos was the thing that settled
+    // it — Starlite Lane, Corpus Christi 78410. The machines carry GERKE
+    // EXCAVATING decals in his walkaround video. Don't "correct" this to
+    // Wisconsin off the back of their website.
+    name: "Gerke Excavating",
+    type: "Heavy equipment / road construction",
+    location: "Corpus Christi, TX",
+    blurb:
+      "Curb-and-gutter machines and excavators washed down on a live street job — dried concrete cut off consoles, hydraulics and undercarriages without stripping decals or soaking the electronics.",
+    photo: gerkePhoto,
+    logo: gerkeLogo,
   },
   {
     name: "Coast Materials Inc.",
