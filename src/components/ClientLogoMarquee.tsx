@@ -38,10 +38,28 @@ import { commercialJobs } from "@/data";
  * endless in BOTH directions — flick it backwards and it keeps going, because
  * there is always another copy behind the one you're looking at.
  *
- * N is computed, not hard-coded: the band needs `copies * copyW - clientWidth
- * >= 2 * copyW` of room, so a wide desktop viewport needs more copies than a
- * phone. Get this wrong and the wrap has nowhere to land and the row snaps
+ * N is computed, not hard-coded: a wide desktop viewport needs more copies than
+ * a phone. Get this wrong and the wrap has nowhere to land and the row snaps
  * visibly at the edges — the exact "breaking left and right" this replaced.
+ *
+ * ---------------------------------------------------------------------------
+ * HANDS OFF WHILE THE VISITOR IS SCROLLING. (Fixes the mobile flicker.)
+ *
+ * Touch scrolling and its momentum run on the COMPOSITOR. Writing `scrollLeft`
+ * from a rAF while that's happening is the main thread and the compositor both
+ * claiming the same number sixty times a second, and it looks like exactly what
+ * it is — a stutter. The first version did this two ways: it resumed drifting
+ * on a fixed 900ms timer that iOS momentum happily outlasts, and it ran the
+ * wrap mid-gesture, so a ±copyW snap landed while the browser was still
+ * tracking the finger.
+ *
+ * So: the scroller is either OURS or THEIRS, never both. It's theirs while a
+ * pointer is down and for IDLE_MS after the last scroll we didn't cause — which
+ * tracks real momentum however long it actually runs, instead of guessing. It's
+ * ours the rest of the time, and only then does anything get written, wrap
+ * included. The cost is that a wrap can't fire mid-flick, so the runway is
+ * deliberately long (see COPY_SLACK) — a hard flick has three copy widths of
+ * road in front of it, and the wrap tidies up the moment the flick settles.
  * ---------------------------------------------------------------------------
  */
 
@@ -77,18 +95,39 @@ const SPEED_MOBILE = 42;
 
 const MOBILE_Q = "(max-width: 767px)";
 
+/**
+ * How long after the last scroll we didn't cause before the strip counts as
+ * settled. Long enough not to be fooled by the gap between two momentum frames,
+ * short enough that the drift picks back up without feeling stalled.
+ */
+const IDLE_MS = 180;
+
+/**
+ * Spare copies either side of the visible band. Because the wrap now waits for
+ * the strip to settle, this is the road a single hard flick gets to run out on
+ * before it could reach a real end — three copy widths each way, roughly 2200px
+ * on a phone, which is more than a thumb can throw it.
+ */
+const COPY_SLACK = 6;
+
 const ClientLogoMarquee = () => {
   const scroller = useRef<HTMLDivElement>(null);
   const firstCopy = useRef<HTMLDivElement>(null);
   const copyW = useRef(0);
   const [copies, setCopies] = useState(4);
 
-  // Auto-advance is suspended while the visitor is touching, dragging, hovering
-  // or wheeling, and for a beat afterwards so iOS momentum can play out without
-  // the rAF piling speed on top of a flick.
-  const paused = useRef(false);
-  const resumeAt = useRef<number | undefined>(undefined);
+  /** True while a finger or mouse button is down on the strip. */
+  const pointerDown = useRef(false);
+  /** The strip belongs to the visitor until this timestamp (performance.now). */
+  const busyUntil = useRef(0);
+  /** Mouse is over it — drift stops, but this doesn't hand the strip over. */
+  const hovering = useRef(false);
   const drag = useRef<{ x: number; left: number } | null>(null);
+
+  /** Hand the strip to the visitor for a beat. */
+  const yieldControl = () => {
+    busyUntil.current = performance.now() + IDLE_MS;
+  };
 
   /**
    * The drift position, kept as a float BY US.
@@ -104,17 +143,8 @@ const ClientLogoMarquee = () => {
   /** What we last wrote, to tell our own writes apart from the visitor's. */
   const lastWrite = useRef(0);
 
-  const hold = useCallback(() => {
-    paused.current = true;
-    window.clearTimeout(resumeAt.current);
-  }, []);
-
-  const release = useCallback((delay: number) => {
-    window.clearTimeout(resumeAt.current);
-    resumeAt.current = window.setTimeout(() => {
-      paused.current = false;
-    }, delay);
-  }, []);
+  /** Left edge of the band scrollLeft is kept inside: [home, home + copyW). */
+  const home = useRef(0);
 
   /** Measure one copy and make sure there are enough of them to wrap inside. */
   const measure = useCallback(() => {
@@ -126,11 +156,15 @@ const ClientLogoMarquee = () => {
     if (!w) return; // logos haven't laid out yet
     copyW.current = w;
 
-    const need = Math.max(3, Math.ceil(el.clientWidth / w) + 2);
+    const need = Math.max(3, Math.ceil(el.clientWidth / w) + COPY_SLACK);
     setCopies((c) => (c === need ? c : need));
 
-    if (el.scrollLeft < w) {
-      el.scrollLeft = w;
+    // Sit in the middle so there's equal road in both directions.
+    home.current = Math.floor((need - 1) / 2) * w;
+
+    const lo = home.current;
+    if (el.scrollLeft < lo || el.scrollLeft >= lo + w) {
+      el.scrollLeft = lo;
       pos.current = el.scrollLeft;
       lastWrite.current = el.scrollLeft;
     }
@@ -175,34 +209,45 @@ const ClientLogoMarquee = () => {
       last = t;
 
       // Anything more than a rounding step away from our last write means the
-      // visitor moved it — a drag, a flick still coasting, a trackpad — so take
-      // their position as the truth and drift on from there.
+      // visitor moved it — a drag, a flick still coasting, a trackpad. Take
+      // their position as the truth and hand them the strip for another beat.
+      // This is what tracks momentum for its ACTUAL length rather than guessing
+      // at it with a timer.
       if (Math.abs(el.scrollLeft - lastWrite.current) > 1.5) {
         pos.current = el.scrollLeft;
+        // Re-baseline HERE too, not just on our own writes. Without this the
+        // comparison above stays true forever once the visitor has scrolled —
+        // every frame looks foreign, the strip is never handed back, and the
+        // drift stops permanently after the first touch.
+        lastWrite.current = el.scrollLeft;
+        busyUntil.current = t + IDLE_MS;
       }
+
+      // Theirs, not ours: write nothing at all. No drift, and no wrap either —
+      // a wrap landing mid-gesture is the jump that made this flicker.
+      if (pointerDown.current || t < busyUntil.current) return;
 
       let changed = false;
 
-      if (!paused.current && !reduce.matches) {
+      if (!hovering.current && !reduce.matches) {
         pos.current += (mobile.matches ? SPEED_MOBILE : SPEED_DESKTOP) * dt;
         changed = true;
       }
 
-      // Runs every frame, so it catches the visitor's own scrolling and
-      // momentum as well as our drift — no separate scroll listener needed.
+      // Safe now — the strip has settled, so snapping it by exactly one copy
+      // width lands on a pixel-identical position with nothing to fight.
       const w = copyW.current;
+      const lo = home.current;
       if (w) {
-        if (pos.current < w) {
+        if (pos.current < lo) {
           pos.current += w;
           changed = true;
-        } else if (pos.current >= w * 2) {
+        } else if (pos.current >= lo + w) {
           pos.current -= w;
           changed = true;
         }
       }
 
-      // Only write when we actually have something to say. Assigning
-      // scrollLeft on every frame would stamp on iOS momentum mid-flick.
       if (changed) {
         el.scrollLeft = pos.current;
         lastWrite.current = el.scrollLeft;
@@ -212,14 +257,14 @@ const ClientLogoMarquee = () => {
     raf = requestAnimationFrame(tick);
     return () => {
       cancelAnimationFrame(raf);
-      window.clearTimeout(resumeAt.current);
     };
   }, []);
 
   // Mouse drag. Touch and trackpad already work through native scrolling; a
   // mouse has no way to push a horizontal strip, so grab-and-pull it is.
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    hold();
+    pointerDown.current = true;
+    yieldControl();
     if (e.pointerType !== "mouse" || !scroller.current) return;
     drag.current = { x: e.clientX, left: scroller.current.scrollLeft };
     scroller.current.setPointerCapture(e.pointerId);
@@ -236,8 +281,10 @@ const ClientLogoMarquee = () => {
       scroller.current.releasePointerCapture(e.pointerId);
     }
     drag.current = null;
-    // Touch gets the longer grace period — that's the one with momentum.
-    release(e.pointerType === "touch" ? 900 : 500);
+    pointerDown.current = false;
+    // No fixed grace period any more: momentum keeps re-arming busyUntil from
+    // the tick for exactly as long as it actually runs.
+    yieldControl();
   };
 
   const track = Array.from({ length: copies }, (_, c) => c);
@@ -260,20 +307,27 @@ const ClientLogoMarquee = () => {
           </span>
         </p>
 
-        <div
-          ref={scroller}
-          className="marquee-mask no-scrollbar overflow-x-auto overflow-y-hidden overscroll-x-contain cursor-grab active:cursor-grabbing select-none"
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={endDrag}
-          onPointerCancel={endDrag}
-          onPointerEnter={(e) => e.pointerType === "mouse" && hold()}
-          onPointerLeave={(e) => e.pointerType === "mouse" && release(0)}
-          onWheel={() => {
-            hold();
-            release(900);
-          }}
-        >
+        {/* The edge fade is TWO STATIC GRADIENT PANELS, not a mask-image on the
+            scroller. A mask has to be re-applied as the content moves under it,
+            so it forced a repaint of a masked layer on every frame of drift —
+            the third of the three things making this flicker on a phone. These
+            just sit there and cost nothing per frame. */}
+        <div className="relative">
+          <div
+            ref={scroller}
+            className="no-scrollbar overflow-x-auto overflow-y-hidden overscroll-x-contain cursor-grab active:cursor-grabbing select-none"
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={endDrag}
+            onPointerCancel={endDrag}
+            onPointerEnter={(e) => {
+              if (e.pointerType === "mouse") hovering.current = true;
+            }}
+            onPointerLeave={(e) => {
+              if (e.pointerType === "mouse") hovering.current = false;
+            }}
+            onWheel={yieldControl}
+          >
           <div className="flex w-max">
             {track.map((c) => (
               <div
@@ -297,7 +351,17 @@ const ClientLogoMarquee = () => {
                 ))}
               </div>
             ))}
+            </div>
           </div>
+
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 left-0 w-10 md:w-24 bg-gradient-to-r from-xk-charcoal to-transparent"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 w-10 md:w-24 bg-gradient-to-l from-xk-charcoal to-transparent"
+          />
         </div>
 
         <div className="text-center mt-6 px-4">

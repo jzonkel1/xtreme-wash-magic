@@ -218,64 +218,13 @@
     }
   }
 
-  /* Commercial client logo marquee (ClientLogoMarquee.tsx).
-     The strip is a real overflow-x scroller so it can be dragged and flicked;
-     the drift and the endless wrap are handled in the component. All that's
-     needed here is to get the scrollbar out of the way — it's a decorative
-     band, and a scrollbar under it would read as a UI control. */
-  .no-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Fade the row into the band edges instead of letting logos get guillotined
-     by the viewport — a hard cut reads as a bug, a fade reads as "more".
-     The fade is a fixed width, so on a 390px phone a 6rem ramp would eat half
-     the screen; phones get a shorter one. */
-  .marquee-mask {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      #000 2.5rem,
-      #000 calc(100% - 2.5rem),
-      transparent
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      #000 2.5rem,
-      #000 calc(100% - 2.5rem),
-      transparent
-    );
-  }
-
-  @media (min-width: 768px) {
-    .marquee-mask {
-      -webkit-mask-image: linear-gradient(
-        to right,
-        transparent,
-        #000 6rem,
-        #000 calc(100% - 6rem),
-        transparent
-      );
-      mask-image: linear-gradient(
-        to right,
-        transparent,
-        #000 6rem,
-        #000 calc(100% - 6rem),
-        transparent
-      );
-    }
-  }
-
-  /* No reduced-motion override needed here any more: the component simply
-     stops the drift and the strip stays a normal, hand-scrollable row. The
-     edge fade stays in both cases — it's static, and it's the cue that there
-     is more to the row than what's on screen. */
+  /* Commercial client logo marquee (ClientLogoMarquee.tsx) needs nothing of its
+     own here any more. It reuses the .no-scrollbar utility above; its drift,
+     its endless wrap and its reduced-motion behaviour all live in the
+     component. The edge fade used to be a mask-image on the scroller — a mask
+     has to be re-applied as content moves under it, forcing a repaint of a
+     masked layer on every frame of drift, which was one of the three causes of
+     the mobile flicker. It's two static gradient panels now. */
 
   .text-glow-red {
     text-shadow: 0 0 20px hsl(0 79% 40% / 0.5);
