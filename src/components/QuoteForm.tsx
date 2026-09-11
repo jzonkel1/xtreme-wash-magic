@@ -85,6 +85,7 @@ const QuoteForm = ({ source }: { source: string }) => {
         </p>
         <a
           href={business.phoneHref}
+          data-ga-placement="quote-form"
           className="inline-flex items-center justify-center gap-2 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-7 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
         >
           Call or Text {business.phone}

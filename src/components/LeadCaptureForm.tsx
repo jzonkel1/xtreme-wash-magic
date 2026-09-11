@@ -33,6 +33,7 @@ const LeadCaptureForm = () => (
 
           <a
             href={business.phoneHref}
+            data-ga-placement="lead-form"
             className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-7 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red mb-10"
           >
             <Phone className="w-5 h-5" />

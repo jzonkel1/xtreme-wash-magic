@@ -56,6 +56,7 @@ const PainPoints = () => (
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-lg sm:max-w-none mx-auto">
           <a
             href={business.phoneHref}
+            data-ga-placement="pain-points"
             className="inline-flex items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-8 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
           >
             <Phone className="w-5 h-5" />

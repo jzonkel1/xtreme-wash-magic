@@ -80,6 +80,7 @@ const Footer = () => (
             Texas for the right job.{" "}
             <a
               href={business.phoneHref}
+              data-ga-placement="footer"
               className="text-xk-red hover:text-xk-red-glow transition-colors font-semibold"
             >
               Call {business.phone}
@@ -95,6 +96,7 @@ const Footer = () => (
           <div className="space-y-4">
             <a
               href={business.phoneHref}
+              data-ga-placement="footer"
               className="flex items-center justify-center md:justify-start gap-3 text-xk-warm-white/60 font-body text-sm hover:text-xk-red transition-colors"
             >
               <Phone className="w-4 h-4 text-xk-red flex-shrink-0" /> {business.phone}

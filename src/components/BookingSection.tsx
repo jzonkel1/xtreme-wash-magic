@@ -243,6 +243,7 @@ const BookingSection = ({ hideHeader = false }: { hideHeader?: boolean } = {}) =
 
               <a
                 href={business.phoneHref}
+                data-ga-placement="booking"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-7 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
               >
                 <Phone className="w-5 h-5" />
@@ -272,6 +273,7 @@ const BookingSection = ({ hideHeader = false }: { hideHeader?: boolean } = {}) =
               </a>
               <a
                 href={business.phoneHref}
+                data-ga-placement="booking"
                 className="flex items-center gap-5 bg-xk-charcoal/70 border border-xk-warm-white/10 rounded-xl p-6 hover:border-xk-red/60 transition-colors group"
               >
                 <div className="w-12 h-12 bg-xk-red/15 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-xk-red/25 transition-colors">
@@ -307,6 +309,7 @@ const BookingSection = ({ hideHeader = false }: { hideHeader?: boolean } = {}) =
           </p>
           <a
             href={business.phoneHref}
+            data-ga-placement="booking"
             className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-7 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
           >
             <Phone className="w-5 h-5" />

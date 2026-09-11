@@ -92,6 +92,7 @@ const HeroQuoteForm = ({
         </p>
         <a
           href={business.phoneHref}
+          data-ga-placement="hero-quote-form"
           className="inline-flex items-center gap-2 text-xk-red hover:text-xk-red-glow font-heading font-bold text-sm"
         >
           <Phone className="w-4 h-4" /> Need it sooner? Call {business.phone}
@@ -202,6 +203,7 @@ const HeroQuoteForm = ({
 
       <a
         href={business.phoneHref}
+        data-ga-placement="hero-quote-form"
         className="flex items-center justify-center gap-2 mt-3.5 text-xk-warm-white/60 hover:text-xk-red font-heading font-semibold text-sm transition-colors"
       >
         <Phone className="w-4 h-4" />

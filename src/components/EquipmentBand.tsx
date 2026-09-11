@@ -70,6 +70,7 @@ const EquipmentBand = () => (
           </p>
           <a
             href={business.phoneHref}
+            data-ga-placement="equipment-band"
             className="inline-block bg-xk-red text-xk-warm-white font-heading font-bold px-8 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
           >
             CALL OR TEXT {business.phone}

@@ -73,6 +73,7 @@ const ServiceArea = () => (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <a
             href={business.phoneHref}
+            data-ga-placement="service-area"
             className="flex items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base py-4 rounded-lg hover:bg-xk-red-glow transition-all"
           >
             <Phone className="w-5 h-5" />

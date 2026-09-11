@@ -245,6 +245,7 @@ const StickyHeader = () => {
         <div className="flex items-center gap-3">
           <a
             href="tel:3613061551"
+            data-ga-placement="header"
             className="hidden sm:flex items-center gap-2 text-xk-warm-white/80 font-heading font-bold text-sm hover:text-xk-red transition-colors"
           >
             <Phone className="w-4 h-4" />
@@ -301,6 +302,7 @@ const StickyHeader = () => {
           ))}
           <a
             href="tel:3613061551"
+            data-ga-placement="mobile-menu"
             className="flex items-center gap-2 text-xk-red font-heading font-bold text-sm min-h-[2.25rem] pt-1"
           >
             <Phone className="w-4 h-4" />

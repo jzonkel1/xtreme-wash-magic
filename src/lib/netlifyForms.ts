@@ -12,6 +12,8 @@
 // detection was never enabled on the site. Filename kept only to avoid churning
 // imports across four components.)
 
+import { track } from "./analytics";
+
 const GHL_WEBHOOK =
   "https://services.leadconnectorhq.com/hooks/JTMq0EQxaeekIieKZLER/webhook-trigger/73e21c6f-8d50-4344-979c-6fd9a22242ac";
 
@@ -22,4 +24,12 @@ export async function submitQuote(fields: Record<string, string>) {
     body: JSON.stringify({ ...fields, site: "xtremekleentx.com" }),
   });
   if (!res.ok) throw new Error(`Lead submit failed: ${res.status}`);
+
+  // GA4 only counts a lead the webhook actually accepted, so this sits after
+  // the ok check. `source` is the same field GHL branches on, which keeps the
+  // two systems telling the same story about where a lead came from.
+  track("generate_lead", {
+    form_source: fields.source || "unknown",
+    service: fields.service,
+  });
 }

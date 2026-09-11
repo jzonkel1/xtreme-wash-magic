@@ -120,6 +120,7 @@ const QuoteWizard = ({
         </p>
         <a
           href={business.phoneHref}
+          data-ga-placement="quote-wizard"
           className="inline-flex items-center gap-2 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-6 py-3.5 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
         >
           <Phone className="w-5 h-5" /> Call or Text {business.phone}

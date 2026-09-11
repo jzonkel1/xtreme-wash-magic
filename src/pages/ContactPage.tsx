@@ -74,6 +74,7 @@ const ContactPage = () => (
               <div className="flex flex-col sm:flex-row gap-3 mb-4">
                 <a
                   href={business.phoneHref}
+                  data-ga-placement="contact-page"
                   className="flex-1 inline-flex items-center justify-center gap-2.5 bg-xk-red text-xk-warm-white font-heading font-bold text-base px-6 py-4 rounded-lg hover:bg-xk-red-glow transition-all shadow-glow-red"
                 >
                   <Phone className="w-5 h-5" />
@@ -81,6 +82,7 @@ const ContactPage = () => (
                 </a>
                 <a
                   href={`sms:${business.phoneHref.replace("tel:", "")}`}
+                  data-ga-placement="contact-page"
                   className="flex-1 inline-flex items-center justify-center gap-2.5 bg-transparent border border-xk-warm-white/25 text-xk-warm-white font-heading font-bold text-base px-6 py-4 rounded-lg hover:border-xk-red hover:bg-xk-red/10 transition-all"
                 >
                   <MessageSquare className="w-5 h-5" />

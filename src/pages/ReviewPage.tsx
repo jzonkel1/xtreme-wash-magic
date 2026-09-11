@@ -141,6 +141,7 @@ const ReviewPage = () => {
                   </p>
                   <a
                     href={business.phoneHref}
+                    data-ga-placement="review-page"
                     className="inline-flex items-center gap-2 text-xk-red hover:text-xk-red-glow font-heading font-bold text-sm"
                   >
                     <Phone className="w-4 h-4" /> Or call {business.phone}

@@ -85,6 +85,7 @@ const ServicesHub = () => (
             guessing, no upsell theater. Call or text{" "}
             <a
               href="tel:3613061551"
+              data-ga-placement="services-hub-body"
               className="text-xk-red font-semibold hover:underline whitespace-nowrap"
             >
               361-306-1551

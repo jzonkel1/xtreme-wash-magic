@@ -51,6 +51,7 @@ const FloatingActions = () => {
       <div className="md:hidden fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1.35fr_1fr] shadow-[0_-6px_24px_rgba(0,0,0,0.45)] pb-[env(safe-area-inset-bottom)] bg-xk-charcoal">
         <a
           href={business.phoneHref}
+          data-ga-placement="sticky-bar"
           className="bg-xk-red text-xk-warm-white font-heading font-bold text-sm flex items-center justify-center gap-2 py-3.5 active:bg-xk-red-glow"
         >
           <Phone className="w-4 h-4 flex-none" />

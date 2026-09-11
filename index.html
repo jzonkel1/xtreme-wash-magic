@@ -33,6 +33,101 @@
     <link rel="apple-touch-icon" sizes="180x180" href="%BASE_URL%apple-touch-icon.png" />
     <link rel="manifest" href="%BASE_URL%site.webmanifest" />
 
+    <!-- Google Analytics 4 -->
+    <!--
+      Property "Xtreme Kleen" in the Zonkel Media GA account, stream
+      "Xtreme Kleen Website" (stream id 15757518469). Blanking XK_GA_ID turns
+      all of this off: nothing loads and nothing is sent.
+
+      gtag.js is ~155KB and, fetched in <head>, it lands inside the LCP window and
+      costs roughly 17 Lighthouse points on mobile (measured on Torres). So the
+      inline setup runs IMMEDIATELY (every gtag() call just queues on dataLayer)
+      and the remote tag is fetched on the first interaction OR after IDLE_MS,
+      whichever comes first. Every event we care about here - call taps, text
+      taps, form submits - IS an interaction, so it loads the tag instantly and
+      the queued event flushes. The only thing the delay can miss is a pageview
+      from someone who lands and leaves within IDLE_MS without touching anything.
+      IDLE_MS is the dial if that tradeoff ever needs changing.
+    -->
+    <script>
+      window.XK_GA_ID = "G-XCPBDNCT0B";
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+
+      (function () {
+        var ID = window.XK_GA_ID;
+        if (!ID) return;
+
+        gtag('js', new Date());
+        // send_page_view stays on: this is a prerendered multi-page site, so each
+        // route is a real document load. SPA route changes are sent by Seo.tsx.
+        gtag('config', ID);
+
+        var loaded = false;
+        var EVENTS = ["pointerdown", "keydown", "touchstart"];
+        function load() {
+          if (loaded) return;
+          loaded = true;
+          EVENTS.forEach(function (e) { removeEventListener(e, load, true); });
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
+          document.head.appendChild(s);
+        }
+        EVENTS.forEach(function (e) { addEventListener(e, load, { once: true, capture: true, passive: true }); });
+
+        var IDLE_MS = 4000;
+        if (document.readyState === "complete") { setTimeout(load, IDLE_MS); }
+        else { addEventListener("load", function () { setTimeout(load, IDLE_MS); }); }
+      })();
+
+      /*
+        Sitewide click tracking, delegated from the document in capture phase so
+        it works on every page and every component without touching React - and
+        it fires on prerendered HTML before hydration too.
+
+        placement = the nearest ancestor section/element with an id, which is how
+        we tell "the hero call button" from "the sticky mobile bar". That is the
+        whole point: Eric needs to know WHERE on the site people decide to call.
+      */
+      (function () {
+        // Where on the page the visitor made the decision. An explicit
+        // data-ga-placement on (or above) the link always wins; otherwise fall
+        // back to the nearest section id, then the landmark element. "root" is
+        // skipped on purpose - it is the React mount point and means nothing.
+        var LANDMARKS = { HEADER: 1, FOOTER: 1, NAV: 1, SECTION: 1, ASIDE: 1, FORM: 1 };
+        function placement(el) {
+          var n = el, landmark = '';
+          while (n && n !== document.body) {
+            var tagged = n.getAttribute && n.getAttribute('data-ga-placement');
+            if (tagged) return tagged;
+            if (n.id && n.id !== 'root') return n.id;
+            if (!landmark && LANDMARKS[n.tagName]) landmark = n.tagName.toLowerCase();
+            n = n.parentElement;
+          }
+          return landmark || 'page';
+        }
+        document.addEventListener('click', function (e) {
+          var a = e.target && e.target.closest && e.target.closest('a[href]');
+          if (!a) return;
+          var href = a.getAttribute('href') || '';
+          var payload = { placement: placement(a), page_path: location.pathname };
+
+          if (href.indexOf('tel:') === 0) {
+            payload.phone_number = href.slice(4);
+            gtag('event', 'call_click', payload);
+          } else if (href.indexOf('sms:') === 0) {
+            payload.phone_number = href.slice(4);
+            gtag('event', 'text_click', payload);
+          } else if (/google\.com\/maps|share\.google|g\.page/.test(href)) {
+            gtag('event', 'review_click', payload);
+          } else if (/\/book\/?($|[?#])/.test(href)) {
+            gtag('event', 'book_click', payload);
+          }
+        }, true);
+      })();
+    </script>
+
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Xtreme Kleen" />

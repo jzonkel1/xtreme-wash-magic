@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { SITE_URL } from "@/lib/seo";
+import { trackPageView } from "@/lib/analytics";
 
 type SeoProps = {
   title: string;
@@ -33,6 +34,9 @@ const Seo = ({ title, description, path, jsonLd, noindex }: SeoProps) => {
     const url = `${SITE_URL}${path}`;
 
     document.title = title;
+    // Client-side route change = a GA4 page_view. The initial load is already
+    // counted by gtag('config') in index.html, so trackPageView skips it.
+    trackPageView(path, title);
     upsertMeta("name", "description", description);
     upsertMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow");
     upsertMeta("property", "og:title", title);
