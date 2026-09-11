@@ -50,7 +50,13 @@
       IDLE_MS is the dial if that tradeoff ever needs changing.
     -->
     <script>
-      window.XK_GA_ID = "G-XCPBDNCT0B";
+      // Only the real domain reports. The GitHub Pages mirror
+      // (jzonkel1.github.io/xtreme-wash-magic/) redeploys on every push to main
+      // and would otherwise pour duplicate sessions into Eric's property, as
+      // would netlify.app preview deploys and localhost. Blank ID = fully off.
+      window.XK_GA_ID = /(^|\.)xtremekleentx\.com$/.test(location.hostname)
+        ? "G-XCPBDNCT0B"
+        : "";
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
 
